@@ -14,14 +14,14 @@ const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 const beatenEntityOne: EntityConfig = {
     notes: entityOneNotes,
     timeType: TimeType.RAW,
-    voiceConfig: {timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR},
+    voiceConfig: {timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR},
     voiceGain: TO_AVOID_BLOW_OUT,
 }
 
 const beatenEntityTwo: EntityConfig = {
     notes: entityTwoNotes,
     timeType: TimeType.RAW,
-    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
+    voiceConfig: {timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR},
     voiceGain: TO_AVOID_BLOW_OUT,
 }
 

@@ -5,7 +5,7 @@ import * as to from '../../../src/utilities/to'
 import { beatenPathDurations, beatenPathRatios } from './durations'
 
 const TEMPO_ADJUST: number = 100
-const SUSTAIN_CLIP: number = 10
+const SUSTAIN_AMOUNT: number = 0.75
 const ONE: number = 1
 const TWO: number = 2
 
@@ -16,7 +16,7 @@ const beatenPathNote: (n: number) => Note =
         pitchIndex: to.Index(ONE),
         pitchScalar: to.Scalar(ONE / n),
         scaleIndex: to.Index(0),
-        sustain: to.Time(n * TEMPO_ADJUST - SUSTAIN_CLIP),
+        sustain: to.Time(n * TEMPO_ADJUST * SUSTAIN_AMOUNT),
     })
 
 const beatenPathNoteBlocks: Notes[][] = numbers

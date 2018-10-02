@@ -10,8 +10,10 @@ const hasLooped: () => boolean = (): boolean =>
 
 const absoluteRatio: (ratio: number) => number = (ratio: number): number => ratio < 1 ? ratio : 1 / ratio
 
-const UP_RATIO: number = 5 / 6
-const DOWN_RATIO: number = 5 / 4
+const CORE: number = 5
+
+const UP_RATIO: number = CORE / (CORE + 1)
+const DOWN_RATIO: number = CORE / (CORE - 1)
 
 while (!hasLooped()) {
     const lastDuration: number = beatenPathDurations[beatenPathDurations.length - 1]
@@ -21,10 +23,10 @@ while (!hasLooped()) {
 
     if (absoluteRatio(upDuration) > absoluteRatio(downDuration)) {
         beatenPathDurations.push(upDuration)
-        beatenPathRatios.push([5, 6])
+        beatenPathRatios.push([CORE, CORE + 1])
     } else {
         beatenPathDurations.push(downDuration)
-        beatenPathRatios.push([5, 4])
+        beatenPathRatios.push([CORE, CORE - 1])
     }
 }
 
