@@ -2,8 +2,7 @@ import { Note, Notes } from '../../../src/types'
 import numbers from '../../../src/utilities/numbers'
 import repeat from '../../../src/utilities/repeat'
 import * as to from '../../../src/utilities/to'
-import { beatenPathDurations } from './durations'
-import { beatenPathRatios } from './ratios'
+import { beatenPathDurations, beatenPathRatios } from './durations'
 
 const TEMPO_ADJUST: number = 100
 const SUSTAIN_CLIP: number = 10
