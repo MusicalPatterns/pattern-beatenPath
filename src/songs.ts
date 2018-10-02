@@ -1,6 +1,6 @@
 import { Song } from '../../../src/types'
 import { BEATEN_PATH_BASE_PITCH } from './basePitch'
-import { beatenEntityFour, beatenEntityOne, beatenEntityThree, beatenEntityTwo } from './entities'
+import { beatenEntityOne, beatenEntityTwo } from './entities'
 import { nonScale } from './pitches'
 
 const beatenPath: Song = {
@@ -8,8 +8,6 @@ const beatenPath: Song = {
     entityConfigs: [
         beatenEntityOne,
         beatenEntityTwo,
-        beatenEntityThree,
-        beatenEntityFour,
     ],
     scales: [
         nonScale,
