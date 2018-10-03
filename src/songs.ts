@@ -10,6 +10,7 @@ const beatenPath: Song = {
         beatenEntityTwo,
         beatenEntityArpeggios,
     ],
+    name: 'beaten path',
     scales: [
         nonScale,
     ],
