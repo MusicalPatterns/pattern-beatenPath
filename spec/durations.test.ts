@@ -1,11 +1,10 @@
-import { beatenPathDurationsAndRatiosByCore } from '../src/durations'
 import testIsCloseTo from '../../../spec/support/testIsCloseTo'
+import { buildBeatenPathDurationsAndRatios } from '../src/durations'
 
 describe('beaten path durations', () => {
-    let beatenPathDurations: any
+    let beatenPathDurations: number[]
     beforeEach(() => {
-        const data = beatenPathDurationsAndRatiosByCore(5)
-        beatenPathDurations = data.beatenPathDurations
+        beatenPathDurations = buildBeatenPathDurationsAndRatios(5).beatenPathDurations
     })
 
     it('first duration is 1', () => {

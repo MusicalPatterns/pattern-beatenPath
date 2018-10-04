@@ -4,16 +4,19 @@ import { Config } from '../../../src/interface/state'
 import { Entity, Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import sequence from '../../../src/utilities/sequence'
-import { beatenPathDurationsAndRatiosByCore } from './durations'
+import { buildBeatenPathDurationsAndRatios } from './durations'
 import { buildBeatenPathNoteBlocks } from './notes'
 import { beatenPath } from './songs'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
+const MINIMUM_FUNCTIONAL_CORE: number = 2
 
 const beatenPathCompile: (config: Config) => Entity[] =
     (config: Config): Entity[] => {
-        const {beatenPathRatios, beatenPathDurations} = beatenPathDurationsAndRatiosByCore(config.core)
+        const core: number = config.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : config.core
+
+        const {beatenPathRatios, beatenPathDurations} = buildBeatenPathDurationsAndRatios(core)
 
         const beatenPathNoteBlocks: Notes[][] = buildBeatenPathNoteBlocks(beatenPathDurations, beatenPathRatios)
 

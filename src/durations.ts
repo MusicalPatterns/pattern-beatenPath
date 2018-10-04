@@ -1,13 +1,7 @@
-// tslint:disable:no-magic-numbers
-
+import { DurationsAndRatios } from './types'
 import { isCloseTo } from './utilities/isCloseTo'
 
-interface DurationsAndRatios {
-    beatenPathDurations: number[],
-    beatenPathRatios: number[][],
-}
-
-const beatenPathDurationsAndRatiosByCore: (core: number) => DurationsAndRatios =
+const buildBeatenPathDurationsAndRatios: (core: number) => DurationsAndRatios =
     (core: number): DurationsAndRatios => {
         const beatenPathDurations: number[] = [1]
         const beatenPathRatios: number[][] = []
@@ -42,5 +36,5 @@ const beatenPathDurationsAndRatiosByCore: (core: number) => DurationsAndRatios =
     }
 
 export {
-    beatenPathDurationsAndRatiosByCore,
+    buildBeatenPathDurationsAndRatios,
 }
