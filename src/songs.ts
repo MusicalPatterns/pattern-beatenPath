@@ -1,10 +1,10 @@
 import { Song, SongName } from '../../../src/songTypes'
-import { BEATEN_PATH_BASE_PITCH } from './basePitch'
+import { BEATEN_PATH_BASE_FREQUENCY } from './basePitch'
 import { beatenPathCompile } from './compile'
 import { nonScale } from './pitches'
 
 const beatenPath: Song = {
-    baseFrequency: BEATEN_PATH_BASE_PITCH,
+    baseFrequency: BEATEN_PATH_BASE_FREQUENCY,
     compile: beatenPathCompile,
     config: {
         core: 5,
