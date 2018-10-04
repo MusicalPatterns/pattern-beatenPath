@@ -1,7 +1,13 @@
-import { beatenPathDurations } from '../src/durations'
+import { beatenPathDurationsAndRatiosByCore } from '../src/durations'
 import testIsCloseTo from '../../../spec/support/testIsCloseTo'
 
 describe('beaten path durations', () => {
+    let beatenPathDurations: any
+    beforeEach(() => {
+        const data = beatenPathDurationsAndRatiosByCore(5)
+        beatenPathDurations = data.beatenPathDurations
+    })
+
     it('first duration is 1', () => {
         expect(testIsCloseTo(beatenPathDurations[0], 1)).toBeTruthy()
     })

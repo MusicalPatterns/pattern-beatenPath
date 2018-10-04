@@ -3,7 +3,6 @@ import numbers from '../../../src/utilities/numbers'
 import repeat from '../../../src/utilities/repeat'
 import * as to from '../../../src/utilities/to'
 import { SUSTAIN_AMOUNT, TEMPO_ADJUST } from './constants'
-import { beatenPathDurations, beatenPathRatios } from './durations'
 
 const ONE: number = 1
 const TWO: number = 2
@@ -18,36 +17,34 @@ const beatenPathNote: (n: number) => Note =
         sustain: to.Time(n * TEMPO_ADJUST * SUSTAIN_AMOUNT),
     })
 
-const beatenPathNoteBlocks: Notes[][] = numbers
-    .slice(0, beatenPathDurations.length - 1)
-    .map((n: number): number[][] => {
-        const indexOfFirstEntitysDurationForThisBlock: number = Math.floor(n / TWO) * TWO
-        const indexOfSecondEntitysDurationForThisBlock: number = Math.ceil(n / TWO) * TWO - ONE
+const buildBeatenPathNoteBlocks: (beatenPathDurations: number[], beatenPathRatios: number[][]) => Notes[][] =
+    (beatenPathDurations: number[], beatenPathRatios: number[][]): Notes[][] =>
+        numbers
+            .slice(0, beatenPathDurations.length - 1)
+            .map((n: number): number[][] => {
+                const indexOfFirstEntitysDurationForThisBlock: number = Math.floor(n / TWO) * TWO
+                const indexOfSecondEntitysDurationForThisBlock: number = Math.ceil(n / TWO) * TWO - ONE
 
-        const ratioBetweenTheseTwoDurationsAsTupleOfNumeratorAndDenominator: number[] = beatenPathRatios[n - ONE]
+                const ratioTuple: number[] = beatenPathRatios[n - ONE]
 
-        const indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock: number = n % TWO
-        const indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisBlock: number =
-            indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock === ONE ? 0 : ONE
+                const indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock: number = n % TWO
+                const indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisBlock: number =
+                    indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock === ONE ? 0 : ONE
 
-        return [
-            repeat(
-                [beatenPathDurations[indexOfFirstEntitysDurationForThisBlock]],
-                ratioBetweenTheseTwoDurationsAsTupleOfNumeratorAndDenominator[
-                    indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisBlock
-                    ],
-            ),
-            repeat(
-                [beatenPathDurations[indexOfSecondEntitysDurationForThisBlock]],
-                ratioBetweenTheseTwoDurationsAsTupleOfNumeratorAndDenominator[
-                    indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock
-                    ],
-            ),
-        ]
-    })
-    .map((block: number[][]): Notes[] => block.map((notes: number[]): Notes => notes.map(beatenPathNote)))
+                return [
+                    repeat(
+                        [beatenPathDurations[indexOfFirstEntitysDurationForThisBlock]],
+                        ratioTuple[indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisBlock],
+                    ),
+                    repeat(
+                        [beatenPathDurations[indexOfSecondEntitysDurationForThisBlock]],
+                        ratioTuple[indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock],
+                    ),
+                ]
+            })
+            .map((block: number[][]): Notes[] => block.map((notes: number[]): Notes => notes.map(beatenPathNote)))
 
 export {
-    beatenPathNoteBlocks,
+    buildBeatenPathNoteBlocks,
     beatenPathNote,
 }

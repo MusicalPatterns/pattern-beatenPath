@@ -1,15 +1,26 @@
-import { beatenPathNoteBlocks } from '../src/notes'
 import * as to from '../../../src/utilities/to'
 import * as from from '../../../src/utilities/from'
 import { Time } from '../../../src/utilities/nominalTypes'
 import calculateNotesDuration from '../../../src/utilities/calculateNotesDuration'
-import { beatenPathDurations } from '../src/durations'
 import testIsCloseTo from '../../../spec/support/testIsCloseTo'
 import { Notes } from '../../../src/types'
-
-const blockEntityDuration = (block: number, entity: number): number => from.Time(beatenPathNoteBlocks[block][entity][0].duration)
+import { buildBeatenPathNoteBlocks } from '../src/notes'
+import { beatenPathDurationsAndRatiosByCore } from '../src/durations'
 
 describe('beaten path notes', () => {
+    let beatenPathNoteBlocks: Notes[][]
+    let beatenPathDurations: number[]
+    let beatenPathRatios: number[][]
+
+    beforeEach(() => {
+        const data = beatenPathDurationsAndRatiosByCore(5)
+        beatenPathDurations = data.beatenPathDurations
+        beatenPathRatios = data.beatenPathRatios
+        beatenPathNoteBlocks = buildBeatenPathNoteBlocks(beatenPathDurations, beatenPathRatios)
+    })
+
+    const blockEntityDuration = (block: number, entity: number): number => from.Time(beatenPathNoteBlocks[block][entity][0].duration)
+
     it('each block has two sets of notes, one for each entity', () => {
         beatenPathNoteBlocks.forEach(block => {
             expect(block.length).toBe(2)

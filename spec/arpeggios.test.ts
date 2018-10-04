@@ -1,5 +1,3 @@
-import { arpeggioNoteBlocks } from '../src/arpeggios'
-import { beatenPathNoteBlocks } from '../src/notes'
 import calculateNotesDuration from '../../../src/utilities/calculateNotesDuration'
 import sequence from '../../../src/utilities/sequence'
 import { Time } from '../../../src/utilities/nominalTypes'
@@ -7,8 +5,22 @@ import * as to from '../../../src/utilities/to'
 import * as from from '../../../src/utilities/from'
 import { Notes } from '../../../src/types'
 import testIsCloseTo from '../../../spec/support/testIsCloseTo'
+import { buildArpeggioNoteBlocks } from '../src/arpeggios'
+import { beatenPathDurationsAndRatiosByCore } from '../src/durations'
+import { buildBeatenPathNoteBlocks } from '../src/notes'
 
 describe('arpeggios', () => {
+    let arpeggioNoteBlocks: Notes[]
+    let beatenPathNoteBlocks: Notes[][]
+
+    beforeEach(() => {
+        const data = beatenPathDurationsAndRatiosByCore(5)
+        const beatenPathRatios = data.beatenPathRatios
+        const beatenPathDurations = data.beatenPathDurations
+        beatenPathNoteBlocks = buildBeatenPathNoteBlocks(beatenPathDurations, beatenPathRatios)
+        arpeggioNoteBlocks = buildArpeggioNoteBlocks(beatenPathRatios, beatenPathNoteBlocks)
+    })
+
     it('there are the same total number of arpeggio blocks as there are note blocks', () => {
         expect(arpeggioNoteBlocks.length).toBe(beatenPathNoteBlocks.length)
     })
