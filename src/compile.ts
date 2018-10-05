@@ -1,13 +1,11 @@
 import { buildEntity } from '../../../src/compile/buildEntity'
 import { EntityConfig, TimeType } from '../../../src/compile/types'
-import { Config } from '../../../src/interface/state'
-import { Song } from '../../../src/songTypes'
+import { CustomConfig, Song } from '../../../src/songTypes'
 import { Entities, Entity, Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import sequence from '../../../src/utilities/sequence'
 import { buildbeatenPathBlocks } from './blocks'
 import { buildBeatenPathDurationsAndRatios } from './durationsAndRatios'
-import { beatenPath } from './songs'
 import { Block, Blocks, Core } from './types'
 
 // tslint:disable-next-line:no-any no-magic-numbers
@@ -17,8 +15,8 @@ const MINIMUM_FUNCTIONAL_CORE: Core = 2 as any
 
 const beatenPathCompile: (song: Song) => Promise<Entities> =
     async (song: Song): Promise<Entities> => {
-        const config: Config = song.config
-        const core: Core = config.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : config.core
+        const customConfig: CustomConfig = song.customConfig
+        const core: Core = customConfig.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : customConfig.core
 
         const {beatenPathRatios, beatenPathDurations} = buildBeatenPathDurationsAndRatios(core)
 
@@ -47,7 +45,7 @@ const beatenPathCompile: (song: Song) => Promise<Entities> =
         ]
 
         return entityConfigsByCore.map((entityConfig: EntityConfig): Entity =>
-            buildEntity(entityConfig, beatenPath))
+            buildEntity(entityConfig, song))
     }
 
 export {

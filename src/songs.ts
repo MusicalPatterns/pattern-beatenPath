@@ -8,9 +8,8 @@ import { Core } from './types'
 const DEFAULT_BEATEN_PATH_CORE: Core = 5 as any
 
 const beatenPath: Song = {
-    baseFrequency: BEATEN_PATH_BASE_FREQUENCY,
     compile: beatenPathCompile,
-    config: {
+    customConfig: {
         core: DEFAULT_BEATEN_PATH_CORE,
     },
     entityConfigs: [],
@@ -19,6 +18,9 @@ const beatenPath: Song = {
     scales: [
         nonScale,
     ],
+    standardConfig: {
+        baseFrequency: BEATEN_PATH_BASE_FREQUENCY,
+    },
 }
 
 export {
