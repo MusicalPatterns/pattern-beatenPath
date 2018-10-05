@@ -1,4 +1,4 @@
-import buildEntity from '../../../src/compile/buildEntity'
+import { buildEntity } from '../../../src/compile/buildEntity'
 import { EntityConfig, TimeType } from '../../../src/compile/types'
 import { Config } from '../../../src/interface/state'
 import { Song } from '../../../src/songTypes'
