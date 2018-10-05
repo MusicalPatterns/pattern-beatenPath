@@ -1,6 +1,7 @@
 import buildEntity from '../../../src/compile/buildEntity'
 import { EntityConfig, TimeType } from '../../../src/compile/types'
 import { Config } from '../../../src/interface/state'
+import { Song } from '../../../src/songTypes'
 import { Entity, Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import sequence from '../../../src/utilities/sequence'
@@ -12,8 +13,9 @@ import { beatenPath } from './songs'
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 const MINIMUM_FUNCTIONAL_CORE: number = 2
 
-const beatenPathCompile: (config: Config) => Entity[] =
-    (config: Config): Entity[] => {
+const beatenPathCompile: (song: Song) => Promise<Entity[]> =
+    async (song: Song): Promise<Entity[]> => {
+        const config: Config = song.config
         const core: number = config.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : config.core
 
         const {beatenPathRatios, beatenPathDurations} = buildBeatenPathDurationsAndRatios(core)
