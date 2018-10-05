@@ -2,28 +2,30 @@ import { buildEntity } from '../../../src/compile/buildEntity'
 import { EntityConfig, TimeType } from '../../../src/compile/types'
 import { Config } from '../../../src/interface/state'
 import { Song } from '../../../src/songTypes'
-import { Entity, Notes, OscillatorName, VoiceType } from '../../../src/types'
+import { Entities, Entity, Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import sequence from '../../../src/utilities/sequence'
-import { buildBeatenPathDurationsAndRatios } from './durations'
-import { buildBeatenPathNoteBlocks } from './notes'
+import { buildbeatenPathBlocks } from './blocks'
+import { buildBeatenPathDurationsAndRatios } from './durationsAndRatios'
 import { beatenPath } from './songs'
+import { Block, Blocks, Core } from './types'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
-const MINIMUM_FUNCTIONAL_CORE: number = 2
+// tslint:disable-next-line:no-any no-magic-numbers
+const MINIMUM_FUNCTIONAL_CORE: Core = 2 as any
 
-const beatenPathCompile: (song: Song) => Promise<Entity[]> =
-    async (song: Song): Promise<Entity[]> => {
+const beatenPathCompile: (song: Song) => Promise<Entities> =
+    async (song: Song): Promise<Entities> => {
         const config: Config = song.config
-        const core: number = config.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : config.core
+        const core: Core = config.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : config.core
 
         const {beatenPathRatios, beatenPathDurations} = buildBeatenPathDurationsAndRatios(core)
 
-        const beatenPathNoteBlocks: Notes[][] = buildBeatenPathNoteBlocks(beatenPathDurations, beatenPathRatios)
+        const beatenPathBlocks: Blocks = buildbeatenPathBlocks(beatenPathDurations, beatenPathRatios)
 
-        const entityOneNotes: Notes = sequence(beatenPathNoteBlocks.map((block: Notes[]): Notes => block[0]))
-        const entityTwoNotes: Notes = sequence(beatenPathNoteBlocks.map((block: Notes[]): Notes => block[1]))
+        const entityOneNotes: Notes = sequence(beatenPathBlocks.map((block: Block): Notes => block[0]))
+        const entityTwoNotes: Notes = sequence(beatenPathBlocks.map((block: Block): Notes => block[1]))
 
         const beatenEntityOne: EntityConfig = {
             notes: entityOneNotes,
