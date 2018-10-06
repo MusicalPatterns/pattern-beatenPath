@@ -12,6 +12,8 @@ const beatenPath: Song = {
     customConfig: {
         core: DEFAULT_BEATEN_PATH_CORE,
     },
+    // tslint:disable-next-line:max-line-length
+    description: 'repeated metric modulation of polyrhythms by neighboring superparticulars, never deviating any further from original duration than necessary',
     entityConfigs: [],
     formattedName: 'Beaten Path',
     name: SongName.BEATEN_PATH,
