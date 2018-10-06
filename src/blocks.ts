@@ -14,7 +14,7 @@ const buildbeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: 
             .slice(0, beatenPathDurations.length - 1)
             .map(to.Index)
             .map((index: Index): Block => {
-                const ratioTuple: Ratio = beatenPathRatios[from.Index(index) - ONE]
+                const ratioTuple: Ratio = beatenPathRatios[ from.Index(index) - ONE ]
 
                 const indexOfFirstEntitysDurationForThisBlock: Index =
                     to.Index(Math.floor(from.Index(index) / TWO) * TWO)
@@ -29,20 +29,20 @@ const buildbeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: 
                         : to.Index(ONE)
 
                 const firstEntityNotesCount: Count = to.Count(beatenPathFrom.FractionalPart(
-                    ratioTuple[from.Index(indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisBlock)],
+                    ratioTuple[ from.Index(indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisBlock) ],
                 ))
                 const secondEntityNotesCount: Count = to.Count(beatenPathFrom.FractionalPart(
-                    ratioTuple[from.Index(indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock)],
+                    ratioTuple[ from.Index(indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock) ],
                 ))
 
                 const firstEntityDuration: Time =
-                    beatenPathDurations[from.Index(indexOfFirstEntitysDurationForThisBlock)]
+                    beatenPathDurations[ from.Index(indexOfFirstEntitysDurationForThisBlock) ]
                 const secondEntityDuration: Time =
-                    beatenPathDurations[from.Index(indexOfSecondEntitysDurationForThisBlock)]
+                    beatenPathDurations[ from.Index(indexOfSecondEntitysDurationForThisBlock) ]
 
                 return [
-                    repeat([firstEntityDuration], firstEntityNotesCount).map(beatenPathNote),
-                    repeat([secondEntityDuration], secondEntityNotesCount).map(beatenPathNote),
+                    repeat([ firstEntityDuration ], firstEntityNotesCount).map(beatenPathNote),
+                    repeat([ secondEntityDuration ], secondEntityNotesCount).map(beatenPathNote),
                 ]
             })
 

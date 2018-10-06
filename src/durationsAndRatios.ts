@@ -10,7 +10,7 @@ import * as beatenPathTo from './utilities/to'
 
 const buildBeatenPathDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
-        const beatenPathDurations: Durations = [to.Time(1)]
+        const beatenPathDurations: Durations = [ to.Time(1) ]
         const beatenPathRatios: Ratios = []
 
         const hasLooped: () => boolean = (): boolean =>
@@ -28,10 +28,11 @@ const buildBeatenPathDurationsAndRatios: (core: Core) => DurationsAndRatios =
 
             if (absoluteRatio(from.Time(upDuration)) > absoluteRatio(from.Time(downDuration))) {
                 beatenPathDurations.push(upDuration)
-                beatenPathRatios.push([beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore + 1)])
-            } else {
+                beatenPathRatios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore + 1) ])
+            }
+            else {
                 beatenPathDurations.push(downDuration)
-                beatenPathRatios.push([beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore - 1)])
+                beatenPathRatios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore - 1) ])
             }
         }
 

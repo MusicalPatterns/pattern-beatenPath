@@ -18,7 +18,7 @@ const beatenPathCompile: (song: Song) => Promise<Entities> =
         const customConfig: CustomConfig = song.customConfig
         const core: Core = customConfig.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : customConfig.core
 
-        const {beatenPathRatios, beatenPathDurations} = buildBeatenPathDurationsAndRatios(core)
+        const { beatenPathRatios, beatenPathDurations } = buildBeatenPathDurationsAndRatios(core)
 
         const beatenPathBlocks: Blocks = buildbeatenPathBlocks(beatenPathDurations, beatenPathRatios)
 
@@ -28,14 +28,14 @@ const beatenPathCompile: (song: Song) => Promise<Entities> =
         const beatenEntityOne: EntityConfig = {
             notes: entityOneNotes,
             timeType: TimeType.RAW,
-            voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
+            voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
             voiceGain: TO_AVOID_BLOW_OUT,
         }
 
         const beatenEntityTwo: EntityConfig = {
             notes: entityTwoNotes,
             timeType: TimeType.RAW,
-            voiceConfig: {timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR},
+            voiceConfig: { timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR },
             voiceGain: TO_AVOID_BLOW_OUT,
         }
 
