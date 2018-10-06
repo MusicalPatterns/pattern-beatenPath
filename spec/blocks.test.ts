@@ -10,7 +10,7 @@ import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
 import { Block, Blocks, Durations, DurationsAndRatios, Ratios } from '../src/types'
 import * as beatenPathTo from '../src/utilities/to'
 
-describe('beaten path note blocks', () => {
+describe('beaten path blocks', () => {
     let beatenPathBlocks: Blocks
     let beatenPathDurations: Durations
     let beatenPathRatios: Ratios
@@ -75,19 +75,19 @@ describe('beaten path note blocks', () => {
     })
 
     it('blocks\'s note durations follow an alternating pattern of incrementing along the beaten path durations', () => {
-        expect(testIsCloseTo(blockEntityDuration(to.Index(0), to.Index(0)), scale(beatenPathDurations[0], to.Scalar(100)))).toBeTruthy()
-        expect(testIsCloseTo(blockEntityDuration(to.Index(0), to.Index(1)), scale(beatenPathDurations[1], to.Scalar(100)))).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(0), to.Index(0)), beatenPathDurations[0])).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(0), to.Index(1)), beatenPathDurations[1])).toBeTruthy()
 
-        expect(testIsCloseTo(blockEntityDuration(to.Index(1), to.Index(0)), scale(beatenPathDurations[2], to.Scalar(100)))).toBeTruthy()
-        expect(testIsCloseTo(blockEntityDuration(to.Index(1), to.Index(1)), scale(beatenPathDurations[1], to.Scalar(100)))).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(1), to.Index(0)), beatenPathDurations[2])).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(1), to.Index(1)), beatenPathDurations[1])).toBeTruthy()
 
-        expect(testIsCloseTo(blockEntityDuration(to.Index(2), to.Index(0)), scale(beatenPathDurations[2], to.Scalar(100)))).toBeTruthy()
-        expect(testIsCloseTo(blockEntityDuration(to.Index(2), to.Index(1)), scale(beatenPathDurations[3], to.Scalar(100)))).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(2), to.Index(0)), beatenPathDurations[2])).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(2), to.Index(1)), beatenPathDurations[3])).toBeTruthy()
 
-        expect(testIsCloseTo(blockEntityDuration(to.Index(3), to.Index(0)), scale(beatenPathDurations[4], to.Scalar(100)))).toBeTruthy()
-        expect(testIsCloseTo(blockEntityDuration(to.Index(3), to.Index(1)), scale(beatenPathDurations[3], to.Scalar(100)))).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(3), to.Index(0)), beatenPathDurations[4])).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(3), to.Index(1)), beatenPathDurations[3])).toBeTruthy()
 
-        expect(testIsCloseTo(blockEntityDuration(to.Index(4), to.Index(0)), scale(beatenPathDurations[4], to.Scalar(100)))).toBeTruthy()
-        expect(testIsCloseTo(blockEntityDuration(to.Index(4), to.Index(1)), scale(beatenPathDurations[5], to.Scalar(100)))).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(4), to.Index(0)), beatenPathDurations[4])).toBeTruthy()
+        expect(testIsCloseTo(blockEntityDuration(to.Index(4), to.Index(1)), beatenPathDurations[5])).toBeTruthy()
     })
 })
