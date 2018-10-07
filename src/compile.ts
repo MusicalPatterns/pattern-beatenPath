@@ -16,7 +16,8 @@ const MINIMUM_FUNCTIONAL_CORE: Core = 2 as any
 const beatenPathCompile: (song: Song) => Promise<Entities> =
     async (song: Song): Promise<Entities> => {
         const customConfig: CustomConfig = song.customConfig
-        const core: Core = customConfig.core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : customConfig.core
+        const customConfigCore: Core = customConfig.core as Core
+        const core: Core = customConfigCore < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : customConfigCore
 
         const { beatenPathRatios, beatenPathDurations } = buildBeatenPathDurationsAndRatios(core)
 

@@ -3,12 +3,12 @@ import { Note, Notes } from '../../../src/types'
 import calculateNotesDuration from '../../../src/utilities/calculateNotesDuration'
 import * as from from '../../../src/utilities/from'
 import { Index, Time } from '../../../src/utilities/nominalTypes'
+import offset from '../../../src/utilities/offset'
 import * as to from '../../../src/utilities/to'
 import { buildbeatenPathBlocks } from '../src/blocks'
 import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
 import { Block, Blocks, Core, Durations, DurationsAndRatios, Ratios } from '../src/types'
 import * as beatenPathTo from '../src/utilities/to'
-import offset from '../../../src/utilities/offset'
 
 describe('beaten path blocks', () => {
     let beatenPathBlocks: Blocks
@@ -41,7 +41,8 @@ describe('beaten path blocks', () => {
                         notes.forEach((note: Note): void => {
                             if (from.Time(noteDuration) === 0) {
                                 noteDuration = note.duration
-                            } else {
+                            }
+                            else {
                                 expect(note.duration).toBe(noteDuration)
                             }
                         })
@@ -55,7 +56,8 @@ describe('beaten path blocks', () => {
                     block.forEach((notes: Notes): void => {
                         if (from.Time(blockDuration) === 0) {
                             blockDuration = calculateNotesDuration(notes)
-                        } else {
+                        }
+                        else {
                             expect(testIsCloseTo(from.Time(calculateNotesDuration(notes)), from.Time(blockDuration))).toBeTruthy()
                         }
                     })

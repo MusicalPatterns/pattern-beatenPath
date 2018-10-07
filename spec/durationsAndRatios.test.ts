@@ -1,17 +1,16 @@
 import testIsCloseTo from '../../../spec/support/testIsCloseTo'
-import scale from '../../../src/utilities/scale'
 import * as from from '../../../src/utilities/from'
+import { Index, Scalar } from '../../../src/utilities/nominalTypes'
+import offset from '../../../src/utilities/offset'
+import scale from '../../../src/utilities/scale'
 import * as to from '../../../src/utilities/to'
 import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
-import { Core, Durations, DurationsAndRatios, FractionalPart, Ratio, Ratios } from '../src/types'
-import * as beatenPathTo from '../src/utilities/to'
-import { Index, Scalar } from '../../../src/utilities/nominalTypes'
+import { Core, Durations, DurationsAndRatios, Ratio, Ratios } from '../src/types'
 import * as beatenPathFrom from '../src/utilities/from'
-import offset from '../../../src/utilities/offset'
+import * as beatenPathTo from '../src/utilities/to'
 
-const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar => {
-    return to.Scalar(beatenPathFrom.FractionalPart(ratio[0]) / beatenPathFrom.FractionalPart(ratio[1]))
-}
+const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
+    to.Scalar(beatenPathFrom.FractionalPart(ratio[0]) / beatenPathFrom.FractionalPart(ratio[1]))
 
 describe('beaten path durations and ratios', () => {
     let beatenPathDurations: Durations
@@ -49,8 +48,8 @@ describe('beaten path durations and ratios', () => {
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
-            const down: Ratio = beatenPathTo.Ratio([2, 1])
-            const up: Ratio = beatenPathTo.Ratio([2, 3])
+            const down: Ratio = beatenPathTo.Ratio([ 2, 1 ])
+            const up: Ratio = beatenPathTo.Ratio([ 2, 3 ])
 
             const expectedRatios: Ratios = [
                 up,
@@ -148,8 +147,8 @@ describe('beaten path durations and ratios', () => {
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
-            const down: Ratio = beatenPathTo.Ratio([3, 2])
-            const up: Ratio = beatenPathTo.Ratio([3, 4])
+            const down: Ratio = beatenPathTo.Ratio([ 3, 2 ])
+            const up: Ratio = beatenPathTo.Ratio([ 3, 4 ])
 
             const expectedRatios: Ratios = [
                 up,
@@ -216,8 +215,8 @@ describe('beaten path durations and ratios', () => {
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
-            const down: Ratio = beatenPathTo.Ratio([4, 3])
-            const up: Ratio = beatenPathTo.Ratio([4, 5])
+            const down: Ratio = beatenPathTo.Ratio([ 4, 3 ])
+            const up: Ratio = beatenPathTo.Ratio([ 4, 5 ])
 
             const expectedRatios: Ratios = [
                 up,
@@ -247,8 +246,8 @@ describe('beaten path durations and ratios', () => {
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
-            const down: Ratio = beatenPathTo.Ratio([5, 4])
-            const up: Ratio = beatenPathTo.Ratio([5, 6])
+            const down: Ratio = beatenPathTo.Ratio([ 5, 4 ])
+            const up: Ratio = beatenPathTo.Ratio([ 5, 6 ])
 
             const expectedRatios: Ratios = [
                 up,
