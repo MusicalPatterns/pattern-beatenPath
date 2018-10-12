@@ -8,7 +8,7 @@ import { beatenPathNote } from './notes'
 import { Block, Blocks, Durations, Ratio, Ratios } from './types'
 import * as beatenPathFrom from './utilities/from'
 
-const buildbeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: Ratios) => Blocks =
+const buildBeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: Ratios) => Blocks =
     (beatenPathDurations: Durations, beatenPathRatios: Ratios): Blocks =>
         numbers
             .slice(0, beatenPathDurations.length - 1)
@@ -47,5 +47,5 @@ const buildbeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: 
             })
 
 export {
-    buildbeatenPathBlocks,
+    buildBeatenPathBlocks,
 }

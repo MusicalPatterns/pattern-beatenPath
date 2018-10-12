@@ -5,7 +5,7 @@ import * as from from '../../../src/utilities/from'
 import { Index, Time } from '../../../src/utilities/nominalTypes'
 import offset from '../../../src/utilities/offset'
 import * as to from '../../../src/utilities/to'
-import { buildbeatenPathBlocks } from '../src/blocks'
+import { buildBeatenPathBlocks } from '../src/blocks'
 import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
 import { Block, Blocks, Core, Durations, DurationsAndRatios, Ratios } from '../src/types'
 import * as beatenPathTo from '../src/utilities/to'
@@ -21,7 +21,7 @@ describe('beaten path blocks', () => {
                 const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
                 beatenPathDurations = durationsAndRatios.beatenPathDurations
                 beatenPathRatios = durationsAndRatios.beatenPathRatios
-                beatenPathBlocks = buildbeatenPathBlocks(beatenPathDurations, beatenPathRatios)
+                beatenPathBlocks = buildBeatenPathBlocks(beatenPathDurations, beatenPathRatios)
             })
 
             const blockEntityDuration: (blockIndex: Index, entityIndex: Index) => Time =
