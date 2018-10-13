@@ -1,4 +1,4 @@
-import { Song, SongName } from '../../../src/songTypes'
+import { Song, SongID } from '../../../src/songTypes'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import { BEATEN_PATH_BASE_FREQUENCY } from './basePitch'
 import { beatenPathCompile } from './compile'
@@ -21,7 +21,7 @@ const beatenPath: Song = {
     description: 'repeated metric modulation of polyrhythms by neighboring superparticulars, never deviating any further from original duration than necessary',
     entityConfigs: [],
     formattedName: 'Beaten Path',
-    name: SongName.BEATEN_PATH,
+    id: SongID.BEATEN_PATH,
     scales: [
         nonScale,
     ],
