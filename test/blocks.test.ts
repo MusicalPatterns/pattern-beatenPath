@@ -1,4 +1,4 @@
-import testIsCloseTo from '../../../spec/support/testIsCloseTo'
+import testIsCloseTo from '../../../test/support/testIsCloseTo'
 import { Note, Notes } from '../../../src/types'
 import calculateNotesDuration from '../../../src/utilities/calculateNotesDuration'
 import * as from from '../../../src/utilities/from'

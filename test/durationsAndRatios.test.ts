@@ -1,4 +1,4 @@
-import testIsCloseTo from '../../../spec/support/testIsCloseTo'
+import testIsCloseTo from '../../../test/support/testIsCloseTo'
 import * as from from '../../../src/utilities/from'
 import { Index, Scalar } from '../../../src/utilities/nominalTypes'
 import offset from '../../../src/utilities/offset'
