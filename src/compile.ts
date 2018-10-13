@@ -1,5 +1,5 @@
 import { buildEntity } from '../../../src/compile/buildEntity'
-import { EntityConfig } from '../../../src/compile/types'
+import { EntityConfig, EntityConfigs } from '../../../src/compile/types'
 import { Config, Song } from '../../../src/songTypes'
 import { Entities, Entity } from '../../../src/types'
 import { buildBeatenPathBlocks } from './blocks'
@@ -22,7 +22,7 @@ const beatenPathCompile: (song: Song) => Promise<Entities> =
 
         const { beatenPathRatios, beatenPathDurations } = buildBeatenPathDurationsAndRatios(core)
         const beatenPathBlocks: Blocks = buildBeatenPathBlocks(beatenPathDurations, beatenPathRatios)
-        const beatenPathEntityConfigs: EntityConfig[] = buildBeatenPathEntityConfigs(beatenPathBlocks)
+        const beatenPathEntityConfigs: EntityConfigs = buildBeatenPathEntityConfigs(beatenPathBlocks)
 
         return beatenPathEntityConfigs.map((entityConfig: EntityConfig): Entity =>
             buildEntity(entityConfig, song))
