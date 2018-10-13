@@ -1,4 +1,4 @@
-import { Song, SongID } from '../../../src/songTypes'
+import { SongConfig, SongID } from '../../../src/songTypes'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import { BEATEN_PATH_BASE_FREQUENCY } from './basePitch'
 import { beatenPathCompile } from './compile'
@@ -10,23 +10,20 @@ const DEFAULT_BEATEN_PATH_CORE: Core = 5 as any
 // tslint:disable-next-line:no-any no-magic-numbers
 const BEATEN_PATH_DURATION_SCALAR: Scalar = 100 as any
 
-const beatenPath: Song = {
+const beatenPathSongConfig: SongConfig = {
     compile: beatenPathCompile,
     config: {
         baseFrequency: BEATEN_PATH_BASE_FREQUENCY,
         core: DEFAULT_BEATEN_PATH_CORE,
         durationScalar: BEATEN_PATH_DURATION_SCALAR,
     },
-    // tslint:disable-next-line:max-line-length
-    description: 'repeated metric modulation of polyrhythms by neighboring superparticulars, never deviating any further from original duration than necessary',
     entityConfigs: [],
-    formattedName: 'Beaten Path',
-    id: SongID.BEATEN_PATH,
     scales: [
         nonScale,
     ],
+    songId: SongID.BEATEN_PATH,
 }
 
 export {
-    beatenPath,
+    beatenPathSongConfig,
 }
