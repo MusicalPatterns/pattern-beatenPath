@@ -1,7 +1,7 @@
+import applyOffset from '../../../src/utilities/applyOffset'
+import applyScale from '../../../src/utilities/applyScale'
 import * as from from '../../../src/utilities/from'
 import { Index, Scalar } from '../../../src/utilities/nominalTypes'
-import offset from '../../../src/utilities/offset'
-import scale from '../../../src/utilities/scale'
 import * as to from '../../../src/utilities/to'
 import testIsCloseTo from '../../../test/support/testIsCloseTo'
 import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
@@ -17,7 +17,7 @@ describe('beaten path durations and ratios', () => {
     let beatenPathRatios: Ratios
 
     describe('durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = offset(core, to.Offset(1))) {
+        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
@@ -26,14 +26,14 @@ describe('beaten path durations and ratios', () => {
                 })
 
                 it('first duration is 1', () => {
-                    expect(testIsCloseTo(beatenPathDurations[0], to.Time(1))).toBeTruthy()
+                    expect(testIsCloseTo(beatenPathDurations[0], to.Scalar(1))).toBeTruthy()
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
-                    for (let i: Index = to.Index(1); i < to.Index(beatenPathDurations.length - 1); i = offset(i, to.Offset(1))) {
+                    for (let i: Index = to.Index(1); i < to.Index(beatenPathDurations.length - 1); i = applyOffset(i, to.Offset(1))) {
                         expect(testIsCloseTo(
                             beatenPathDurations[from.Index(i)],
-                            scale(beatenPathDurations[from.Index(i) - 1], ratioToScalar(beatenPathRatios[from.Index(i) - 1])),
+                            applyScale(beatenPathDurations[from.Index(i) - 1], ratioToScalar(beatenPathRatios[from.Index(i) - 1])),
                         ))
                     }
                 })

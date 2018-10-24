@@ -1,5 +1,5 @@
-import { Notes } from '../../../src/types'
-import { Time } from '../../../src/utilities/nominalTypes'
+import { NoteSpecs } from '../../../src/compile/types'
+import { Scalar } from '../../../src/utilities/nominalTypes'
 
 interface DurationsAndRatios {
     beatenPathDurations: Durations,
@@ -21,8 +21,8 @@ interface Core extends Number {
 type FractionalPart = Numerator | Denominator
 type Ratio = [Numerator, Denominator]
 type Ratios = Ratio[]
-type Durations = Time[]
-type Block = [Notes, Notes]
+type Durations = Scalar[]
+type Block = [NoteSpecs, NoteSpecs]
 type Blocks = Block[]
 
 export {

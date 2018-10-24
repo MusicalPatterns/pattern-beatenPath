@@ -1,6 +1,6 @@
 import { ONE, TWO } from '../../../src/constants'
 import * as from from '../../../src/utilities/from'
-import { Count, Index, Time } from '../../../src/utilities/nominalTypes'
+import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
 import numbers from '../../../src/utilities/numbers'
 import repeat from '../../../src/utilities/repeat'
 import * as to from '../../../src/utilities/to'
@@ -35,14 +35,14 @@ const buildBeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: 
                     ratioTuple[ from.Index(indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisBlock) ],
                 ))
 
-                const firstEntityDuration: Time =
+                const firstEntityDurationScalar: Scalar =
                     beatenPathDurations[ from.Index(indexOfFirstEntitysDurationForThisBlock) ]
-                const secondEntityDuration: Time =
+                const secondEntityDurationScalar: Scalar =
                     beatenPathDurations[ from.Index(indexOfSecondEntitysDurationForThisBlock) ]
 
                 return [
-                    repeat([ firstEntityDuration ], firstEntityNotesCount).map(beatenPathNote),
-                    repeat([ secondEntityDuration ], secondEntityNotesCount).map(beatenPathNote),
+                    repeat([ firstEntityDurationScalar ], firstEntityNotesCount).map(beatenPathNote),
+                    repeat([ secondEntityDurationScalar ], secondEntityNotesCount).map(beatenPathNote),
                 ]
             })
 

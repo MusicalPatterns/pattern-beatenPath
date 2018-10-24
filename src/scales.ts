@@ -1,8 +1,21 @@
-import { Scale } from '../../../src/types'
-import * as to from '../../../src/utilities/to'
+import { BuildScalesFunction } from '../../../src/compile/types'
+import { flatDurationsScale } from '../../../src/scales'
+import { SongSpec } from '../../../src/songs'
+import { Scales } from '../../../src/types'
 
-const nonScale: Scale = [ to.Scalar(1) ]
+const buildBeatenPathScales: BuildScalesFunction = (songSpec: SongSpec): Scales =>
+    [
+        flatDurationsScale,
+        {
+            scalar: songSpec.songDurationScalar,
+            scalars: flatDurationsScale.scalars,
+        },
+        {
+            scalar: songSpec.songPitchScalar,
+            scalars: flatDurationsScale.scalars,
+        },
+    ]
 
 export {
-    nonScale,
+    buildBeatenPathScales,
 }
