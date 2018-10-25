@@ -2,8 +2,9 @@ import { NotePropertySpec, NoteSpec, NoteSpecs } from '../../../src/compile/type
 import applyOffset from '../../../src/utilities/applyOffset'
 import calculateNoteSpecsTotalScalarDuration from '../../../src/utilities/calculateNoteSpecsTotalScalarDuration'
 import * as from from '../../../src/utilities/from'
-import { Index, Scalar } from '../../../src/utilities/nominalTypes'
+import { Index, Scalar, SumOfScalars } from '../../../src/utilities/nominalTypes'
 import * as to from '../../../src/utilities/to'
+import { Maybe } from '../../../src/utilities/types'
 import testIsCloseTo from '../../../test/support/testIsCloseTo'
 import { buildBeatenPathBlocks } from '../src/blocks'
 import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
@@ -46,8 +47,8 @@ describe('beaten path blocks', () => {
                     block.forEach((noteSpecs: NoteSpecs): void => {
                         let noteDuration: Scalar = to.Scalar(0)
                         noteSpecs.forEach((noteSpec: NoteSpec): void => {
-                            const durationSpec: NotePropertySpec | undefined = noteSpec.durationSpec
-                            const durationSpecScalar: Scalar | undefined = durationSpec && durationSpec.scalar
+                            const durationSpec: Maybe<NotePropertySpec> = noteSpec.durationSpec
+                            const durationSpecScalar: Maybe<Scalar> = durationSpec && durationSpec.scalar
 
                             if (durationSpecScalar) {
                                 if (from.Scalar(noteDuration) === 0) {
@@ -64,26 +65,36 @@ describe('beaten path blocks', () => {
 
             it('each block\'s two sets of notes have the same total duration', () => {
                 beatenPathBlocks.forEach((block: Block): void => {
-                    let blockDuration: Scalar = to.Scalar(0)
+                    let blockDuration: SumOfScalars = to.SumOfScalars(0)
                     block.forEach((noteSpecs: NoteSpecs): void => {
-                        if (from.Scalar(blockDuration) === 0) {
+                        if (from.SumOfScalars(blockDuration) === 0) {
                             blockDuration = calculateNoteSpecsTotalScalarDuration(noteSpecs)
                         }
                         else {
-                            expect(testIsCloseTo(from.Scalar(calculateNoteSpecsTotalScalarDuration(noteSpecs)), from.Scalar(blockDuration))).toBeTruthy()
+                            expect(
+                                testIsCloseTo(
+                                    from.SumOfScalars(calculateNoteSpecsTotalScalarDuration(noteSpecs)),
+                                    from.SumOfScalars(blockDuration),
+                                ),
+                            ).toBeTruthy()
                         }
                     })
                 })
             })
 
             it('each block has a different total duration than any other block', () => {
-                const seenTotalDurations: Scalar[] = []
+                const seenTotalDurations: SumOfScalars[] = []
                 beatenPathBlocks.forEach((block: Block): void => {
                     const exemplaryNotesForBlock: NoteSpecs = block[ 0 ]
-                    const totalDuration: Scalar = calculateNoteSpecsTotalScalarDuration(exemplaryNotesForBlock)
+                    const totalDuration: SumOfScalars = calculateNoteSpecsTotalScalarDuration(exemplaryNotesForBlock)
 
-                    seenTotalDurations.forEach((seenDuration: Scalar): void => {
-                        expect(testIsCloseTo(from.Scalar(seenDuration), from.Scalar(totalDuration), true)).toBeTruthy()
+                    seenTotalDurations.forEach((seenDuration: SumOfScalars): void => {
+                        expect(
+                            testIsCloseTo(
+                                from.SumOfScalars(seenDuration),
+                                from.SumOfScalars(totalDuration),
+                                true,
+                            )).toBeTruthy()
                     })
 
                     seenTotalDurations.push(totalDuration)
