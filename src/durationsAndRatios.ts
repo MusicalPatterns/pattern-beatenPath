@@ -1,17 +1,11 @@
-import absoluteRatio from '../../../src/utilities/absoluteRatio'
-import applyScale from '../../../src/utilities/applyScale'
-import * as from from '../../../src/utilities/from'
-import isCloseTo from '../../../src/utilities/isCloseTo'
-import { Scalar } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
-import { Core, Durations, DurationsAndRatios, Ratios } from './types'
-import * as beatenPathFrom from './utilities/from'
-import * as beatenPathTo from './utilities/to'
+import { absoluteRatio, applyScale, from, isCloseTo, Scalar, to } from '../../../src'
+import { Core, from as beatenPathFrom, Ratio, to as beatenPathTo } from './nominal'
+import { Durations, DurationsAndRatios } from './types'
 
 const buildBeatenPathDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
         const beatenPathDurations: Durations = [ to.Scalar(1) ]
-        const beatenPathRatios: Ratios = []
+        const beatenPathRatios: Ratio[] = []
 
         const hasLooped: () => boolean =
             (): boolean =>

@@ -1,20 +1,21 @@
-import applyOffset from '../../../src/utilities/applyOffset'
-import applyScale from '../../../src/utilities/applyScale'
-import * as from from '../../../src/utilities/from'
-import { Index, Scalar } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
-import testIsCloseTo from '../../../test/support/testIsCloseTo'
-import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
-import { Core, Durations, DurationsAndRatios, Ratio, Ratios } from '../src/types'
-import * as beatenPathFrom from '../src/utilities/from'
-import * as beatenPathTo from '../src/utilities/to'
+import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../src/indexForTest'
+import { testIsCloseTo } from '../../../test'
+import {
+    buildBeatenPathDurationsAndRatios,
+    Core,
+    Durations,
+    DurationsAndRatios,
+    from as beatenPathFrom,
+    Ratio,
+    to as beatenPathTo,
+} from '../src/indexForTest'
 
 const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
-    to.Scalar(beatenPathFrom.FractionalPart(ratio[0]) / beatenPathFrom.FractionalPart(ratio[1]))
+    to.Scalar(beatenPathFrom.FractionalPart(ratio[ 0 ]) / beatenPathFrom.FractionalPart(ratio[ 1 ]))
 
 describe('beaten path durations and ratios', () => {
     let beatenPathDurations: Durations
-    let beatenPathRatios: Ratios
+    let beatenPathRatios: Ratio[]
 
     describe('durations', () => {
         for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
@@ -26,14 +27,14 @@ describe('beaten path durations and ratios', () => {
                 })
 
                 it('first duration is 1', () => {
-                    expect(testIsCloseTo(beatenPathDurations[0], to.Scalar(1))).toBeTruthy()
+                    expect(testIsCloseTo(beatenPathDurations[ 0 ], to.Scalar(1))).toBeTruthy()
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
                     for (let i: Index = to.Index(1); i < to.Index(beatenPathDurations.length - 1); i = applyOffset(i, to.Offset(1))) {
                         expect(testIsCloseTo(
-                            beatenPathDurations[from.Index(i)],
-                            applyScale(beatenPathDurations[from.Index(i) - 1], ratioToScalar(beatenPathRatios[from.Index(i) - 1])),
+                            beatenPathDurations[ from.Index(i) ],
+                            applyScale(beatenPathDurations[ from.Index(i) - 1 ], ratioToScalar(beatenPathRatios[ from.Index(i) - 1 ])),
                         ))
                     }
                 })
@@ -51,7 +52,7 @@ describe('beaten path durations and ratios', () => {
             const down: Ratio = beatenPathTo.Ratio([ 2, 1 ])
             const up: Ratio = beatenPathTo.Ratio([ 2, 3 ])
 
-            const expectedRatios: Ratios = [
+            const expectedRatios: Ratio[] = [
                 up,
                 down,
                 up,
@@ -150,7 +151,7 @@ describe('beaten path durations and ratios', () => {
             const down: Ratio = beatenPathTo.Ratio([ 3, 2 ])
             const up: Ratio = beatenPathTo.Ratio([ 3, 4 ])
 
-            const expectedRatios: Ratios = [
+            const expectedRatios: Ratio[] = [
                 up,
                 down,
                 up,
@@ -218,7 +219,7 @@ describe('beaten path durations and ratios', () => {
             const down: Ratio = beatenPathTo.Ratio([ 4, 3 ])
             const up: Ratio = beatenPathTo.Ratio([ 4, 5 ])
 
-            const expectedRatios: Ratios = [
+            const expectedRatios: Ratio[] = [
                 up,
                 down,
                 up,
@@ -249,7 +250,7 @@ describe('beaten path durations and ratios', () => {
             const down: Ratio = beatenPathTo.Ratio([ 5, 4 ])
             const up: Ratio = beatenPathTo.Ratio([ 5, 6 ])
 
-            const expectedRatios: Ratios = [
+            const expectedRatios: Ratio[] = [
                 up,
                 down,
                 up,

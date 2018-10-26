@@ -1,9 +1,4 @@
-import { NoteSpec } from '../../../src/compile/types'
-import { ONE } from '../../../src/constants'
-import applyScale from '../../../src/utilities/applyScale'
-import * as from from '../../../src/utilities/from'
-import { Index, Scalar } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
+import { applyScale, from, Index, NoteSpec, ONE, Scalar, to } from '../../../src'
 import { SUSTAIN_AMOUNT } from './constants'
 
 // tslint:disable-next-line:no-any no-magic-numbers

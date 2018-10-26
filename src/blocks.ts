@@ -1,15 +1,10 @@
-import { ONE, TWO } from '../../../src/constants'
-import * as from from '../../../src/utilities/from'
-import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
-import numbers from '../../../src/utilities/numbers'
-import repeat from '../../../src/utilities/repeat'
-import * as to from '../../../src/utilities/to'
+import { Count, from, Index, numbers, ONE, repeat, Scalar, to, TWO } from '../../../src'
+import { from as beatenPathFrom, Ratio } from './nominal'
 import { beatenPathNote } from './notes'
-import { Block, Blocks, Durations, Ratio, Ratios } from './types'
-import * as beatenPathFrom from './utilities/from'
+import { Block, Blocks, Durations } from './types'
 
-const buildBeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: Ratios) => Blocks =
-    (beatenPathDurations: Durations, beatenPathRatios: Ratios): Blocks =>
+const buildBeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: Ratio[]) => Blocks =
+    (beatenPathDurations: Durations, beatenPathRatios: Ratio[]): Blocks =>
         numbers
             .slice(0, beatenPathDurations.length - 1)
             .map(to.Index)

@@ -1,4 +1,4 @@
-import { Song } from '../../../src/songTypes'
+import { Song } from '../../../src'
 import { beatenPathSongMaterial } from './songMaterials'
 import { beatenPathSongMetadata } from './songMetadata'
 import { beatenPathSongSpec } from './songSpecs'

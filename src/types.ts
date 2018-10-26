@@ -1,39 +1,23 @@
-import { NoteSpecs } from '../../../src/compile/types'
-import { Scalar } from '../../../src/utilities/nominalTypes'
+import { BaseSongSpec, NoteSpec, Scalar } from '../../../src'
+import { Core, Ratio } from './nominal'
 
 interface DurationsAndRatios {
     beatenPathDurations: Durations,
-    beatenPathRatios: Ratios,
+    beatenPathRatios: Ratio[],
 }
 
-interface Numerator extends Number {
-    _NumeratorBrand: string,
-}
-
-interface Denominator extends Number {
-    _DenominatorBrand: string,
-}
-
-interface Core extends Number {
-    _CoreBrand: string,
-}
-
-type FractionalPart = Numerator | Denominator
-type Ratio = [Numerator, Denominator]
-type Ratios = Ratio[]
 type Durations = Scalar[]
-type Block = [NoteSpecs, NoteSpecs]
+type Block = [NoteSpec[], NoteSpec[]]
 type Blocks = Block[]
+
+interface BeatenPathSongSpec extends BaseSongSpec {
+    core: Core,
+}
 
 export {
     Block,
     Blocks,
-    Core,
-    Numerator,
-    Denominator,
-    FractionalPart,
     Durations,
-    Ratio,
-    Ratios,
     DurationsAndRatios,
+    BeatenPathSongSpec,
 }

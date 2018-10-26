@@ -1,7 +1,4 @@
-import { BuildScalesFunction } from '../../../src/compile/types'
-import { flatDurationsScale } from '../../../src/scales'
-import { SongSpec } from '../../../src/songs'
-import { Scales } from '../../../src/types'
+import { BuildScalesFunction, flatDurationsScale, Scales, SongSpec } from '../../../src'
 
 const buildBeatenPathScales: BuildScalesFunction = (songSpec: SongSpec): Scales =>
     [

@@ -1,20 +1,31 @@
-import { NotePropertySpec, NoteSpec, NoteSpecs } from '../../../src/compile/types'
-import applyOffset from '../../../src/utilities/applyOffset'
-import calculateNoteSpecsTotalScalarDuration from '../../../src/utilities/calculateNoteSpecsTotalScalarDuration'
-import * as from from '../../../src/utilities/from'
-import { Index, Scalar, SumOfScalars } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
-import { Maybe } from '../../../src/utilities/types'
-import testIsCloseTo from '../../../test/support/testIsCloseTo'
-import { buildBeatenPathBlocks } from '../src/blocks'
-import { buildBeatenPathDurationsAndRatios } from '../src/durationsAndRatios'
-import { Block, Blocks, Core, Durations, DurationsAndRatios, Ratios } from '../src/types'
-import * as beatenPathTo from '../src/utilities/to'
+import {
+    applyOffset,
+    from,
+    Index,
+    Maybe,
+    NotePropertySpec,
+    NoteSpec,
+    Scalar,
+    SumOfScalars,
+    to,
+} from '../../../src/indexForTest'
+import { calculateNoteSpecsTotalScalarDuration, testIsCloseTo } from '../../../test'
+import {
+    Block,
+    Blocks,
+    buildBeatenPathBlocks,
+    buildBeatenPathDurationsAndRatios,
+    Core,
+    Durations,
+    DurationsAndRatios,
+    Ratio,
+    to as beatenPathTo,
+} from '../src/indexForTest'
 
 describe('beaten path blocks', () => {
     let beatenPathBlocks: Blocks
     let beatenPathDurations: Durations
-    let beatenPathRatios: Ratios
+    let beatenPathRatios: Ratio[]
 
     for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
         describe(`when core is ${core}`, () => {
@@ -28,7 +39,7 @@ describe('beaten path blocks', () => {
             const blockEntityDuration: (blockIndex: Index, entityIndex: Index) => Scalar =
                 (blockIndex: Index, entityIndex: Index): Scalar => {
                     const block: Block = beatenPathBlocks[ from.Index(blockIndex) ]
-                    const noteSpecs: NoteSpecs = block[ from.Index(entityIndex) ]
+                    const noteSpecs: NoteSpec[] = block[ from.Index(entityIndex) ]
                     const exampleNoteSpec: NoteSpec = noteSpecs[ 0 ]
 
                     const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}
@@ -44,7 +55,7 @@ describe('beaten path blocks', () => {
 
             it('each set of notes in each block has notes which all have the same duration', () => {
                 beatenPathBlocks.forEach((block: Block): void => {
-                    block.forEach((noteSpecs: NoteSpecs): void => {
+                    block.forEach((noteSpecs: NoteSpec[]): void => {
                         let noteDuration: Scalar = to.Scalar(0)
                         noteSpecs.forEach((noteSpec: NoteSpec): void => {
                             const durationSpec: Maybe<NotePropertySpec> = noteSpec.durationSpec
@@ -66,7 +77,7 @@ describe('beaten path blocks', () => {
             it('each block\'s two sets of notes have the same total duration', () => {
                 beatenPathBlocks.forEach((block: Block): void => {
                     let blockDuration: SumOfScalars = to.SumOfScalars(0)
-                    block.forEach((noteSpecs: NoteSpecs): void => {
+                    block.forEach((noteSpecs: NoteSpec[]): void => {
                         if (from.SumOfScalars(blockDuration) === 0) {
                             blockDuration = calculateNoteSpecsTotalScalarDuration(noteSpecs)
                         }
@@ -85,7 +96,7 @@ describe('beaten path blocks', () => {
             it('each block has a different total duration than any other block', () => {
                 const seenTotalDurations: SumOfScalars[] = []
                 beatenPathBlocks.forEach((block: Block): void => {
-                    const exemplaryNotesForBlock: NoteSpecs = block[ 0 ]
+                    const exemplaryNotesForBlock: NoteSpec[] = block[ 0 ]
                     const totalDuration: SumOfScalars = calculateNoteSpecsTotalScalarDuration(exemplaryNotesForBlock)
 
                     seenTotalDurations.forEach((seenDuration: SumOfScalars): void => {
