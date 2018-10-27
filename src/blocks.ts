@@ -36,8 +36,10 @@ const buildBeatenPathBlocks: (beatenPathDurations: Durations, beatenPathRatios: 
                     beatenPathDurations[ from.Index(indexOfSecondEntitysDurationForThisBlock) ]
 
                 return [
-                    repeat([ firstEntityDurationScalar ], firstEntityNotesCount).map(beatenPathNote),
-                    repeat([ secondEntityDurationScalar ], secondEntityNotesCount).map(beatenPathNote),
+                    repeat([ firstEntityDurationScalar ], firstEntityNotesCount)
+                        .map(beatenPathNote),
+                    repeat([ secondEntityDurationScalar ], secondEntityNotesCount)
+                        .map(beatenPathNote),
                 ]
             })
 

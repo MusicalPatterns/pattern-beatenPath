@@ -27,7 +27,8 @@ describe('beaten path durations and ratios', () => {
                 })
 
                 it('first duration is 1', () => {
-                    expect(testIsCloseTo(beatenPathDurations[ 0 ], to.Scalar(1))).toBeTruthy()
+                    expect(testIsCloseTo(beatenPathDurations[ 0 ], to.Scalar(1)))
+                        .toBeTruthy()
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
@@ -139,7 +140,8 @@ describe('beaten path durations and ratios', () => {
                 up,
             ]
 
-            expect(beatenPathRatios).toEqual(expectedRatios)
+            expect(beatenPathRatios)
+                .toEqual(expectedRatios)
         })
 
         it('when core is 3', () => {
@@ -207,7 +209,8 @@ describe('beaten path durations and ratios', () => {
                 up,
             ]
 
-            expect(beatenPathRatios).toEqual(expectedRatios)
+            expect(beatenPathRatios)
+                .toEqual(expectedRatios)
         })
 
         it('when core is 4', () => {
@@ -238,7 +241,8 @@ describe('beaten path durations and ratios', () => {
                 up,
             ]
 
-            expect(beatenPathRatios).toEqual(expectedRatios)
+            expect(beatenPathRatios)
+                .toEqual(expectedRatios)
         })
 
         it('when core is 5', () => {
@@ -273,7 +277,8 @@ describe('beaten path durations and ratios', () => {
                 up,
             ]
 
-            expect(beatenPathRatios).toEqual(expectedRatios)
+            expect(beatenPathRatios)
+                .toEqual(expectedRatios)
         })
     })
 })
