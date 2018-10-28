@@ -1,11 +1,9 @@
 import { Entity, NoteSpec, OscillatorName, sequence, TimeType, VoiceType } from '../../../src'
 import { buildBeatenPathBlocks } from './blocks'
+import { MINIMUM_FUNCTIONAL_CORE } from './constants'
 import { buildBeatenPathDurationsAndRatios } from './durationsAndRatios'
 import { Core } from './nominal'
 import { BeatenPathSongSpec, Block, Blocks } from './types'
-
-// tslint:disable-next-line:no-any no-magic-numbers
-const MINIMUM_FUNCTIONAL_CORE: Core = 2 as any
 
 const buildBeatenPathEntities: (songSpec: BeatenPathSongSpec) => Entity[] =
     (songSpec: BeatenPathSongSpec): Entity[] => {

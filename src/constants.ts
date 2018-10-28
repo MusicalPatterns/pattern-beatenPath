@@ -1,8 +1,16 @@
-import { Scalar } from '../../../src'
+// tslint:disable:no-magic-numbers
 
-// tslint:disable-next-line:no-any no-magic-numbers
-const SUSTAIN_AMOUNT: Scalar = 0.9 as any
+import { Scalar, to } from '../../../src'
+import { Core, to as beatenPathTo } from './nominal'
+
+const SUSTAIN_AMOUNT: Scalar = to.Scalar(0.9)
+const MINIMUM_FUNCTIONAL_CORE: Core = beatenPathTo.Core(2)
+const BEATEN_PATH_CORE: Core = beatenPathTo.Core(5)
+const BEATEN_PATH_PITCH_SCALAR: Scalar = to.Scalar(220)
 
 export {
     SUSTAIN_AMOUNT,
+    MINIMUM_FUNCTIONAL_CORE,
+    BEATEN_PATH_CORE,
+    BEATEN_PATH_PITCH_SCALAR,
 }
