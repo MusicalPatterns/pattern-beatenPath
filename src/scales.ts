@@ -1,7 +1,8 @@
-import { BuildScalesFunction, buildStandardScales, Scale, SongSpec } from '../../../src'
+import { BuildScalesFunction, buildStandardScales, Scale } from '../../../src'
+import { BeatenPathSongSpec } from './types'
 
 const buildBeatenPathScales: BuildScalesFunction =
-    (songSpec: SongSpec): Scale[] => {
+    (songSpec: BeatenPathSongSpec): Scale[] => {
         const { flatDurationsScale } = buildStandardScales()
 
         return [

@@ -1,4 +1,4 @@
-import { SongMetadata } from '../../../src'
+import { SongMetadata } from '../../types'
 
 const beatenPathSongMetadata: SongMetadata = {
     // tslint:disable-next-line:max-line-length

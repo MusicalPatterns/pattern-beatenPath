@@ -1,4 +1,4 @@
-import { SongMaterial } from '../../../src'
+import { SongMaterial } from '../../types'
 import { buildBeatenPathEntities } from './entities'
 import { buildBeatenPathScales } from './scales'
 

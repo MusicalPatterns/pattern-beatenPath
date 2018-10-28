@@ -1,4 +1,5 @@
-import { BaseSongSpec, NoteSpec, Scalar } from '../../../src'
+import { NoteSpec, Scalar } from '../../../src'
+import { SongSpec } from '../../types'
 import { Core, Ratio } from './nominal'
 
 interface DurationsAndRatios {
@@ -10,7 +11,7 @@ type Durations = Scalar[]
 type Block = [NoteSpec[], NoteSpec[]]
 type Blocks = Block[]
 
-interface BeatenPathSongSpec extends BaseSongSpec {
+interface BeatenPathSongSpec extends SongSpec {
     core: Core,
 }
 
