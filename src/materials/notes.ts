@@ -6,10 +6,10 @@ import {
     NoteSpec,
     Scalar,
     to,
-} from '../../../src'
-import { SUSTAIN_AMOUNT } from './constants'
+} from '../../../../src'
+import { SUSTAIN_AMOUNT } from '../constants'
 
-const beatenPathNote: (durationScalar: Scalar) => NoteSpec =
+const buildBeatenPathNoteSpec: (durationScalar: Scalar) => NoteSpec =
     (durationScalar: Scalar): NoteSpec => ({
         durationSpec: {
             scalar: durationScalar,
@@ -26,5 +26,5 @@ const beatenPathNote: (durationScalar: Scalar) => NoteSpec =
     })
 
 export {
-    beatenPathNote,
+    buildBeatenPathNoteSpec,
 }

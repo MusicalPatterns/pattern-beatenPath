@@ -1,5 +1,5 @@
-import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../src/indexForTest'
-import { testIsCloseTo } from '../../../test'
+import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../../../src/indexForTest'
+import { testIsCloseTo } from '../../../../../test'
 import {
     buildBeatenPathDurationsAndRatios,
     Core,
@@ -8,7 +8,7 @@ import {
     from as beatenPathFrom,
     Ratio,
     to as beatenPathTo,
-} from '../src/indexForTest'
+} from '../../../src/indexForTest'
 
 const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
     to.Scalar(beatenPathFrom.FractionalPart(ratio[ 0 ]) / beatenPathFrom.FractionalPart(ratio[ 1 ]))

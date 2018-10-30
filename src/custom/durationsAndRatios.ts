@@ -1,6 +1,6 @@
-import { absoluteRatio, applyScale, from, isCloseTo, Scalar, to } from '../../../src'
-import { Core, from as beatenPathFrom, Ratio, to as beatenPathTo } from './nominal'
-import { Durations, DurationsAndRatios } from './types'
+import { absoluteRatio, applyScale, from, isCloseTo, Scalar, to } from '../../../../src'
+import { Core, from as beatenPathFrom, Ratio, to as beatenPathTo } from '../nominal'
+import { Durations, DurationsAndRatios } from '../types'
 
 const buildBeatenPathDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
