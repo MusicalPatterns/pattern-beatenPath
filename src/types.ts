@@ -1,5 +1,5 @@
 import { Scalar } from '../../../src'
-import { SongSpec } from '../../types'
+import { PatternSpec } from '../../types'
 import { Core, Ratio } from './nominal'
 
 interface DurationsAndRatios {
@@ -9,12 +9,12 @@ interface DurationsAndRatios {
 
 type Durations = Scalar[]
 
-interface BeatenPathSongSpec extends SongSpec {
+interface BeatenPathPatternSpec extends PatternSpec {
     core: Core,
 }
 
 export {
     Durations,
     DurationsAndRatios,
-    BeatenPathSongSpec,
+    BeatenPathPatternSpec,
 }

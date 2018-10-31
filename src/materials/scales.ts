@@ -1,13 +1,19 @@
 import { BuildScalesFunction, buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
-import { BeatenPathSongSpec } from '../types'
+import { BeatenPathPatternSpec } from '../types'
 
 const buildBeatenPathScales: BuildScalesFunction =
-    (songSpec: BeatenPathSongSpec): Scale[] => {
+    (patternSpec: BeatenPathPatternSpec): Scale[] => {
         const { flatDurationsScale } = buildStandardScales()
 
         const gainScale: Scale = flatDurationsScale
-        const durationsScale: Scale = scaleFromScalarsAndScalar(flatDurationsScale.scalars, songSpec.songDurationScalar)
-        const pitchesScale: Scale = scaleFromScalarsAndScalar(flatDurationsScale.scalars, songSpec.songPitchScalar)
+        const durationsScale: Scale = scaleFromScalarsAndScalar(
+            flatDurationsScale.scalars,
+            patternSpec.patternDurationScalar,
+        )
+        const pitchesScale: Scale = scaleFromScalarsAndScalar(
+            flatDurationsScale.scalars,
+            patternSpec.patternPitchScalar,
+        )
 
         return [
             gainScale,

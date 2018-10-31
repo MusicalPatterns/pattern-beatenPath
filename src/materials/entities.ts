@@ -1,11 +1,11 @@
 import { DictionaryOf, Entity, OscillatorName, Part, TimeType, VoiceType } from '../../../../src'
 import { Core } from '../nominal'
-import { BeatenPathSongSpec } from '../types'
+import { BeatenPathPatternSpec } from '../types'
 import { buildBeatenPathParts } from './parts'
 
-const buildBeatenPathEntities: (songSpec: BeatenPathSongSpec) => Entity[] =
-    (songSpec: BeatenPathSongSpec): Entity[] => {
-        const core: Core = songSpec.core
+const buildBeatenPathEntities: (patternSpec: BeatenPathPatternSpec) => Entity[] =
+    (patternSpec: BeatenPathPatternSpec): Entity[] => {
+        const core: Core = patternSpec.core
 
         const {
             beatenPathOnePart,

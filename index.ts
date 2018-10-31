@@ -1,1 +1,1 @@
-export { beatenPathSong } from './src'
+export { beatenPathPattern } from './src'
