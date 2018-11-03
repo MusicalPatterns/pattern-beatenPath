@@ -1,3 +1,3 @@
-export { buildBeatenPathEntities } from './entities'
-export { buildBeatenPathScales } from './scales'
+export { buildEntities } from './entities'
+export { buildScales } from './scales'
 export { buildBeatenPathNoteSpec } from './notes'

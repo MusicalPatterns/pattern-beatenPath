@@ -1,1 +1,1 @@
-export { beatenPathPattern } from './patterns'
+export { pattern } from './patterns'

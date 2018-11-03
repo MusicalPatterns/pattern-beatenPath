@@ -5,7 +5,10 @@ export {
 } from './custom/indexForTest'
 export {
     buildBeatenPathSegments,
+    buildEntities,
+    buildScales,
 } from './materials/indexForTest'
+export { patternSpec } from './patterns'
 
 export {
     to,

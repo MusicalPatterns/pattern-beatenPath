@@ -1,7 +1,7 @@
 import { BuildScalesFunction, buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
 import { BeatenPathPatternSpec } from '../types'
 
-const buildBeatenPathScales: BuildScalesFunction =
+const buildScales: BuildScalesFunction =
     (patternSpec: BeatenPathPatternSpec): Scale[] => {
         const { flatDurationsScale } = buildStandardScales()
 
@@ -23,5 +23,5 @@ const buildBeatenPathScales: BuildScalesFunction =
     }
 
 export {
-    buildBeatenPathScales,
+    buildScales,
 }

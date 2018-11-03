@@ -3,7 +3,7 @@ import { Core } from '../nominal'
 import { BeatenPathPatternSpec } from '../types'
 import { buildBeatenPathParts } from './parts'
 
-const buildBeatenPathEntities: BuildEntitiesFunction =
+const buildEntities: BuildEntitiesFunction =
     (patternSpec: BeatenPathPatternSpec): Entity[] => {
         const core: Core = patternSpec.core
 
@@ -31,5 +31,5 @@ const buildBeatenPathEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildBeatenPathEntities,
+    buildEntities,
 }
