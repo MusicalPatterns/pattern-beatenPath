@@ -1,1 +1,1 @@
-export { buildBeatenPathDurationsAndRatios } from './durationsAndRatios'
+export { buildDurationsAndRatios } from './durationsAndRatios'

@@ -1,9 +1,9 @@
 import { Count, EVEN, from, Index, INITIAL, numbers, repeat, Scalar, Segment, to } from '../../../../src'
 import { from as beatenPathFrom, Ratio } from '../nominal'
 import { Durations } from '../types'
-import { buildBeatenPathNoteSpec } from './notes'
+import { buildNoteSpec } from './notes'
 
-const buildBeatenPathSegments: (beatenPathDurations: Durations, beatenPathRatios: Ratio[]) => Segment[] =
+const buildSegments: (beatenPathDurations: Durations, beatenPathRatios: Ratio[]) => Segment[] =
     (beatenPathDurations: Durations, beatenPathRatios: Ratio[]): Segment[] =>
         numbers
             .slice(from.Index(INITIAL), beatenPathDurations.length - 1)
@@ -37,12 +37,12 @@ const buildBeatenPathSegments: (beatenPathDurations: Durations, beatenPathRatios
 
                 return [
                     repeat([ firstEntityDurationScalar ], firstEntityNotesCount)
-                        .map(buildBeatenPathNoteSpec),
+                        .map(buildNoteSpec),
                     repeat([ secondEntityDurationScalar ], secondEntityNotesCount)
-                        .map(buildBeatenPathNoteSpec),
+                        .map(buildNoteSpec),
                 ]
             })
 
 export {
-    buildBeatenPathSegments,
+    buildSegments,
 }

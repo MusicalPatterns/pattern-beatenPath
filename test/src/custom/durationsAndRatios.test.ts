@@ -1,7 +1,7 @@
 import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../../../src/indexForTest'
 import { testIsCloseTo } from '../../../../../test'
 import {
-    buildBeatenPathDurationsAndRatios,
+    buildDurationsAndRatios,
     Core,
     Durations,
     DurationsAndRatios,
@@ -21,7 +21,7 @@ describe('beaten path durations and ratios', () => {
         for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
-                    const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
+                    const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
                     beatenPathDurations = durationsAndRatios.beatenPathDurations
                     beatenPathRatios = durationsAndRatios.beatenPathRatios
                 })
@@ -46,7 +46,7 @@ describe('beaten path durations and ratios', () => {
     describe('ratios', () => {
         it('when core is 2', () => {
             const core: Core = beatenPathTo.Core(2)
-            const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
+            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
@@ -146,7 +146,7 @@ describe('beaten path durations and ratios', () => {
 
         it('when core is 3', () => {
             const core: Core = beatenPathTo.Core(3)
-            const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
+            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
@@ -215,7 +215,7 @@ describe('beaten path durations and ratios', () => {
 
         it('when core is 4', () => {
             const core: Core = beatenPathTo.Core(4)
-            const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
+            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 
@@ -247,7 +247,7 @@ describe('beaten path durations and ratios', () => {
 
         it('when core is 5', () => {
             const core: Core = beatenPathTo.Core(5)
-            const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
+            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
             beatenPathDurations = durationsAndRatios.beatenPathDurations
             beatenPathRatios = durationsAndRatios.beatenPathRatios
 

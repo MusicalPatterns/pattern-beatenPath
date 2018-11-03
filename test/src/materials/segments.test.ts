@@ -13,8 +13,8 @@ import {
 } from '../../../../../src/indexForTest'
 import { calculatePartTotalScalarDuration, testIsCloseTo } from '../../../../../test'
 import {
-    buildBeatenPathDurationsAndRatios,
-    buildBeatenPathSegments,
+    buildDurationsAndRatios,
+    buildSegments,
     Core,
     Durations,
     DurationsAndRatios,
@@ -30,10 +30,10 @@ describe('beaten path segments', () => {
     for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
         describe(`when core is ${core}`, () => {
             beforeEach(() => {
-                const durationsAndRatios: DurationsAndRatios = buildBeatenPathDurationsAndRatios(core)
+                const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
                 beatenPathDurations = durationsAndRatios.beatenPathDurations
                 beatenPathRatios = durationsAndRatios.beatenPathRatios
-                beatenPathSegments = buildBeatenPathSegments(beatenPathDurations, beatenPathRatios)
+                beatenPathSegments = buildSegments(beatenPathDurations, beatenPathRatios)
             })
 
             const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =

@@ -1,10 +1,10 @@
 // tslint:disable:no-reaching-imports
 
 export {
-    buildBeatenPathDurationsAndRatios,
+    buildDurationsAndRatios,
 } from './custom/indexForTest'
 export {
-    buildBeatenPathSegments,
+    buildSegments,
     buildEntities,
     buildScales,
 } from './materials/indexForTest'

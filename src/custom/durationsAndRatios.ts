@@ -2,7 +2,7 @@ import { absoluteRatio, applyScale, from, isCloseTo, Scalar, to } from '../../..
 import { Core, from as beatenPathFrom, Ratio, to as beatenPathTo } from '../nominal'
 import { Durations, DurationsAndRatios } from '../types'
 
-const buildBeatenPathDurationsAndRatios: (core: Core) => DurationsAndRatios =
+const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
         const beatenPathDurations: Durations = [ to.Scalar(1) ]
         const beatenPathRatios: Ratio[] = []
@@ -39,5 +39,5 @@ const buildBeatenPathDurationsAndRatios: (core: Core) => DurationsAndRatios =
     }
 
 export {
-    buildBeatenPathDurationsAndRatios,
+    buildDurationsAndRatios,
 }
