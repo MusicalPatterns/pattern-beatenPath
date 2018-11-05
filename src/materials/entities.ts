@@ -1,16 +1,13 @@
 import { BuildEntitiesFunction, DictionaryOf, Entity, OscillatorName, Part, TimeType, VoiceType } from '../../../../src'
-import { Core } from '../nominal'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
 
 const buildEntities: BuildEntitiesFunction =
     (patternSpec: BeatenPathPatternSpec): Entity[] => {
-        const core: Core = patternSpec.core
-
         const {
             beatenPathOnePart,
             beatenPathTwoPart,
-        }: DictionaryOf<Part> = buildParts(core)
+        }: DictionaryOf<Part> = buildParts(patternSpec)
 
         const beatenPathOneEntity: Entity = {
             part: beatenPathOnePart,

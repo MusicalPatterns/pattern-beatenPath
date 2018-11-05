@@ -1,4 +1,4 @@
-import { Scalar } from '../../../src'
+import { Count, Scalar } from '../../../src'
 import { PatternSpec } from '../../types'
 import { Core, Ratio } from './nominal'
 
@@ -11,6 +11,7 @@ type Durations = Scalar[]
 
 interface BeatenPathPatternSpec extends PatternSpec {
     core: Core,
+    repetitions: Count,
 }
 
 export {

@@ -1,10 +1,10 @@
-import { Count, EVEN, from, Index, INITIAL, numbers, repeat, Scalar, Segment, to } from '../../../../src'
+import { applyCount, Count, EVEN, from, Index, INITIAL, numbers, repeat, Scalar, Segment, to } from '../../../../src'
 import { from as beatenPathFrom, Ratio } from '../nominal'
-import { Durations } from '../types'
 import { buildNoteSpec } from './notes'
+import { BuildSegmentsParameters } from './types'
 
-const buildSegments: (beatenPathDurations: Durations, beatenPathRatios: Ratio[]) => Segment[] =
-    (beatenPathDurations: Durations, beatenPathRatios: Ratio[]): Segment[] =>
+const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
+    ({ beatenPathDurations, beatenPathRatios, repetitions }: BuildSegmentsParameters): Segment[] =>
         numbers
             .slice(from.Index(INITIAL), beatenPathDurations.length - 1)
             .map(to.Index)
@@ -36,9 +36,9 @@ const buildSegments: (beatenPathDurations: Durations, beatenPathRatios: Ratio[])
                     beatenPathDurations[ from.Index(indexOfSecondEntitysDurationForThisSegment) ]
 
                 return [
-                    repeat([ firstEntityDurationScalar ], firstEntityNotesCount)
+                    repeat([ firstEntityDurationScalar ], applyCount(firstEntityNotesCount, repetitions))
                         .map(buildNoteSpec),
-                    repeat([ secondEntityDurationScalar ], secondEntityNotesCount)
+                    repeat([ secondEntityDurationScalar ], applyCount(secondEntityNotesCount, repetitions))
                         .map(buildNoteSpec),
                 ]
             })
