@@ -14,6 +14,7 @@ const beatenPathPatternMetadata: PatternMetadata = {
     // tslint:disable-next-line:max-line-length
     description: 'repeated metric modulation of polyrhythms by neighboring superparticulars, never deviating any further from original duration than necessary',
     formattedName: 'Beaten Path',
+    musicalIdeaIllustrated: 'metric modulation cycles',
 }
 
 const patternSpec: BeatenPathPatternSpec = {
