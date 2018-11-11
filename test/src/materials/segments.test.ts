@@ -1,6 +1,7 @@
 import {
     applyOffset,
     Count,
+    dereference,
     from,
     Index,
     Maybe,
@@ -41,8 +42,8 @@ describe('beaten path segments', () => {
 
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
                     (segmentIndex: Index, entityIndex: Index): Scalar => {
-                        const segment: Segment = beatenPathSegments[ from.Index(segmentIndex) ]
-                        const part: Part = segment[ from.Index(entityIndex) ]
+                        const segment: Segment = dereference(beatenPathSegments, segmentIndex)
+                        const part: Part = dereference(segment, entityIndex)
                         const exampleNoteSpec: NoteSpec = part[ 0 ]
 
                         const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}

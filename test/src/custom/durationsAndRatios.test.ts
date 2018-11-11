@@ -1,4 +1,4 @@
-import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../../../src/indexForTest'
+import { applyOffset, applyScale, dereference, from, Index, Scalar, to } from '../../../../../src/indexForTest'
 import { testIsCloseTo } from '../../../../../test'
 import {
     buildDurationsAndRatios,
@@ -34,8 +34,8 @@ describe('beaten path durations and ratios', () => {
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
                     for (let i: Index = to.Index(1); i < to.Index(beatenPathDurations.length - 1); i = applyOffset(i, to.Offset(1))) {
                         expect(testIsCloseTo(
-                            beatenPathDurations[ from.Index(i) ],
-                            applyScale(beatenPathDurations[ from.Index(i) - 1 ], ratioToScalar(beatenPathRatios[ from.Index(i) - 1 ])),
+                            dereference(beatenPathDurations, i),
+                            applyScale(dereference(beatenPathDurations, applyOffset(i, to.Offset(-1))), ratioToScalar(beatenPathRatios[ from.Index(i) - 1 ])),
                         ))
                     }
                 })
