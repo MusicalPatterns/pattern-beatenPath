@@ -3,15 +3,15 @@ import { BeatenPathPatternSpec } from '../types'
 
 const buildScales: BuildScalesFunction =
     (patternSpec: BeatenPathPatternSpec): Scale[] => {
-        const { flatDurationsScale } = buildStandardScales()
+        const { nonScale } = buildStandardScales()
 
-        const gainScale: Scale = flatDurationsScale
+        const gainScale: Scale = nonScale
         const durationsScale: Scale = scaleFromScalarsAndScalar(
-            flatDurationsScale.scalars,
+            nonScale.scalars,
             patternSpec.patternDurationScalar,
         )
         const pitchesScale: Scale = scaleFromScalarsAndScalar(
-            flatDurationsScale.scalars,
+            nonScale.scalars,
             patternSpec.patternPitchScalar,
         )
 
