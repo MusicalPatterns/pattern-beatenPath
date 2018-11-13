@@ -1,4 +1,5 @@
-import { BuildEntitiesFunction, DictionaryOf, Entity, OscillatorName, Part, TimeType, VoiceType } from '../../../../src'
+import { DictionaryOf, Entity, OscillatorName, Part, TimeType, VoiceType } from '../../../../src'
+import { BuildEntitiesFunction } from '../../../types'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
 
