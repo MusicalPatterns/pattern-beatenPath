@@ -1,4 +1,5 @@
-import { DictionaryOf, Entity, OscillatorName, Part, TimeType, VoiceType } from '../../../../src'
+import { OscillatorName, TimeType, VoiceType } from '@musical-patterns/performer'
+import { DictionaryOf, Entity, Part } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
