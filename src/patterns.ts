@@ -1,4 +1,4 @@
-import { DEFAULT_RAW_TIME_TYPE_DURATION_SCALAR } from '../../../src'
+import { DEFAULT_DURATION_SCALAR } from '../../../src'
 import { PatternId } from '../../patternId'
 import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
 import { BEATEN_PATH_INITIAL_CORE, BEATEN_PATH_INITIAL_REPETITIONS, BEATEN_PATH_PITCH_SCALAR } from './constants'
@@ -19,7 +19,7 @@ const beatenPathPatternMetadata: PatternMetadata = {
 
 const patternSpec: BeatenPathPatternSpec = {
     core: BEATEN_PATH_INITIAL_CORE,
-    patternDurationScalar: DEFAULT_RAW_TIME_TYPE_DURATION_SCALAR,
+    patternDurationScalar: DEFAULT_DURATION_SCALAR,
     patternPitchScalar: BEATEN_PATH_PITCH_SCALAR,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
 }

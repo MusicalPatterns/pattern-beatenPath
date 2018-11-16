@@ -1431,7 +1431,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "timbre": "square",
         "voiceType": "oscillator"
@@ -2840,7 +2839,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "timbre": "sawtooth",
         "voiceType": "oscillator"
