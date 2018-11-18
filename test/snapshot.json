@@ -1,2867 +1,1836 @@
-{
-  "entities": [
-    {
-      "part": [
-        {
-          "durationSpec": {
-            "scalar": 1,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0416666666666667,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.96,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9375000000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0850694444444446,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9215999999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9765625000000002,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1302806712962965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8847359999999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.017252604166667,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1773756992669755,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8493465599999999,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.059638129340278,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8176220133798442,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2230590463999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7358598120418598,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8516895972706711,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1741366845439996,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.766520637543604,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8871766638236156,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1271712171622397,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.798458997441254,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9241423581495997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0820843684757502,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8317281223346397,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9626482897391664,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.03880099373672,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8663834607652497,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.002758635144965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9972489539872511,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9024827716304686,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.002758635144965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9972489539872511,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9024827716304686,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.002758635144965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9972489539872511,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9024827716304686,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.002758635144965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9972489539872511,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9024827716304686,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.002758635144965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9972489539872511,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9024827716304686,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.002758635144965,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9972489539872511,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9024827716304686,
-            "scaleIndex": 1
-          }
-        }
-      ],
-      "voiceSpec": {
-        "timbre": "square",
-        "voiceType": "oscillator"
+[
+  {
+    "part": [
+      {
+        "duration": 100,
+        "gain": 1,
+        "frequency": 220,
+        "position": [
+          1
+        ],
+        "sustain": 90
+      },
+      {
+        "duration": 100,
+        "gain": 1,
+        "frequency": 220,
+        "position": [
+          1
+        ],
+        "sustain": 90
+      },
+      {
+        "duration": 100,
+        "gain": 1,
+        "frequency": 220,
+        "position": [
+          1
+        ],
+        "sustain": 90
+      },
+      {
+        "duration": 100,
+        "gain": 1,
+        "frequency": 220,
+        "position": [
+          1
+        ],
+        "sustain": 90
+      },
+      {
+        "duration": 100,
+        "gain": 1,
+        "frequency": 220,
+        "position": [
+          1
+        ],
+        "sustain": 90
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 104.16666666666667,
+        "gain": 1,
+        "frequency": 211.2,
+        "position": [
+          1
+        ],
+        "sustain": 93.75000000000001
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 108.50694444444446,
+        "gain": 1,
+        "frequency": 202.75199999999998,
+        "position": [
+          1
+        ],
+        "sustain": 97.65625000000003
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 113.02806712962965,
+        "gain": 1,
+        "frequency": 194.64191999999997,
+        "position": [
+          1
+        ],
+        "sustain": 101.7252604166667
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 117.73756992669755,
+        "gain": 1,
+        "frequency": 186.85624319999997,
+        "position": [
+          1
+        ],
+        "sustain": 105.96381293402779
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 81.76220133798442,
+        "gain": 1,
+        "frequency": 269.07299020799996,
+        "position": [
+          1
+        ],
+        "sustain": 73.58598120418598
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 85.1689597270671,
+        "gain": 1,
+        "frequency": 258.3100705996799,
+        "position": [
+          1
+        ],
+        "sustain": 76.6520637543604
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 88.71766638236156,
+        "gain": 1,
+        "frequency": 247.97766777569274,
+        "position": [
+          1
+        ],
+        "sustain": 79.8458997441254
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 92.41423581495997,
+        "gain": 1,
+        "frequency": 238.05856106466504,
+        "position": [
+          1
+        ],
+        "sustain": 83.17281223346397
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 96.26482897391664,
+        "gain": 1,
+        "frequency": 228.5362186220784,
+        "position": [
+          1
+        ],
+        "sustain": 86.63834607652497
+      },
+      {
+        "duration": 100.2758635144965,
+        "gain": 1,
+        "frequency": 219.39476987719524,
+        "position": [
+          1
+        ],
+        "sustain": 90.24827716304686
+      },
+      {
+        "duration": 100.2758635144965,
+        "gain": 1,
+        "frequency": 219.39476987719524,
+        "position": [
+          1
+        ],
+        "sustain": 90.24827716304686
+      },
+      {
+        "duration": 100.2758635144965,
+        "gain": 1,
+        "frequency": 219.39476987719524,
+        "position": [
+          1
+        ],
+        "sustain": 90.24827716304686
+      },
+      {
+        "duration": 100.2758635144965,
+        "gain": 1,
+        "frequency": 219.39476987719524,
+        "position": [
+          1
+        ],
+        "sustain": 90.24827716304686
+      },
+      {
+        "duration": 100.2758635144965,
+        "gain": 1,
+        "frequency": 219.39476987719524,
+        "position": [
+          1
+        ],
+        "sustain": 90.24827716304686
+      },
+      {
+        "duration": 100.2758635144965,
+        "gain": 1,
+        "frequency": 219.39476987719524,
+        "position": [
+          1
+        ],
+        "sustain": 90.24827716304686
       }
-    },
-    {
-      "part": [
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8333333333333334,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.2,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.75,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.8680555555555557,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.152,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.7812500000000001,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9042245370370372,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.1059199999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8138020833333335,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.9419005594135804,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0616831999999998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8477105034722224,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 0.981146416055813,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 1.0192158719999997,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.8830317744502317,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0220275167248052,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9784472371199998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9198247650523247,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.0646119965883387,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9393093476351998,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9581507969295049,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1089708297795196,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.9017369737297918,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 0.9980737468015676,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.1551779476869997,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.8656674947806,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0396601529182998,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        },
-        {
-          "durationSpec": {
-            "scalar": 1.203310362173958,
-            "scaleIndex": 1
-          },
-          "pitchSpec": {
-            "scalar": 0.831040794989376,
-            "scaleIndex": 2
-          },
-          "sustainSpec": {
-            "scalar": 1.0829793259565623,
-            "scaleIndex": 1
-          }
-        }
-      ],
-      "voiceSpec": {
-        "timbre": "sawtooth",
-        "voiceType": "oscillator"
+    ],
+    "voiceSpec": {
+      "timbre": "square",
+      "voiceType": "oscillator"
+    }
+  },
+  {
+    "part": [
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 83.33333333333334,
+        "gain": 1,
+        "frequency": 264,
+        "position": [
+          1
+        ],
+        "sustain": 75
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 86.80555555555557,
+        "gain": 1,
+        "frequency": 253.43999999999997,
+        "position": [
+          1
+        ],
+        "sustain": 78.12500000000001
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 90.42245370370372,
+        "gain": 1,
+        "frequency": 243.30239999999995,
+        "position": [
+          1
+        ],
+        "sustain": 81.38020833333334
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 94.19005594135804,
+        "gain": 1,
+        "frequency": 233.57030399999996,
+        "position": [
+          1
+        ],
+        "sustain": 84.77105034722224
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 98.1146416055813,
+        "gain": 1,
+        "frequency": 224.22749183999994,
+        "position": [
+          1
+        ],
+        "sustain": 88.30317744502317
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 102.20275167248052,
+        "gain": 1,
+        "frequency": 215.25839216639997,
+        "position": [
+          1
+        ],
+        "sustain": 91.98247650523247
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 106.46119965883388,
+        "gain": 1,
+        "frequency": 206.64805647974396,
+        "position": [
+          1
+        ],
+        "sustain": 95.81507969295049
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 110.89708297795195,
+        "gain": 1,
+        "frequency": 198.38213422055418,
+        "position": [
+          1
+        ],
+        "sustain": 99.80737468015676
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 115.51779476869997,
+        "gain": 1,
+        "frequency": 190.446848851732,
+        "position": [
+          1
+        ],
+        "sustain": 103.96601529182999
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
+      },
+      {
+        "duration": 120.3310362173958,
+        "gain": 1,
+        "frequency": 182.82897489766273,
+        "position": [
+          1
+        ],
+        "sustain": 108.29793259565623
       }
+    ],
+    "voiceSpec": {
+      "timbre": "sawtooth",
+      "voiceType": "oscillator"
     }
-  ],
-  "scales": [
-    {
-      "scalars": [
-        1
-      ]
-    },
-    {
-      "scalar": 100,
-      "scalars": [
-        1
-      ]
-    },
-    {
-      "scalar": 220,
-      "scalars": [
-        1
-      ]
-    }
-  ]
-}
+  }
+]

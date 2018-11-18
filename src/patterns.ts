@@ -33,5 +33,4 @@ const pattern: Pattern = {
 
 export {
     pattern,
-    patternSpec,
 }

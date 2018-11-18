@@ -7,7 +7,7 @@ import {
     Maybe,
     NotePropertySpec,
     NoteSpec,
-    Part,
+    PartSpec,
     Scalar,
     Segment,
     SumOfScalars,
@@ -43,7 +43,7 @@ describe('beaten path segments', () => {
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
                     (segmentIndex: Index, entityIndex: Index): Scalar => {
                         const segment: Segment = dereference(beatenPathSegments, segmentIndex)
-                        const part: Part = dereference(segment, entityIndex)
+                        const part: PartSpec = dereference(segment, entityIndex)
                         const exampleNoteSpec: NoteSpec = part[ 0 ]
 
                         const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}
@@ -60,7 +60,7 @@ describe('beaten path segments', () => {
 
                 it('each set of notes in each segment has notes which all have the same duration', () => {
                     beatenPathSegments.forEach((segment: Segment): void => {
-                        segment.forEach((part: Part): void => {
+                        segment.forEach((part: PartSpec): void => {
                             let noteDuration: Scalar = to.Scalar(0)
                             part.forEach((noteSpec: NoteSpec): void => {
                                 const durationSpec: Maybe<NotePropertySpec> = noteSpec.durationSpec
@@ -83,7 +83,7 @@ describe('beaten path segments', () => {
                 it('each segment\'s two sets of notes have the same total duration', () => {
                     beatenPathSegments.forEach((segment: Segment): void => {
                         let segmentDuration: SumOfScalars = to.SumOfScalars(0)
-                        segment.forEach((part: Part): void => {
+                        segment.forEach((part: PartSpec): void => {
                             if (from.SumOfScalars(segmentDuration) === 0) {
                                 segmentDuration = calculatePartTotalScalarDuration(part)
                             }
@@ -103,7 +103,7 @@ describe('beaten path segments', () => {
                 it('each segment has a different total duration than any other segment', () => {
                     const seenTotalDurations: SumOfScalars[] = []
                     beatenPathSegments.forEach((segment: Segment): void => {
-                        const exemplaryNotesForSegment: Part = segment[ 0 ]
+                        const exemplaryNotesForSegment: PartSpec = segment[ 0 ]
                         const totalDuration: SumOfScalars = calculatePartTotalScalarDuration(exemplaryNotesForSegment)
 
                         seenTotalDurations.forEach((seenDuration: SumOfScalars): void => {

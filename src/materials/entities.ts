@@ -1,5 +1,5 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { DictionaryOf, Entity, Part } from '../../../../src'
+import { DictionaryOf, Entity, PartSpec } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
@@ -9,15 +9,15 @@ const buildEntities: BuildEntitiesFunction =
         const {
             beatenPathOnePart,
             beatenPathTwoPart,
-        }: DictionaryOf<Part> = buildParts(patternSpec)
+        }: DictionaryOf<PartSpec> = buildParts(patternSpec)
 
         const beatenPathOneEntity: Entity = {
-            part: beatenPathOnePart,
+            partSpec: beatenPathOnePart,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         const beatenPathTwoEntity: Entity = {
-            part: beatenPathTwoPart,
+            partSpec: beatenPathTwoPart,
             voiceSpec: { timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR },
         }
 
