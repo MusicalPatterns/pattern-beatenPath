@@ -1,14 +1,5 @@
-import { Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
-import {
-    applyCount,
-    applyOffset,
-    dereference,
-    EVEN,
-    INITIAL,
-    numbers,
-    repeat,
-    Segment,
-} from '../../../../src'
+import { apply, Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
+import { EVEN, INITIAL, numbers, repeat, Segment } from '../../../../src'
 import { from as beatenPathFrom, Ratio } from '../nominal'
 import { buildNoteSpec } from './notes'
 import { BuildSegmentsParameters } from './types'
@@ -19,7 +10,7 @@ const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segme
             .slice(from.Index(INITIAL), beatenPathDurations.length - 1)
             .map(to.Index)
             .map((index: Index): Segment => {
-                const ratioTuple: Ratio = dereference(beatenPathRatios, applyOffset(index, to.Offset(-1)))
+                const ratioTuple: Ratio = apply.Index(beatenPathRatios, apply.Offset(index, to.Offset(-1)))
 
                 const indexOfFirstEntitysDurationForThisSegment: Index =
                     to.Index(Math.floor(from.Index(index) / EVEN) * EVEN)
@@ -34,21 +25,21 @@ const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segme
                         : to.Index(1)
 
                 const firstEntityNotesCount: Count = to.Count(beatenPathFrom.FractionalPart(
-                    dereference(ratioTuple, indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisSegment),
+                    apply.Index(ratioTuple, indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisSegment),
                 ))
                 const secondEntityNotesCount: Count = to.Count(beatenPathFrom.FractionalPart(
-                    dereference(ratioTuple, indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisSegment),
+                    apply.Index(ratioTuple, indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisSegment),
                 ))
 
                 const firstEntityDurationScalar: Scalar =
-                    dereference(beatenPathDurations, indexOfFirstEntitysDurationForThisSegment)
+                    apply.Index(beatenPathDurations, indexOfFirstEntitysDurationForThisSegment)
                 const secondEntityDurationScalar: Scalar =
-                    dereference(beatenPathDurations, indexOfSecondEntitysDurationForThisSegment)
+                    apply.Index(beatenPathDurations, indexOfSecondEntitysDurationForThisSegment)
 
                 return [
-                    repeat([ firstEntityDurationScalar ], applyCount(firstEntityNotesCount, repetitions))
+                    repeat([ firstEntityDurationScalar ], apply.Count(firstEntityNotesCount, repetitions))
                         .map(buildNoteSpec),
-                    repeat([ secondEntityDurationScalar ], applyCount(secondEntityNotesCount, repetitions))
+                    repeat([ secondEntityDurationScalar ], apply.Count(secondEntityNotesCount, repetitions))
                         .map(buildNoteSpec),
                 ]
             })

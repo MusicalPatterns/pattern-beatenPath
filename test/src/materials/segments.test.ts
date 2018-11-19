@@ -1,13 +1,5 @@
-import { Count, from, Index, Scalar, SumOfScalars, to } from '@musical-patterns/utilities'
-import {
-    applyOffset,
-    dereference,
-    Maybe,
-    NotePropertySpec,
-    NoteSpec,
-    PartSpec,
-    Segment,
-} from '../../../../../src/indexForTest'
+import { apply, Count, from, Index, Scalar, SumOfScalars, to } from '@musical-patterns/utilities'
+import { Maybe, NotePropertySpec, NoteSpec, PartSpec, Segment } from '../../../../../src/indexForTest'
 import { calculatePartTotalScalarDuration, testIsCloseTo } from '../../../../../test'
 import {
     buildDurationsAndRatios,
@@ -25,7 +17,7 @@ describe('beaten path segments', () => {
     let beatenPathDurations: Durations
     let beatenPathRatios: Ratio[]
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
+    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Offset(core, to.Offset(1))) {
         const suite: (repetitions: Count) => void =
             (repetitions: Count): void => {
                 beforeEach(() => {
@@ -37,8 +29,8 @@ describe('beaten path segments', () => {
 
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
                     (segmentIndex: Index, entityIndex: Index): Scalar => {
-                        const segment: Segment = dereference(beatenPathSegments, segmentIndex)
-                        const part: PartSpec = dereference(segment, entityIndex)
+                        const segment: Segment = apply.Index(beatenPathSegments, segmentIndex)
+                        const part: PartSpec = apply.Index(segment, entityIndex)
                         const exampleNoteSpec: NoteSpec = part[ 0 ]
 
                         const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}

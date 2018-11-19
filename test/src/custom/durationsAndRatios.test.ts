@@ -1,5 +1,4 @@
-import { from, Index, Scalar, to } from '@musical-patterns/utilities'
-import { applyOffset, applyScale, dereference } from '../../../../../src/indexForTest'
+import { apply, from, Index, Scalar, to } from '@musical-patterns/utilities'
 import { testIsCloseTo } from '../../../../../test'
 import {
     buildDurationsAndRatios,
@@ -19,7 +18,7 @@ describe('beaten path durations and ratios', () => {
     let beatenPathRatios: Ratio[]
 
     describe('durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = applyOffset(core, to.Offset(1))) {
+        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Offset(core, to.Offset(1))) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
@@ -33,10 +32,10 @@ describe('beaten path durations and ratios', () => {
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
-                    for (let i: Index = to.Index(1); i < to.Index(beatenPathDurations.length - 1); i = applyOffset(i, to.Offset(1))) {
+                    for (let i: Index = to.Index(1); i < to.Index(beatenPathDurations.length - 1); i = apply.Offset(i, to.Offset(1))) {
                         expect(testIsCloseTo(
-                            dereference(beatenPathDurations, i),
-                            applyScale(dereference(beatenPathDurations, applyOffset(i, to.Offset(-1))), ratioToScalar(beatenPathRatios[ from.Index(i) - 1 ])),
+                            apply.Index(beatenPathDurations, i),
+                            apply.Scalar(apply.Index(beatenPathDurations, apply.Offset(i, to.Offset(-1))), ratioToScalar(beatenPathRatios[ from.Index(i) - 1 ])),
                         ))
                     }
                 })
