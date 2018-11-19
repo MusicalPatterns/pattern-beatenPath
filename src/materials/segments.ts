@@ -1,16 +1,13 @@
+import { Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
 import {
-    applyCount, applyOffset,
-    Count,
+    applyCount,
+    applyOffset,
     dereference,
     EVEN,
-    from,
-    Index,
     INITIAL,
     numbers,
     repeat,
-    Scalar,
     Segment,
-    to,
 } from '../../../../src'
 import { from as beatenPathFrom, Ratio } from '../nominal'
 import { buildNoteSpec } from './notes'

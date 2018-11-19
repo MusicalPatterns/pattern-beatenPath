@@ -1,4 +1,4 @@
-import { Count } from '../../../../src'
+import { Count } from '@musical-patterns/utilities'
 import { Ratio } from '../nominal'
 import { Durations } from '../types'
 

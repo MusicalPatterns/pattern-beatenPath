@@ -1,12 +1,5 @@
-import {
-    applyScale,
-    DEFAULT_DURATIONS_SCALE_INDEX,
-    DEFAULT_PITCH_SCALE_INDEX,
-    from,
-    NoteSpec,
-    Scalar,
-    to,
-} from '../../../../src'
+import { from, Scalar, to } from '@musical-patterns/utilities'
+import { applyScale, DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, NoteSpec } from '../../../../src'
 import { SUSTAIN_AMOUNT } from '../constants'
 
 const buildNoteSpec: (durationScalar: Scalar) => NoteSpec =

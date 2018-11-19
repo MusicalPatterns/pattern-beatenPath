@@ -1,4 +1,5 @@
-import { applyOffset, applyScale, dereference, from, Index, Scalar, to } from '../../../../../src/indexForTest'
+import { from, Index, Scalar, to } from '@musical-patterns/utilities'
+import { applyOffset, applyScale, dereference } from '../../../../../src/indexForTest'
 import { testIsCloseTo } from '../../../../../test'
 import {
     buildDurationsAndRatios,

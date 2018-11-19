@@ -1,17 +1,12 @@
+import { Count, from, Index, Scalar, SumOfScalars, to } from '@musical-patterns/utilities'
 import {
     applyOffset,
-    Count,
     dereference,
-    from,
-    Index,
     Maybe,
     NotePropertySpec,
     NoteSpec,
     PartSpec,
-    Scalar,
     Segment,
-    SumOfScalars,
-    to,
 } from '../../../../../src/indexForTest'
 import { calculatePartTotalScalarDuration, testIsCloseTo } from '../../../../../test'
 import {
