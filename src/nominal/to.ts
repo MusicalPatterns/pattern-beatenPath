@@ -11,8 +11,8 @@ const Numerator: (numerator: number) => Numerator =
 const Denominator: (denominator: number) => Denominator =
     (denominator: number): Denominator => denominator as any
 
-const Ratio: (ratio: [number | Numerator, number | Denominator]) => Ratio =
-    (ratio: [number | Numerator, number | Denominator]): Ratio =>
+const Ratio: (ratio: [ number | Numerator, number | Denominator ]) => Ratio =
+    (ratio: [ number | Numerator, number | Denominator ]): Ratio =>
         ratio as any
 
 export {

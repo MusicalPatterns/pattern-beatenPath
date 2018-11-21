@@ -11,7 +11,7 @@ interface Core extends Number {
 }
 
 type FractionalPart = Numerator | Denominator
-type Ratio = [Numerator, Denominator]
+type Ratio = [ Numerator, Denominator ]
 
 export {
     Core,
