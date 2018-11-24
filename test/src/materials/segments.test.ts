@@ -1,5 +1,5 @@
-import { apply, Count, from, Index, Scalar, SumOfScalars, to } from '@musical-patterns/utilities'
-import { Maybe, NotePropertySpec, NoteSpec, PartSpec, Segment } from '../../../../../src/indexForTest'
+import { apply, Count, from, Index, Maybe, Scalar, SumOfScalars, to } from '@musical-patterns/utilities'
+import { NotePropertySpec, NoteSpec, PartSpec, Segment } from '../../../../../src/indexForTest'
 import { calculatePartTotalScalarDuration, testIsCloseTo } from '../../../../../test'
 import {
     buildDurationsAndRatios,
