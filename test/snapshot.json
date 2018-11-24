@@ -921,8 +921,8 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "square",
-      "voiceType": "oscillator"
+      "timbre": "SQUARE",
+      "voiceType": "OSCILLATOR"
     }
   },
   {
@@ -1829,8 +1829,8 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "sawtooth",
-      "voiceType": "oscillator"
+      "timbre": "SAWTOOTH",
+      "voiceType": "OSCILLATOR"
     }
   }
 ]
