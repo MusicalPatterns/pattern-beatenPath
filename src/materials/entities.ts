@@ -1,5 +1,5 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { DictionaryOf } from '@musical-patterns/utilities'
+import { DictionaryOf } from '@musical-patterns/shared'
 import { Entity, PartSpec } from '../../../../compile'
 import { BuildEntitiesFunction } from '../../../types'
 import { BeatenPathPatternSpec } from '../types'

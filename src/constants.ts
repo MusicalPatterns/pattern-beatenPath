@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Count, Scalar, to } from '@musical-patterns/utilities'
+import { Count, Scalar, to } from '@musical-patterns/shared'
 import { Core, to as beatenPathTo } from './nominal'
 
 const SUSTAIN_AMOUNT: Scalar = to.Scalar(0.9)

@@ -1,4 +1,4 @@
-import { apply, Count, from, Index, numbers, repeat, Scalar, to } from '@musical-patterns/utilities'
+import { apply, Count, from, Index, numbers, repeat, Scalar, to } from '@musical-patterns/shared'
 import { EVEN, INITIAL } from '../../../../constants'
 import { Segment } from '../../../../patternMaterial'
 import { from as beatenPathFrom, Ratio } from '../nominal'

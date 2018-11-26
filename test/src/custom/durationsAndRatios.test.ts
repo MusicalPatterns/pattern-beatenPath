@@ -1,4 +1,4 @@
-import { apply, from, Index, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { apply, from, Index, Scalar, testIsCloseTo, to } from '@musical-patterns/shared'
 import {
     buildDurationsAndRatios,
     Core,
