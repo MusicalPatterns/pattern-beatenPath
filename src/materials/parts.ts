@@ -1,5 +1,6 @@
 import { DictionaryOf, sequence } from '@musical-patterns/utilities'
-import { PartSpec, Segment } from '../../../../src'
+import { PartSpec } from '../../../../compile'
+import { Segment } from '../../../../patternMaterial'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { buildDurationsAndRatios } from '../custom'
 import { Core } from '../nominal'

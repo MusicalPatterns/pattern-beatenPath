@@ -1,4 +1,4 @@
-import { DEFAULT_DURATION_SCALAR } from '../../../src'
+import { DEFAULT_DURATION_SCALAR } from '../../../constants'
 import { PatternId } from '../../patternId'
 import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
 import { BEATEN_PATH_INITIAL_CORE, BEATEN_PATH_INITIAL_REPETITIONS, BEATEN_PATH_PITCH_SCALAR } from './constants'
