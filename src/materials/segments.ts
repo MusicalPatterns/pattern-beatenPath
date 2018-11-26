@@ -1,5 +1,5 @@
-import { apply, Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
-import { EVEN, INITIAL, numbers, repeat, Segment } from '../../../../src'
+import { apply, Count, from, Index, numbers, repeat, Scalar, to } from '@musical-patterns/utilities'
+import { EVEN, INITIAL, Segment } from '../../../../src'
 import { from as beatenPathFrom, Ratio } from '../nominal'
 import { buildNoteSpec } from './notes'
 import { BuildSegmentsParameters } from './types'

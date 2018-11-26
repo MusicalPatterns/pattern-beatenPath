@@ -1,5 +1,4 @@
-import { apply, from, Scalar, to } from '@musical-patterns/utilities'
-import { absoluteRatio, isCloseTo } from '../../../../src'
+import { absoluteRatio, apply, from, isCloseTo, Scalar, to } from '@musical-patterns/utilities'
 import { Core, from as beatenPathFrom, Ratio, to as beatenPathTo } from '../nominal'
 import { Durations, DurationsAndRatios } from '../types'
 
