@@ -1,6 +1,6 @@
-import { apply, Count, from, Index, Maybe, Scalar, SumOfScalars, to } from '@musical-patterns/utilities'
+import { apply, Count, from, Index, Maybe, Scalar, SumOfScalars, testIsCloseTo, to } from '@musical-patterns/utilities'
 import { NotePropertySpec, NoteSpec, PartSpec, Segment } from '../../../../../src/indexForTest'
-import { calculatePartTotalScalarDuration, testIsCloseTo } from '../../../../../test'
+import { calculatePartTotalScalarDuration } from '../../../../../test'
 import {
     buildDurationsAndRatios,
     buildSegments,
