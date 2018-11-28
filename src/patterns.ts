@@ -1,6 +1,5 @@
+import { Pattern, PatternId, PatternMaterial, PatternMetadata } from '@musical-patterns/shared'
 import { DEFAULT_DURATION_SCALAR } from '../../../patternMaterial'
-import { PatternId } from '../../patternId'
-import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
 import { BEATEN_PATH_INITIAL_CORE, BEATEN_PATH_INITIAL_REPETITIONS, BEATEN_PATH_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
 import { BeatenPathPatternSpec } from './types'
@@ -33,4 +32,5 @@ const pattern: Pattern = {
 
 export {
     pattern,
+    patternSpec,
 }

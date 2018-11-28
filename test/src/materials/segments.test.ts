@@ -1,13 +1,28 @@
-import { apply, Count, from, Index, Maybe, Scalar, SumOfScalars, testIsCloseTo, to } from '@musical-patterns/shared'
-import { calculatePartTotalScalarDuration } from '../../../../../../test/support'
-import { NotePropertySpec, NoteSpec, PartSpec, Segment } from '../../../../../indexForTest'
+import { calculatePartSpecTotalCompiledDuration } from '@musical-patterns/compiler'
+import {
+    apply,
+    Count,
+    from,
+    Index,
+    Maybe,
+    NotePropertySpec,
+    NoteSpec,
+    PartSpec,
+    Scalar,
+    Scale,
+    testIsCloseTo,
+    Time, to,
+} from '@musical-patterns/shared'
+import { Segment } from '../../../../../../src/indexForTest'
 import {
     buildDurationsAndRatios,
+    buildScales,
     buildSegments,
     Core,
     Durations,
     DurationsAndRatios,
     from as beatenPathFrom,
+    patternSpec,
     Ratio,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
@@ -16,6 +31,7 @@ describe('beaten path segments', () => {
     let beatenPathSegments: Segment[]
     let beatenPathDurations: Durations
     let beatenPathRatios: Ratio[]
+    let beatenPathScales: Scale[]
 
     for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Offset(core, to.Offset(1))) {
         const suite: (repetitions: Count) => void =
@@ -25,6 +41,7 @@ describe('beaten path segments', () => {
                     beatenPathDurations = durationsAndRatios.beatenPathDurations
                     beatenPathRatios = durationsAndRatios.beatenPathRatios
                     beatenPathSegments = buildSegments({ beatenPathDurations, beatenPathRatios, repetitions })
+                    beatenPathScales = buildScales(patternSpec)
                 })
 
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
@@ -69,16 +86,16 @@ describe('beaten path segments', () => {
 
                 it('each segment\'s two sets of notes have the same total duration', () => {
                     beatenPathSegments.forEach((segment: Segment): void => {
-                        let segmentDuration: SumOfScalars = to.SumOfScalars(0)
+                        let segmentDuration: Time = to.Time(0)
                         segment.forEach((part: PartSpec): void => {
-                            if (from.SumOfScalars(segmentDuration) === 0) {
-                                segmentDuration = calculatePartTotalScalarDuration(part)
+                            if (from.Time(segmentDuration) === 0) {
+                                segmentDuration = calculatePartSpecTotalCompiledDuration(part, beatenPathScales)
                             }
                             else {
                                 expect(
                                     testIsCloseTo(
-                                        from.SumOfScalars(calculatePartTotalScalarDuration(part)),
-                                        from.SumOfScalars(segmentDuration),
+                                        from.Time(calculatePartSpecTotalCompiledDuration(part, beatenPathScales)),
+                                        from.Time(segmentDuration),
                                     ),
                                 )
                                     .toBeTruthy()
@@ -88,16 +105,16 @@ describe('beaten path segments', () => {
                 })
 
                 it('each segment has a different total duration than any other segment', () => {
-                    const seenTotalDurations: SumOfScalars[] = []
+                    const seenTotalDurations: Time[] = []
                     beatenPathSegments.forEach((segment: Segment): void => {
                         const exemplaryNotesForSegment: PartSpec = segment[ 0 ]
-                        const totalDuration: SumOfScalars = calculatePartTotalScalarDuration(exemplaryNotesForSegment)
+                        const totalDuration: Time = calculatePartSpecTotalCompiledDuration(exemplaryNotesForSegment, beatenPathScales)
 
-                        seenTotalDurations.forEach((seenDuration: SumOfScalars): void => {
+                        seenTotalDurations.forEach((seenDuration: Time): void => {
                             expect(
                                 testIsCloseTo(
-                                    from.SumOfScalars(seenDuration),
-                                    from.SumOfScalars(totalDuration),
+                                    from.Time(seenDuration),
+                                    from.Time(totalDuration),
                                     true,
                                 ))
                                 .toBeTruthy()
