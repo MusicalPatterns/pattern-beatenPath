@@ -1,4 +1,4 @@
-import { apply, from, NoteSpec, Scalar, to } from '@musical-patterns/shared'
+import { apply, from, NoteSpec, Scalar, to } from '@musical-patterns/utilities'
 import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '../../../../patternMaterial'
 import { SUSTAIN_AMOUNT } from '../constants'
 

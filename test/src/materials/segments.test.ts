@@ -12,7 +12,7 @@ import {
     Scale,
     testIsCloseTo,
     Time, to,
-} from '@musical-patterns/shared'
+} from '@musical-patterns/utilities'
 import { Segment } from '../../../../../../src/indexForTest'
 import {
     buildDurationsAndRatios,

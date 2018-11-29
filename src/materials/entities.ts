@@ -5,7 +5,7 @@ import {
     OscillatorName,
     PartSpec,
     VoiceType,
-} from '@musical-patterns/shared'
+} from '@musical-patterns/utilities'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
 

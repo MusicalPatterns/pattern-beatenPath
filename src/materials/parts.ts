@@ -1,4 +1,4 @@
-import { DictionaryOf, PartSpec, sequence } from '@musical-patterns/shared'
+import { DictionaryOf, PartSpec, sequence } from '@musical-patterns/utilities'
 import { Segment } from '../../../../patternMaterial'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { buildDurationsAndRatios } from '../custom'
