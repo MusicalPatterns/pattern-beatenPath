@@ -1,11 +1,6 @@
-import {
-    BuildEntitiesFunction,
-    DictionaryOf,
-    Entity,
-    OscillatorName,
-    PartSpec,
-    VoiceType,
-} from '@musical-patterns/utilities'
+import { BuildEntitiesFunction, Entity, PartSpec } from '@musical-patterns/compiler'
+import { OscillatorName, VoiceType } from '@musical-patterns/performer'
+import { DictionaryOf } from '@musical-patterns/utilities'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
 

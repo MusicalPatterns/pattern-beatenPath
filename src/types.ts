@@ -1,4 +1,5 @@
-import { Count, PatternSpec, Scalar } from '@musical-patterns/utilities'
+import { PatternSpec } from '@musical-patterns/pattern'
+import { Count, Scalar } from '@musical-patterns/utilities'
 import { Core, Ratio } from './nominal'
 
 interface DurationsAndRatios {

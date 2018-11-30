@@ -1,6 +1,6 @@
 [
   {
-    "part": [
+    "notes": [
       {
         "duration": 700,
         "gain": 1,
@@ -926,7 +926,7 @@
     }
   },
   {
-    "part": [
+    "notes": [
       {
         "duration": 583.3333333333334,
         "gain": 1,

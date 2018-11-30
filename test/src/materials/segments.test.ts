@@ -1,19 +1,12 @@
-import { calculatePartSpecTotalCompiledDuration } from '@musical-patterns/compiler'
 import {
-    apply,
-    Count,
-    from,
-    Index,
-    Maybe,
+    calculatePartSpecTotalCompiledDuration,
     NotePropertySpec,
     NoteSpec,
     PartSpec,
-    Scalar,
     Scale,
-    testIsCloseTo,
-    Time, to,
-} from '@musical-patterns/utilities'
-import { Segment } from '../../../../../../src/indexForTest'
+} from '@musical-patterns/compiler'
+import { Segment } from '@musical-patterns/pattern'
+import { apply, Count, from, Index, Maybe, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     buildScales,
