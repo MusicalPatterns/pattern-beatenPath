@@ -1,10 +1,14 @@
 {
   "name": "@musical-patterns/pattern-beaten-path",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/MusicalPatterns/pattern-beaten-path.git"
+  },
+  "dependencies": {
+    "@musical-patterns/pattern": "^1.0.4",
+    "@musical-patterns/utilities": "^1.0.71"
   }
 }
