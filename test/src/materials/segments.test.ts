@@ -1,8 +1,7 @@
 import {
-    calculatePartSpecTotalCompiledDuration,
+    calculateNoteSpecsTotalCompiledDuration,
     NotePropertySpec,
     NoteSpec,
-    PartSpec,
     Scale,
 } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
@@ -40,7 +39,7 @@ describe('beaten path segments', () => {
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
                     (segmentIndex: Index, entityIndex: Index): Scalar => {
                         const segment: Segment = apply.Index(beatenPathSegments, segmentIndex)
-                        const part: PartSpec = apply.Index(segment, entityIndex)
+                        const part: NoteSpec[] = apply.Index(segment, entityIndex)
                         const exampleNoteSpec: NoteSpec = part[ 0 ]
 
                         const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}
@@ -57,7 +56,7 @@ describe('beaten path segments', () => {
 
                 it('each set of notes in each segment has notes which all have the same duration', () => {
                     beatenPathSegments.forEach((segment: Segment): void => {
-                        segment.forEach((part: PartSpec): void => {
+                        segment.forEach((part: NoteSpec[]): void => {
                             let noteDuration: Scalar = to.Scalar(0)
                             part.forEach((noteSpec: NoteSpec): void => {
                                 const durationSpec: Maybe<NotePropertySpec> = noteSpec.durationSpec
@@ -80,14 +79,14 @@ describe('beaten path segments', () => {
                 it('each segment\'s two sets of notes have the same total duration', () => {
                     beatenPathSegments.forEach((segment: Segment): void => {
                         let segmentDuration: Time = to.Time(0)
-                        segment.forEach((part: PartSpec): void => {
+                        segment.forEach((part: NoteSpec[]): void => {
                             if (from.Time(segmentDuration) === 0) {
-                                segmentDuration = calculatePartSpecTotalCompiledDuration(part, beatenPathScales)
+                                segmentDuration = calculateNoteSpecsTotalCompiledDuration(part, beatenPathScales)
                             }
                             else {
                                 expect(
                                     testIsCloseTo(
-                                        from.Time(calculatePartSpecTotalCompiledDuration(part, beatenPathScales)),
+                                        from.Time(calculateNoteSpecsTotalCompiledDuration(part, beatenPathScales)),
                                         from.Time(segmentDuration),
                                     ),
                                 )
@@ -100,8 +99,8 @@ describe('beaten path segments', () => {
                 it('each segment has a different total duration than any other segment', () => {
                     const seenTotalDurations: Time[] = []
                     beatenPathSegments.forEach((segment: Segment): void => {
-                        const exemplaryNotesForSegment: PartSpec = segment[ 0 ]
-                        const totalDuration: Time = calculatePartSpecTotalCompiledDuration(exemplaryNotesForSegment, beatenPathScales)
+                        const exemplaryNotesForSegment: NoteSpec[] = segment[ 0 ]
+                        const totalDuration: Time = calculateNoteSpecsTotalCompiledDuration(exemplaryNotesForSegment, beatenPathScales)
 
                         seenTotalDurations.forEach((seenDuration: Time): void => {
                             expect(

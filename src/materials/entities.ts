@@ -1,4 +1,4 @@
-import { BuildEntitiesFunction, Entity, PartSpec, TimbreName } from '@musical-patterns/compiler'
+import { BuildEntitiesFunction, Entity, NoteSpec, TimbreName } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { BeatenPathPatternSpec } from '../types'
 import { buildParts } from './parts'
@@ -8,15 +8,15 @@ const buildEntities: BuildEntitiesFunction =
         const {
             beatenPathOnePart,
             beatenPathTwoPart,
-        }: DictionaryOf<PartSpec> = buildParts(patternSpec)
+        }: DictionaryOf<NoteSpec[]> = buildParts(patternSpec)
 
         const beatenPathOneEntity: Entity = {
-            partSpec: beatenPathOnePart,
+            noteSpecs: beatenPathOnePart,
             timbreName: TimbreName.SQUARE,
         }
 
         const beatenPathTwoEntity: Entity = {
-            partSpec: beatenPathTwoPart,
+            noteSpecs: beatenPathTwoPart,
             timbreName: TimbreName.SAWTOOTH,
         }
 
