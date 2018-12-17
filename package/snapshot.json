@@ -1125,7 +1125,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "SQUARE",
+      "timbreName": "SQUARE",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -2233,7 +2233,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "SAWTOOTH",
+      "timbreName": "SAWTOOTH",
       "voiceType": "OSCILLATOR"
     }
   }
