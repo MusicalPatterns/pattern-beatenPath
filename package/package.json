@@ -1,12 +1,12 @@
 {
-  "name": "@musical-patterns/pattern-beaten-path",
+  "name": "@musical-patterns/pattern-beatenPath",
   "version": "1.0.10",
   "main": "index.js",
   "typings": "index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MusicalPatterns/pattern-beaten-path.git"
+    "url": "https://github.com/MusicalPatterns/pattern-beatenPath.git"
   },
   "dependencies": {
     "@musical-patterns/compiler": "^1.0.34",
