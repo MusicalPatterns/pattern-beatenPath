@@ -1,4 +1,7 @@
-export { pattern as beatenPathPattern } from './dist'
+const { pattern: beatenPathPattern } = require('./dist')
+const beatenPathSnapshot = require('./snapshot')
 
-import snapshot from './snapshot'
-export default snapshot
+module.exports = {
+    beatenPathPattern,
+    beatenPathSnapshot,
+}
