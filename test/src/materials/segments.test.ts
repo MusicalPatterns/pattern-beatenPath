@@ -14,31 +14,31 @@ import {
     Durations,
     DurationsAndRatios,
     from as beatenPathFrom,
-    patternSpec,
+    spec,
     Ratio,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
-describe('beaten path segments', () => {
-    let beatenPathSegments: Segment[]
-    let beatenPathDurations: Durations
-    let beatenPathRatios: Ratio[]
-    let beatenPathScales: Scale[]
+describe('segments', () => {
+    let segments: Segment[]
+    let durations: Durations
+    let ratios: Ratio[]
+    let scales: Scale[]
 
     for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Offset(core, to.Offset(1))) {
         const suite: (repetitions: Count) => void =
             (repetitions: Count): void => {
                 beforeEach(() => {
                     const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-                    beatenPathDurations = durationsAndRatios.beatenPathDurations
-                    beatenPathRatios = durationsAndRatios.beatenPathRatios
-                    beatenPathSegments = buildSegments({ beatenPathDurations, beatenPathRatios, repetitions })
-                    beatenPathScales = buildScales(patternSpec)
+                    durations = durationsAndRatios.durations
+                    ratios = durationsAndRatios.ratios
+                    segments = buildSegments({ durations: durations, ratios: ratios, repetitions })
+                    scales = buildScales(spec)
                 })
 
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
                     (segmentIndex: Index, entityIndex: Index): Scalar => {
-                        const segment: Segment = apply.Index(beatenPathSegments, segmentIndex)
+                        const segment: Segment = apply.Index(segments, segmentIndex)
                         const part: NoteSpec[] = apply.Index(segment, entityIndex)
                         const exampleNoteSpec: NoteSpec = part[ 0 ]
 
@@ -48,14 +48,14 @@ describe('beaten path segments', () => {
                     }
 
                 it('each segment has two sets of notes, one for each entity', () => {
-                    beatenPathSegments.forEach((segment: Segment): void => {
+                    segments.forEach((segment: Segment): void => {
                         expect(segment.length)
                             .toBe(2)
                     })
                 })
 
                 it('each set of notes in each segment has notes which all have the same duration', () => {
-                    beatenPathSegments.forEach((segment: Segment): void => {
+                    segments.forEach((segment: Segment): void => {
                         segment.forEach((part: NoteSpec[]): void => {
                             let noteDuration: Scalar = to.Scalar(0)
                             part.forEach((noteSpec: NoteSpec): void => {
@@ -77,16 +77,16 @@ describe('beaten path segments', () => {
                 })
 
                 it('each segment\'s two sets of notes have the same total duration', () => {
-                    beatenPathSegments.forEach((segment: Segment): void => {
+                    segments.forEach((segment: Segment): void => {
                         let segmentDuration: Time = to.Time(0)
                         segment.forEach((part: NoteSpec[]): void => {
                             if (from.Time(segmentDuration) === 0) {
-                                segmentDuration = calculateNoteSpecsTotalCompiledDuration(part, beatenPathScales)
+                                segmentDuration = calculateNoteSpecsTotalCompiledDuration(part, scales)
                             }
                             else {
                                 expect(
                                     testIsCloseTo(
-                                        from.Time(calculateNoteSpecsTotalCompiledDuration(part, beatenPathScales)),
+                                        from.Time(calculateNoteSpecsTotalCompiledDuration(part, scales)),
                                         from.Time(segmentDuration),
                                     ),
                                 )
@@ -98,9 +98,9 @@ describe('beaten path segments', () => {
 
                 it('each segment has a different total duration than any other segment', () => {
                     const seenTotalDurations: Time[] = []
-                    beatenPathSegments.forEach((segment: Segment): void => {
+                    segments.forEach((segment: Segment): void => {
                         const exemplaryNotesForSegment: NoteSpec[] = segment[ 0 ]
-                        const totalDuration: Time = calculateNoteSpecsTotalCompiledDuration(exemplaryNotesForSegment, beatenPathScales)
+                        const totalDuration: Time = calculateNoteSpecsTotalCompiledDuration(exemplaryNotesForSegment, scales)
 
                         seenTotalDurations.forEach((seenDuration: Time): void => {
                             expect(
@@ -116,60 +116,60 @@ describe('beaten path segments', () => {
                     })
                 })
 
-                it('segments\'s note durations follow an alternating pattern of incrementing along the beaten path durations', () => {
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(0), to.Index(0)), beatenPathDurations[ 0 ]))
+                it('segments\'s note durations follow an alternating pattern of incrementing along the durations', () => {
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(0), to.Index(0)), durations[ 0 ]))
                         .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(0), to.Index(1)), beatenPathDurations[ 1 ]))
-                        .toBeTruthy()
-
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(1), to.Index(0)), beatenPathDurations[ 2 ]))
-                        .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(1), to.Index(1)), beatenPathDurations[ 1 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(0), to.Index(1)), durations[ 1 ]))
                         .toBeTruthy()
 
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(2), to.Index(0)), beatenPathDurations[ 2 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(1), to.Index(0)), durations[ 2 ]))
                         .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(2), to.Index(1)), beatenPathDurations[ 3 ]))
-                        .toBeTruthy()
-
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(3), to.Index(0)), beatenPathDurations[ 4 ]))
-                        .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(3), to.Index(1)), beatenPathDurations[ 3 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(1), to.Index(1)), durations[ 1 ]))
                         .toBeTruthy()
 
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(4), to.Index(0)), beatenPathDurations[ 4 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(2), to.Index(0)), durations[ 2 ]))
                         .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(4), to.Index(1)), beatenPathDurations[ 5 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(2), to.Index(1)), durations[ 3 ]))
+                        .toBeTruthy()
+
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(3), to.Index(0)), durations[ 4 ]))
+                        .toBeTruthy()
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(3), to.Index(1)), durations[ 3 ]))
+                        .toBeTruthy()
+
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(4), to.Index(0)), durations[ 4 ]))
+                        .toBeTruthy()
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(4), to.Index(1)), durations[ 5 ]))
                         .toBeTruthy()
 
                     // Etcetera...
                 })
 
                 it('for each segment, both of its sets of notes have a count of notes equal to ??? times the repetition', () => {
-                    expect(beatenPathSegments[ 0 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 0 ][ 0 ]) * from.Count(repetitions))
-                    expect(beatenPathSegments[ 0 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 0 ][ 1 ]) * from.Count(repetitions))
+                    expect(segments[ 0 ][ 0 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 0 ][ 0 ]) * from.Count(repetitions))
+                    expect(segments[ 0 ][ 1 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 0 ][ 1 ]) * from.Count(repetitions))
 
-                    expect(beatenPathSegments[ 1 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 1 ][ 1 ]) * from.Count(repetitions))
-                    expect(beatenPathSegments[ 1 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 1 ][ 0 ]) * from.Count(repetitions))
+                    expect(segments[ 1 ][ 0 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 1 ][ 1 ]) * from.Count(repetitions))
+                    expect(segments[ 1 ][ 1 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 1 ][ 0 ]) * from.Count(repetitions))
 
-                    expect(beatenPathSegments[ 2 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 2 ][ 0 ]) * from.Count(repetitions))
-                    expect(beatenPathSegments[ 2 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 2 ][ 1 ]) * from.Count(repetitions))
+                    expect(segments[ 2 ][ 0 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 2 ][ 0 ]) * from.Count(repetitions))
+                    expect(segments[ 2 ][ 1 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 2 ][ 1 ]) * from.Count(repetitions))
 
-                    expect(beatenPathSegments[ 3 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 3 ][ 1 ]) * from.Count(repetitions))
-                    expect(beatenPathSegments[ 3 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 3 ][ 0 ]) * from.Count(repetitions))
+                    expect(segments[ 3 ][ 0 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 3 ][ 1 ]) * from.Count(repetitions))
+                    expect(segments[ 3 ][ 1 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 3 ][ 0 ]) * from.Count(repetitions))
 
-                    expect(beatenPathSegments[ 4 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 4 ][ 0 ]) * from.Count(repetitions))
-                    expect(beatenPathSegments[ 4 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(beatenPathRatios[ 4 ][ 1 ]) * from.Count(repetitions))
+                    expect(segments[ 4 ][ 0 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 4 ][ 0 ]) * from.Count(repetitions))
+                    expect(segments[ 4 ][ 1 ].length)
+                        .toBe(beatenPathFrom.FractionalPart(ratios[ 4 ][ 1 ]) * from.Count(repetitions))
 
                     // Etcetera...
                 })

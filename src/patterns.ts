@@ -5,19 +5,19 @@ import { BEATEN_PATH_INITIAL_CORE, BEATEN_PATH_INITIAL_REPETITIONS, BEATEN_PATH_
 import { buildEntities, buildScales } from './materials'
 import { BeatenPathPatternSpec } from './types'
 
-const beatenPathPatternMaterial: PatternMaterial = {
+const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
     buildScalesFunction: buildScales,
 }
 
-const beatenPathPatternMetadata: PatternMetadata = {
+const metadata: PatternMetadata = {
     // tslint:disable-next-line:max-line-length
     description: 'repeated metric modulation of polyrhythms by neighboring superparticulars, never deviating any further from original duration than necessary',
     formattedName: 'Beaten Path',
     musicalIdeaIllustrated: 'metric modulation cycles',
 }
 
-const patternSpec: BeatenPathPatternSpec = {
+const spec: BeatenPathPatternSpec = {
     core: BEATEN_PATH_INITIAL_CORE,
     patternDurationOffset: to.Offset(0),
     patternDurationScalar: DEFAULT_DURATION_SCALAR,
@@ -27,13 +27,13 @@ const patternSpec: BeatenPathPatternSpec = {
 }
 
 const pattern: Pattern = {
-    material: beatenPathPatternMaterial,
-    metadata: beatenPathPatternMetadata,
+    material,
+    metadata,
     patternId: PatternId.BEATEN_PATH,
-    spec: patternSpec,
+    spec,
 }
 
 export {
     pattern,
-    patternSpec,
+    spec,
 }

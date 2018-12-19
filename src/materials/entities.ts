@@ -6,23 +6,23 @@ import { buildParts } from './parts'
 const buildEntities: BuildEntitiesFunction =
     (patternSpec: BeatenPathPatternSpec): Entity[] => {
         const {
-            beatenPathOnePart,
-            beatenPathTwoPart,
+            firstPart,
+            secondPart,
         }: DictionaryOf<NoteSpec[]> = buildParts(patternSpec)
 
-        const beatenPathOneEntity: Entity = {
-            noteSpecs: beatenPathOnePart,
+        const firstEntity: Entity = {
+            noteSpecs: firstPart,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const beatenPathTwoEntity: Entity = {
-            noteSpecs: beatenPathTwoPart,
+        const secondEntity: Entity = {
+            noteSpecs: secondPart,
             timbreName: TimbreNameEnum.SAWTOOTH,
         }
 
         return [
-            beatenPathOneEntity,
-            beatenPathTwoEntity,
+            firstEntity,
+            secondEntity,
         ]
     }
 

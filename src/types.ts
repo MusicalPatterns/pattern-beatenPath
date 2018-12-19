@@ -3,8 +3,8 @@ import { Count, Scalar } from '@musical-patterns/utilities'
 import { Core, Ratio } from './nominal'
 
 interface DurationsAndRatios {
-    beatenPathDurations: Durations,
-    beatenPathRatios: Ratio[],
+    durations: Durations,
+    ratios: Ratio[],
 }
 
 type Durations = Scalar[]

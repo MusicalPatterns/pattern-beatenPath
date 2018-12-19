@@ -5,12 +5,12 @@ import { buildNoteSpec } from './notes'
 import { BuildSegmentsParameters } from './types'
 
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
-    ({ beatenPathDurations, beatenPathRatios, repetitions }: BuildSegmentsParameters): Segment[] =>
+    ({ durations, ratios, repetitions }: BuildSegmentsParameters): Segment[] =>
         numbers
-            .slice(from.Index(INITIAL), beatenPathDurations.length - 1)
+            .slice(from.Index(INITIAL), durations.length - 1)
             .map(to.Index)
             .map((index: Index): Segment => {
-                const ratioTuple: Ratio = apply.Index(beatenPathRatios, apply.Offset(index, to.Offset(-1)))
+                const ratioTuple: Ratio = apply.Index(ratios, apply.Offset(index, to.Offset(-1)))
 
                 const indexOfFirstEntitysDurationForThisSegment: Index =
                     to.Index(Math.floor(from.Index(index) / EVEN) * EVEN)
@@ -32,9 +32,9 @@ const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segme
                 ))
 
                 const firstEntityDurationScalar: Scalar =
-                    apply.Index(beatenPathDurations, indexOfFirstEntitysDurationForThisSegment)
+                    apply.Index(durations, indexOfFirstEntitysDurationForThisSegment)
                 const secondEntityDurationScalar: Scalar =
-                    apply.Index(beatenPathDurations, indexOfSecondEntitysDurationForThisSegment)
+                    apply.Index(durations, indexOfSecondEntitysDurationForThisSegment)
 
                 return [
                     repeat([ firstEntityDurationScalar ], apply.Count(firstEntityNotesCount, repetitions))

@@ -11,17 +11,17 @@ const buildParts: (patternSpec: BeatenPathPatternSpec) => DictionaryOf<NoteSpec[
     ({ core, repetitions }: BeatenPathPatternSpec): DictionaryOf<NoteSpec[]> => {
         const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
 
-        const { beatenPathRatios, beatenPathDurations } = buildDurationsAndRatios(clampedCore)
-        const beatenPathSegments: Segment[] = buildSegments({ beatenPathDurations, beatenPathRatios, repetitions })
+        const { ratios, durations } = buildDurationsAndRatios(clampedCore)
+        const segments: Segment[] = buildSegments({ durations, ratios, repetitions })
 
-        const beatenPathOnePart: NoteSpec[] = sequence(
-            beatenPathSegments.map((segment: Segment): NoteSpec[] => segment[ 0 ]),
+        const firstPart: NoteSpec[] = sequence(
+            segments.map((segment: Segment): NoteSpec[] => segment[ 0 ]),
         )
-        const beatenPathTwoPart: NoteSpec[] = sequence(
-            beatenPathSegments.map((segment: Segment): NoteSpec[] => segment[ 1 ]),
+        const secondPart: NoteSpec[] = sequence(
+            segments.map((segment: Segment): NoteSpec[] => segment[ 1 ]),
         )
 
-        return { beatenPathOnePart, beatenPathTwoPart }
+        return { firstPart, secondPart }
     }
 
 export {

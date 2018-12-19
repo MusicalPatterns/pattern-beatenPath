@@ -4,37 +4,37 @@ import { Durations, DurationsAndRatios } from '../types'
 
 const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
-        const beatenPathDurations: Durations = [ to.Scalar(1) ]
-        const beatenPathRatios: Ratio[] = []
+        const durations: Durations = [ to.Scalar(1) ]
+        const ratios: Ratio[] = []
 
         const hasLooped: () => boolean =
             (): boolean =>
-                beatenPathDurations.length > 1 &&
-                isCloseTo(beatenPathDurations[ beatenPathDurations.length - 1 ], to.Scalar(1))
+                durations.length > 1 &&
+                isCloseTo(durations[ durations.length - 1 ], to.Scalar(1))
 
         const rawCore: number = beatenPathFrom.Core(core)
         const upRatio: Scalar = to.Scalar(rawCore / (rawCore + 1))
         const downRatio: Scalar = to.Scalar(rawCore / (rawCore - 1))
 
         while (!hasLooped()) {
-            const lastDuration: Scalar = beatenPathDurations[ beatenPathDurations.length - 1 ]
+            const lastDuration: Scalar = durations[ durations.length - 1 ]
 
             const upDuration: Scalar = apply.Scalar(lastDuration, upRatio)
             const downDuration: Scalar = apply.Scalar(lastDuration, downRatio)
 
             if (absoluteRatio(from.Scalar(upDuration)) > absoluteRatio(from.Scalar(downDuration))) {
-                beatenPathDurations.push(upDuration)
-                beatenPathRatios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore + 1) ])
+                durations.push(upDuration)
+                ratios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore + 1) ])
             }
             else {
-                beatenPathDurations.push(downDuration)
-                beatenPathRatios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore - 1) ])
+                durations.push(downDuration)
+                ratios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore - 1) ])
             }
         }
 
         return {
-            beatenPathDurations,
-            beatenPathRatios,
+            durations,
+            ratios,
         }
     }
 
