@@ -4,3 +4,7 @@ pull:
 .PHONY: test
 test:
 	pushd ../..; JASMINE_CONFIG_PATH="src/beaten-path/test/jasmine.js" PATTERN_NAME="BEATEN_PATH" make test; popd
+
+.PHONY: lint
+lint:
+	pushd ../..; DIR="src/beaten-path" make lint; popd
