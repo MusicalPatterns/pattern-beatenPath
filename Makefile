@@ -14,3 +14,6 @@ push:
 .PHONY: test
 test:
 	pushd ../..; JASMINE_CONFIG_PATH="src/beatenPath/test/jasmine.js" PATTERN_NAME="BEATEN_PATH" make test; popd
+
+update:
+	pushd ../..; PATTERN="BEATEN_PATH" make update; popd
