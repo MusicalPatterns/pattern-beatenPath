@@ -11,7 +11,7 @@
   "dependencies": {
     "@musical-patterns/compiler": "^1.0.35",
     "@musical-patterns/pattern": "^1.0.29",
-    "@musical-patterns/utilities": "^1.0.105"
+    "@musical-patterns/utilities": "^1.0.106"
   },
   "peerDependencies": {
     "@musical-patterns/performer": "^1.0.71"
