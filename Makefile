@@ -3,7 +3,7 @@ commit:
 
 .PHONY: lint
 lint:
-	pushd ../..; DIR="src/beatenPath" make lint; popd
+	pushd ../..; make lint DIR="src/beatenPath"; popd
 
 pull:
 	../../node_modules/@musical-patterns/cli/bin/pull.sh
@@ -13,7 +13,7 @@ push:
 
 .PHONY: test
 test:
-	pushd ../..; JASMINE_CONFIG_PATH="src/beatenPath/test/jasmine.js" PATTERN_NAME="BEATEN_PATH" make test; popd
+	pushd ../..; make test JASMINE_CONFIG_PATH="src/beatenPath/test/jasmine.js" PATTERN_NAME="BEATEN_PATH"; popd
 
 update:
-	pushd ../..; PATTERN="BEATEN_PATH" make update; popd
+	pushd ../..; make update PATTERN="BEATEN_PATH"; popd
