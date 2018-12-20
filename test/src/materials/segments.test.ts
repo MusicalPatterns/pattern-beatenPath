@@ -14,8 +14,8 @@ import {
     Durations,
     DurationsAndRatios,
     from as beatenPathFrom,
-    spec,
     Ratio,
+    spec,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
@@ -32,7 +32,7 @@ describe('segments', () => {
                     const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
                     durations = durationsAndRatios.durations
                     ratios = durationsAndRatios.ratios
-                    segments = buildSegments({ durations: durations, ratios: ratios, repetitions })
+                    segments = buildSegments({ durations, ratios, repetitions })
                     scales = buildScales(spec)
                 })
 
