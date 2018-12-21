@@ -2,7 +2,7 @@
 
 import { Pattern } from '@musical-patterns/pattern';
 import { ThreadSpec } from '@musical-patterns/performer';
-declare const beatenPathSnapshot: ThreadSpec[];
-declare const beatenPathPattern: Pattern;
-export { beatenPathPattern };
-export { beatenPathSnapshot };
+declare const snapshot: ThreadSpec[];
+declare const pattern: Pattern;
+export { snapshot };
+export { pattern };
