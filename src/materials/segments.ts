@@ -1,6 +1,17 @@
 import { Segment } from '@musical-patterns/pattern'
-import { apply, Count, EVEN, from, Index, INITIAL, numbers, repeat, Scalar, to } from '@musical-patterns/utilities'
-import { from as beatenPathFrom, Ratio } from '../nominal'
+import {
+    apply,
+    Count,
+    EVEN,
+    from,
+    Index,
+    INITIAL,
+    numbers,
+    Ratio,
+    repeat,
+    Scalar,
+    to,
+} from '@musical-patterns/utilities'
 import { buildNoteSpec } from './notes'
 import { BuildSegmentsParameters } from './types'
 
@@ -24,10 +35,10 @@ const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segme
                         ? to.Index(0)
                         : to.Index(1)
 
-                const firstEntityNotesCount: Count = to.Count(beatenPathFrom.FractionalPart(
+                const firstEntityNotesCount: Count = to.Count(from.FractionalPart(
                     apply.Index(ratioTuple, indexOfRatioTupleToDetermineFirstEntitysNotesCountForThisSegment),
                 ))
-                const secondEntityNotesCount: Count = to.Count(beatenPathFrom.FractionalPart(
+                const secondEntityNotesCount: Count = to.Count(from.FractionalPart(
                     apply.Index(ratioTuple, indexOfRatioTupleToDetermineSecondEntitysNotesCountForThisSegment),
                 ))
 

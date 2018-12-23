@@ -5,7 +5,7 @@ import {
     Scale,
 } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { apply, Count, from, Index, Maybe, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
+import { apply, Count, from, Index, Maybe, Ratio, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     buildScales,
@@ -14,7 +14,6 @@ import {
     Durations,
     DurationsAndRatios,
     from as beatenPathFrom,
-    Ratio,
     spec,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
@@ -147,29 +146,29 @@ describe('segments', () => {
 
                 it('for each segment, both of its sets of notes have a count of notes equal to ??? times the repetition', () => {
                     expect(segments[ 0 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 0 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 0 ][ 0 ]) * from.Count(repetitions))
                     expect(segments[ 0 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 0 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 0 ][ 1 ]) * from.Count(repetitions))
 
                     expect(segments[ 1 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 1 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 1 ][ 1 ]) * from.Count(repetitions))
                     expect(segments[ 1 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 1 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 1 ][ 0 ]) * from.Count(repetitions))
 
                     expect(segments[ 2 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 2 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 2 ][ 0 ]) * from.Count(repetitions))
                     expect(segments[ 2 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 2 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 2 ][ 1 ]) * from.Count(repetitions))
 
                     expect(segments[ 3 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 3 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 3 ][ 1 ]) * from.Count(repetitions))
                     expect(segments[ 3 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 3 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 3 ][ 0 ]) * from.Count(repetitions))
 
                     expect(segments[ 4 ][ 0 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 4 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 4 ][ 0 ]) * from.Count(repetitions))
                     expect(segments[ 4 ][ 1 ].length)
-                        .toBe(beatenPathFrom.FractionalPart(ratios[ 4 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 4 ][ 1 ]) * from.Count(repetitions))
 
                     // Etcetera...
                 })

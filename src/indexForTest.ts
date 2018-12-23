@@ -14,7 +14,6 @@ export {
     to,
     from,
     Core,
-    Ratio,
 } from './nominal/indexForTest'
 export {
     Durations,

@@ -9,5 +9,4 @@ export {
 }
 export {
     Core,
-    Ratio,
 } from './types'

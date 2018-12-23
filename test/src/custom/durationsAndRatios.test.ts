@@ -1,16 +1,14 @@
-import { apply, from, Index, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { apply, from, Index, Ratio, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     Core,
     Durations,
     DurationsAndRatios,
-    from as beatenPathFrom,
-    Ratio,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
 const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
-    to.Scalar(beatenPathFrom.FractionalPart(ratio[ 0 ]) / beatenPathFrom.FractionalPart(ratio[ 1 ]))
+    to.Scalar(from.FractionalPart(ratio[ 0 ]) / from.FractionalPart(ratio[ 1 ]))
 
 describe('durations and ratios', () => {
     let durations: Durations
@@ -49,8 +47,8 @@ describe('durations and ratios', () => {
             durations = durationsAndRatios.durations
             ratios = durationsAndRatios.ratios
 
-            const down: Ratio = beatenPathTo.Ratio([ 2, 1 ])
-            const up: Ratio = beatenPathTo.Ratio([ 2, 3 ])
+            const down: Ratio = to.Ratio([ 2, 1 ])
+            const up: Ratio = to.Ratio([ 2, 3 ])
 
             const expectedRatios: Ratio[] = [
                 up,
@@ -149,8 +147,8 @@ describe('durations and ratios', () => {
             durations = durationsAndRatios.durations
             ratios = durationsAndRatios.ratios
 
-            const down: Ratio = beatenPathTo.Ratio([ 3, 2 ])
-            const up: Ratio = beatenPathTo.Ratio([ 3, 4 ])
+            const down: Ratio = to.Ratio([ 3, 2 ])
+            const up: Ratio = to.Ratio([ 3, 4 ])
 
             const expectedRatios: Ratio[] = [
                 up,
@@ -218,8 +216,8 @@ describe('durations and ratios', () => {
             durations = durationsAndRatios.durations
             ratios = durationsAndRatios.ratios
 
-            const down: Ratio = beatenPathTo.Ratio([ 4, 3 ])
-            const up: Ratio = beatenPathTo.Ratio([ 4, 5 ])
+            const down: Ratio = to.Ratio([ 4, 3 ])
+            const up: Ratio = to.Ratio([ 4, 5 ])
 
             const expectedRatios: Ratio[] = [
                 up,
@@ -250,8 +248,8 @@ describe('durations and ratios', () => {
             durations = durationsAndRatios.durations
             ratios = durationsAndRatios.ratios
 
-            const down: Ratio = beatenPathTo.Ratio([ 5, 4 ])
-            const up: Ratio = beatenPathTo.Ratio([ 5, 6 ])
+            const down: Ratio = to.Ratio([ 5, 4 ])
+            const up: Ratio = to.Ratio([ 5, 6 ])
 
             const expectedRatios: Ratio[] = [
                 up,

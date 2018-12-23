@@ -1,5 +1,4 @@
-import { Count } from '@musical-patterns/utilities'
-import { Ratio } from '../nominal'
+import { Count, Ratio } from '@musical-patterns/utilities'
 import { Durations } from '../types'
 
 interface BuildSegmentsParameters {

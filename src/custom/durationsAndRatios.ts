@@ -1,5 +1,5 @@
-import { absoluteRatio, apply, from, isCloseTo, Scalar, to } from '@musical-patterns/utilities'
-import { Core, from as beatenPathFrom, Ratio, to as beatenPathTo } from '../nominal'
+import { absoluteRatio, apply, from, isCloseTo, Ratio, Scalar, to } from '@musical-patterns/utilities'
+import { Core, from as beatenPathFrom } from '../nominal'
 import { Durations, DurationsAndRatios } from '../types'
 
 const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
@@ -24,11 +24,11 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
 
             if (absoluteRatio(from.Scalar(upDuration)) > absoluteRatio(from.Scalar(downDuration))) {
                 durations.push(upDuration)
-                ratios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore + 1) ])
+                ratios.push([ to.Numerator(rawCore), to.Denominator(rawCore + 1) ])
             }
             else {
                 durations.push(downDuration)
-                ratios.push([ beatenPathTo.Numerator(rawCore), beatenPathTo.Denominator(rawCore - 1) ])
+                ratios.push([ to.Numerator(rawCore), to.Denominator(rawCore - 1) ])
             }
         }
 
