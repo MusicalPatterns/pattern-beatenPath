@@ -17,7 +17,7 @@ const buildEntities: BuildEntitiesFunction =
 
         const secondEntity: Entity = {
             noteSpecs: secondPart,
-            timbreName: TimbreNameEnum.SAWTOOTH,
+            timbreName: TimbreNameEnum.SAW,
         }
 
         return [

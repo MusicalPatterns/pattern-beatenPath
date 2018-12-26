@@ -2233,7 +2233,7 @@
       }
     ],
     "voiceSpec": {
-      "timbreName": "SAWTOOTH",
+      "timbreName": "SAW",
       "voiceType": "OSCILLATOR"
     }
   }
