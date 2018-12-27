@@ -1125,7 +1125,7 @@
       }
     ],
     "voiceSpec": {
-      "timbreName": "SQUARE",
+      "timbreName": "ORGAN_2",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -2233,7 +2233,7 @@
       }
     ],
     "voiceSpec": {
-      "timbreName": "SAW",
+      "timbreName": "PUTNEY_WAVERING",
       "voiceType": "OSCILLATOR"
     }
   }
