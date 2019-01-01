@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-beaten-path",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "main": "index.js",
   "typings": "index.d.ts",
   "license": "MIT",
