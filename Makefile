@@ -5,25 +5,25 @@ MAKEFLAGS += --no-print-directory --always-make
 LOCAL_PATTERN=$(notdir $(shell pwd))
 
 build:
-	@set -e; ../../node_modules/@musical-patterns/cli/bin/build.sh tsc package
+	@bash ./node_modules/.bin/musical-pattern build tsc
 
 clean_updates:
-	@set -e; ../../node_modules/@musical-patterns/cli/bin/clean_updates.sh
+	@bash ./node_modules/.bin/musical-pattern clean_updates
 
 commit:
-	@set -e; ../../node_modules/@musical-patterns/cli/bin/commit.sh
+	@bash ./node_modules/.bin/musical-pattern commit
 
 lint:
 	@set -e; pushd ../..; make lint PATTERN=${LOCAL_PATTERN}; popd
 
 publish:
-	@set -e; ../../node_modules/@musical-patterns/cli/bin/publish.sh package
+	@bash ./node_modules/.bin/musical-pattern publish
 
 pull:
-	@set -e; ../../node_modules/@musical-patterns/cli/bin/pull.sh
+	@bash ./node_modules/.bin/musical-pattern pull
 
 push:
-	@set -e; ../../node_modules/@musical-patterns/cli/bin/push.sh
+	@bash ./node_modules/.bin/musical-pattern push
 
 ship:
 	@set -e; pushd ../..; make ship PATTERN=${LOCAL_PATTERN}; popd
