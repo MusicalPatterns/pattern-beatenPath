@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-beaten-path",
-  "version": "1.0.53",
+  "version": "1.0.54",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -18,6 +18,6 @@
     "@musical-patterns/performer": "^1.0.92"
   },
   "devDependencies": {
-    "@musical-patterns/cli-pattern": "^1.0.20"
+    "@musical-patterns/cli-pattern": "^1.0.23"
   }
 }

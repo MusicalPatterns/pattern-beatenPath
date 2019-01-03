@@ -1,14 +1,13 @@
 import { compilePattern } from '@musical-patterns/compiler'
-import { Pattern } from '@musical-patterns/pattern'
 
 describe('snapshot', () => {
     it('stays locked down', async (done: DoneFn) => {
-        // tslint:disable-next-line:no-var-requires no-require-imports no-unsafe-any
-        const pattern: Pattern = require('../../src/indexForTest').pattern
+        // tslint:disable-next-line:no-unsafe-any no-require-imports
+        const { pattern, snapshot } = require('../../src/indexForTest')
 
+        // tslint:disable-next-line:no-unsafe-any
         expect(JSON.stringify(await compilePattern(pattern), undefined, 2))
-        // tslint:disable-next-line:no-require-imports no-unsafe-any
-            .toEqual(JSON.stringify(require('../../src/snapshot'), undefined, 2))
+            .toEqual(JSON.stringify(snapshot, undefined, 2))
 
         done()
     })

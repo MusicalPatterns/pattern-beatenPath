@@ -14,7 +14,7 @@ commit:
 	@bash ./node_modules/.bin/musical-pattern commit
 
 lint:
-	@set -e; pushd ../..; make lint PATTERN=${LOCAL_PATTERN}; popd
+	@bash ./node_modules/.bin/musical-pattern lint
 
 publish:
 	@bash ./node_modules/.bin/musical-pattern publish
