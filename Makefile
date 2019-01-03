@@ -32,7 +32,7 @@ snapshot:
 	@bash ./node_modules/.bin/musical-pattern snapshot
 
 test:
-	@set -e; pushd ../..; make test PATTERN=${LOCAL_PATTERN}; popd
+	@bash ./node_modules/.bin/musical-pattern test
 
 update:
 	@set -e; pushd ../..; make update PATTERN=${LOCAL_PATTERN}; popd
