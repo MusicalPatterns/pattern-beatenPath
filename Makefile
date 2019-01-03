@@ -35,4 +35,4 @@ test:
 	@bash ./node_modules/.bin/musical-pattern test
 
 update:
-	@set -e; pushd ../..; make update PATTERN=${LOCAL_PATTERN}; popd
+	@bash ./node_modules/.bin/musical-pattern update
