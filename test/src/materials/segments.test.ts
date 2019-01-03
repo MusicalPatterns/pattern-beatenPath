@@ -4,8 +4,8 @@ import {
     NoteSpec,
     Scale,
 } from '@musical-patterns/compiler'
-import { Segment } from '@musical-patterns/pattern'
 import { apply, Count, from, Index, Maybe, Ratio, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
+import { Segment } from '@musical-patterns/utilities-pattern'
 import {
     buildDurationsAndRatios,
     buildScales,
@@ -13,7 +13,6 @@ import {
     Core,
     Durations,
     DurationsAndRatios,
-    from as beatenPathFrom,
     spec,
     to as beatenPathTo,
 } from '../../../src/indexForTest'

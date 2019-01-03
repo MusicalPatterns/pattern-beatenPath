@@ -1,4 +1,3 @@
-import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Count,
@@ -12,6 +11,7 @@ import {
     Scalar,
     to,
 } from '@musical-patterns/utilities'
+import { Segment } from '@musical-patterns/utilities-pattern'
 import { buildNoteSpec } from './notes'
 import { BuildSegmentsParameters } from './types'
 
