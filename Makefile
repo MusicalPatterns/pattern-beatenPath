@@ -29,7 +29,7 @@ ship:
 	@set -e; pushd ../..; make ship PATTERN=${LOCAL_PATTERN}; popd
 
 snapshot:
-	@set -e; pushd ../..; make snapshot PATTERN=${LOCAL_PATTERN}; popd
+	@bash ./node_modules/.bin/musical-pattern snapshot
 
 test:
 	@set -e; pushd ../..; make test PATTERN=${LOCAL_PATTERN}; popd

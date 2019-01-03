@@ -1,7 +1,5 @@
 import { compilePattern } from '@musical-patterns/compiler'
 import { Pattern } from '@musical-patterns/pattern'
-// @ts-ignore
-import { collectPatternNames } from '../../bin'
 
 describe('snapshot', () => {
     it('stays locked down', async (done: DoneFn) => {
