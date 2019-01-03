@@ -1,9 +1,9 @@
 module.exports = {
     spec_files: [
-        'test/src/**/*.ts',
-        'test/src/**/*.js',
-        'test/src/**/*.tsx',
-        'test/src/**/*.jsx',
+        'test/**/*.test.ts',
+        'test/**/*.test.js',
+        'test/**/*.test.tsx',
+        'test/**/*.test.jsx',
     ],
     helpers: [
         'test/setup.js',
