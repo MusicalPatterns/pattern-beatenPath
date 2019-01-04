@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
+import { Segment } from '@musical-patterns/pattern'
 import { DictionaryOf, sequence } from '@musical-patterns/utilities'
-import { Segment } from '@musical-patterns/utilities-pattern'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { buildDurationsAndRatios } from '../custom'
 import { Core } from '../nominal'
