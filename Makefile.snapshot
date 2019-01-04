@@ -2,4 +2,4 @@ Makefile.snapshot:
 	@:
 
 snapshot:
-	@bash node_modules/.bin/musical-pattern snapshot
+	@bash node_modules/.bin/mps
