@@ -1,6 +1,6 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
-import { DEFAULT_DURATION_SCALAR } from '@musical-patterns/pattern'
-import { Pattern, PatternId, PatternMetadata } from '@musical-patterns/registry'
+import { DEFAULT_DURATION_SCALAR, PatternMetadata } from '@musical-patterns/pattern'
+import { Pattern, PatternId } from '@musical-patterns/registry'
 import { to } from '@musical-patterns/utilities'
 import { BEATEN_PATH_INITIAL_CORE, BEATEN_PATH_INITIAL_REPETITIONS, BEATEN_PATH_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'

@@ -1,4 +1,4 @@
-import { PatternSpec } from '@musical-patterns/registry'
+import { PatternSpec } from '@musical-patterns/pattern'
 import { Count, Ratio, Scalar } from '@musical-patterns/utilities'
 import { Core } from './nominal'
 
