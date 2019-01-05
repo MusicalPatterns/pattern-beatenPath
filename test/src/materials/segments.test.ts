@@ -1,9 +1,4 @@
-import {
-    calculateNoteSpecsTotalCompiledDuration,
-    NotePropertySpec,
-    NoteSpec,
-    Scale,
-} from '@musical-patterns/compiler'
+import { calculateNoteSpecsTotalCompiledDuration, NotePropertySpec, NoteSpec, Scale } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import { apply, Count, from, Index, Maybe, Ratio, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
 import {
