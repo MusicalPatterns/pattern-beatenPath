@@ -18,6 +18,6 @@
     "@musical-patterns/cli": "^1.0.256",
     "@musical-patterns/playroom": "^1.0.97",
     "@musical-patterns/snapshot": "^1.0.11",
-    "typescript": "^3.2.2"
+    "ts-loader": "^5.3.3"
   }
 }
