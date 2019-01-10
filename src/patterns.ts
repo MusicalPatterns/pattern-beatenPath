@@ -4,6 +4,7 @@ import { buildPatterns, Pattern, PatternId, Patterns } from '@musical-patterns/r
 import { to } from '@musical-patterns/utilities'
 import { BEATEN_PATH_INITIAL_CORE, BEATEN_PATH_INITIAL_REPETITIONS, BEATEN_PATH_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
+import { post } from './metadata'
 import { BeatenPathPatternSpec } from './types'
 
 const material: PatternMaterial = {
@@ -12,8 +13,7 @@ const material: PatternMaterial = {
 }
 
 const metadata: PatternMetadata = {
-    // tslint:disable-next-line:max-line-length
-    description: 'repeated metric modulation of polyrhythms by neighboring superparticulars, never deviating any further from original duration than necessary',
+    description: post,
     formattedName: 'Beaten Path',
     musicalIdeaIllustrated: 'metric modulation cycles',
 }
