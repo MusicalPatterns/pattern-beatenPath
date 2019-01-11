@@ -17,7 +17,6 @@
   "devDependencies": {
     "@musical-patterns/cli": "^1.0.256",
     "@musical-patterns/playroom": "^1.0.97",
-    "@musical-patterns/snapshot": "^1.0.11",
-    "ts-loader": "^5.3.3"
+    "@musical-patterns/snapshot": "^1.0.11"
   }
 }
