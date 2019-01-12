@@ -15,7 +15,7 @@ const material: PatternMaterial = {
 const metadata: PatternMetadata = {
     description: post,
     formattedName: 'Beaten Path',
-    mostRecentPublish: process.env.PUBLISH_DATE,
+    mostRecentPublish: process.env.PUBLISH_DATE || '2018-10-01T07:00:00.000Z',
     musicalIdeaIllustrated: 'metric modulation cycles',
     originalPublish: '2018-10-01T07:00:00.000Z',
 }
