@@ -8,7 +8,8 @@ export {
     buildEntities,
     buildScales,
 } from './materials/indexForTest'
-export { pattern, spec } from './patterns'
+export { pattern } from './patterns'
+export { initialSpec } from './specs'
 
 export {
     to,
