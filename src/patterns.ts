@@ -3,7 +3,8 @@ import { PatternMetadata } from '@musical-patterns/pattern'
 import { buildPatterns, Pattern, PatternId, Patterns } from '@musical-patterns/registry'
 import { buildEntities, buildScales } from './materials'
 import { post } from './metadata'
-import { initialSpec, specAttributes } from './specs'
+import { specData } from './specs'
+import { BeatenPathPatternSpec } from './types'
 
 const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
@@ -18,12 +19,11 @@ const metadata: PatternMetadata = {
     originalPublish: '2018-10-01T07:00:00.000Z',
 }
 
-const pattern: Pattern = {
-    initialSpec,
+const pattern: Pattern<BeatenPathPatternSpec> = {
     material,
     metadata,
     patternId: PatternId.BEATEN_PATH,
-    specAttributes,
+    specData,
 }
 
 const patterns: Patterns = buildPatterns({

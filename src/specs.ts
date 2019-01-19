@@ -1,4 +1,5 @@
 import {
+    PatternSpecData,
     PatternSpecPropertyType,
     standardInitialPatternSpec,
     standardPatternSpecAttributes,
@@ -13,14 +14,14 @@ import {
 import { from } from './nominal'
 import { BeatenPathPatternSpec, BeatenPathPatternSpecAttributes } from './types'
 
-const initialSpec: BeatenPathPatternSpec = {
+const initial: BeatenPathPatternSpec = {
     ...standardInitialPatternSpec,
     [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: BEATEN_PATH_PITCH_SCALAR,
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
 }
 
-const specAttributes: BeatenPathPatternSpecAttributes = {
+const attributes: BeatenPathPatternSpecAttributes = {
     ...standardPatternSpecAttributes,
     core: {
         constraint: {
@@ -38,7 +39,11 @@ const specAttributes: BeatenPathPatternSpecAttributes = {
     },
 }
 
+const specData: PatternSpecData<BeatenPathPatternSpec> = {
+    attributes,
+    initial,
+}
+
 export {
-    initialSpec,
-    specAttributes,
+    specData,
 }

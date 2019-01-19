@@ -9,7 +9,7 @@ export {
     buildScales,
 } from './materials/indexForTest'
 export { pattern } from './patterns'
-export { initialSpec } from './specs'
+export { specData } from './specs'
 
 export {
     to,

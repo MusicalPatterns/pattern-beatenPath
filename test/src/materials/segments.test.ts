@@ -8,7 +8,7 @@ import {
     Core,
     Durations,
     DurationsAndRatios,
-    initialSpec,
+    specData,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
@@ -26,7 +26,7 @@ describe('segments', () => {
                     durations = durationsAndRatios.durations
                     ratios = durationsAndRatios.ratios
                     segments = buildSegments({ durations, ratios, repetitions })
-                    scales = buildScales(initialSpec)
+                    scales = buildScales(specData.initial)
                 })
 
                 const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
