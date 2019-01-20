@@ -1,8 +1,0 @@
-Makefile.pattern:
-	@:
-
-build:
-	@musical-patterns-cli build "webpack --config webpack.library.js"
-
-test:
-	@musical-patterns-cli test
