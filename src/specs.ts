@@ -1,5 +1,5 @@
 import {
-    PatternSpecData,
+    PatternSpecDataFor,
     PatternSpecPropertyType,
     standardInitialPatternSpec,
     standardPatternSpecAttributes,
@@ -39,7 +39,7 @@ const attributes: BeatenPathPatternSpecAttributes = {
     },
 }
 
-const specData: PatternSpecData<BeatenPathPatternSpec> = {
+const specData: PatternSpecDataFor<BeatenPathPatternSpec> = {
     attributes,
     initial,
 }
