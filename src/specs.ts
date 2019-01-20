@@ -1,9 +1,9 @@
 import {
-    PatternSpecDataFor,
-    PatternSpecPropertyType,
-    standardInitialPatternSpec,
-    standardPatternSpecAttributes,
-    StandardPatternSpecProperties,
+    SpecDataFor,
+    SpecPropertyType,
+    standardInitialSpec,
+    standardSpecAttributes,
+    StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import {
     BEATEN_PATH_INITIAL_CORE,
@@ -12,34 +12,34 @@ import {
     MINIMUM_FUNCTIONAL_CORE,
 } from './constants'
 import { from } from './nominal'
-import { BeatenPathPatternSpec, BeatenPathPatternSpecAttributes } from './types'
+import { BeatenPathSpec, BeatenPathSpecAttributes } from './types'
 
-const initial: BeatenPathPatternSpec = {
-    ...standardInitialPatternSpec,
-    [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: BEATEN_PATH_PITCH_SCALAR,
+const initial: BeatenPathSpec = {
+    ...standardInitialSpec,
+    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: BEATEN_PATH_PITCH_SCALAR,
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
 }
 
-const attributes: BeatenPathPatternSpecAttributes = {
-    ...standardPatternSpecAttributes,
+const attributes: BeatenPathSpecAttributes = {
+    ...standardSpecAttributes,
     core: {
         constraint: {
             integer: true,
             min: from.Core(MINIMUM_FUNCTIONAL_CORE),
         },
-        patternSpecPropertyType: PatternSpecPropertyType.RANGED,
+        specPropertyType: SpecPropertyType.RANGED,
     },
     repetitions: {
         constraint: {
             integer: true,
             min: 1,
         },
-        patternSpecPropertyType: PatternSpecPropertyType.RANGED,
+        specPropertyType: SpecPropertyType.RANGED,
     },
 }
 
-const specData: PatternSpecDataFor<BeatenPathPatternSpec> = {
+const specData: SpecDataFor<BeatenPathSpec> = {
     attributes,
     initial,
 }

@@ -1,7 +1,7 @@
 import {
-    RangedPatternSpecPropertyAttributes,
-    StandardPatternSpec,
-    StandardPatternSpecAttributes,
+    RangedSpecPropertyAttributes,
+    StandardSpec,
+    StandardSpecAttributes,
 } from '@musical-patterns/pattern'
 import { Count, Ratio, Scalar } from '@musical-patterns/utilities'
 import { Core } from './nominal'
@@ -13,19 +13,19 @@ interface DurationsAndRatios {
 
 type Durations = Scalar[]
 
-interface BeatenPathPatternSpec extends StandardPatternSpec {
+interface BeatenPathSpec extends StandardSpec {
     core: Core,
     repetitions: Count,
 }
 
-interface BeatenPathPatternSpecAttributes extends StandardPatternSpecAttributes {
-    core: RangedPatternSpecPropertyAttributes,
-    repetitions: RangedPatternSpecPropertyAttributes,
+interface BeatenPathSpecAttributes extends StandardSpecAttributes {
+    core: RangedSpecPropertyAttributes,
+    repetitions: RangedSpecPropertyAttributes,
 }
 
 export {
     Durations,
     DurationsAndRatios,
-    BeatenPathPatternSpec,
-    BeatenPathPatternSpecAttributes,
+    BeatenPathSpec,
+    BeatenPathSpecAttributes,
 }

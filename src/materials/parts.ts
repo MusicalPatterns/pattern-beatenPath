@@ -4,11 +4,11 @@ import { DictionaryOf, sequence } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { buildDurationsAndRatios } from '../custom'
 import { Core } from '../nominal'
-import { BeatenPathPatternSpec } from '../types'
+import { BeatenPathSpec } from '../types'
 import { buildSegments } from './segments'
 
-const buildParts: (patternSpec: BeatenPathPatternSpec) => DictionaryOf<NoteSpec[]> =
-    ({ core, repetitions }: BeatenPathPatternSpec): DictionaryOf<NoteSpec[]> => {
+const buildParts: (spec: BeatenPathSpec) => DictionaryOf<NoteSpec[]> =
+    ({ core, repetitions }: BeatenPathSpec): DictionaryOf<NoteSpec[]> => {
         const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
 
         const { ratios, durations } = buildDurationsAndRatios(clampedCore)
