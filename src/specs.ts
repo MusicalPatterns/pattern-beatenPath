@@ -1,4 +1,5 @@
 import {
+    RangedInputType,
     SpecDataFor,
     SpecPropertyType,
     standardInitialSpec,
@@ -28,6 +29,7 @@ const attributes: BeatenPathSpecAttributes = {
             integer: true,
             min: from.Core(MINIMUM_FUNCTIONAL_CORE),
         },
+        hideInput: RangedInputType.RANGE,
         specPropertyType: SpecPropertyType.RANGED,
     },
     repetitions: {
@@ -35,6 +37,7 @@ const attributes: BeatenPathSpecAttributes = {
             integer: true,
             min: 1,
         },
+        hideInput: RangedInputType.RANGE,
         specPropertyType: SpecPropertyType.RANGED,
     },
 }
