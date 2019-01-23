@@ -6,6 +6,7 @@ import {
     standardSpecAttributes,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
+import { Units } from '@musical-patterns/utilities'
 import {
     BEATEN_PATH_BASE_FREQUENCY,
     BEATEN_PATH_INITIAL_CORE,
@@ -39,6 +40,7 @@ const attributes: BeatenPathSpecAttributes = {
         },
         hideInput: RangedInputType.RANGE,
         specPropertyType: SpecPropertyType.RANGED,
+        units: Units.BARS,
     },
 }
 
