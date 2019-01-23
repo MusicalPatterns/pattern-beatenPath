@@ -23,6 +23,10 @@ const initial: BeatenPathSpec = {
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
 }
 
+const coreDescription: string = `
+every bar will consist of a harmony and polyrhythm of this value against itself either plus or minus 1
+`
+
 const attributes: BeatenPathSpecAttributes = {
     ...standardSpecAttributes,
     core: {
@@ -30,7 +34,9 @@ const attributes: BeatenPathSpecAttributes = {
             integer: true,
             min: from.Core(MINIMUM_FUNCTIONAL_CORE),
         },
+        description: coreDescription,
         hideInput: RangedInputType.RANGE,
+        order: 1,
         specPropertyType: SpecPropertyType.RANGED,
     },
     repetitions: {
@@ -39,6 +45,7 @@ const attributes: BeatenPathSpecAttributes = {
             min: 1,
         },
         hideInput: RangedInputType.RANGE,
+        order: 2,
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.BARS,
     },
