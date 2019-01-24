@@ -7,7 +7,7 @@ export {
     buildSegments,
     buildEntities,
     buildScales,
-} from './materials/indexForTest'
+} from './material/indexForTest'
 export { pattern } from './patterns'
 export { specData } from './specs'
 
