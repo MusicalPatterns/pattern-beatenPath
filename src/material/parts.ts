@@ -8,7 +8,7 @@ import { BeatenPathSpec } from '../types'
 import { buildSegments } from './segments'
 
 const buildParts: (spec: BeatenPathSpec) => DictionaryOf<NoteSpec[]> =
-    ({ core, repetitions }: BeatenPathSpec): DictionaryOf<NoteSpec[]> => {
+    ({ core, repetitions, reverse }: BeatenPathSpec): DictionaryOf<NoteSpec[]> => {
         const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
 
         const { ratios, durations } = buildDurationsAndRatios(clampedCore)
@@ -21,7 +21,10 @@ const buildParts: (spec: BeatenPathSpec) => DictionaryOf<NoteSpec[]> =
             segments.map((segment: Segment): NoteSpec[] => segment[ 1 ]),
         )
 
-        return { firstPart, secondPart }
+        return {
+            firstPart: reverse ? firstPart.reverse() : firstPart,
+            secondPart: reverse ? secondPart.reverse() : secondPart,
+        }
     }
 
 export {

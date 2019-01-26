@@ -11,16 +11,18 @@ import {
     BEATEN_PATH_BASE_FREQUENCY,
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_REPETITIONS,
+    BEATEN_PATH_INITIAL_REVERSE,
     MINIMUM_FUNCTIONAL_CORE,
 } from './constants'
 import { from } from './nominal'
 import { BeatenPathSpec, BeatenPathSpecAttributes } from './types'
 
-const initial: BeatenPathSpec = {
+const initialSpec: BeatenPathSpec = {
     ...standardInitialSpec,
     [ StandardSpecProperties.BASE_FREQUENCY ]: BEATEN_PATH_BASE_FREQUENCY,
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
+    reverse: BEATEN_PATH_INITIAL_REVERSE,
 }
 
 const coreDescription: string = `
@@ -49,11 +51,15 @@ const attributes: BeatenPathSpecAttributes = {
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.BARS,
     },
+    reverse: {
+        order: 3,
+        specPropertyType: SpecPropertyType.TOGGLED,
+    },
 }
 
 const specData: SpecDataFor<BeatenPathSpec> = {
     attributes,
-    initial,
+    initial: initialSpec,
 }
 
 export {

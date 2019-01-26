@@ -6,6 +6,7 @@ export {
 export {
     buildSegments,
     buildEntities,
+    buildParts,
     buildScales,
 } from './material/indexForTest'
 export { pattern } from './patterns'
@@ -19,6 +20,7 @@ export {
 export {
     Durations,
     DurationsAndRatios,
+    BeatenPathSpec,
 } from './types'
 
 // tslint:disable-next-line:no-default-import
