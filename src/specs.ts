@@ -8,7 +8,7 @@ import {
 } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
 import {
-    BEATEN_PATH_BASE_FREQUENCY,
+    BEATEN_PATH_INITIAL_BASE_FREQUENCY,
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_REPETITIONS,
     BEATEN_PATH_INITIAL_REVERSE,
@@ -19,7 +19,7 @@ import { BeatenPathSpec, BeatenPathSpecAttributes } from './types'
 
 const initialSpec: BeatenPathSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.BASE_FREQUENCY ]: BEATEN_PATH_BASE_FREQUENCY,
+    [ StandardSpecProperties.BASE_FREQUENCY ]: BEATEN_PATH_INITIAL_BASE_FREQUENCY,
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
     reverse: BEATEN_PATH_INITIAL_REVERSE,
