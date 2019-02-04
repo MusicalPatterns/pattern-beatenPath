@@ -6,7 +6,7 @@ import {
     from,
     Index,
     INITIAL,
-    numbers,
+    positiveIntegers,
     Ratio,
     repeat,
     Scalar,
@@ -17,7 +17,7 @@ import { BuildSegmentsParameters } from './types'
 
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
     ({ durations, ratios, repetitions }: BuildSegmentsParameters): Segment[] =>
-        numbers
+        positiveIntegers
             .slice(from.Index(INITIAL), durations.length - 1)
             .map(to.Index)
             .map((index: Index): Segment => {
