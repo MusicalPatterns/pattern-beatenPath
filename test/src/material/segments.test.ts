@@ -138,7 +138,7 @@ describe('segments', () => {
                     // Etcetera...
                 })
 
-                it('for each segment, both of its sets of notes have a count of notes equal to ??? times the repetition', () => {
+                it('for each segment, both of its sets of notes have a count of notes equal to the corresponding fractional part of that segment\'s ratio times the repetition', () => {
                     expect(segments[ 0 ][ 0 ].length)
                         .toBe(from.FractionalPart(ratios[ 0 ][ 0 ]) * from.Count(repetitions))
                     expect(segments[ 0 ][ 1 ].length)
