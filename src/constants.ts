@@ -1,4 +1,4 @@
-// tslint:disable:no-magic-numbers
+// tslint:disable no-magic-numbers
 
 import { Count, Frequency, Scalar, to } from '@musical-patterns/utilities'
 import { Core, to as beatenPathTo } from './nominal'
