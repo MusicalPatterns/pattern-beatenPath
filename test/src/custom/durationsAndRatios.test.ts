@@ -1,4 +1,4 @@
-import { apply, from, Index, Ratio, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { apply, from, Index, Ratio, reciprocal, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     Core,
@@ -8,7 +8,7 @@ import {
 } from '../../../src/indexForTest'
 
 const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
-    to.Scalar(from.FractionalPart(ratio[ 0 ]) / from.FractionalPart(ratio[ 1 ]))
+    to.Scalar(apply.Scalar(from.FractionalPart(ratio[ 0 ]), to.Scalar(reciprocal(from.FractionalPart(ratio[ 1 ])))))
 
 describe('durations and ratios', () => {
     let durations: Durations

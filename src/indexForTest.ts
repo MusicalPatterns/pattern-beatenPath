@@ -2,6 +2,8 @@
 
 export {
     buildDurationsAndRatios,
+    firstPartDurationIndex,
+    secondPartDurationIndex,
 } from './custom/indexForTest'
 export {
     buildSegments,
