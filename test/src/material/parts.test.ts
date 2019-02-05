@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DictionaryOf } from '@musical-patterns/utilities'
+import { DictionaryOf, entries } from '@musical-patterns/utilities'
 import { BeatenPathSpec, buildParts, specData } from '../../../src/indexForTest'
 
 describe('parts', () => {
@@ -10,7 +10,7 @@ describe('parts', () => {
         const backwardSpec: BeatenPathSpec = { ...specData.initial, reverse: true }
         const backwardVersion: DictionaryOf<NoteSpec[]> = buildParts(backwardSpec)
 
-        Object.entries(forwardVersion)
+        entries(forwardVersion)
             .forEach(([ partName, part ]: [ string, NoteSpec[] ]): void => {
                     part.forEach((note: NoteSpec, index: number) => {
                         expect(note)
