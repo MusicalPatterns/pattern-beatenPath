@@ -1,4 +1,15 @@
-import { absoluteRatio, apply, from, isCloseTo, Ratio, reciprocal, Scalar, to } from '@musical-patterns/utilities'
+import {
+    absoluteRatio,
+    apply,
+    from,
+    isCloseTo,
+    lastElement,
+    negative,
+    Ratio,
+    reciprocal,
+    Scalar,
+    to,
+} from '@musical-patterns/utilities'
 import { Core, from as beatenPathFrom } from '../nominal'
 import { Durations, DurationsAndRatios } from '../types'
 
@@ -9,8 +20,7 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
 
         const hasLooped: () => boolean =
             (): boolean =>
-                durations.length > 1 &&
-                isCloseTo(durations[ durations.length - 1 ], to.Scalar(1))
+                durations.length > 1 && isCloseTo(lastElement(durations), to.Scalar(1))
 
         const rawCore: number = beatenPathFrom.Core(core)
         const upDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(1))))

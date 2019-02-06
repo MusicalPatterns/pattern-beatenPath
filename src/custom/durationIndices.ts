@@ -1,27 +1,21 @@
-import { apply, from, ONE_HALF, Ordinal, to, TWO } from '@musical-patterns/utilities'
+import { apply, ceiling, floor, negative, ONE_HALF, Ordinal, to, TWO } from '@musical-patterns/utilities'
 
 const firstPartDurationIndex: (segmentIndex: Ordinal) => Ordinal =
     (segmentIndex: Ordinal): Ordinal =>
-        to.Ordinal(apply.Scalar(
-            Math.floor(apply.Scalar(
-                from.Ordinal(segmentIndex),
-                ONE_HALF,
-            )),
+        apply.Scalar(
+            floor(apply.Scalar(segmentIndex, ONE_HALF)),
             to.Scalar(TWO),
-        ))
+        )
 
 const secondPartDurationIndex: (segmentIndex: Ordinal) => Ordinal =
     (segmentIndex: Ordinal): Ordinal =>
-        to.Ordinal(apply.Translation(
+        apply.Translation(
             apply.Scalar(
-                Math.ceil(apply.Scalar(
-                    from.Ordinal(segmentIndex),
-                    ONE_HALF,
-                )),
+                ceiling(apply.Scalar(segmentIndex, ONE_HALF)),
                 to.Scalar(TWO),
             ),
-            to.Translation(-1),
-        ))
+            to.Translation(negative(1)),
+        )
 
 export {
     firstPartDurationIndex,
