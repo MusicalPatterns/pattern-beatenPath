@@ -10,7 +10,7 @@ const buildNoteSpec: (durationScalar: Scalar) => NoteSpec =
             scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
         pitchSpec: {
-            scalar: to.Scalar(reciprocal(from.Scalar(durationScalar))),
+            scalar: reciprocal(durationScalar),
             scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
         sustainSpec: {

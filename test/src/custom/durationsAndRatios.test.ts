@@ -8,7 +8,7 @@ import {
 } from '../../../src/indexForTest'
 
 const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
-    to.Scalar(apply.Scalar(from.FractionalPart(ratio[ 0 ]), to.Scalar(reciprocal(from.FractionalPart(ratio[ 1 ])))))
+    to.Scalar(from.FractionalPart(apply.Scalar(ratio[ 0 ], to.Scalar(from.FractionalPart(reciprocal(ratio[ 1 ]))))))
 
 describe('durations and ratios', () => {
     let durations: Durations

@@ -2,7 +2,6 @@ import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
-    EVEN,
     from,
     INITIAL,
     Ordinal,
@@ -11,6 +10,7 @@ import {
     repeat,
     Scalar,
     to,
+    TWO,
 } from '@musical-patterns/utilities'
 import { firstPartDurationIndex, secondPartDurationIndex } from '../custom'
 import { buildNoteSpec } from './notes'
@@ -28,7 +28,7 @@ const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segme
                 const indexOfSecondPartsDurationForThisSegment: Ordinal = secondPartDurationIndex(segmentIndex)
 
                 const indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment: Ordinal =
-                    to.Ordinal(from.Ordinal(segmentIndex) % EVEN)
+                    to.Ordinal(from.Ordinal(segmentIndex) % TWO)
                 const indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment: Ordinal =
                     from.Ordinal(indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment) === 1
                         ? to.Ordinal(0)

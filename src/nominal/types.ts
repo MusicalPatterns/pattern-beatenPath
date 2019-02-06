@@ -1,6 +1,4 @@
-interface Core extends Number {
-    _CoreBrand: string,
-}
+type Core = number & { _CoreBrand: void }
 
 export {
     Core,
