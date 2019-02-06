@@ -13,10 +13,10 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
                 isCloseTo(durations[ durations.length - 1 ], to.Scalar(1))
 
         const rawCore: number = beatenPathFrom.Core(core)
-        const upDivisor: Scalar = to.Scalar(reciprocal(apply.Offset(rawCore, to.Offset(1))))
+        const upDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(1))))
         const upRatio: Scalar =
             to.Scalar(apply.Scalar(rawCore, upDivisor))
-        const downDivisor: Scalar = to.Scalar(reciprocal(apply.Offset(rawCore, to.Offset(-1))))
+        const downDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(-1))))
         const downRatio: Scalar =
             to.Scalar(apply.Scalar(rawCore, downDivisor))
 

@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-beaten-path",
-  "version": "1.0.123",
+  "version": "1.0.124",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -9,13 +9,13 @@
     "url": "https://github.com/MusicalPatterns/pattern-beatenPath.git"
   },
   "dependencies": {
-    "@musical-patterns/compiler": "^1.0.85",
-    "@musical-patterns/pattern": "^1.0.149"
+    "@musical-patterns/compiler": "^1.0.87",
+    "@musical-patterns/pattern": "^1.0.153"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.425",
-    "@musical-patterns/playroom": "^1.0.220",
+    "@musical-patterns/cli": "^1.0.426",
+    "@musical-patterns/playroom": "^1.0.221",
     "@musical-patterns/snapshot": "^1.0.44",
-    "@musical-patterns/utilities": "^1.0.214"
+    "@musical-patterns/utilities": "^1.0.215"
   }
 }

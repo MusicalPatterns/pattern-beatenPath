@@ -1,11 +1,11 @@
 import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
-    Count,
+    Cardinal,
     EVEN,
     from,
-    Index,
     INITIAL,
+    Ordinal,
     positiveIntegers,
     Ratio,
     repeat,
@@ -19,37 +19,37 @@ import { BuildSegmentsParameters } from './types'
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
     ({ durations, ratios, repetitions }: BuildSegmentsParameters): Segment[] =>
         positiveIntegers
-            .slice(from.Index(INITIAL), durations.length - 1)
-            .map(to.Index)
-            .map((segmentIndex: Index): Segment => {
-                const ratioTuple: Ratio = apply.Index(ratios, apply.Offset(segmentIndex, to.Offset(-1)))
+            .slice(from.Ordinal(INITIAL), durations.length - 1)
+            .map(to.Ordinal)
+            .map((segmentIndex: Ordinal): Segment => {
+                const ratioTuple: Ratio = apply.Ordinal(ratios, apply.Translation(segmentIndex, to.Translation(-1)))
 
-                const indexOfFirstPartsDurationForThisSegment: Index = firstPartDurationIndex(segmentIndex)
-                const indexOfSecondPartsDurationForThisSegment: Index = secondPartDurationIndex(segmentIndex)
+                const indexOfFirstPartsDurationForThisSegment: Ordinal = firstPartDurationIndex(segmentIndex)
+                const indexOfSecondPartsDurationForThisSegment: Ordinal = secondPartDurationIndex(segmentIndex)
 
-                const indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment: Index =
-                    to.Index(from.Index(segmentIndex) % EVEN)
-                const indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment: Index =
-                    from.Index(indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment) === 1
-                        ? to.Index(0)
-                        : to.Index(1)
+                const indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment: Ordinal =
+                    to.Ordinal(from.Ordinal(segmentIndex) % EVEN)
+                const indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment: Ordinal =
+                    from.Ordinal(indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment) === 1
+                        ? to.Ordinal(0)
+                        : to.Ordinal(1)
 
-                const firstPartNotesCount: Count = to.Count(from.FractionalPart(
-                    apply.Index(ratioTuple, indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment),
+                const firstPartNotesCount: Cardinal = to.Cardinal(from.FractionalPart(
+                    apply.Ordinal(ratioTuple, indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment),
                 ))
-                const secondPartNotesCount: Count = to.Count(from.FractionalPart(
-                    apply.Index(ratioTuple, indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment),
+                const secondPartNotesCount: Cardinal = to.Cardinal(from.FractionalPart(
+                    apply.Ordinal(ratioTuple, indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment),
                 ))
 
                 const firstPartDurationScalar: Scalar =
-                    apply.Index(durations, indexOfFirstPartsDurationForThisSegment)
+                    apply.Ordinal(durations, indexOfFirstPartsDurationForThisSegment)
                 const secondPartDurationScalar: Scalar =
-                    apply.Index(durations, indexOfSecondPartsDurationForThisSegment)
+                    apply.Ordinal(durations, indexOfSecondPartsDurationForThisSegment)
 
                 return [
-                    repeat([ firstPartDurationScalar ], apply.Count(firstPartNotesCount, repetitions))
+                    repeat([ firstPartDurationScalar ], apply.Cardinal(firstPartNotesCount, repetitions))
                         .map(buildNoteSpec),
-                    repeat([ secondPartDurationScalar ], apply.Count(secondPartNotesCount, repetitions))
+                    repeat([ secondPartDurationScalar ], apply.Cardinal(secondPartNotesCount, repetitions))
                         .map(buildNoteSpec),
                 ]
             })

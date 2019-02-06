@@ -1,6 +1,6 @@
 import { calculateNoteSpecsTotalCompiledDuration, NotePropertySpec, NoteSpec, Scale } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { apply, Count, from, Index, Maybe, Ratio, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
+import { apply, Cardinal, from, Maybe, Ordinal, Ratio, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     buildScales,
@@ -18,9 +18,9 @@ describe('segments', () => {
     let ratios: Ratio[]
     let scales: Scale[]
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Offset(core, to.Offset(1))) {
-        const suite: (repetitions: Count) => void =
-            (repetitions: Count): void => {
+    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, to.Translation(1))) {
+        const suite: (repetitions: Cardinal) => void =
+            (repetitions: Cardinal): void => {
                 beforeEach(() => {
                     const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
                     durations = durationsAndRatios.durations
@@ -29,10 +29,10 @@ describe('segments', () => {
                     scales = buildScales(specData.initial)
                 })
 
-                const calculateSegmentDuration: (segmentIndex: Index, entityIndex: Index) => Scalar =
-                    (segmentIndex: Index, entityIndex: Index): Scalar => {
-                        const segment: Segment = apply.Index(segments, segmentIndex)
-                        const part: NoteSpec[] = apply.Index(segment, entityIndex)
+                const calculateSegmentDuration: (segmentIndex: Ordinal, entityIndex: Ordinal) => Scalar =
+                    (segmentIndex: Ordinal, entityIndex: Ordinal): Scalar => {
+                        const segment: Segment = apply.Ordinal(segments, segmentIndex)
+                        const part: NoteSpec[] = apply.Ordinal(segment, entityIndex)
                         const exampleNoteSpec: NoteSpec = part[ 0 ]
 
                         const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}
@@ -110,29 +110,29 @@ describe('segments', () => {
                 })
 
                 it('segments\'s note durations follow an alternating pattern of incrementing along the durations', () => {
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(0), to.Index(0)), durations[ 0 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(0), to.Ordinal(0)), durations[ 0 ]))
                         .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(0), to.Index(1)), durations[ 1 ]))
-                        .toBeTruthy()
-
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(1), to.Index(0)), durations[ 2 ]))
-                        .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(1), to.Index(1)), durations[ 1 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(0), to.Ordinal(1)), durations[ 1 ]))
                         .toBeTruthy()
 
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(2), to.Index(0)), durations[ 2 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(1), to.Ordinal(0)), durations[ 2 ]))
                         .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(2), to.Index(1)), durations[ 3 ]))
-                        .toBeTruthy()
-
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(3), to.Index(0)), durations[ 4 ]))
-                        .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(3), to.Index(1)), durations[ 3 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(1), to.Ordinal(1)), durations[ 1 ]))
                         .toBeTruthy()
 
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(4), to.Index(0)), durations[ 4 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(2), to.Ordinal(0)), durations[ 2 ]))
                         .toBeTruthy()
-                    expect(testIsCloseTo(calculateSegmentDuration(to.Index(4), to.Index(1)), durations[ 5 ]))
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(2), to.Ordinal(1)), durations[ 3 ]))
+                        .toBeTruthy()
+
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(3), to.Ordinal(0)), durations[ 4 ]))
+                        .toBeTruthy()
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(3), to.Ordinal(1)), durations[ 3 ]))
+                        .toBeTruthy()
+
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(4), to.Ordinal(0)), durations[ 4 ]))
+                        .toBeTruthy()
+                    expect(testIsCloseTo(calculateSegmentDuration(to.Ordinal(4), to.Ordinal(1)), durations[ 5 ]))
                         .toBeTruthy()
 
                     // Etcetera...
@@ -140,29 +140,29 @@ describe('segments', () => {
 
                 it('for each segment, both of its sets of notes have a count of notes equal to the corresponding fractional part of that segment\'s ratio times the repetition', () => {
                     expect(segments[ 0 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 0 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 0 ][ 0 ]) * from.Cardinal(repetitions))
                     expect(segments[ 0 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 0 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 0 ][ 1 ]) * from.Cardinal(repetitions))
 
                     expect(segments[ 1 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 1 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 1 ][ 1 ]) * from.Cardinal(repetitions))
                     expect(segments[ 1 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 1 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 1 ][ 0 ]) * from.Cardinal(repetitions))
 
                     expect(segments[ 2 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 2 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 2 ][ 0 ]) * from.Cardinal(repetitions))
                     expect(segments[ 2 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 2 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 2 ][ 1 ]) * from.Cardinal(repetitions))
 
                     expect(segments[ 3 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 3 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 3 ][ 1 ]) * from.Cardinal(repetitions))
                     expect(segments[ 3 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 3 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 3 ][ 0 ]) * from.Cardinal(repetitions))
 
                     expect(segments[ 4 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 4 ][ 0 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 4 ][ 0 ]) * from.Cardinal(repetitions))
                     expect(segments[ 4 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 4 ][ 1 ]) * from.Count(repetitions))
+                        .toBe(from.FractionalPart(ratios[ 4 ][ 1 ]) * from.Cardinal(repetitions))
 
                     // Etcetera...
                 })
@@ -170,12 +170,12 @@ describe('segments', () => {
 
         describe(`when core is ${core}`, () => {
             describe('without intra-segment repetition', () => {
-                const repetitions: Count = to.Count(1)
+                const repetitions: Cardinal = to.Cardinal(1)
                 suite(repetitions)
             })
 
             describe('with intra-segment repetition', () => {
-                const repetitions: Count = to.Count(2)
+                const repetitions: Cardinal = to.Cardinal(2)
                 suite(repetitions)
             })
         })

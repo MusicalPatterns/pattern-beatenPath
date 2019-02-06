@@ -1,26 +1,26 @@
-import { apply, from, Index, ONE_HALF, to, TWO } from '@musical-patterns/utilities'
+import { apply, from, ONE_HALF, Ordinal, to, TWO } from '@musical-patterns/utilities'
 
-const firstPartDurationIndex: (segmentIndex: Index) => Index =
-    (segmentIndex: Index): Index =>
-        to.Index(apply.Scalar(
+const firstPartDurationIndex: (segmentIndex: Ordinal) => Ordinal =
+    (segmentIndex: Ordinal): Ordinal =>
+        to.Ordinal(apply.Scalar(
             Math.floor(apply.Scalar(
-                from.Index(segmentIndex),
+                from.Ordinal(segmentIndex),
                 ONE_HALF,
             )),
             to.Scalar(TWO),
         ))
 
-const secondPartDurationIndex: (segmentIndex: Index) => Index =
-    (segmentIndex: Index): Index =>
-        to.Index(apply.Offset(
+const secondPartDurationIndex: (segmentIndex: Ordinal) => Ordinal =
+    (segmentIndex: Ordinal): Ordinal =>
+        to.Ordinal(apply.Translation(
             apply.Scalar(
                 Math.ceil(apply.Scalar(
-                    from.Index(segmentIndex),
+                    from.Ordinal(segmentIndex),
                     ONE_HALF,
                 )),
                 to.Scalar(TWO),
             ),
-            to.Offset(-1),
+            to.Translation(-1),
         ))
 
 export {

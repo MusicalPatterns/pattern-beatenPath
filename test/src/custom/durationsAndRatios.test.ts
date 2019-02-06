@@ -1,4 +1,4 @@
-import { apply, from, Index, Ratio, reciprocal, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { apply, from, Ordinal, Ratio, reciprocal, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     Core,
@@ -15,7 +15,7 @@ describe('durations and ratios', () => {
     let ratios: Ratio[]
 
     describe('durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Offset(core, to.Offset(1))) {
+        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, to.Translation(1))) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
@@ -29,10 +29,10 @@ describe('durations and ratios', () => {
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
-                    for (let i: Index = to.Index(1); i < to.Index(durations.length - 1); i = apply.Offset(i, to.Offset(1))) {
+                    for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(durations.length - 1); index = apply.Translation(index, to.Translation(1))) {
                         expect(testIsCloseTo(
-                            apply.Index(durations, i),
-                            apply.Scalar(apply.Index(durations, apply.Offset(i, to.Offset(-1))), ratioToScalar(ratios[ from.Index(i) - 1 ])),
+                            apply.Ordinal(durations, index),
+                            apply.Scalar(apply.Ordinal(durations, apply.Translation(index, to.Translation(-1))), ratioToScalar(ratios[ from.Ordinal(index) - 1 ])),
                         ))
                     }
                 })

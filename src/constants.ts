@@ -1,7 +1,7 @@
 // tslint:disable no-magic-numbers
 
 import {
-    Count,
+    Cardinal,
     Frequency,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
@@ -12,7 +12,7 @@ import { Core, to as beatenPathTo } from './nominal'
 
 const MINIMUM_FUNCTIONAL_CORE: Core = beatenPathTo.Core(2)
 const BEATEN_PATH_INITIAL_CORE: Core = beatenPathTo.Core(5)
-const BEATEN_PATH_INITIAL_REPETITIONS: Count = to.Count(1)
+const BEATEN_PATH_INITIAL_REPETITIONS: Cardinal = to.Cardinal(1)
 const BEATEN_PATH_INITIAL_BASE_FREQUENCY: Frequency =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.A ][ ScientificPitchOctaveNumber._3 ]
 const BEATEN_PATH_INITIAL_REVERSE: boolean = false

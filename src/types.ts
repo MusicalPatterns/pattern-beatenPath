@@ -4,7 +4,7 @@ import {
     SpecAttributes,
     ToggledSpecPropertyAttributes,
 } from '@musical-patterns/pattern'
-import { Count, Ratio, Scalar } from '@musical-patterns/utilities'
+import { Cardinal, Ratio, Scalar } from '@musical-patterns/utilities'
 import { Core } from './nominal'
 
 interface DurationsAndRatios {
@@ -16,7 +16,7 @@ type Durations = Scalar[]
 
 interface BeatenPathSpec extends Spec {
     core: Core,
-    repetitions: Count,
+    repetitions: Cardinal,
     reverse: boolean,
 }
 
