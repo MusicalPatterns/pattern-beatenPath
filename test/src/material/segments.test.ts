@@ -1,6 +1,18 @@
 import { calculateNoteSpecsTotalCompiledDuration, NotePropertySpec, NoteSpec, Scale } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { apply, Cardinal, from, Maybe, Ordinal, Ratio, Scalar, testIsCloseTo, Time, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Cardinal,
+    from,
+    Maybe,
+    NEXT,
+    Ordinal,
+    Ratio,
+    Scalar,
+    testIsCloseTo,
+    Time,
+    to,
+} from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     buildScales,
@@ -18,7 +30,7 @@ describe('segments', () => {
     let ratios: Ratio[]
     let scales: Scale[]
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, to.Translation(1))) {
+    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, NEXT)) {
         const suite: (repetitions: Cardinal) => void =
             (repetitions: Cardinal): void => {
                 beforeEach(() => {

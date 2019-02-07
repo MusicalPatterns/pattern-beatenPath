@@ -2,10 +2,12 @@ import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
+    DENOMINATOR_INDEX,
     from,
     indexOfLastElement,
     INITIAL,
     negative,
+    NUMERATOR_INDEX,
     Ordinal,
     positiveIntegers,
     Ratio,
@@ -34,8 +36,8 @@ const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segme
                     apply.Modulus(segmentIndex, to.Modulus(TWO))
                 const indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment: Ordinal =
                     from.Ordinal(indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment) === 1
-                        ? to.Ordinal(0)
-                        : to.Ordinal(1)
+                        ? NUMERATOR_INDEX
+                        : DENOMINATOR_INDEX
 
                 const firstPartNotesCount: Cardinal = to.Cardinal(from.FractionalPart(
                     apply.Ordinal(ratioTuple, indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment),

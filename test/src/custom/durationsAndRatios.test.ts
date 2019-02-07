@@ -3,6 +3,7 @@ import {
     from,
     indexOfLastElement,
     negative,
+    NEXT,
     Ordinal,
     Ratio,
     reciprocal,
@@ -26,7 +27,7 @@ describe('durations and ratios', () => {
     let ratios: Ratio[]
 
     describe('durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, to.Translation(1))) {
+        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, NEXT)) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
@@ -43,7 +44,7 @@ describe('durations and ratios', () => {
                     for (
                         let index: Ordinal = to.Ordinal(1);
                         index < indexOfLastElement(durations);
-                        index = apply.Translation(index, to.Translation(1))
+                        index = apply.Translation(index, NEXT)
                     ) {
                         expect(testIsCloseTo(
                             apply.Ordinal(durations, index),

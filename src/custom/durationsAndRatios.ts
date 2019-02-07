@@ -1,14 +1,14 @@
 import {
     absoluteRatio,
     apply,
+    DOWN_ONE,
     from,
     isCloseTo,
-    lastElement,
-    negative,
-    Ratio,
+    lastElement, Ratio,
     reciprocal,
     Scalar,
     to,
+    UP_ONE,
 } from '@musical-patterns/utilities'
 import { Core, from as beatenPathFrom } from '../nominal'
 import { Durations, DurationsAndRatios } from '../types'
@@ -23,10 +23,10 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
                 durations.length > 1 && isCloseTo(from.Scalar(lastElement(durations)), 1)
 
         const rawCore: number = beatenPathFrom.Core(core)
-        const upDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(1))))
+        const upDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, UP_ONE)))
         const upRatio: Scalar =
             to.Scalar(apply.Scalar(rawCore, upDivisor))
-        const downDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(negative(1)))))
+        const downDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, DOWN_ONE)))
         const downRatio: Scalar =
             to.Scalar(apply.Scalar(rawCore, downDivisor))
 
@@ -40,14 +40,14 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
                 durations.push(upDuration)
                 ratios.push([
                     to.Numerator(rawCore),
-                    to.Denominator(apply.Translation(rawCore, to.Translation(1))),
+                    to.Denominator(apply.Translation(rawCore, UP_ONE)),
                 ])
             }
             else {
                 durations.push(downDuration)
                 ratios.push([
                     to.Numerator(rawCore),
-                    to.Denominator(apply.Translation(rawCore, to.Translation(negative(1)))),
+                    to.Denominator(apply.Translation(rawCore, DOWN_ONE)),
                 ])
             }
         }
