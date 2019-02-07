@@ -1,4 +1,4 @@
-import { to } from '@musical-patterns/utilities'
+import { negative, to } from '@musical-patterns/utilities'
 import { firstPartDurationIndex, secondPartDurationIndex } from '../../../src/indexForTest'
 
 describe('duration indices', () => {
@@ -19,7 +19,7 @@ describe('duration indices', () => {
 
     it('second entity', () => {
         expect(secondPartDurationIndex(to.Ordinal(0)))
-            .toBe(to.Ordinal(-1))
+            .toBe(to.Ordinal(negative(1)))
         expect(secondPartDurationIndex(to.Ordinal(1)))
             .toBe(to.Ordinal(1))
         expect(secondPartDurationIndex(to.Ordinal(2)))

@@ -3,12 +3,15 @@ import {
     apply,
     Cardinal,
     from,
+    indexOfLastElement,
     INITIAL,
+    negative,
     Ordinal,
     positiveIntegers,
     Ratio,
     repeat,
     Scalar,
+    slice,
     to,
     TWO,
 } from '@musical-patterns/utilities'
@@ -18,17 +21,17 @@ import { BuildSegmentsParameters } from './types'
 
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
     ({ durations, ratios, repetitions }: BuildSegmentsParameters): Segment[] =>
-        positiveIntegers
-            .slice(from.Ordinal(INITIAL), durations.length - 1)
+        slice(positiveIntegers, INITIAL, indexOfLastElement(durations))
             .map(to.Ordinal)
             .map((segmentIndex: Ordinal): Segment => {
-                const ratioTuple: Ratio = apply.Ordinal(ratios, apply.Translation(segmentIndex, to.Translation(-1)))
+                const ratioTuple: Ratio =
+                    apply.Ordinal(ratios, apply.Translation(segmentIndex, to.Translation(negative(1))))
 
                 const indexOfFirstPartsDurationForThisSegment: Ordinal = firstPartDurationIndex(segmentIndex)
                 const indexOfSecondPartsDurationForThisSegment: Ordinal = secondPartDurationIndex(segmentIndex)
 
                 const indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment: Ordinal =
-                    to.Ordinal(from.Ordinal(segmentIndex) % TWO)
+                    apply.Modulus(segmentIndex, to.Modulus(TWO))
                 const indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment: Ordinal =
                     from.Ordinal(indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment) === 1
                         ? to.Ordinal(0)

@@ -1,4 +1,15 @@
-import { apply, from, Ordinal, Ratio, reciprocal, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    from,
+    indexOfLastElement,
+    negative,
+    Ordinal,
+    Ratio,
+    reciprocal,
+    Scalar,
+    testIsCloseTo,
+    to,
+} from '@musical-patterns/utilities'
 import {
     buildDurationsAndRatios,
     Core,
@@ -29,10 +40,20 @@ describe('durations and ratios', () => {
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
-                    for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(durations.length - 1); index = apply.Translation(index, to.Translation(1))) {
+                    for (
+                        let index: Ordinal = to.Ordinal(1);
+                        index < indexOfLastElement(durations);
+                        index = apply.Translation(index, to.Translation(1))
+                    ) {
                         expect(testIsCloseTo(
                             apply.Ordinal(durations, index),
-                            apply.Scalar(apply.Ordinal(durations, apply.Translation(index, to.Translation(-1))), ratioToScalar(ratios[ from.Ordinal(index) - 1 ])),
+                            apply.Scalar(
+                                apply.Ordinal(
+                                    durations,
+                                    apply.Translation(index, to.Translation(negative(1))),
+                                ),
+                                ratioToScalar(ratios[ from.Ordinal(index) - 1 ]),
+                            ),
                         ))
                     }
                 })

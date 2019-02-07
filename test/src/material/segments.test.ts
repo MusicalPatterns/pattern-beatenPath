@@ -140,29 +140,29 @@ describe('segments', () => {
 
                 it('for each segment, both of its sets of notes have a count of notes equal to the corresponding fractional part of that segment\'s ratio times the repetition', () => {
                     expect(segments[ 0 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 0 ][ 0 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 0 ][ 0 ], repetitions)))
                     expect(segments[ 0 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 0 ][ 1 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 0 ][ 1 ], repetitions)))
 
                     expect(segments[ 1 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 1 ][ 1 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 1 ][ 1 ], repetitions)))
                     expect(segments[ 1 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 1 ][ 0 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 1 ][ 0 ], repetitions)))
 
                     expect(segments[ 2 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 2 ][ 0 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 2 ][ 0 ], repetitions)))
                     expect(segments[ 2 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 2 ][ 1 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 2 ][ 1 ], repetitions)))
 
                     expect(segments[ 3 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 3 ][ 1 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 3 ][ 1 ], repetitions)))
                     expect(segments[ 3 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 3 ][ 0 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 3 ][ 0 ], repetitions)))
 
                     expect(segments[ 4 ][ 0 ].length)
-                        .toBe(from.FractionalPart(ratios[ 4 ][ 0 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 4 ][ 0 ], repetitions)))
                     expect(segments[ 4 ][ 1 ].length)
-                        .toBe(from.FractionalPart(ratios[ 4 ][ 1 ]) * from.Cardinal(repetitions))
+                        .toBe(from.FractionalPart(apply.Cardinal(ratios[ 4 ][ 1 ], repetitions)))
 
                     // Etcetera...
                 })

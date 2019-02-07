@@ -20,29 +20,35 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
 
         const hasLooped: () => boolean =
             (): boolean =>
-                durations.length > 1 && isCloseTo(lastElement(durations), to.Scalar(1))
+                durations.length > 1 && isCloseTo(from.Scalar(lastElement(durations)), 1)
 
         const rawCore: number = beatenPathFrom.Core(core)
         const upDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(1))))
         const upRatio: Scalar =
             to.Scalar(apply.Scalar(rawCore, upDivisor))
-        const downDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(-1))))
+        const downDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(negative(1)))))
         const downRatio: Scalar =
             to.Scalar(apply.Scalar(rawCore, downDivisor))
 
         while (!hasLooped()) {
-            const lastDuration: Scalar = durations[ durations.length - 1 ]
+            const lastDuration: Scalar = lastElement(durations)
 
             const upDuration: Scalar = apply.Scalar(lastDuration, upRatio)
             const downDuration: Scalar = apply.Scalar(lastDuration, downRatio)
 
             if (absoluteRatio(from.Scalar(upDuration)) > absoluteRatio(from.Scalar(downDuration))) {
                 durations.push(upDuration)
-                ratios.push([ to.Numerator(rawCore), to.Denominator(rawCore + 1) ])
+                ratios.push([
+                    to.Numerator(rawCore),
+                    to.Denominator(apply.Translation(rawCore, to.Translation(1))),
+                ])
             }
             else {
                 durations.push(downDuration)
-                ratios.push([ to.Numerator(rawCore), to.Denominator(rawCore - 1) ])
+                ratios.push([
+                    to.Numerator(rawCore),
+                    to.Denominator(apply.Translation(rawCore, to.Translation(negative(1)))),
+                ])
             }
         }
 
