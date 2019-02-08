@@ -5,12 +5,12 @@ import {
     Cardinal,
     from,
     Maybe,
+    Ms,
     NEXT,
     Ordinal,
     Ratio,
     Scalar,
     testIsCloseTo,
-    Time,
     to,
 } from '@musical-patterns/utilities'
 import {
@@ -97,16 +97,16 @@ describe('segments', () => {
 
             it('each segment\'s two parts have the same total duration', () => {
                 segments.forEach((segment: Segment): void => {
-                    let segmentDuration: Time = to.Time(0)
+                    let segmentDuration: Ms = to.Ms(0)
                     segment.forEach((part: NoteSpec[]): void => {
-                        if (from.Time(segmentDuration) === 0) {
+                        if (from.Ms(segmentDuration) === 0) {
                             segmentDuration = calculateNoteSpecsTotalCompiledDuration(part, scales)
                         }
                         else {
                             expect(
                                 testIsCloseTo(
-                                    from.Time(calculateNoteSpecsTotalCompiledDuration(part, scales)),
-                                    from.Time(segmentDuration),
+                                    from.Ms(calculateNoteSpecsTotalCompiledDuration(part, scales)),
+                                    from.Ms(segmentDuration),
                                 ),
                             )
                                 .toBeTruthy()
@@ -116,16 +116,16 @@ describe('segments', () => {
             })
 
             it('each segment has a different total duration than any other segment', () => {
-                const seenTotalDurations: Time[] = []
+                const seenTotalDurations: Ms[] = []
                 segments.forEach((segment: Segment): void => {
                     const exemplaryNotesForSegment: NoteSpec[] = segment[ 0 ]
-                    const totalDuration: Time = calculateNoteSpecsTotalCompiledDuration(exemplaryNotesForSegment, scales)
+                    const totalDuration: Ms = calculateNoteSpecsTotalCompiledDuration(exemplaryNotesForSegment, scales)
 
-                    seenTotalDurations.forEach((seenDuration: Time): void => {
+                    seenTotalDurations.forEach((seenDuration: Ms): void => {
                         expect(
                             testIsCloseTo(
-                                from.Time(seenDuration),
-                                from.Time(totalDuration),
+                                from.Ms(seenDuration),
+                                from.Ms(totalDuration),
                                 true,
                             ))
                             .toBeTruthy()
