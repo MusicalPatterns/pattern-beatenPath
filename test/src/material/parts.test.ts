@@ -1,5 +1,14 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { apply, DictionaryOf, difference, entries, indexOfLastElement, Ordinal, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    DictionaryOf,
+    difference,
+    entries,
+    forEach,
+    indexOfLastElement,
+    Ordinal,
+    to,
+} from '@musical-patterns/utilities'
 import { BeatenPathSpec, buildParts, specData } from '../../../src/indexForTest'
 
 describe('parts', () => {
@@ -12,9 +21,9 @@ describe('parts', () => {
 
         entries(forwardVersion)
             .forEach(([ partName, part ]: [ string, NoteSpec[] ]): void => {
-                part.forEach((note: NoteSpec, index: number) => {
+                forEach(part, (note: NoteSpec, index: Ordinal) => {
                     const backwardPart: NoteSpec[] = backwardVersion[ partName ]
-                    const mirroredIndex: Ordinal = difference(indexOfLastElement(part), to.Ordinal(index))
+                    const mirroredIndex: Ordinal = difference(indexOfLastElement(part), index)
                     const mirroredNote: NoteSpec = apply.Ordinal(backwardPart, mirroredIndex)
 
                     expect(note)

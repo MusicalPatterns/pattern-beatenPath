@@ -1,9 +1,11 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import {
+    apply,
     Cardinal,
     indexOfLastElement,
     INITIAL,
+    map,
     Ordinal,
     positiveIntegers,
     Scalar,
@@ -24,10 +26,10 @@ const buildSegment: (segmentIndex: Ordinal, buildSegmentsParameters: BuildSegmen
         const buildPiece: BuildPiece =
             style === BeatenPathStyle.POLYRHYTHMIC ? buildPolyrhythmicPiece : buildSmoothPiece
 
-        return durationScalars.map((durationScalar: Scalar, index: number): NoteSpec[] =>
+        return map(durationScalars, (durationScalar: Scalar, index: Ordinal): NoteSpec[] =>
             buildPiece({
                 durationScalar,
-                notesCount: noteCounts[ index ],
+                notesCount: apply.Ordinal(noteCounts, index),
                 repetitions,
             })
                 .map(buildNoteSpec))
