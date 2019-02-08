@@ -11,11 +11,11 @@ import {
     UP_ONE,
 } from '@musical-patterns/utilities'
 import { Core, from as beatenPathFrom } from '../nominal'
-import { Durations, DurationsAndRatios } from '../types'
+import { DurationsAndRatios } from '../types'
 
 const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
-        const durations: Durations = [ to.Scalar(1) ]
+        const durations: Scalar[] = [ to.Scalar(1) ]
         const ratios: Ratio[] = []
 
         const hasLooped: () => boolean =

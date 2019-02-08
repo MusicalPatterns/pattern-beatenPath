@@ -1,12 +1,24 @@
-import { Cardinal, Ratio } from '@musical-patterns/utilities'
-import { Durations } from '../types'
+import { PitchDuration } from '@musical-patterns/pattern'
+import { Cardinal, ContourPiece, Ratio, Scalar } from '@musical-patterns/utilities'
+import { BeatenPathStyle } from '../types'
 
 interface BuildSegmentsParameters {
-    durations: Durations,
+    durations: Scalar[],
     ratios: Ratio[],
+    repetitions: Cardinal,
+    style: BeatenPathStyle,
+}
+
+interface BuildPieceParameters {
+    durationScalar: Scalar,
+    notesCount: Cardinal,
     repetitions: Cardinal,
 }
 
+type BuildPiece = (buildPieceParameters: BuildPieceParameters) => ContourPiece<PitchDuration>
+
 export {
     BuildSegmentsParameters,
+    BuildPieceParameters,
+    BuildPiece,
 }

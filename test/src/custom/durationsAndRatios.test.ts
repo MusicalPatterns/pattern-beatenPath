@@ -14,7 +14,6 @@ import {
 import {
     buildDurationsAndRatios,
     Core,
-    Durations,
     DurationsAndRatios,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
@@ -23,7 +22,7 @@ const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
     to.Scalar(from.FractionalPart(apply.Scalar(ratio[ 0 ], to.Scalar(from.FractionalPart(reciprocal(ratio[ 1 ]))))))
 
 describe('durations and ratios', () => {
-    let durations: Durations
+    let durations: Scalar[]
     let ratios: Ratio[]
 
     describe('durations', () => {

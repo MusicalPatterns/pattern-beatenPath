@@ -1,63 +1,44 @@
+import { NoteSpec } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import {
-    apply,
     Cardinal,
-    DENOMINATOR_INDEX,
-    from,
     indexOfLastElement,
     INITIAL,
-    negative,
-    NUMERATOR_INDEX,
     Ordinal,
     positiveIntegers,
-    Ratio,
-    repeat,
     Scalar,
     slice,
     to,
-    TWO,
 } from '@musical-patterns/utilities'
-import { firstPartDurationIndex, secondPartDurationIndex } from '../custom'
+import { calculateDurationScalars, calculateNoteCounts } from '../custom'
+import { BeatenPathStyle } from '../types'
 import { buildNoteSpec } from './notes'
-import { BuildSegmentsParameters } from './types'
+import { buildPolyrhythmicPiece, buildSmoothPiece } from './pieces'
+import { BuildPiece, BuildSegmentsParameters } from './types'
+
+const buildSegment: (segmentIndex: Ordinal, buildSegmentsParameters: BuildSegmentsParameters) => Segment =
+    (segmentIndex: Ordinal, { durations, ratios, repetitions, style }: BuildSegmentsParameters): Segment => {
+        const durationScalars: Scalar[] = calculateDurationScalars({ durations, segmentIndex })
+        const noteCounts: Cardinal[] = calculateNoteCounts({ ratios, segmentIndex })
+
+        const buildPiece: BuildPiece =
+            style === BeatenPathStyle.POLYRHYTHMIC ? buildPolyrhythmicPiece : buildSmoothPiece
+
+        return durationScalars.map((durationScalar: Scalar, index: number): NoteSpec[] =>
+            buildPiece({
+                durationScalar,
+                notesCount: noteCounts[ index ],
+                repetitions,
+            })
+                .map(buildNoteSpec))
+    }
 
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
-    ({ durations, ratios, repetitions }: BuildSegmentsParameters): Segment[] =>
-        slice(positiveIntegers, INITIAL, indexOfLastElement(durations))
+    (buildSegmentsParameters: BuildSegmentsParameters): Segment[] =>
+        slice(positiveIntegers, INITIAL, indexOfLastElement(buildSegmentsParameters.durations))
             .map(to.Ordinal)
-            .map((segmentIndex: Ordinal): Segment => {
-                const ratioTuple: Ratio =
-                    apply.Ordinal(ratios, apply.Translation(segmentIndex, to.Translation(negative(1))))
-
-                const indexOfFirstPartsDurationForThisSegment: Ordinal = firstPartDurationIndex(segmentIndex)
-                const indexOfSecondPartsDurationForThisSegment: Ordinal = secondPartDurationIndex(segmentIndex)
-
-                const indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment: Ordinal =
-                    apply.Modulus(segmentIndex, to.Modulus(TWO))
-                const indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment: Ordinal =
-                    from.Ordinal(indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment) === 1
-                        ? NUMERATOR_INDEX
-                        : DENOMINATOR_INDEX
-
-                const firstPartNotesCount: Cardinal = to.Cardinal(from.FractionalPart(
-                    apply.Ordinal(ratioTuple, indexOfRatioTupleToDetermineFirstPartsNotesCountForThisSegment),
-                ))
-                const secondPartNotesCount: Cardinal = to.Cardinal(from.FractionalPart(
-                    apply.Ordinal(ratioTuple, indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment),
-                ))
-
-                const firstPartDurationScalar: Scalar =
-                    apply.Ordinal(durations, indexOfFirstPartsDurationForThisSegment)
-                const secondPartDurationScalar: Scalar =
-                    apply.Ordinal(durations, indexOfSecondPartsDurationForThisSegment)
-
-                return [
-                    repeat([ firstPartDurationScalar ], apply.Cardinal(firstPartNotesCount, repetitions))
-                        .map(buildNoteSpec),
-                    repeat([ secondPartDurationScalar ], apply.Cardinal(secondPartNotesCount, repetitions))
-                        .map(buildNoteSpec),
-                ]
-            })
+            .map((segmentIndex: Ordinal): Segment =>
+                buildSegment(segmentIndex, buildSegmentsParameters))
 
 export {
     buildSegments,

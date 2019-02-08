@@ -1,4 +1,5 @@
 import {
+    OptionedSpecPropertyAttributes,
     RangedSpecPropertyAttributes,
     Spec,
     SpecAttributes,
@@ -8,27 +9,32 @@ import { Cardinal, Ratio, Scalar } from '@musical-patterns/utilities'
 import { Core } from './nominal'
 
 interface DurationsAndRatios {
-    durations: Durations,
+    durations: Scalar[],
     ratios: Ratio[],
 }
 
-type Durations = Scalar[]
+enum BeatenPathStyle {
+    POLYRHYTHMIC = 'POLYRHYTHMIC',
+    SMOOTH = 'SMOOTH',
+}
 
 interface BeatenPathSpec extends Spec {
     core: Core,
     repetitions: Cardinal,
     reverse: boolean,
+    style: BeatenPathStyle,
 }
 
 interface BeatenPathSpecAttributes extends SpecAttributes {
     core: RangedSpecPropertyAttributes,
     repetitions: RangedSpecPropertyAttributes,
     reverse: ToggledSpecPropertyAttributes,
+    style: OptionedSpecPropertyAttributes,
 }
 
 export {
-    Durations,
     DurationsAndRatios,
     BeatenPathSpec,
     BeatenPathSpecAttributes,
+    BeatenPathStyle,
 }

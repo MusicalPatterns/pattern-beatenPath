@@ -20,9 +20,9 @@ export {
     Core,
 } from './nominal/indexForTest'
 export {
-    Durations,
     DurationsAndRatios,
     BeatenPathSpec,
+    BeatenPathStyle,
 } from './types'
 
 // tslint:disable-next-line no-default-import

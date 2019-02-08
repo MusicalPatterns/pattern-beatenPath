@@ -12,10 +12,11 @@ import {
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_REPETITIONS,
     BEATEN_PATH_INITIAL_REVERSE,
+    BEATEN_PATH_INITIAL_STYLE,
     MINIMUM_FUNCTIONAL_CORE,
 } from './constants'
 import { from } from './nominal'
-import { BeatenPathSpec, BeatenPathSpecAttributes } from './types'
+import { BeatenPathSpec, BeatenPathSpecAttributes, BeatenPathStyle } from './types'
 
 const initialSpec: BeatenPathSpec = {
     ...standardInitialSpec,
@@ -23,6 +24,7 @@ const initialSpec: BeatenPathSpec = {
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
     reverse: BEATEN_PATH_INITIAL_REVERSE,
+    style: BEATEN_PATH_INITIAL_STYLE,
 }
 
 const coreDescription: string = `
@@ -47,13 +49,27 @@ const attributes: BeatenPathSpecAttributes = {
             min: 1,
         },
         hideInput: RangedInputType.RANGE,
-        order: 2,
+        order: 3,
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.BARS,
     },
     reverse: {
-        order: 3,
+        order: 4,
         specPropertyType: SpecPropertyType.TOGGLED,
+    },
+    style: {
+        constraint: [
+            {
+                key: BeatenPathStyle.POLYRHYTHMIC,
+                order: 1,
+            },
+            {
+                key: BeatenPathStyle.SMOOTH,
+                order: 2,
+            },
+        ],
+        order: 2,
+        specPropertyType: SpecPropertyType.OPTIONED,
     },
 }
 
