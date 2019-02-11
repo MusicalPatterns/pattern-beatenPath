@@ -141,38 +141,38 @@ describe('segments', () => {
             it('for each segment, its note\'s durations are the sum of what they would have been in polyrhythmic mode as separate notes', () => {
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
-                    apply.Scalar(durations[ 0 ], to.Scalar(from.FractionalPart(ratios[ 0 ][ 0 ]))),
+                    apply.Scalar(durations[ 0 ], to.Scalar(from.Numerator(ratios[ 0 ][ 0 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
-                    apply.Scalar(durations[ 1 ], to.Scalar(from.FractionalPart(ratios[ 0 ][ 1 ]))),
+                    apply.Scalar(durations[ 1 ], to.Scalar(from.Denominator(ratios[ 0 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
-                    apply.Scalar(durations[ 2 ], to.Scalar(from.FractionalPart(ratios[ 1 ][ 1 ]))),
+                    apply.Scalar(durations[ 2 ], to.Scalar(from.Denominator(ratios[ 1 ][ 1 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
-                    apply.Scalar(durations[ 1 ], to.Scalar(from.FractionalPart(ratios[ 1 ][ 0 ]))),
+                    apply.Scalar(durations[ 1 ], to.Scalar(from.Numerator(ratios[ 1 ][ 0 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
-                    apply.Scalar(durations[ 2 ], to.Scalar(from.FractionalPart(ratios[ 2 ][ 0 ]))),
+                    apply.Scalar(durations[ 2 ], to.Scalar(from.Numerator(ratios[ 2 ][ 0 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
-                    apply.Scalar(durations[ 3 ], to.Scalar(from.FractionalPart(ratios[ 2 ][ 1 ]))),
+                    apply.Scalar(durations[ 3 ], to.Scalar(from.Denominator(ratios[ 2 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
-                    apply.Scalar(durations[ 4 ], to.Scalar(from.FractionalPart(ratios[ 3 ][ 1 ]))),
+                    apply.Scalar(durations[ 4 ], to.Scalar(from.Denominator(ratios[ 3 ][ 1 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
-                    apply.Scalar(durations[ 3 ], to.Scalar(from.FractionalPart(ratios[ 3 ][ 0 ]))),
+                    apply.Scalar(durations[ 3 ], to.Scalar(from.Numerator(ratios[ 3 ][ 0 ]))),
                 )
 
                 // Etcetera...
@@ -241,29 +241,29 @@ describe('segments', () => {
 
             it('for each segment, both of its parts have a count of notes equal to the corresponding fractional part of that segment\'s ratio times the repetition', () => {
                 expect(segments[ 0 ][ 0 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 0 ][ 0 ], repetitions)))
+                    .toBe(from.Numerator(apply.Cardinal(ratios[ 0 ][ 0 ], repetitions)))
                 expect(segments[ 0 ][ 1 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 0 ][ 1 ], repetitions)))
+                    .toBe(from.Denominator(apply.Cardinal(ratios[ 0 ][ 1 ], repetitions)))
 
                 expect(segments[ 1 ][ 0 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 1 ][ 1 ], repetitions)))
+                    .toBe(from.Denominator(apply.Cardinal(ratios[ 1 ][ 1 ], repetitions)))
                 expect(segments[ 1 ][ 1 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 1 ][ 0 ], repetitions)))
+                    .toBe(from.Numerator(apply.Cardinal(ratios[ 1 ][ 0 ], repetitions)))
 
                 expect(segments[ 2 ][ 0 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 2 ][ 0 ], repetitions)))
+                    .toBe(from.Numerator(apply.Cardinal(ratios[ 2 ][ 0 ], repetitions)))
                 expect(segments[ 2 ][ 1 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 2 ][ 1 ], repetitions)))
+                    .toBe(from.Denominator(apply.Cardinal(ratios[ 2 ][ 1 ], repetitions)))
 
                 expect(segments[ 3 ][ 0 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 3 ][ 1 ], repetitions)))
+                    .toBe(from.Denominator(apply.Cardinal(ratios[ 3 ][ 1 ], repetitions)))
                 expect(segments[ 3 ][ 1 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 3 ][ 0 ], repetitions)))
+                    .toBe(from.Numerator(apply.Cardinal(ratios[ 3 ][ 0 ], repetitions)))
 
                 expect(segments[ 4 ][ 0 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 4 ][ 0 ], repetitions)))
+                    .toBe(from.Numerator(apply.Cardinal(ratios[ 4 ][ 0 ], repetitions)))
                 expect(segments[ 4 ][ 1 ].length)
-                    .toBe(from.FractionalPart(apply.Cardinal(ratios[ 4 ][ 1 ], repetitions)))
+                    .toBe(from.Denominator(apply.Cardinal(ratios[ 4 ][ 1 ], repetitions)))
 
                 // Etcetera...
             })
