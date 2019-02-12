@@ -12,12 +12,12 @@ const buildEntities: BuildEntitiesFunction =
 
         const firstEntity: Entity = {
             noteSpecs: firstPart,
-            timbreName: TimbreNameEnum.ORGAN_2,
+            timbreName: TimbreNameEnum.PUTNEY_WAVERING,
         }
 
         const secondEntity: Entity = {
             noteSpecs: secondPart,
-            timbreName: TimbreNameEnum.PUTNEY_WAVERING,
+            timbreName: TimbreNameEnum.ORGAN_2,
         }
 
         return [

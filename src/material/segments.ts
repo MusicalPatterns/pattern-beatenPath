@@ -7,10 +7,10 @@ import {
     INITIAL,
     map,
     Ordinal,
-    positiveIntegers,
     Scalar,
     slice,
     to,
+    zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
 import { calculateDurationScalars, calculateNoteCounts } from '../custom'
 import { BeatenPathStyle } from '../types'
@@ -37,7 +37,7 @@ const buildSegment: (segmentIndex: Ordinal, buildSegmentsParameters: BuildSegmen
 
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
     (buildSegmentsParameters: BuildSegmentsParameters): Segment[] =>
-        slice(positiveIntegers, INITIAL, indexOfLastElement(buildSegmentsParameters.durations))
+        slice(zeroAndPositiveIntegers, INITIAL, indexOfLastElement(buildSegmentsParameters.durations))
             .map(to.Ordinal)
             .map((segmentIndex: Ordinal): Segment =>
                 buildSegment(segmentIndex, buildSegmentsParameters))

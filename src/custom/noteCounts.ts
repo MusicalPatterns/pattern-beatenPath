@@ -4,7 +4,6 @@ import {
     Denominator,
     DENOMINATOR_INDEX,
     from,
-    negative,
     Numerator,
     NUMERATOR_INDEX,
     Ordinal,
@@ -19,8 +18,7 @@ const isDenominator: (value: Numerator | Denominator) => value is Denominator =
 
 const calculateNoteCounts: ({ segmentIndex, ratios }: { ratios: Ratio[], segmentIndex: Ordinal }) => Cardinal[] =
     ({ segmentIndex, ratios }: { ratios: Ratio[], segmentIndex: Ordinal }): Cardinal[] => {
-        const ratioTuple: Ratio =
-            apply.Ordinal(ratios, apply.Translation(segmentIndex, to.Translation(negative(1))))
+        const ratioTuple: Ratio = apply.Ordinal(ratios, segmentIndex)
 
         const indexOfRatioTupleToDetermineSecondPartsNotesCountForThisSegment: Ordinal =
             apply.Modulus(segmentIndex, to.Modulus(TWO))

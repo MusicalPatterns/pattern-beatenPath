@@ -6,7 +6,6 @@ import {
     NEXT,
     Ordinal,
     Ratio,
-    reciprocal,
     Scalar,
     testIsCloseTo,
     to,
