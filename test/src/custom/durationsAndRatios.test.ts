@@ -18,9 +18,6 @@ import {
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
-const ratioToScalar: (ratio: Ratio) => Scalar = (ratio: Ratio): Scalar =>
-    to.Scalar(from.Numerator(apply.Scalar(ratio[ 0 ], to.Scalar(from.Denominator(reciprocal(ratio[ 1 ]))))))
-
 describe('durations and ratios', () => {
     let durations: Scalar[]
     let ratios: Ratio[]
@@ -52,7 +49,7 @@ describe('durations and ratios', () => {
                                     durations,
                                     apply.Translation(index, to.Translation(negative(1))),
                                 ),
-                                ratioToScalar(ratios[ from.Ordinal(index) - 1 ]),
+                                to.Scalar(from.Ratio(ratios[ from.Ordinal(index) - 1 ])),
                             ),
                         ))
                     }

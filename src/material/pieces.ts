@@ -11,7 +11,7 @@ const buildPolyrhythmicPiece: (buildPieceParameters: BuildPieceParameters) => Co
                     from.Scalar(durationScalar),
                 ],
             ],
-            apply.Cardinal(notesCount, repetitions),
+            apply.Scalar(notesCount, to.Scalar(from.Cardinal(repetitions))),
         ))
 
 const buildSmoothPiece: (buildPieceParameters: BuildPieceParameters) => ContourPiece<PitchDuration> =
@@ -20,7 +20,7 @@ const buildSmoothPiece: (buildPieceParameters: BuildPieceParameters) => ContourP
             [
                 [
                     from.Scalar(reciprocal(durationScalar)),
-                    from.Scalar(apply.Cardinal(durationScalar, notesCount)),
+                    from.Scalar(apply.Scalar(durationScalar, to.Scalar(from.Cardinal(notesCount)))),
                 ],
             ],
             repetitions,
