@@ -12,8 +12,8 @@ import {
     to,
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
-import { calculateDurationScalars, calculateNoteCounts } from '../custom'
 import { BeatenPathStyle } from '../types'
+import { calculateDurationScalars, calculateNoteCounts } from './custom'
 import { buildNoteSpec } from './notes'
 import { buildPolyrhythmicPiece, buildSmoothPiece } from './pieces'
 import { BuildPiece, BuildSegmentsParameters } from './types'

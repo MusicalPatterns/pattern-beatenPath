@@ -2,9 +2,9 @@ import { NoteSpec } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import { DictionaryOf, sequence } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
-import { buildDurationsAndRatios } from '../custom'
 import { Core } from '../nominal'
 import { BeatenPathSpec } from '../types'
+import { buildDurationsAndRatios } from './custom'
 import { buildSegments } from './segments'
 
 const buildParts: (spec: BeatenPathSpec) => DictionaryOf<NoteSpec[]> =

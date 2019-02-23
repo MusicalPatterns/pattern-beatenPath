@@ -1,18 +1,16 @@
 // tslint:disable no-reaching-imports
 
 export {
-    buildDurationsAndRatios,
-    firstPartDurationIndex,
-    secondPartDurationIndex,
-} from './custom/indexForTest'
-export {
     buildSegments,
     buildEntities,
     buildParts,
     buildScales,
+    buildDurationsAndRatios,
+    firstPartDurationIndex,
+    secondPartDurationIndex,
 } from './material/indexForTest'
 export { pattern } from './patterns'
-export { specData } from './specs'
+export { specData } from './spec'
 
 export {
     to,

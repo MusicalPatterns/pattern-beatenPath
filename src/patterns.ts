@@ -2,7 +2,7 @@ import { Material } from '@musical-patterns/compiler'
 import { Id, Metadata, PatternFor, Patterns } from '@musical-patterns/pattern'
 import { buildEntities, buildScales } from './material'
 import { post } from './metadata'
-import { specData } from './specs'
+import { specData } from './spec'
 import { BeatenPathSpec } from './types'
 
 const material: Material = {

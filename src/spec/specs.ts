@@ -7,16 +7,16 @@ import {
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
+import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
+import { from } from '../nominal'
+import { BeatenPathSpec, BeatenPathSpecAttributes, BeatenPathStyle } from '../types'
 import {
     BEATEN_PATH_INITIAL_BASE_FREQUENCY,
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_REPETITIONS,
     BEATEN_PATH_INITIAL_REVERSE,
     BEATEN_PATH_INITIAL_STYLE,
-    MINIMUM_FUNCTIONAL_CORE,
 } from './constants'
-import { from } from './nominal'
-import { BeatenPathSpec, BeatenPathSpecAttributes, BeatenPathStyle } from './types'
 
 const initialSpec: BeatenPathSpec = {
     ...standardInitialSpec,

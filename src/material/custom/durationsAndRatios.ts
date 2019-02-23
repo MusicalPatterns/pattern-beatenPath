@@ -10,8 +10,8 @@ import {
     to,
     UP_ONE,
 } from '@musical-patterns/utilities'
-import { Core, from as beatenPathFrom } from '../nominal'
-import { DurationsAndRatios } from '../types'
+import { Core, from as beatenPathFrom } from '../../nominal'
+import { DurationsAndRatios } from '../../types'
 
 const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
     (core: Core): DurationsAndRatios => {
