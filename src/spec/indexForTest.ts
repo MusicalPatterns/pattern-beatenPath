@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export { specData } from './specs'
+export { specData } from './data'
 export {
     BeatenPathSpec,
     BeatenPathStyle,
