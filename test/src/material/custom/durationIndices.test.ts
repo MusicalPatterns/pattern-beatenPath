@@ -1,5 +1,5 @@
 import { to } from '@musical-patterns/utilities'
-import { firstPartDurationIndex, secondPartDurationIndex } from '../../../src/indexForTest'
+import { firstPartDurationIndex, secondPartDurationIndex } from '../../../../src/indexForTest'
 
 describe('duration indices', () => {
     it('first entity', () => {

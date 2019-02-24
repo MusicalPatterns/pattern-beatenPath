@@ -10,7 +10,7 @@ import {
     testIsCloseTo,
     to,
 } from '@musical-patterns/utilities'
-import { buildDurationsAndRatios, Core, DurationsAndRatios, to as beatenPathTo } from '../../../src/indexForTest'
+import { buildDurationsAndRatios, Core, DurationsAndRatios, to as beatenPathTo } from '../../../../src/indexForTest'
 
 describe('durations and ratios', () => {
     let durations: Scalar[]
