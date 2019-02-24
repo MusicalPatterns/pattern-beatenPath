@@ -2,21 +2,22 @@ import {
     absoluteRatio,
     apply,
     DOWN_ONE,
+    Fraction,
     from,
     isCloseTo,
-    lastElement, Ratio,
+    lastElement,
     reciprocal,
     Scalar,
     to,
     UP_ONE,
 } from '@musical-patterns/utilities'
 import { Core, from as beatenPathFrom } from '../../nominal'
-import { DurationsAndRatios } from '../types'
+import { DurationsAndFractions } from '../types'
 
-const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
-    (core: Core): DurationsAndRatios => {
+const buildDurationsAndFractions: (core: Core) => DurationsAndFractions =
+    (core: Core): DurationsAndFractions => {
         const durations: Scalar[] = [ to.Scalar(1) ]
-        const ratios: Ratio[] = []
+        const fractions: Fraction[] = []
 
         const hasLooped: () => boolean =
             (): boolean =>
@@ -24,28 +25,28 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
 
         const rawCore: number = beatenPathFrom.Core(core)
         const upDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, UP_ONE)))
-        const upRatio: Scalar =
+        const upFraction: Scalar =
             to.Scalar(apply.Scalar(rawCore, upDivisor))
         const downDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, DOWN_ONE)))
-        const downRatio: Scalar =
+        const downFraction: Scalar =
             to.Scalar(apply.Scalar(rawCore, downDivisor))
 
         while (!hasLooped()) {
             const lastDuration: Scalar = lastElement(durations)
 
-            const upDuration: Scalar = apply.Scalar(lastDuration, upRatio)
-            const downDuration: Scalar = apply.Scalar(lastDuration, downRatio)
+            const upDuration: Scalar = apply.Scalar(lastDuration, upFraction)
+            const downDuration: Scalar = apply.Scalar(lastDuration, downFraction)
 
             if (absoluteRatio(from.Scalar(upDuration)) > absoluteRatio(from.Scalar(downDuration))) {
                 durations.push(upDuration)
-                ratios.push([
+                fractions.push([
                     to.Numerator(rawCore),
                     to.Denominator(apply.Translation(rawCore, UP_ONE)),
                 ])
             }
             else {
                 durations.push(downDuration)
-                ratios.push([
+                fractions.push([
                     to.Numerator(rawCore),
                     to.Denominator(apply.Translation(rawCore, DOWN_ONE)),
                 ])
@@ -54,10 +55,10 @@ const buildDurationsAndRatios: (core: Core) => DurationsAndRatios =
 
         return {
             durations,
-            ratios,
+            fractions,
         }
     }
 
 export {
-    buildDurationsAndRatios,
+    buildDurationsAndFractions,
 }

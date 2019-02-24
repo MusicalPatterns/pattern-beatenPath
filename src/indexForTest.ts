@@ -5,10 +5,10 @@ export {
     buildEntities,
     buildParts,
     buildScales,
-    buildDurationsAndRatios,
+    buildDurationsAndFractions,
     firstPartDurationIndex,
     secondPartDurationIndex,
-    DurationsAndRatios,
+    DurationsAndFractions,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {

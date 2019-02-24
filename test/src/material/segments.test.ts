@@ -3,23 +3,23 @@ import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
+    Fraction,
     from,
     Maybe,
     Ms,
     NEXT,
     Ordinal,
-    Ratio,
     Scalar,
     testIsCloseTo,
     to,
 } from '@musical-patterns/utilities'
 import {
     BeatenPathStyle,
-    buildDurationsAndRatios,
+    buildDurationsAndFractions,
     buildScales,
     buildSegments,
     Core,
-    DurationsAndRatios,
+    DurationsAndFractions,
     specData,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
@@ -27,20 +27,20 @@ import {
 describe('segments', () => {
     let segments: Segment[]
     let durations: Scalar[]
-    let ratios: Ratio[]
+    let fractions: Fraction[]
     let scales: Scale[]
 
     const suite: (core: Core, repetitions: Cardinal) => void =
         (core: Core, repetitions: Cardinal): void => {
             beforeEach(() => {
-                const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-                durations = durationsAndRatios.durations
-                ratios = durationsAndRatios.ratios
+                const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
+                durations = durationsAndFractions.durations
+                fractions = durationsAndFractions.fractions
             })
 
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ durations, ratios, repetitions, style: specData.initial.style })
+                    segments = buildSegments({ durations, fractions, repetitions, style: specData.initial.style })
                     scales = buildScales(specData.initial)
                 })
 
@@ -51,7 +51,7 @@ describe('segments', () => {
 
             describe('smooth style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ durations, ratios, repetitions, style: BeatenPathStyle.SMOOTH })
+                    segments = buildSegments({ durations, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
                     scales = buildScales({
                         ...specData.initial,
                         style: BeatenPathStyle.SMOOTH,
@@ -141,38 +141,38 @@ describe('segments', () => {
             it('for each segment, its note\'s durations are the sum of what they would have been in polyrhythmic mode as separate notes', () => {
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
-                    apply.Scalar(durations[ 0 ], to.Scalar(from.Numerator(ratios[ 0 ][ 0 ]))),
+                    apply.Scalar(durations[ 0 ], to.Scalar(from.Numerator(fractions[ 0 ][ 0 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
-                    apply.Scalar(durations[ 1 ], to.Scalar(from.Denominator(ratios[ 0 ][ 1 ]))),
+                    apply.Scalar(durations[ 1 ], to.Scalar(from.Denominator(fractions[ 0 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
-                    apply.Scalar(durations[ 2 ], to.Scalar(from.Denominator(ratios[ 1 ][ 1 ]))),
+                    apply.Scalar(durations[ 2 ], to.Scalar(from.Denominator(fractions[ 1 ][ 1 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
-                    apply.Scalar(durations[ 1 ], to.Scalar(from.Numerator(ratios[ 1 ][ 0 ]))),
+                    apply.Scalar(durations[ 1 ], to.Scalar(from.Numerator(fractions[ 1 ][ 0 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
-                    apply.Scalar(durations[ 2 ], to.Scalar(from.Numerator(ratios[ 2 ][ 0 ]))),
+                    apply.Scalar(durations[ 2 ], to.Scalar(from.Numerator(fractions[ 2 ][ 0 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
-                    apply.Scalar(durations[ 3 ], to.Scalar(from.Denominator(ratios[ 2 ][ 1 ]))),
+                    apply.Scalar(durations[ 3 ], to.Scalar(from.Denominator(fractions[ 2 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
-                    apply.Scalar(durations[ 4 ], to.Scalar(from.Denominator(ratios[ 3 ][ 1 ]))),
+                    apply.Scalar(durations[ 4 ], to.Scalar(from.Denominator(fractions[ 3 ][ 1 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
-                    apply.Scalar(durations[ 3 ], to.Scalar(from.Numerator(ratios[ 3 ][ 0 ]))),
+                    apply.Scalar(durations[ 3 ], to.Scalar(from.Numerator(fractions[ 3 ][ 0 ]))),
                 )
 
                 // Etcetera...
@@ -239,31 +239,31 @@ describe('segments', () => {
                 // Etcetera...
             })
 
-            it('for each segment, both of its parts have a count of notes equal to the corresponding fractional part of that segment\'s ratio times the repetition', () => {
+            it('for each segment, both of its parts have a count of notes equal to the corresponding fractional part of that segment\'s fraction times the repetition', () => {
                 expect(segments[ 0 ][ 0 ].length)
-                    .toBe(from.Denominator(apply.Scalar(ratios[ 0 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Denominator(apply.Scalar(fractions[ 0 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 0 ][ 1 ].length)
-                    .toBe(from.Numerator(apply.Scalar(ratios[ 0 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Numerator(apply.Scalar(fractions[ 0 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
 
                 expect(segments[ 1 ][ 0 ].length)
-                    .toBe(from.Numerator(apply.Scalar(ratios[ 1 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Numerator(apply.Scalar(fractions[ 1 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 1 ][ 1 ].length)
-                    .toBe(from.Denominator(apply.Scalar(ratios[ 1 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Denominator(apply.Scalar(fractions[ 1 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
 
                 expect(segments[ 2 ][ 0 ].length)
-                    .toBe(from.Denominator(apply.Scalar(ratios[ 2 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Denominator(apply.Scalar(fractions[ 2 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 2 ][ 1 ].length)
-                    .toBe(from.Numerator(apply.Scalar(ratios[ 2 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Numerator(apply.Scalar(fractions[ 2 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
 
                 expect(segments[ 3 ][ 0 ].length)
-                    .toBe(from.Numerator(apply.Scalar(ratios[ 3 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Numerator(apply.Scalar(fractions[ 3 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 3 ][ 1 ].length)
-                    .toBe(from.Denominator(apply.Scalar(ratios[ 3 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Denominator(apply.Scalar(fractions[ 3 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
 
                 expect(segments[ 4 ][ 0 ].length)
-                    .toBe(from.Denominator(apply.Scalar(ratios[ 4 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Denominator(apply.Scalar(fractions[ 4 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 4 ][ 1 ].length)
-                    .toBe(from.Numerator(apply.Scalar(ratios[ 4 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
+                    .toBe(from.Numerator(apply.Scalar(fractions[ 4 ][ 0 ], to.Scalar(from.Cardinal(repetitions)))))
 
                 // Etcetera...
             })

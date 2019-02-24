@@ -1,28 +1,28 @@
 import {
     apply,
+    Fraction,
     from,
     indexOfLastElement,
     negative,
     NEXT,
     Ordinal,
-    Ratio,
     Scalar,
     testIsCloseTo,
     to,
 } from '@musical-patterns/utilities'
-import { buildDurationsAndRatios, Core, DurationsAndRatios, to as beatenPathTo } from '../../../../src/indexForTest'
+import { buildDurationsAndFractions, Core, DurationsAndFractions, to as beatenPathTo } from '../../../../src/indexForTest'
 
-describe('durations and ratios', () => {
+describe('durations and fractions', () => {
     let durations: Scalar[]
-    let ratios: Ratio[]
+    let fractions: Fraction[]
 
     describe('durations', () => {
         for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, NEXT)) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
-                    const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-                    durations = durationsAndRatios.durations
-                    ratios = durationsAndRatios.ratios
+                    const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
+                    durations = durationsAndFractions.durations
+                    fractions = durationsAndFractions.fractions
                 })
 
                 it('first duration is 1', () => {
@@ -30,7 +30,7 @@ describe('durations and ratios', () => {
                         .toBeTruthy()
                 })
 
-                it('each successive duration is equal to the previous duration multiplied by the next ratio', () => {
+                it('each successive duration is equal to the previous duration multiplied by the next fraction', () => {
                     for (
                         let index: Ordinal = to.Ordinal(1);
                         index < indexOfLastElement(durations);
@@ -43,7 +43,7 @@ describe('durations and ratios', () => {
                                     durations,
                                     apply.Translation(index, to.Translation(negative(1))),
                                 ),
-                                to.Scalar(from.Ratio(ratios[ from.Ordinal(index) - 1 ])),
+                                to.Scalar(from.Fraction(fractions[ from.Ordinal(index) - 1 ])),
                             ),
                         ))
                     }
@@ -53,8 +53,8 @@ describe('durations and ratios', () => {
 
         describe('it also tests against hard-coded durations so i have a clearer record of what exactly is going on here', () => {
             it('when core is 2', () => {
-                const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(beatenPathTo.Core(2))
-                durations = durationsAndRatios.durations
+                const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(beatenPathTo.Core(2))
+                durations = durationsAndFractions.durations
 
                 expect(durations)
                     .toEqual([
@@ -147,8 +147,8 @@ describe('durations and ratios', () => {
             })
 
             it('when core is 3', () => {
-                const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(beatenPathTo.Core(3))
-                durations = durationsAndRatios.durations
+                const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(beatenPathTo.Core(3))
+                durations = durationsAndFractions.durations
 
                 expect(durations)
                     .toEqual([
@@ -210,8 +210,8 @@ describe('durations and ratios', () => {
             })
 
             it('when core is 4', () => {
-                const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(beatenPathTo.Core(4))
-                durations = durationsAndRatios.durations
+                const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(beatenPathTo.Core(4))
+                durations = durationsAndFractions.durations
 
                 expect(durations)
                     .toEqual([
@@ -236,8 +236,8 @@ describe('durations and ratios', () => {
             })
 
             it('when core is 5', () => {
-                const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(beatenPathTo.Core(5))
-                durations = durationsAndRatios.durations
+                const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(beatenPathTo.Core(5))
+                durations = durationsAndFractions.durations
 
                 expect(durations)
                     .toEqual([
@@ -267,17 +267,17 @@ describe('durations and ratios', () => {
         })
     })
 
-    describe('ratios', () => {
+    describe('fractions', () => {
         it('when core is 2', () => {
             const core: Core = beatenPathTo.Core(2)
-            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-            durations = durationsAndRatios.durations
-            ratios = durationsAndRatios.ratios
+            const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
+            durations = durationsAndFractions.durations
+            fractions = durationsAndFractions.fractions
 
-            const down: Ratio = to.Ratio([ 2, 1 ])
-            const up: Ratio = to.Ratio([ 2, 3 ])
+            const down: Fraction = to.Fraction([ 2, 1 ])
+            const up: Fraction = to.Fraction([ 2, 3 ])
 
-            const expectedRatios: Ratio[] = [
+            const expectedFractions: Fraction[] = [
                 up,
                 down,
                 up,
@@ -364,20 +364,20 @@ describe('durations and ratios', () => {
                 up,
             ]
 
-            expect(ratios)
-                .toEqual(expectedRatios)
+            expect(fractions)
+                .toEqual(expectedFractions)
         })
 
         it('when core is 3', () => {
             const core: Core = beatenPathTo.Core(3)
-            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-            durations = durationsAndRatios.durations
-            ratios = durationsAndRatios.ratios
+            const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
+            durations = durationsAndFractions.durations
+            fractions = durationsAndFractions.fractions
 
-            const down: Ratio = to.Ratio([ 3, 2 ])
-            const up: Ratio = to.Ratio([ 3, 4 ])
+            const down: Fraction = to.Fraction([ 3, 2 ])
+            const up: Fraction = to.Fraction([ 3, 4 ])
 
-            const expectedRatios: Ratio[] = [
+            const expectedFractions: Fraction[] = [
                 up,
                 down,
                 up,
@@ -433,20 +433,20 @@ describe('durations and ratios', () => {
                 up,
             ]
 
-            expect(ratios)
-                .toEqual(expectedRatios)
+            expect(fractions)
+                .toEqual(expectedFractions)
         })
 
         it('when core is 4', () => {
             const core: Core = beatenPathTo.Core(4)
-            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-            durations = durationsAndRatios.durations
-            ratios = durationsAndRatios.ratios
+            const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
+            durations = durationsAndFractions.durations
+            fractions = durationsAndFractions.fractions
 
-            const down: Ratio = to.Ratio([ 4, 3 ])
-            const up: Ratio = to.Ratio([ 4, 5 ])
+            const down: Fraction = to.Fraction([ 4, 3 ])
+            const up: Fraction = to.Fraction([ 4, 5 ])
 
-            const expectedRatios: Ratio[] = [
+            const expectedFractions: Fraction[] = [
                 up,
                 down,
                 up,
@@ -465,20 +465,20 @@ describe('durations and ratios', () => {
                 up,
             ]
 
-            expect(ratios)
-                .toEqual(expectedRatios)
+            expect(fractions)
+                .toEqual(expectedFractions)
         })
 
         it('when core is 5', () => {
             const core: Core = beatenPathTo.Core(5)
-            const durationsAndRatios: DurationsAndRatios = buildDurationsAndRatios(core)
-            durations = durationsAndRatios.durations
-            ratios = durationsAndRatios.ratios
+            const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
+            durations = durationsAndFractions.durations
+            fractions = durationsAndFractions.fractions
 
-            const down: Ratio = to.Ratio([ 5, 4 ])
-            const up: Ratio = to.Ratio([ 5, 6 ])
+            const down: Fraction = to.Fraction([ 5, 4 ])
+            const up: Fraction = to.Fraction([ 5, 6 ])
 
-            const expectedRatios: Ratio[] = [
+            const expectedFractions: Fraction[] = [
                 up,
                 down,
                 up,
@@ -501,8 +501,8 @@ describe('durations and ratios', () => {
                 up,
             ]
 
-            expect(ratios)
-                .toEqual(expectedRatios)
+            expect(fractions)
+                .toEqual(expectedFractions)
         })
     })
 })

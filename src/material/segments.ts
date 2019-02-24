@@ -19,9 +19,9 @@ import { buildPolyrhythmicPiece, buildSmoothPiece } from './pieces'
 import { BuildPiece, BuildSegmentsParameters } from './types'
 
 const buildSegment: (segmentIndex: Ordinal, buildSegmentsParameters: BuildSegmentsParameters) => Segment =
-    (segmentIndex: Ordinal, { durations, ratios, repetitions, style }: BuildSegmentsParameters): Segment => {
+    (segmentIndex: Ordinal, { durations, fractions, repetitions, style }: BuildSegmentsParameters): Segment => {
         const durationScalars: Scalar[] = calculateDurationScalars({ durations, segmentIndex })
-        const noteCounts: Cardinal[] = calculateNoteCounts({ ratios, segmentIndex })
+        const noteCounts: Cardinal[] = calculateNoteCounts({ fractions, segmentIndex })
 
         const buildPiece: BuildPiece =
             style === BeatenPathStyle.POLYRHYTHMIC ? buildPolyrhythmicPiece : buildSmoothPiece

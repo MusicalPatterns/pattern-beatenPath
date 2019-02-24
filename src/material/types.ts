@@ -1,10 +1,10 @@
 import { PitchDuration } from '@musical-patterns/pattern'
-import { Cardinal, ContourPiece, Ratio, Scalar } from '@musical-patterns/utilities'
+import { Cardinal, ContourPiece, Fraction, Scalar } from '@musical-patterns/utilities'
 import { BeatenPathStyle } from '../spec'
 
 interface BuildSegmentsParameters {
     durations: Scalar[],
-    ratios: Ratio[],
+    fractions: Fraction[],
     repetitions: Cardinal,
     style: BeatenPathStyle,
 }
@@ -17,14 +17,14 @@ interface BuildPieceParameters {
 
 type BuildPiece = (buildPieceParameters: BuildPieceParameters) => ContourPiece<PitchDuration>
 
-interface DurationsAndRatios {
+interface DurationsAndFractions {
     durations: Scalar[],
-    ratios: Ratio[],
+    fractions: Fraction[],
 }
 
 export {
     BuildSegmentsParameters,
     BuildPieceParameters,
     BuildPiece,
-    DurationsAndRatios,
+    DurationsAndFractions,
 }

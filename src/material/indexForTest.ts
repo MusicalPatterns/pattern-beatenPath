@@ -5,11 +5,11 @@ export { buildEntities } from './entities'
 export { buildScales } from './scales'
 export { buildParts } from './parts'
 export {
-    buildDurationsAndRatios,
+    buildDurationsAndFractions,
     firstPartDurationIndex,
     secondPartDurationIndex,
 } from './custom/indexForTest'
 
 export {
-    DurationsAndRatios,
+    DurationsAndFractions,
 } from './types'
