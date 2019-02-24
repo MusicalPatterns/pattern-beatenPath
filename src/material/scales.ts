@@ -1,7 +1,7 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
 import { buildStandardScales, StandardSpecProperties } from '@musical-patterns/pattern'
 import { from, NO_TRANSLATION, Scalar, to, Translation } from '@musical-patterns/utilities'
-import { BeatenPathSpec } from '../types'
+import { BeatenPathSpec } from '../spec'
 
 const buildScales: BuildScalesFunction =
     (spec: BeatenPathSpec): Scale[] => {

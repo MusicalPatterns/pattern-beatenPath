@@ -1,6 +1,6 @@
 import { BuildEntitiesFunction, Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
-import { BeatenPathSpec } from '../types'
+import { BeatenPathSpec } from '../spec'
 import { buildParts } from './parts'
 
 const buildEntities: BuildEntitiesFunction =

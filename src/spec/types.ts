@@ -5,13 +5,8 @@ import {
     SpecAttributes,
     ToggledSpecPropertyAttributes,
 } from '@musical-patterns/pattern'
-import { Cardinal, Ratio, Scalar } from '@musical-patterns/utilities'
-import { Core } from './nominal'
-
-interface DurationsAndRatios {
-    durations: Scalar[],
-    ratios: Ratio[],
-}
+import { Cardinal } from '@musical-patterns/utilities'
+import { Core } from '../nominal'
 
 enum BeatenPathStyle {
     POLYRHYTHMIC = 'POLYRHYTHMIC',
@@ -33,8 +28,7 @@ interface BeatenPathSpecAttributes extends SpecAttributes {
 }
 
 export {
-    DurationsAndRatios,
+    BeatenPathStyle,
     BeatenPathSpec,
     BeatenPathSpecAttributes,
-    BeatenPathStyle,
 }

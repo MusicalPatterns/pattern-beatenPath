@@ -9,3 +9,7 @@ export {
     firstPartDurationIndex,
     secondPartDurationIndex,
 } from './custom/indexForTest'
+
+export {
+    DurationsAndRatios,
+} from './types'

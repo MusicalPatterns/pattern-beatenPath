@@ -7,7 +7,6 @@ import {
     forEach,
     indexOfLastElement,
     Ordinal,
-    to,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpec, buildParts, specData } from '../../../src/indexForTest'
 

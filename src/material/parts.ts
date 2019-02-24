@@ -3,7 +3,7 @@ import { Segment } from '@musical-patterns/pattern'
 import { DictionaryOf, sequence } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { Core } from '../nominal'
-import { BeatenPathSpec } from '../types'
+import { BeatenPathSpec } from '../spec'
 import { buildDurationsAndRatios } from './custom'
 import { buildSegments } from './segments'
 

@@ -12,7 +12,7 @@ import {
     to,
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
-import { BeatenPathStyle } from '../types'
+import { BeatenPathStyle } from '../spec'
 import { calculateDurationScalars, calculateNoteCounts } from './custom'
 import { buildNoteSpec } from './notes'
 import { buildPolyrhythmicPiece, buildSmoothPiece } from './pieces'
