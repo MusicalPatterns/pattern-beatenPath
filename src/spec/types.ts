@@ -1,7 +1,7 @@
 import {
     OptionedSpecPropertyAttributes,
     RangedSpecPropertyAttributes,
-    SpecAttributesFor,
+    SpecAttributes,
     StandardSpec,
     ToggledSpecPropertyAttributes,
 } from '@musical-patterns/pattern'
@@ -20,7 +20,7 @@ interface BeatenPathSpec extends StandardSpec {
     style: BeatenPathStyle,
 }
 
-interface BeatenPathSpecAttributes extends SpecAttributesFor<BeatenPathSpec> {
+interface BeatenPathSpecAttributes extends SpecAttributes<BeatenPathSpec> {
     core: RangedSpecPropertyAttributes,
     repetitions: RangedSpecPropertyAttributes,
     reverse: ToggledSpecPropertyAttributes,

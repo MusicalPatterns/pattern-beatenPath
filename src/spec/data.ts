@@ -1,6 +1,6 @@
 import {
     RangedInputType,
-    SpecDataFor,
+    SpecData,
     SpecPropertyType,
     standardInitialSpec,
     standardSpecAttributes,
@@ -73,7 +73,7 @@ const attributes: BeatenPathSpecAttributes = {
     },
 }
 
-const specData: SpecDataFor<BeatenPathSpec> = {
+const specData: SpecData<BeatenPathSpec> = {
     attributes,
     initial: initialSpec,
 }
