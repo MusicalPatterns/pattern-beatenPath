@@ -4,7 +4,6 @@ export {
     buildSegments,
     buildEntities,
     buildParts,
-    buildScales,
     buildDurationsAndFractions,
     firstPartDurationIndex,
     secondPartDurationIndex,

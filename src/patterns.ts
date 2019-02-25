@@ -1,12 +1,12 @@
 import { Material } from '@musical-patterns/compiler'
-import { Id, Metadata, Pattern, Patterns } from '@musical-patterns/pattern'
-import { buildEntities, buildScales } from './material'
+import { buildStandardScales, Id, Metadata, Pattern, Patterns } from '@musical-patterns/pattern'
+import { buildEntities } from './material'
 import { post } from './metadata'
 import { BeatenPathSpec, specData } from './spec'
 
 const material: Material = {
     buildEntitiesFunction: buildEntities,
-    buildScalesFunction: buildScales,
+    buildScalesFunction: buildStandardScales,
 }
 
 const metadata: Metadata = {

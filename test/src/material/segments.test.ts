@@ -1,5 +1,5 @@
 import { calculateNoteSpecsTotalCompiledDuration, NotePropertySpec, NoteSpec, Scale } from '@musical-patterns/compiler'
-import { Segment } from '@musical-patterns/pattern'
+import { buildStandardScales, Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
@@ -16,7 +16,6 @@ import {
 import {
     BeatenPathStyle,
     buildDurationsAndFractions,
-    buildScales,
     buildSegments,
     Core,
     DurationsAndFractions,
@@ -41,7 +40,7 @@ describe('segments', () => {
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
                     segments = buildSegments({ durations, fractions, repetitions, style: specData.initial.style })
-                    scales = buildScales(specData.initial)
+                    scales = buildStandardScales(specData.initial)
                 })
 
                 sharedPartOfSuite()
@@ -52,7 +51,7 @@ describe('segments', () => {
             describe('smooth style', () => {
                 beforeEach(() => {
                     segments = buildSegments({ durations, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
-                    scales = buildScales({
+                    scales = buildStandardScales({
                         ...specData.initial,
                         style: BeatenPathStyle.SMOOTH,
                     })
