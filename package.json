@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@musical-patterns/compiler": "^1.0.96",
-    "@musical-patterns/pattern": "^1.0.162",
-    "@musical-patterns/utilities": "^1.0.267"
+    "@musical-patterns/pattern": "^1.0.164",
+    "@musical-patterns/utilities": "^1.0.268"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.437",
+    "@musical-patterns/cli": "^1.0.440",
     "@musical-patterns/playroom": "^1.0.228",
     "@musical-patterns/snapshot": "^1.0.48"
   }
