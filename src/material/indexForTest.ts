@@ -4,11 +4,11 @@ export { buildSegments } from './segments'
 export { buildEntities } from './entities'
 export { buildParts } from './parts'
 export {
-    buildDurationsAndFractions,
-    firstPartDurationIndex,
-    secondPartDurationIndex,
+    buildFractionsAndScalars,
+    firstPartScalarIndex,
+    secondPartScalarIndex,
 } from './custom/indexForTest'
 
 export {
-    DurationsAndFractions,
+    FractionsAndScalars,
 } from './types'

@@ -1,4 +1,3 @@
-export { buildDurationsAndFractions } from './durationsAndFractions'
-export { firstPartDurationIndex, secondPartDurationIndex } from './durationIndices'
-export { calculateDurationScalars } from './durationScalars'
+export { buildFractionsAndScalars } from './fractionsAndScalars'
+export { calculateScalars } from './scalars'
 export { calculateNoteCounts } from './noteCounts'

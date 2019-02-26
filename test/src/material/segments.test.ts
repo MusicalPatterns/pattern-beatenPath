@@ -15,31 +15,31 @@ import {
 } from '@musical-patterns/utilities'
 import {
     BeatenPathStyle,
-    buildDurationsAndFractions,
+    buildFractionsAndScalars,
     buildSegments,
     Core,
-    DurationsAndFractions,
+    FractionsAndScalars,
     specData,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
 describe('segments', () => {
     let segments: Segment[]
-    let durations: Scalar[]
+    let scalars: Scalar[]
     let fractions: Fraction[]
     let scales: Scale[]
 
     const suite: (core: Core, repetitions: Cardinal) => void =
         (core: Core, repetitions: Cardinal): void => {
             beforeEach(() => {
-                const durationsAndFractions: DurationsAndFractions = buildDurationsAndFractions(core)
-                durations = durationsAndFractions.durations
-                fractions = durationsAndFractions.fractions
+                const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+                scalars = fractionsAndScalars.scalars
+                fractions = fractionsAndScalars.fractions
             })
 
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ durations, fractions, repetitions, style: specData.initial.style })
+                    segments = buildSegments({ scalars, fractions, repetitions, style: specData.initial.style })
                     scales = buildStandardScales(specData.initial)
                 })
 
@@ -50,7 +50,7 @@ describe('segments', () => {
 
             describe('smooth style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ durations, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
+                    segments = buildSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
                     scales = buildStandardScales({
                         ...specData.initial,
                         style: BeatenPathStyle.SMOOTH,
@@ -137,41 +137,41 @@ describe('segments', () => {
 
     const smoothPartOfSuite: (repetitions: Cardinal) => void =
         (repetitions: Cardinal): void => {
-            it('for each segment, its note\'s durations are the sum of what they would have been in polyrhythmic mode as separate notes', () => {
+            it('for each segment, its note\'s scalars are the sum of what they would have been in polyrhythmic mode as separate notes', () => {
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
-                    apply.Scalar(durations[ 0 ], to.Scalar(from.Numerator(fractions[ 0 ][ 0 ]))),
+                    apply.Scalar(scalars[ 0 ], to.Scalar(from.Numerator(fractions[ 0 ][ 0 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
-                    apply.Scalar(durations[ 1 ], to.Scalar(from.Denominator(fractions[ 0 ][ 1 ]))),
+                    apply.Scalar(scalars[ 1 ], to.Scalar(from.Denominator(fractions[ 0 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
-                    apply.Scalar(durations[ 2 ], to.Scalar(from.Denominator(fractions[ 1 ][ 1 ]))),
+                    apply.Scalar(scalars[ 2 ], to.Scalar(from.Denominator(fractions[ 1 ][ 1 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
-                    apply.Scalar(durations[ 1 ], to.Scalar(from.Numerator(fractions[ 1 ][ 0 ]))),
+                    apply.Scalar(scalars[ 1 ], to.Scalar(from.Numerator(fractions[ 1 ][ 0 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
-                    apply.Scalar(durations[ 2 ], to.Scalar(from.Numerator(fractions[ 2 ][ 0 ]))),
+                    apply.Scalar(scalars[ 2 ], to.Scalar(from.Numerator(fractions[ 2 ][ 0 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
-                    apply.Scalar(durations[ 3 ], to.Scalar(from.Denominator(fractions[ 2 ][ 1 ]))),
+                    apply.Scalar(scalars[ 3 ], to.Scalar(from.Denominator(fractions[ 2 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
-                    apply.Scalar(durations[ 4 ], to.Scalar(from.Denominator(fractions[ 3 ][ 1 ]))),
+                    apply.Scalar(scalars[ 4 ], to.Scalar(from.Denominator(fractions[ 3 ][ 1 ]))),
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
-                    apply.Scalar(durations[ 3 ], to.Scalar(from.Numerator(fractions[ 3 ][ 0 ]))),
+                    apply.Scalar(scalars[ 3 ], to.Scalar(from.Numerator(fractions[ 3 ][ 0 ]))),
                 )
 
                 // Etcetera...
@@ -189,50 +189,50 @@ describe('segments', () => {
 
     const polyrhythmicPartOfSuite: (repetitions: Cardinal) => void =
         (repetitions: Cardinal): void => {
-            it('segments\'s note durations follow an alternating pattern of incrementing along the durations', () => {
+            it('segments\'s note scalars follow an alternating pattern of incrementing along the scalars', () => {
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
-                    durations[ 1 ],
+                    scalars[ 1 ],
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
-                    durations[ 0 ],
+                    scalars[ 0 ],
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
-                    durations[ 1 ],
+                    scalars[ 1 ],
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
-                    durations[ 2 ],
+                    scalars[ 2 ],
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
-                    durations[ 3 ],
+                    scalars[ 3 ],
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
-                    durations[ 2 ],
+                    scalars[ 2 ],
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
-                    durations[ 3 ],
+                    scalars[ 3 ],
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
-                    durations[ 4 ],
+                    scalars[ 4 ],
                 )
 
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(4), to.Ordinal(0)),
-                    durations[ 5 ],
+                    scalars[ 5 ],
                 )
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(4), to.Ordinal(1)),
-                    durations[ 4 ],
+                    scalars[ 4 ],
                 )
 
                 // Etcetera...

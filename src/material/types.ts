@@ -3,28 +3,28 @@ import { Cardinal, ContourPiece, Fraction, Scalar } from '@musical-patterns/util
 import { BeatenPathStyle } from '../spec'
 
 interface BuildSegmentsParameters {
-    durations: Scalar[],
     fractions: Fraction[],
     repetitions: Cardinal,
+    scalars: Scalar[],
     style: BeatenPathStyle,
 }
 
 interface BuildPieceParameters {
-    durationScalar: Scalar,
     notesCount: Cardinal,
     repetitions: Cardinal,
+    scalar: Scalar,
 }
 
 type BuildPiece = (buildPieceParameters: BuildPieceParameters) => ContourPiece<PitchDuration>
 
-interface DurationsAndFractions {
-    durations: Scalar[],
+interface FractionsAndScalars {
     fractions: Fraction[],
+    scalars: Scalar[],
 }
 
 export {
     BuildSegmentsParameters,
     BuildPieceParameters,
     BuildPiece,
-    DurationsAndFractions,
+    FractionsAndScalars,
 }

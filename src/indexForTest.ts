@@ -4,10 +4,10 @@ export {
     buildSegments,
     buildEntities,
     buildParts,
-    buildDurationsAndFractions,
-    firstPartDurationIndex,
-    secondPartDurationIndex,
-    DurationsAndFractions,
+    buildFractionsAndScalars,
+    firstPartScalarIndex,
+    secondPartScalarIndex,
+    FractionsAndScalars,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {
