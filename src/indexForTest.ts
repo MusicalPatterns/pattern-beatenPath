@@ -8,6 +8,8 @@ export {
     firstPartScalarIndex,
     secondPartScalarIndex,
     FractionsAndScalars,
+    BeatenPathPart,
+    BeatenPathParts,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {

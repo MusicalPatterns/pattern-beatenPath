@@ -1,14 +1,15 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { DictionaryOf, sequence } from '@musical-patterns/utilities'
+import { sequence } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { Core } from '../nominal'
 import { BeatenPathSpec } from '../spec'
 import { buildFractionsAndScalars } from './custom'
 import { buildSegments } from './segments'
+import { BeatenPathPart, BeatenPathParts } from './types'
 
-const buildParts: (spec: BeatenPathSpec) => DictionaryOf<NoteSpec[]> =
-    ({ core, repetitions, reverse, style }: BeatenPathSpec): DictionaryOf<NoteSpec[]> => {
+const buildParts: (spec: BeatenPathSpec) => BeatenPathParts =
+    ({ core, repetitions, reverse, style }: BeatenPathSpec): BeatenPathParts => {
         const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
 
         const { fractions, scalars } = buildFractionsAndScalars(clampedCore)
@@ -22,8 +23,8 @@ const buildParts: (spec: BeatenPathSpec) => DictionaryOf<NoteSpec[]> =
         )
 
         return {
-            firstPart: reverse ? firstPart.reverse() : firstPart,
-            secondPart: reverse ? secondPart.reverse() : secondPart,
+            [ BeatenPathPart.FIRST_PART ]: reverse ? firstPart.reverse() : firstPart,
+            [ BeatenPathPart.SECOND_PART ]: reverse ? secondPart.reverse() : secondPart,
         }
     }
 

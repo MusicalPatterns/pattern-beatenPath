@@ -11,4 +11,6 @@ export {
 
 export {
     FractionsAndScalars,
+    BeatenPathPart,
+    BeatenPathParts,
 } from './types'
