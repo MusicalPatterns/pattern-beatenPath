@@ -2,7 +2,8 @@
 
 import {
     Cardinal,
-    Hz, Scalar,
+    Hz,
+    Scalar,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
