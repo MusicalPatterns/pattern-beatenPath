@@ -16,7 +16,7 @@ const isDenominator: (value: Numerator | Denominator) => value is Denominator =
     (value: Numerator | Denominator): value is Denominator =>
         (value as Denominator)._OperationBrand === 'Denominator'
 
-const calculateNoteCounts:
+const calculateNoteCountsForSegment:
     ({ segmentIndex, fractions }: { fractions: Fraction[], segmentIndex: Ordinal }) => Cardinal[] =
     ({ segmentIndex, fractions }: { fractions: Fraction[], segmentIndex: Ordinal }): Cardinal[] => {
         const ratioTuple: Fraction = apply.Ordinal(fractions, segmentIndex)
@@ -48,5 +48,5 @@ const calculateNoteCounts:
     }
 
 export {
-    calculateNoteCounts,
+    calculateNoteCountsForSegment,
 }

@@ -5,8 +5,8 @@ export { buildEntities } from './entities'
 export { buildParts } from './parts'
 export {
     buildFractionsAndScalars,
-    firstPartScalarIndex,
-    secondPartScalarIndex,
+    calculateFirstPartScalarIndex,
+    calculateSecondPartScalarIndex,
 } from './custom/indexForTest'
 
 export {

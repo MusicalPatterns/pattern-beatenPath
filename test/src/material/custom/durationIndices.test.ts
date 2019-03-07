@@ -1,34 +1,34 @@
 import { to } from '@musical-patterns/utilities'
-import { firstPartScalarIndex, secondPartScalarIndex } from '../../../../src/indexForTest'
+import { calculateFirstPartScalarIndex, calculateSecondPartScalarIndex } from '../../../../src/indexForTest'
 
 describe('scalar indices', () => {
     it('first entity', () => {
-        expect(firstPartScalarIndex(to.Ordinal(0)))
+        expect(calculateFirstPartScalarIndex(to.Ordinal(0)))
             .toBe(to.Ordinal(1))
-        expect(firstPartScalarIndex(to.Ordinal(1)))
+        expect(calculateFirstPartScalarIndex(to.Ordinal(1)))
             .toBe(to.Ordinal(1))
-        expect(firstPartScalarIndex(to.Ordinal(2)))
+        expect(calculateFirstPartScalarIndex(to.Ordinal(2)))
             .toBe(to.Ordinal(3))
-        expect(firstPartScalarIndex(to.Ordinal(3)))
+        expect(calculateFirstPartScalarIndex(to.Ordinal(3)))
             .toBe(to.Ordinal(3))
-        expect(firstPartScalarIndex(to.Ordinal(4)))
+        expect(calculateFirstPartScalarIndex(to.Ordinal(4)))
             .toBe(to.Ordinal(5))
-        expect(firstPartScalarIndex(to.Ordinal(5)))
+        expect(calculateFirstPartScalarIndex(to.Ordinal(5)))
             .toBe(to.Ordinal(5))
     })
 
     it('second entity', () => {
-        expect(secondPartScalarIndex(to.Ordinal(0)))
+        expect(calculateSecondPartScalarIndex(to.Ordinal(0)))
             .toBe(to.Ordinal(0))
-        expect(secondPartScalarIndex(to.Ordinal(1)))
+        expect(calculateSecondPartScalarIndex(to.Ordinal(1)))
             .toBe(to.Ordinal(2))
-        expect(secondPartScalarIndex(to.Ordinal(2)))
+        expect(calculateSecondPartScalarIndex(to.Ordinal(2)))
             .toBe(to.Ordinal(2))
-        expect(secondPartScalarIndex(to.Ordinal(3)))
+        expect(calculateSecondPartScalarIndex(to.Ordinal(3)))
             .toBe(to.Ordinal(4))
-        expect(secondPartScalarIndex(to.Ordinal(4)))
+        expect(calculateSecondPartScalarIndex(to.Ordinal(4)))
             .toBe(to.Ordinal(4))
-        expect(secondPartScalarIndex(to.Ordinal(5)))
+        expect(calculateSecondPartScalarIndex(to.Ordinal(5)))
             .toBe(to.Ordinal(6))
     })
 })
