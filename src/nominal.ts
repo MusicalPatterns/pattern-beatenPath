@@ -1,12 +1,12 @@
-// tslint:disable ban-types no-any
+// tslint:disable ban-types
 
 import { buildNominalInterface, DUMMY_VALUE_FOR_BUILDING_NOMINAL_INTERFACE } from '@musical-patterns/utilities'
 
-type Core = Number & { _CoreBrand: void }
+type Core = Number & { _NominalBrand: 'Core' }
 
 const { to, from } = buildNominalInterface({
     number: {
-        Core: DUMMY_VALUE_FOR_BUILDING_NOMINAL_INTERFACE as any as Core,
+        Core: DUMMY_VALUE_FOR_BUILDING_NOMINAL_INTERFACE as Core,
     },
 })
 

@@ -25,7 +25,7 @@ const pattern: Pattern<BeatenPathSpec> = {
     specData,
 }
 
-const patterns: Patterns = {
+const patterns: Partial<Patterns> = {
     [ pattern.id ]: pattern,
 }
 
