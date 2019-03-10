@@ -1,10 +1,10 @@
 import {
+    Data,
+    PropertyType,
     RangedInputType,
-    SpecData,
-    SpecPropertyType,
+    standardAttributes,
     standardInitialSpec,
-    standardSpecAttributes,
-    StandardSpecProperties,
+    StandardProperty,
 } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
@@ -16,11 +16,11 @@ import {
     BEATEN_PATH_INITIAL_REVERSE,
     BEATEN_PATH_INITIAL_STYLE,
 } from './constants'
-import { BeatenPathSpec, BeatenPathSpecAttributes, BeatenPathStyle } from './types'
+import { BeatenPathAttributes, BeatenPathSpec, BeatenPathStyle } from './types'
 
 const initialSpec: BeatenPathSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.BASE_FREQUENCY ]: BEATEN_PATH_INITIAL_BASE_FREQUENCY,
+    [ StandardProperty.BASE_FREQUENCY ]: BEATEN_PATH_INITIAL_BASE_FREQUENCY,
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
     reverse: BEATEN_PATH_INITIAL_REVERSE,
@@ -31,8 +31,8 @@ const coreDescription: string = `
 every bar will consist of a harmony and polyrhythm of this value against itself either plus or minus 1
 `
 
-const attributes: BeatenPathSpecAttributes = {
-    ...standardSpecAttributes,
+const attributes: BeatenPathAttributes = {
+    ...standardAttributes,
     core: {
         constraint: {
             integer: true,
@@ -41,7 +41,7 @@ const attributes: BeatenPathSpecAttributes = {
         description: coreDescription,
         hideInput: RangedInputType.RANGE,
         order: 1,
-        specPropertyType: SpecPropertyType.RANGED,
+        propertyType: PropertyType.RANGED,
     },
     repetitions: {
         constraint: {
@@ -50,34 +50,34 @@ const attributes: BeatenPathSpecAttributes = {
         },
         hideInput: RangedInputType.RANGE,
         order: 3,
-        specPropertyType: SpecPropertyType.RANGED,
+        propertyType: PropertyType.RANGED,
         units: Units.BARS,
     },
     reverse: {
         order: 4,
-        specPropertyType: SpecPropertyType.TOGGLED,
+        propertyType: PropertyType.TOGGLED,
     },
     style: {
         constraint: [
             {
-                key: BeatenPathStyle.POLYRHYTHMIC,
                 order: 1,
+                value: BeatenPathStyle.POLYRHYTHMIC,
             },
             {
-                key: BeatenPathStyle.SMOOTH,
                 order: 2,
+                value: BeatenPathStyle.SMOOTH,
             },
         ],
         order: 2,
-        specPropertyType: SpecPropertyType.OPTIONED,
+        propertyType: PropertyType.OPTIONED,
     },
 }
 
-const specData: SpecData<BeatenPathSpec> = {
+const data: Data<BeatenPathSpec> = {
     attributes,
     initial: initialSpec,
 }
 
 export {
-    specData,
+    data,
 }

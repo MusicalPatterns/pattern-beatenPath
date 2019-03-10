@@ -1,4 +1,4 @@
-import { calculateNoteSpecsTotalCompiledDuration, NotePropertySpec, NoteSpec, Scale } from '@musical-patterns/compiler'
+import { calculateNoteSpecsTotalCompiledDuration, NoteAspectSpec, NoteSpec, Scale } from '@musical-patterns/compiler'
 import { buildStandardScales, Segment } from '@musical-patterns/pattern'
 import {
     apply,
@@ -18,8 +18,8 @@ import {
     buildFractionsAndScalars,
     buildSegments,
     Core,
+    data,
     FractionsAndScalars,
-    specData,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
@@ -39,8 +39,8 @@ describe('segments', () => {
 
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ scalars, fractions, repetitions, style: specData.initial.style })
-                    scales = buildStandardScales(specData.initial)
+                    segments = buildSegments({ scalars, fractions, repetitions, style: data.initial.style })
+                    scales = buildStandardScales(data.initial)
                 })
 
                 sharedPartOfSuite()
@@ -52,7 +52,7 @@ describe('segments', () => {
                 beforeEach(() => {
                     segments = buildSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
                     scales = buildStandardScales({
-                        ...specData.initial,
+                        ...data.initial,
                         style: BeatenPathStyle.SMOOTH,
                     })
                 })
@@ -77,7 +77,7 @@ describe('segments', () => {
                     segment.forEach((part: NoteSpec[]): void => {
                         let noteDuration: Scalar = to.Scalar(0)
                         part.forEach((noteSpec: NoteSpec): void => {
-                            const durationSpec: Maybe<NotePropertySpec> = noteSpec.durationSpec
+                            const durationSpec: Maybe<NoteAspectSpec> = noteSpec.durationSpec
                             const durationSpecScalar: Maybe<Scalar> = durationSpec && durationSpec.scalar
 
                             if (durationSpecScalar) {
@@ -94,7 +94,7 @@ describe('segments', () => {
                 })
             })
 
-            it('each segment\'s two parts have the same total duration', () => {
+            it(`each segment's two parts have the same total duration`, () => {
                 segments.forEach((segment: Segment): void => {
                     let segmentDuration: Ms = to.Ms(0)
                     segment.forEach((part: NoteSpec[]): void => {
@@ -137,7 +137,7 @@ describe('segments', () => {
 
     const smoothPartOfSuite: (repetitions: Cardinal) => void =
         (repetitions: Cardinal): void => {
-            it('for each segment, its note\'s scalars are the sum of what they would have been in polyrhythmic mode as separate notes', () => {
+            it(`for each segment, its note's scalars are the sum of what they would have been in polyrhythmic mode as separate notes`, () => {
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
                     apply.Scalar(scalars[ 0 ], to.Scalar(from.Numerator(fractions[ 0 ][ 0 ]))),
@@ -189,7 +189,7 @@ describe('segments', () => {
 
     const polyrhythmicPartOfSuite: (repetitions: Cardinal) => void =
         (repetitions: Cardinal): void => {
-            it('segments\'s note scalars follow an alternating pattern of incrementing along the scalars', () => {
+            it(`segments' note scalars follow an alternating pattern of incrementing along the scalars`, () => {
                 testIsCloseTo(
                     getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
                     scalars[ 1 ],
@@ -238,7 +238,7 @@ describe('segments', () => {
                 // Etcetera...
             })
 
-            it('for each segment, both of its parts have a count of notes equal to the corresponding fractional part of that segment\'s fraction times the repetition', () => {
+            it(`for each segment, both of its parts have a count of notes equal to the corresponding fractional part of that segment's fraction times the repetition`, () => {
                 expect(segments[ 0 ][ 0 ].length)
                     .toBe(from.Denominator(apply.Scalar(fractions[ 0 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 0 ][ 1 ].length)
@@ -274,7 +274,7 @@ describe('segments', () => {
             const part: NoteSpec[] = apply.Ordinal(segment, partIndex)
             const exampleNoteSpec: NoteSpec = part[ 0 ]
 
-            const durationSpec: NotePropertySpec = exampleNoteSpec.durationSpec || {}
+            const durationSpec: NoteAspectSpec = exampleNoteSpec.durationSpec || {}
 
             return durationSpec.scalar || to.Scalar(0)
         }

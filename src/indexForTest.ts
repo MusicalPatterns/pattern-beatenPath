@@ -15,7 +15,7 @@ export { pattern } from './patterns'
 export {
     BeatenPathSpec,
     BeatenPathStyle,
-    specData,
+    data,
 } from './spec/indexForTest'
 
 export { to, from, Core } from './nominal'
