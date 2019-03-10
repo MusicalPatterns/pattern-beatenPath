@@ -78,7 +78,7 @@ describe('segments', () => {
                         let noteDuration: Scalar = to.Scalar(0)
                         notes.forEach((note: Note): void => {
                             const duration: Maybe<NoteFeature> = note.duration
-                            const durationSpecScalar: Maybe<Scalar> = duration && duration.scalar
+                            const durationSpecScalar: Maybe<Scalar> = duration!.scalar
 
                             if (durationSpecScalar) {
                                 if (from.Scalar(noteDuration) === 0) {
@@ -274,9 +274,9 @@ describe('segments', () => {
             const notes: Note[] = apply.Ordinal(segment, entityIndex)
             const exampleNote: Note = notes[ 0 ]
 
-            const duration: NoteFeature = exampleNote.duration || {}
+            const duration: NoteFeature = exampleNote.duration!
 
-            return duration.scalar || to.Scalar(0)
+            return duration.scalar!
         }
 
     for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, NEXT)) {
