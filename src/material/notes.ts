@@ -1,24 +1,33 @@
-import { NoteSpec } from '@musical-patterns/compiler'
-import { PitchDuration, STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
-import { apply, ContourElement, to } from '@musical-patterns/utilities'
-import { SUSTAIN_AMOUNT } from './constants'
+import { Note } from '@musical-patterns/compiler'
+import { Segment } from '@musical-patterns/pattern'
+import { sequence } from '@musical-patterns/utilities'
+import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
+import { Core } from '../nominal'
+import { BeatenPathSpec } from '../spec'
+import { buildFractionsAndScalars } from './custom'
+import { buildSegments } from './segments'
+import { BeatenPathEntity, BeatenPathEntityNotes } from './types'
 
-const buildNoteSpec: (pitchDurationContourElement: ContourElement<PitchDuration>) => NoteSpec =
-    ([ pitch, duration ]: ContourElement<PitchDuration>): NoteSpec => ({
-        durationSpec: {
-            scalar: to.Scalar(duration),
-            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-        },
-        pitchSpec: {
-            scalar: to.Scalar(pitch),
-            scaleIndex: STANDARD_PITCH_SCALE_INDEX,
-        },
-        sustainSpec: {
-            scalar: apply.Scalar(to.Scalar(duration), SUSTAIN_AMOUNT),
-            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-        },
-    })
+const buildNotes: (spec: BeatenPathSpec) => BeatenPathEntityNotes =
+    ({ core, repetitions, reverse, style }: BeatenPathSpec): BeatenPathEntityNotes => {
+        const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
+
+        const { fractions, scalars } = buildFractionsAndScalars(clampedCore)
+        const segments: Segment[] = buildSegments({ scalars, fractions, repetitions, style })
+
+        const firstEntityNotes: Note[] = sequence(
+            segments.map((segment: Segment): Note[] => segment[ 0 ]),
+        )
+        const secondEntityNotes: Note[] = sequence(
+            segments.map((segment: Segment): Note[] => segment[ 1 ]),
+        )
+
+        return {
+            [ BeatenPathEntity.FIRST ]: reverse ? firstEntityNotes.reverse() : firstEntityNotes,
+            [ BeatenPathEntity.SECOND ]: reverse ? secondEntityNotes.reverse() : secondEntityNotes,
+        }
+    }
 
 export {
-    buildNoteSpec,
+    buildNotes,
 }

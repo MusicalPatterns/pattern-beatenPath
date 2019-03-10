@@ -1,19 +1,19 @@
-import { BuildEntitiesFunction, Entity, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/compiler'
 import { BeatenPathSpec } from '../spec'
-import { buildParts } from './parts'
-import { BeatenPathPart, BeatenPathParts } from './types'
+import { buildNotes } from './notes'
+import { BeatenPathEntity, BeatenPathEntityNotes } from './types'
 
-const buildEntities: BuildEntitiesFunction =
+const materializeEntities: MaterializeEntities =
     (spec: BeatenPathSpec): Entity[] => {
-        const parts: BeatenPathParts = buildParts(spec)
+        const notes: BeatenPathEntityNotes = buildNotes(spec)
 
         const firstEntity: Entity = {
-            noteSpecs: parts[ BeatenPathPart.FIRST_PART ],
+            notes: notes[ BeatenPathEntity.FIRST ],
             timbreName: TimbreNameEnum.PUTNEY_WAVERING,
         }
 
         const secondEntity: Entity = {
-            noteSpecs: parts[ BeatenPathPart.SECOND_PART ],
+            notes: notes[ BeatenPathEntity.SECOND ],
             timbreName: TimbreNameEnum.ORGAN_2,
         }
 
@@ -24,5 +24,5 @@ const buildEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildEntities,
+    materializeEntities,
 }

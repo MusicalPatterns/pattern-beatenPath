@@ -1,6 +1,6 @@
 [
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 583.33333,
         "gain": 1,
@@ -1102,13 +1102,13 @@
         "sustain": 758.08553
       }
     ],
-    "voiceSpec": {
-      "timbreName": "PUTNEY_WAVERING",
-      "voiceType": "OSCILLATOR"
+    "sourceRequest": {
+      "sourceType": "OSCILLATOR",
+      "timbreName": "PUTNEY_WAVERING"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 700,
         "gain": 1,
@@ -2232,9 +2232,9 @@
         "sustain": 631.73794
       }
     ],
-    "voiceSpec": {
-      "timbreName": "ORGAN_2",
-      "voiceType": "OSCILLATOR"
+    "sourceRequest": {
+      "sourceType": "OSCILLATOR",
+      "timbreName": "ORGAN_2"
     }
   }
 ]

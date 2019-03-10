@@ -1,2 +1,2 @@
-export { buildEntities } from './entities'
-export { buildNoteSpec } from './notes'
+export { materializeEntities } from './entities'
+export { buildNote } from './features'

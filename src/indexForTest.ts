@@ -2,14 +2,14 @@
 
 export {
     buildSegments,
-    buildEntities,
-    buildParts,
+    materializeEntities,
+    buildNotes,
     buildFractionsAndScalars,
-    calculateFirstPartScalarIndex,
-    calculateSecondPartScalarIndex,
+    calculateFirstEntityScalarIndex,
+    calculateSecondEntityScalarIndex,
     FractionsAndScalars,
-    BeatenPathPart,
-    BeatenPathParts,
+    BeatenPathEntity,
+    BeatenPathEntityNotes,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {

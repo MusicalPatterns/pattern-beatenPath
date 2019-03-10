@@ -1,16 +1,16 @@
 // tslint:disable no-reaching-imports
 
 export { buildSegments } from './segments'
-export { buildEntities } from './entities'
-export { buildParts } from './parts'
+export { materializeEntities } from './entities'
+export { buildNotes } from './notes'
 export {
     buildFractionsAndScalars,
-    calculateFirstPartScalarIndex,
-    calculateSecondPartScalarIndex,
+    calculateFirstEntityScalarIndex,
+    calculateSecondEntityScalarIndex,
 } from './custom/indexForTest'
 
 export {
     FractionsAndScalars,
-    BeatenPathPart,
-    BeatenPathParts,
+    BeatenPathEntity,
+    BeatenPathEntityNotes,
 } from './types'

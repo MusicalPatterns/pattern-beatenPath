@@ -1,4 +1,4 @@
-import { NoteSpec } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/compiler'
 import { PitchDuration } from '@musical-patterns/pattern'
 import { Cardinal, ContourPiece, Fraction, Scalar } from '@musical-patterns/utilities'
 import { BeatenPathStyle } from '../spec'
@@ -23,18 +23,18 @@ interface FractionsAndScalars {
     scalars: Scalar[],
 }
 
-enum BeatenPathPart {
-    FIRST_PART = 'FIRST_PART',
-    SECOND_PART = 'SECOND_PART',
+enum BeatenPathEntity {
+    FIRST = 'FIRST',
+    SECOND = 'SECOND',
 }
 
-type BeatenPathParts = { [key in BeatenPathPart]: NoteSpec[] }
+type BeatenPathEntityNotes = { [key in BeatenPathEntity]: Note[] }
 
 export {
     BuildSegmentsParameters,
     BuildPieceParameters,
     BuildPiece,
     FractionsAndScalars,
-    BeatenPathParts,
-    BeatenPathPart,
+    BeatenPathEntityNotes,
+    BeatenPathEntity,
 }

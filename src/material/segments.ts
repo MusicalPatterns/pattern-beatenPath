@@ -1,4 +1,4 @@
-import { NoteSpec } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
@@ -14,7 +14,7 @@ import {
 } from '@musical-patterns/utilities'
 import { BeatenPathStyle } from '../spec'
 import { calculateNoteCountsForSegment, selectScalarsForSegment } from './custom'
-import { buildNoteSpec } from './notes'
+import { buildNote } from './features'
 import { buildPolyrhythmicPiece, buildSmoothPiece } from './pieces'
 import { BuildPiece, BuildSegmentsParameters } from './types'
 
@@ -26,13 +26,13 @@ const buildSegment: (segmentIndex: Ordinal, buildSegmentsParameters: BuildSegmen
         const buildPiece: BuildPiece =
             style === BeatenPathStyle.POLYRHYTHMIC ? buildPolyrhythmicPiece : buildSmoothPiece
 
-        return map(scalarsForSegment, (scalar: Scalar, index: Ordinal): NoteSpec[] =>
+        return map(scalarsForSegment, (scalar: Scalar, index: Ordinal): Note[] =>
             buildPiece({
                 notesCount: apply.Ordinal(noteCounts, index),
                 repetitions,
                 scalar,
             })
-                .map(buildNoteSpec))
+                .map(buildNote))
     }
 
 const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =

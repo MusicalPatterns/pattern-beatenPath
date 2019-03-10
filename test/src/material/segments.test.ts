@@ -1,5 +1,5 @@
-import { calculateNoteSpecsTotalCompiledDuration, NoteAspectSpec, NoteSpec, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, Segment } from '@musical-patterns/pattern'
+import { calculateNotesTotalCompiledDuration, Note, NoteFeature, Scale } from '@musical-patterns/compiler'
+import { materializeStandardScales, Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
@@ -40,45 +40,45 @@ describe('segments', () => {
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
                     segments = buildSegments({ scalars, fractions, repetitions, style: data.initial.style })
-                    scales = buildStandardScales(data.initial)
+                    scales = materializeStandardScales(data.initial)
                 })
 
-                sharedPartOfSuite()
+                sharedSuite()
 
-                polyrhythmicPartOfSuite(repetitions)
+                polyrhythmicSuite(repetitions)
             })
 
             describe('smooth style', () => {
                 beforeEach(() => {
                     segments = buildSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
-                    scales = buildStandardScales({
+                    scales = materializeStandardScales({
                         ...data.initial,
                         style: BeatenPathStyle.SMOOTH,
                     })
                 })
 
-                sharedPartOfSuite()
+                sharedSuite()
 
-                smoothPartOfSuite(repetitions)
+                smoothSuite(repetitions)
             })
         }
 
-    const sharedPartOfSuite: VoidFunction =
+    const sharedSuite: VoidFunction =
         (): void => {
-            it('each segment has two parts, one for each entity', () => {
+            it('each segment has two sets of notes, one for each entity', () => {
                 segments.forEach((segment: Segment): void => {
                     expect(segment.length)
                         .toBe(2)
                 })
             })
 
-            it('each part in each segment has notes which all have the same duration', () => {
+            it('each set of notes in each segment has notes which all have the same duration', () => {
                 segments.forEach((segment: Segment): void => {
-                    segment.forEach((part: NoteSpec[]): void => {
+                    segment.forEach((notes: Note[]): void => {
                         let noteDuration: Scalar = to.Scalar(0)
-                        part.forEach((noteSpec: NoteSpec): void => {
-                            const durationSpec: Maybe<NoteAspectSpec> = noteSpec.durationSpec
-                            const durationSpecScalar: Maybe<Scalar> = durationSpec && durationSpec.scalar
+                        notes.forEach((note: Note): void => {
+                            const duration: Maybe<NoteFeature> = note.duration
+                            const durationSpecScalar: Maybe<Scalar> = duration && duration.scalar
 
                             if (durationSpecScalar) {
                                 if (from.Scalar(noteDuration) === 0) {
@@ -94,17 +94,17 @@ describe('segments', () => {
                 })
             })
 
-            it(`each segment's two parts have the same total duration`, () => {
+            it(`each segment's two sets of notes have the same total duration`, () => {
                 segments.forEach((segment: Segment): void => {
                     let segmentDuration: Ms = to.Ms(0)
-                    segment.forEach((part: NoteSpec[]): void => {
+                    segment.forEach((notes: Note[]): void => {
                         if (from.Ms(segmentDuration) === 0) {
-                            segmentDuration = calculateNoteSpecsTotalCompiledDuration(part, scales)
+                            segmentDuration = calculateNotesTotalCompiledDuration(notes, scales)
                         }
                         else {
                             expect(
                                 testIsCloseTo(
-                                    from.Ms(calculateNoteSpecsTotalCompiledDuration(part, scales)),
+                                    from.Ms(calculateNotesTotalCompiledDuration(notes, scales)),
                                     from.Ms(segmentDuration),
                                 ),
                             )
@@ -117,8 +117,8 @@ describe('segments', () => {
             it('each segment has a different total duration than any other segment', () => {
                 const seenTotalDurations: Ms[] = []
                 segments.forEach((segment: Segment): void => {
-                    const exemplaryNotesForSegment: NoteSpec[] = segment[ 0 ]
-                    const totalDuration: Ms = calculateNoteSpecsTotalCompiledDuration(exemplaryNotesForSegment, scales)
+                    const exemplaryNotesForSegment: Note[] = segment[ 0 ]
+                    const totalDuration: Ms = calculateNotesTotalCompiledDuration(exemplaryNotesForSegment, scales)
 
                     seenTotalDurations.forEach((seenDuration: Ms): void => {
                         expect(
@@ -135,7 +135,7 @@ describe('segments', () => {
             })
         }
 
-    const smoothPartOfSuite: (repetitions: Cardinal) => void =
+    const smoothSuite: (repetitions: Cardinal) => void =
         (repetitions: Cardinal): void => {
             it(`for each segment, its note's scalars are the sum of what they would have been in polyrhythmic mode as separate notes`, () => {
                 testIsCloseTo(
@@ -177,17 +177,17 @@ describe('segments', () => {
                 // Etcetera...
             })
 
-            it('for each segment, both of its parts have a count of notes equal to the repetition', () => {
+            it('for each segment, both of its sets of notes have a count of notes equal to the repetition', () => {
                 segments.forEach((segment: Segment): void => {
-                    segment.forEach((part: NoteSpec[]): void => {
-                        expect(to.Cardinal(part.length))
+                    segment.forEach((notes: Note[]): void => {
+                        expect(to.Cardinal(notes.length))
                             .toBe(repetitions)
                     })
                 })
             })
         }
 
-    const polyrhythmicPartOfSuite: (repetitions: Cardinal) => void =
+    const polyrhythmicSuite: (repetitions: Cardinal) => void =
         (repetitions: Cardinal): void => {
             it(`segments' note scalars follow an alternating pattern of incrementing along the scalars`, () => {
                 testIsCloseTo(
@@ -238,7 +238,7 @@ describe('segments', () => {
                 // Etcetera...
             })
 
-            it(`for each segment, both of its parts have a count of notes equal to the corresponding fractional part of that segment's fraction times the repetition`, () => {
+            it(`for each segment, both of its sets of notes have a count of notes equal to the corresponding fractional part of that segment's fraction times the repetition`, () => {
                 expect(segments[ 0 ][ 0 ].length)
                     .toBe(from.Denominator(apply.Scalar(fractions[ 0 ][ 1 ], to.Scalar(from.Cardinal(repetitions)))))
                 expect(segments[ 0 ][ 1 ].length)
@@ -268,15 +268,15 @@ describe('segments', () => {
             })
         }
 
-    const getDurationOfSegmentNote: (segmentIndex: Ordinal, partIndex: Ordinal) => Scalar =
-        (segmentIndex: Ordinal, partIndex: Ordinal): Scalar => {
+    const getDurationOfSegmentNote: (segmentIndex: Ordinal, entityIndex: Ordinal) => Scalar =
+        (segmentIndex: Ordinal, entityIndex: Ordinal): Scalar => {
             const segment: Segment = apply.Ordinal(segments, segmentIndex)
-            const part: NoteSpec[] = apply.Ordinal(segment, partIndex)
-            const exampleNoteSpec: NoteSpec = part[ 0 ]
+            const notes: Note[] = apply.Ordinal(segment, entityIndex)
+            const exampleNote: Note = notes[ 0 ]
 
-            const durationSpec: NoteAspectSpec = exampleNoteSpec.durationSpec || {}
+            const duration: NoteFeature = exampleNote.duration || {}
 
-            return durationSpec.scalar || to.Scalar(0)
+            return duration.scalar || to.Scalar(0)
         }
 
     for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, NEXT)) {
