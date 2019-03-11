@@ -1,4 +1,4 @@
-import { calculateNotesTotalCompiledDuration, Note, NoteFeature, Scale } from '@musical-patterns/compiler'
+import { computeNotesTotalCompiledDuration, Note, NoteFeature, Scale } from '@musical-patterns/compiler'
 import { materializeStandardScales, Segment } from '@musical-patterns/pattern'
 import {
     apply,
@@ -15,8 +15,8 @@ import {
 } from '@musical-patterns/utilities'
 import {
     BeatenPathStyle,
-    buildFractionsAndScalars,
-    buildSegments,
+    computeFractionsAndScalars,
+    computeSegments,
     Core,
     data,
     FractionsAndScalars,
@@ -32,14 +32,14 @@ describe('segments', () => {
     const suite: (core: Core, repetitions: Cardinal) => void =
         (core: Core, repetitions: Cardinal): void => {
             beforeEach(() => {
-                const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+                const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(core)
                 scalars = fractionsAndScalars.scalars
                 fractions = fractionsAndScalars.fractions
             })
 
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ scalars, fractions, repetitions, style: data.initial.style })
+                    segments = computeSegments({ scalars, fractions, repetitions, style: data.initial.style })
                     scales = materializeStandardScales(data.initial)
                 })
 
@@ -50,7 +50,7 @@ describe('segments', () => {
 
             describe('smooth style', () => {
                 beforeEach(() => {
-                    segments = buildSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
+                    segments = computeSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
                     scales = materializeStandardScales({
                         ...data.initial,
                         style: BeatenPathStyle.SMOOTH,
@@ -99,12 +99,12 @@ describe('segments', () => {
                     let segmentDuration: Ms = to.Ms(0)
                     segment.forEach((notes: Note[]): void => {
                         if (from.Ms(segmentDuration) === 0) {
-                            segmentDuration = calculateNotesTotalCompiledDuration(notes, scales)
+                            segmentDuration = computeNotesTotalCompiledDuration(notes, scales)
                         }
                         else {
                             expect(
                                 testIsCloseTo(
-                                    from.Ms(calculateNotesTotalCompiledDuration(notes, scales)),
+                                    from.Ms(computeNotesTotalCompiledDuration(notes, scales)),
                                     from.Ms(segmentDuration),
                                 ),
                             )
@@ -118,7 +118,7 @@ describe('segments', () => {
                 const seenTotalDurations: Ms[] = []
                 segments.forEach((segment: Segment): void => {
                     const exemplaryNotesForSegment: Note[] = segment[ 0 ]
-                    const totalDuration: Ms = calculateNotesTotalCompiledDuration(exemplaryNotesForSegment, scales)
+                    const totalDuration: Ms = computeNotesTotalCompiledDuration(exemplaryNotesForSegment, scales)
 
                     seenTotalDurations.forEach((seenDuration: Ms): void => {
                         expect(
@@ -139,38 +139,38 @@ describe('segments', () => {
         (repetitions: Cardinal): void => {
             it(`for each segment, its note's scalars are the sum of what they would have been in polyrhythmic mode as separate notes`, () => {
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
                     apply.Scalar(scalars[ 0 ], to.Scalar(from.Numerator(fractions[ 0 ][ 0 ]))),
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
                     apply.Scalar(scalars[ 1 ], to.Scalar(from.Denominator(fractions[ 0 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
                     apply.Scalar(scalars[ 2 ], to.Scalar(from.Denominator(fractions[ 1 ][ 1 ]))),
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
                     apply.Scalar(scalars[ 1 ], to.Scalar(from.Numerator(fractions[ 1 ][ 0 ]))),
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
                     apply.Scalar(scalars[ 2 ], to.Scalar(from.Numerator(fractions[ 2 ][ 0 ]))),
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
                     apply.Scalar(scalars[ 3 ], to.Scalar(from.Denominator(fractions[ 2 ][ 1 ]))),
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
                     apply.Scalar(scalars[ 4 ], to.Scalar(from.Denominator(fractions[ 3 ][ 1 ]))),
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
                     apply.Scalar(scalars[ 3 ], to.Scalar(from.Numerator(fractions[ 3 ][ 0 ]))),
                 )
 
@@ -191,47 +191,47 @@ describe('segments', () => {
         (repetitions: Cardinal): void => {
             it(`segments' note scalars follow an alternating pattern of incrementing along the scalars`, () => {
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(0)),
                     scalars[ 1 ],
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(0), to.Ordinal(1)),
                     scalars[ 0 ],
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(0)),
                     scalars[ 1 ],
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(1), to.Ordinal(1)),
                     scalars[ 2 ],
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(0)),
                     scalars[ 3 ],
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(2), to.Ordinal(1)),
                     scalars[ 2 ],
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(0)),
                     scalars[ 3 ],
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(3), to.Ordinal(1)),
                     scalars[ 4 ],
                 )
 
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(4), to.Ordinal(0)),
+                    computeDurationOfSegmentNote(to.Ordinal(4), to.Ordinal(0)),
                     scalars[ 5 ],
                 )
                 testIsCloseTo(
-                    getDurationOfSegmentNote(to.Ordinal(4), to.Ordinal(1)),
+                    computeDurationOfSegmentNote(to.Ordinal(4), to.Ordinal(1)),
                     scalars[ 4 ],
                 )
 
@@ -268,7 +268,7 @@ describe('segments', () => {
             })
         }
 
-    const getDurationOfSegmentNote: (segmentIndex: Ordinal, entityIndex: Ordinal) => Scalar =
+    const computeDurationOfSegmentNote: (segmentIndex: Ordinal, entityIndex: Ordinal) => Scalar =
         (segmentIndex: Ordinal, entityIndex: Ordinal): Scalar => {
             const segment: Segment = apply.Ordinal(segments, segmentIndex)
             const notes: Note[] = apply.Ordinal(segment, entityIndex)

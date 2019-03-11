@@ -1,14 +1,14 @@
 import { Note } from '@musical-patterns/compiler'
 import { apply, difference, entries, forEach, indexOfLastElement, Ordinal } from '@musical-patterns/utilities'
-import { BeatenPathEntity, BeatenPathEntityNotes, BeatenPathSpec, buildNotes, data } from '../../../src/indexForTest'
+import { BeatenPathEntity, BeatenPathEntityNotes, BeatenPathSpec, computeNotes, data } from '../../../src/indexForTest'
 
 describe('notes', () => {
     it('can reverse', () => {
         const forwardSpec: BeatenPathSpec = data.initial
-        const forwardVersion: BeatenPathEntityNotes = buildNotes(forwardSpec)
+        const forwardVersion: BeatenPathEntityNotes = computeNotes(forwardSpec)
 
         const backwardSpec: BeatenPathSpec = { ...data.initial, reverse: true }
-        const backwardVersion: BeatenPathEntityNotes = buildNotes(backwardSpec)
+        const backwardVersion: BeatenPathEntityNotes = computeNotes(backwardSpec)
 
         entries(forwardVersion)
             .forEach(([ notesName, notes ]: [ BeatenPathEntity, Note[] ]): void => {

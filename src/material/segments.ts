@@ -13,35 +13,35 @@ import {
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
 import { BeatenPathStyle } from '../spec'
-import { calculateNoteCountsForSegment, selectScalarsForSegment } from './custom'
-import { buildNote } from './features'
-import { buildPolyrhythmicPiece, buildSmoothPiece } from './pieces'
-import { BuildPiece, BuildSegmentsParameters } from './types'
+import { computeNoteCountsForSegment, selectScalarsForSegment } from './custom'
+import { computeNote } from './features'
+import { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
+import { ComputePiece, ComputeSegmentsParameters } from './types'
 
-const buildSegment: (segmentIndex: Ordinal, buildSegmentsParameters: BuildSegmentsParameters) => Segment =
-    (segmentIndex: Ordinal, { scalars, fractions, repetitions, style }: BuildSegmentsParameters): Segment => {
+const computeSegment: (segmentIndex: Ordinal, computeSegmentsParameters: ComputeSegmentsParameters) => Segment =
+    (segmentIndex: Ordinal, { scalars, fractions, repetitions, style }: ComputeSegmentsParameters): Segment => {
         const scalarsForSegment: Scalar[] = selectScalarsForSegment({ scalars, segmentIndex })
-        const noteCounts: Cardinal[] = calculateNoteCountsForSegment({ fractions, segmentIndex })
+        const noteCounts: Cardinal[] = computeNoteCountsForSegment({ fractions, segmentIndex })
 
-        const buildPiece: BuildPiece =
-            style === BeatenPathStyle.POLYRHYTHMIC ? buildPolyrhythmicPiece : buildSmoothPiece
+        const computePiece: ComputePiece =
+            style === BeatenPathStyle.POLYRHYTHMIC ? computePolyrhythmicPiece : computeSmoothPiece
 
         return map(scalarsForSegment, (scalar: Scalar, index: Ordinal): Note[] =>
-            buildPiece({
+            computePiece({
                 notesCount: apply.Ordinal(noteCounts, index),
                 repetitions,
                 scalar,
             })
-                .map(buildNote))
+                .map(computeNote))
     }
 
-const buildSegments: (buildSegmentsParameters: BuildSegmentsParameters) => Segment[] =
-    (buildSegmentsParameters: BuildSegmentsParameters): Segment[] =>
-        slice(zeroAndPositiveIntegers, INITIAL, indexOfLastElement(buildSegmentsParameters.scalars))
+const computeSegments: (computeSegmentsParameters: ComputeSegmentsParameters) => Segment[] =
+    (computeSegmentsParameters: ComputeSegmentsParameters): Segment[] =>
+        slice(zeroAndPositiveIntegers, INITIAL, indexOfLastElement(computeSegmentsParameters.scalars))
             .map(to.Ordinal)
             .map((segmentIndex: Ordinal): Segment =>
-                buildSegment(segmentIndex, buildSegmentsParameters))
+                computeSegment(segmentIndex, computeSegmentsParameters))
 
 export {
-    buildSegments,
+    computeSegments,
 }

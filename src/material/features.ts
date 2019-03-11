@@ -3,7 +3,7 @@ import { PitchDuration, STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_IND
 import { apply, ContourElement, to } from '@musical-patterns/utilities'
 import { SUSTAIN_AMOUNT } from './constants'
 
-const buildNote: (pitchDurationContourElement: ContourElement<PitchDuration>) => Note =
+const computeNote: (pitchDurationContourElement: ContourElement<PitchDuration>) => Note =
     ([ pitch, duration ]: ContourElement<PitchDuration>): Note => ({
         duration: {
             scalar: to.Scalar(duration),
@@ -20,5 +20,5 @@ const buildNote: (pitchDurationContourElement: ContourElement<PitchDuration>) =>
     })
 
 export {
-    buildNote,
+    computeNote,
 }

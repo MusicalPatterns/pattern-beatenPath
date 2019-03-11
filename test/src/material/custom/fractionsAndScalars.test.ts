@@ -10,7 +10,7 @@ import {
     testIsCloseTo,
     to,
 } from '@musical-patterns/utilities'
-import { buildFractionsAndScalars, Core, FractionsAndScalars, to as beatenPathTo } from '../../../../src/indexForTest'
+import { computeFractionsAndScalars, Core, FractionsAndScalars, to as beatenPathTo } from '../../../../src/indexForTest'
 
 describe('fractions and scalars', () => {
     let fractions: Fraction[]
@@ -19,7 +19,7 @@ describe('fractions and scalars', () => {
     describe('fractions', () => {
         it('when core is 2', () => {
             const core: Core = beatenPathTo.Core(2)
-            const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+            const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(core)
             fractions = fractionsAndScalars.fractions
             scalars = fractionsAndScalars.scalars
 
@@ -119,7 +119,7 @@ describe('fractions and scalars', () => {
 
         it('when core is 3', () => {
             const core: Core = beatenPathTo.Core(3)
-            const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+            const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(core)
             fractions = fractionsAndScalars.fractions
             scalars = fractionsAndScalars.scalars
 
@@ -188,7 +188,7 @@ describe('fractions and scalars', () => {
 
         it('when core is 4', () => {
             const core: Core = beatenPathTo.Core(4)
-            const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+            const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(core)
             fractions = fractionsAndScalars.fractions
             scalars = fractionsAndScalars.scalars
 
@@ -220,7 +220,7 @@ describe('fractions and scalars', () => {
 
         it('when core is 5', () => {
             const core: Core = beatenPathTo.Core(5)
-            const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+            const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(core)
             fractions = fractionsAndScalars.fractions
             scalars = fractionsAndScalars.scalars
 
@@ -259,7 +259,7 @@ describe('fractions and scalars', () => {
         for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, NEXT)) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
-                    const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(core)
+                    const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(core)
                     fractions = fractionsAndScalars.fractions
                     scalars = fractionsAndScalars.scalars
                 })
@@ -292,7 +292,7 @@ describe('fractions and scalars', () => {
 
         describe('it also tests against hard-coded durations so i have a clearer record of what exactly is going on here', () => {
             it('when core is 2', () => {
-                const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(beatenPathTo.Core(2))
+                const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(beatenPathTo.Core(2))
                 scalars = fractionsAndScalars.scalars
 
                 expect(scalars)
@@ -386,7 +386,7 @@ describe('fractions and scalars', () => {
             })
 
             it('when core is 3', () => {
-                const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(beatenPathTo.Core(3))
+                const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(beatenPathTo.Core(3))
 
                 scalars = fractionsAndScalars.scalars
                 expect(scalars)
@@ -449,7 +449,7 @@ describe('fractions and scalars', () => {
             })
 
             it('when core is 4', () => {
-                const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(beatenPathTo.Core(4))
+                const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(beatenPathTo.Core(4))
 
                 scalars = fractionsAndScalars.scalars
                 expect(scalars)
@@ -475,7 +475,7 @@ describe('fractions and scalars', () => {
             })
 
             it('when core is 5', () => {
-                const fractionsAndScalars: FractionsAndScalars = buildFractionsAndScalars(beatenPathTo.Core(5))
+                const fractionsAndScalars: FractionsAndScalars = computeFractionsAndScalars(beatenPathTo.Core(5))
 
                 scalars = fractionsAndScalars.scalars
                 expect(scalars)

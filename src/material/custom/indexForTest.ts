@@ -1,4 +1,4 @@
 // tslint:disable no-reaching-imports
 
-export { buildFractionsAndScalars } from './fractionsAndScalars'
-export { calculateFirstEntityScalarIndex, calculateSecondEntityScalarIndex } from './scalars'
+export { computeFractionsAndScalars } from './fractionsAndScalars'
+export { computeFirstEntityScalarIndex, computeSecondEntityScalarIndex } from './scalars'

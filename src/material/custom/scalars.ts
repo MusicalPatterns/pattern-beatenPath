@@ -9,7 +9,7 @@ import {
     TWO,
 } from '@musical-patterns/utilities'
 
-const calculateFirstEntityScalarIndex: (segmentIndex: Ordinal) => Ordinal =
+const computeFirstEntityScalarIndex: (segmentIndex: Ordinal) => Ordinal =
     (segmentIndex: Ordinal): Ordinal =>
         apply.Translation(
             apply.Scalar(
@@ -19,7 +19,7 @@ const calculateFirstEntityScalarIndex: (segmentIndex: Ordinal) => Ordinal =
             to.Translation(1),
         )
 
-const calculateSecondEntityScalarIndex: (segmentIndex: Ordinal) => Ordinal =
+const computeSecondEntityScalarIndex: (segmentIndex: Ordinal) => Ordinal =
     (segmentIndex: Ordinal): Ordinal =>
         apply.Scalar(
             ceiling(apply.Scalar(segmentIndex, ONE_HALF)),
@@ -29,15 +29,15 @@ const calculateSecondEntityScalarIndex: (segmentIndex: Ordinal) => Ordinal =
 const selectScalarsForSegment: (parameters: { scalars: Scalar[], segmentIndex: Ordinal }) => Scalar[] =
     ({ segmentIndex, scalars }: { scalars: Scalar[], segmentIndex: Ordinal }): Scalar[] => {
         const firstEntityScalar: Scalar =
-            apply.Ordinal(scalars, calculateFirstEntityScalarIndex(segmentIndex))
+            apply.Ordinal(scalars, computeFirstEntityScalarIndex(segmentIndex))
         const secondEntityScalar: Scalar =
-            apply.Ordinal(scalars, calculateSecondEntityScalarIndex(segmentIndex))
+            apply.Ordinal(scalars, computeSecondEntityScalarIndex(segmentIndex))
 
         return [ firstEntityScalar, secondEntityScalar ]
     }
 
 export {
     selectScalarsForSegment,
-    calculateFirstEntityScalarIndex,
-    calculateSecondEntityScalarIndex,
+    computeFirstEntityScalarIndex,
+    computeSecondEntityScalarIndex,
 }

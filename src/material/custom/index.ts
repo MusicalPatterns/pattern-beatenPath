@@ -1,3 +1,3 @@
-export { buildFractionsAndScalars } from './fractionsAndScalars'
+export { computeFractionsAndScalars } from './fractionsAndScalars'
 export { selectScalarsForSegment } from './scalars'
-export { calculateNoteCountsForSegment } from './noteCounts'
+export { computeNoteCountsForSegment } from './noteCounts'

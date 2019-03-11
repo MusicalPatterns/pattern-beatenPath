@@ -1,12 +1,12 @@
 // tslint:disable no-reaching-imports
 
 export {
-    buildSegments,
+    computeSegments,
     materializeEntities,
-    buildNotes,
-    buildFractionsAndScalars,
-    calculateFirstEntityScalarIndex,
-    calculateSecondEntityScalarIndex,
+    computeNotes,
+    computeFractionsAndScalars,
+    computeFirstEntityScalarIndex,
+    computeSecondEntityScalarIndex,
     FractionsAndScalars,
     BeatenPathEntity,
     BeatenPathEntityNotes,

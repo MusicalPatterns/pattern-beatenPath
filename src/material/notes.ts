@@ -4,16 +4,16 @@ import { sequence } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { Core } from '../nominal'
 import { BeatenPathSpec } from '../spec'
-import { buildFractionsAndScalars } from './custom'
-import { buildSegments } from './segments'
+import { computeFractionsAndScalars } from './custom'
+import { computeSegments } from './segments'
 import { BeatenPathEntity, BeatenPathEntityNotes } from './types'
 
-const buildNotes: (spec: BeatenPathSpec) => BeatenPathEntityNotes =
+const computeNotes: (spec: BeatenPathSpec) => BeatenPathEntityNotes =
     ({ core, repetitions, reverse, style }: BeatenPathSpec): BeatenPathEntityNotes => {
         const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
 
-        const { fractions, scalars } = buildFractionsAndScalars(clampedCore)
-        const segments: Segment[] = buildSegments({ scalars, fractions, repetitions, style })
+        const { fractions, scalars } = computeFractionsAndScalars(clampedCore)
+        const segments: Segment[] = computeSegments({ scalars, fractions, repetitions, style })
 
         const firstEntityNotes: Note[] = sequence(
             segments.map((segment: Segment): Note[] => segment[ 0 ]),
@@ -29,5 +29,5 @@ const buildNotes: (spec: BeatenPathSpec) => BeatenPathEntityNotes =
     }
 
 export {
-    buildNotes,
+    computeNotes,
 }

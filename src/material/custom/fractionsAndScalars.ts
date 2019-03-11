@@ -20,7 +20,7 @@ const upwardsIsCloserToOriginalScalarOfOne:
     (maybeNextUpwardsScalar: Scalar, maybeNextDownwardsScalar: Scalar): boolean =>
         absoluteRatio(from.Scalar(maybeNextUpwardsScalar)) > absoluteRatio(from.Scalar(maybeNextDownwardsScalar))
 
-const buildFractionsAndScalars: (core: Core) => FractionsAndScalars =
+const computeFractionsAndScalars: (core: Core) => FractionsAndScalars =
     (core: Core): FractionsAndScalars => {
         const scalars: Scalar[] = [ to.Scalar(1) ]
         const fractions: Fraction[] = []
@@ -63,5 +63,5 @@ const buildFractionsAndScalars: (core: Core) => FractionsAndScalars =
     }
 
 export {
-    buildFractionsAndScalars,
+    computeFractionsAndScalars,
 }

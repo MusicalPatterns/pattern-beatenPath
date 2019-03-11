@@ -1,9 +1,9 @@
 import { PitchDuration } from '@musical-patterns/pattern'
 import { apply, ContourPiece, from, reciprocal, repeat, to } from '@musical-patterns/utilities'
-import { BuildPieceParameters } from './types'
+import { ComputePieceParameters } from './types'
 
-const buildPolyrhythmicPiece: (buildPieceParameters: BuildPieceParameters) => ContourPiece<PitchDuration> =
-    ({ scalar, notesCount, repetitions }: BuildPieceParameters): ContourPiece<PitchDuration> =>
+const computePolyrhythmicPiece: (computePieceParameters: ComputePieceParameters) => ContourPiece<PitchDuration> =
+    ({ scalar, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
         to.ContourPiece<PitchDuration>(repeat(
             [
                 [
@@ -14,8 +14,8 @@ const buildPolyrhythmicPiece: (buildPieceParameters: BuildPieceParameters) => Co
             apply.Scalar(notesCount, to.Scalar(from.Cardinal(repetitions))),
         ))
 
-const buildSmoothPiece: (buildPieceParameters: BuildPieceParameters) => ContourPiece<PitchDuration> =
-    ({ scalar, notesCount, repetitions }: BuildPieceParameters): ContourPiece<PitchDuration> =>
+const computeSmoothPiece: (computePieceParameters: ComputePieceParameters) => ContourPiece<PitchDuration> =
+    ({ scalar, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
         to.ContourPiece<PitchDuration>(repeat(
             [
                 [
@@ -27,6 +27,6 @@ const buildSmoothPiece: (buildPieceParameters: BuildPieceParameters) => ContourP
         ))
 
 export {
-    buildPolyrhythmicPiece,
-    buildSmoothPiece,
+    computePolyrhythmicPiece,
+    computeSmoothPiece,
 }
