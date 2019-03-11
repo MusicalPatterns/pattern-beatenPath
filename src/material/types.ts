@@ -28,7 +28,7 @@ enum BeatenPathEntity {
     SECOND = 'SECOND',
 }
 
-type BeatenPathEntityNotes = { [key in BeatenPathEntity]: Note[] }
+type BeatenPathEntityNotes = { [Index in BeatenPathEntity]: Note[] }
 
 export {
     BuildSegmentsParameters,
