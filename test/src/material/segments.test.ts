@@ -18,8 +18,8 @@ import {
     computeFractionsAndScalars,
     computeSegments,
     Core,
-    data,
     FractionsAndScalars,
+    spec,
     to as beatenPathTo,
 } from '../../../src/indexForTest'
 
@@ -39,8 +39,8 @@ describe('segments', () => {
 
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
-                    segments = computeSegments({ scalars, fractions, repetitions, style: data.initial.style })
-                    scales = materializeStandardScales(data.initial)
+                    segments = computeSegments({ scalars, fractions, repetitions, style: spec.initial.style })
+                    scales = materializeStandardScales(spec.initial)
                 })
 
                 sharedSuite()
@@ -52,7 +52,7 @@ describe('segments', () => {
                 beforeEach(() => {
                     segments = computeSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
                     scales = materializeStandardScales({
-                        ...data.initial,
+                        ...spec.initial,
                         style: BeatenPathStyle.SMOOTH,
                     })
                 })
@@ -78,14 +78,14 @@ describe('segments', () => {
                         let noteDuration: Scalar = to.Scalar(0)
                         notes.forEach((note: Note): void => {
                             const duration: Maybe<NoteFeature> = note.duration
-                            const durationSpecScalar: Maybe<Scalar> = duration!.scalar
+                            const durationSpecsScalar: Maybe<Scalar> = duration!.scalar
 
-                            if (durationSpecScalar) {
+                            if (durationSpecsScalar) {
                                 if (from.Scalar(noteDuration) === 0) {
-                                    noteDuration = durationSpecScalar
+                                    noteDuration = durationSpecsScalar
                                 }
                                 else {
-                                    expect(durationSpecScalar)
+                                    expect(durationSpecsScalar)
                                         .toBe(noteDuration)
                                 }
                             }

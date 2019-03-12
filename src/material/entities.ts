@@ -1,11 +1,11 @@
 import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/compiler'
-import { BeatenPathSpec } from '../spec'
+import { BeatenPathSpecs } from '../spec'
 import { computeNotes } from './notes'
 import { BeatenPathEntity, BeatenPathEntityNotes } from './types'
 
 const materializeEntities: MaterializeEntities =
-    (spec: BeatenPathSpec): Entity[] => {
-        const notes: BeatenPathEntityNotes = computeNotes(spec)
+    (specs: BeatenPathSpecs): Entity[] => {
+        const notes: BeatenPathEntityNotes = computeNotes(specs)
 
         const firstEntity: Entity = {
             notes: notes[ BeatenPathEntity.FIRST ],

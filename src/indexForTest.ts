@@ -13,9 +13,9 @@ export {
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {
-    BeatenPathSpec,
+    BeatenPathSpecs,
     BeatenPathStyle,
-    data,
+    spec,
 } from './spec/indexForTest'
 
 export { to, from, Core } from './nominal'

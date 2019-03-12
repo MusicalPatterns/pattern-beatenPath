@@ -1,9 +1,9 @@
 import {
-    Attributes,
-    OptionedPropertyAttributes,
-    RangedPropertyAttributes,
-    Spec,
-    ToggledPropertyAttributes,
+    Configurations,
+    OptionedConfiguration,
+    RangedConfiguration,
+    Specs,
+    ToggledConfiguration,
 } from '@musical-patterns/pattern'
 import { Cardinal } from '@musical-patterns/utilities'
 import { Core } from '../nominal'
@@ -13,22 +13,22 @@ enum BeatenPathStyle {
     SMOOTH = 'SMOOTH',
 }
 
-interface BeatenPathSpec extends Spec {
+interface BeatenPathSpecs extends Specs {
     core: Core,
     repetitions: Cardinal,
     reverse: boolean,
     style: BeatenPathStyle,
 }
 
-interface BeatenPathAttributes extends Attributes<BeatenPathSpec> {
-    core: RangedPropertyAttributes,
-    repetitions: RangedPropertyAttributes,
-    reverse: ToggledPropertyAttributes,
-    style: OptionedPropertyAttributes,
+interface BeatenPathConfigurations extends Configurations<BeatenPathSpecs> {
+    core: RangedConfiguration,
+    repetitions: RangedConfiguration,
+    reverse: ToggledConfiguration,
+    style: OptionedConfiguration,
 }
 
 export {
     BeatenPathStyle,
-    BeatenPathSpec,
-    BeatenPathAttributes,
+    BeatenPathSpecs,
+    BeatenPathConfigurations,
 }

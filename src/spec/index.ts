@@ -1,5 +1,5 @@
-export { data } from './data'
+export { spec } from './spec'
 export {
     BeatenPathStyle,
-    BeatenPathSpec,
+    BeatenPathSpecs,
 } from './types'

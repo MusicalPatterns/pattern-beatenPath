@@ -1,10 +1,10 @@
 import {
-    Data,
-    PropertyType,
+    InputType,
     RangedInputType,
-    standardAttributes,
-    standardInitialSpec,
-    StandardProperty,
+    Spec,
+    standardConfigurations,
+    standardInitialSpecs,
+    StandardSpec,
 } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
@@ -16,11 +16,11 @@ import {
     BEATEN_PATH_INITIAL_REVERSE,
     BEATEN_PATH_INITIAL_STYLE,
 } from './constants'
-import { BeatenPathAttributes, BeatenPathSpec, BeatenPathStyle } from './types'
+import { BeatenPathConfigurations, BeatenPathSpecs, BeatenPathStyle } from './types'
 
-const initialSpec: BeatenPathSpec = {
-    ...standardInitialSpec,
-    [ StandardProperty.BASE_FREQUENCY ]: BEATEN_PATH_INITIAL_BASE_FREQUENCY,
+const initialSpecs: BeatenPathSpecs = {
+    ...standardInitialSpecs,
+    [ StandardSpec.BASE_FREQUENCY ]: BEATEN_PATH_INITIAL_BASE_FREQUENCY,
     core: BEATEN_PATH_INITIAL_CORE,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,
     reverse: BEATEN_PATH_INITIAL_REVERSE,
@@ -31,8 +31,8 @@ const coreDescription: string = `
 every bar will consist of a harmony and polyrhythm of this value against itself either plus or minus 1
 `
 
-const attributes: BeatenPathAttributes = {
-    ...standardAttributes,
+const configurations: BeatenPathConfigurations = {
+    ...standardConfigurations,
     core: {
         constraint: {
             integer: true,
@@ -40,8 +40,8 @@ const attributes: BeatenPathAttributes = {
         },
         description: coreDescription,
         hideInput: RangedInputType.RANGE,
+        inputType: InputType.RANGED,
         order: 1,
-        propertyType: PropertyType.RANGED,
     },
     repetitions: {
         constraint: {
@@ -49,13 +49,13 @@ const attributes: BeatenPathAttributes = {
             min: 1,
         },
         hideInput: RangedInputType.RANGE,
+        inputType: InputType.RANGED,
         order: 3,
-        propertyType: PropertyType.RANGED,
         units: Units.BARS,
     },
     reverse: {
+        inputType: InputType.TOGGLED,
         order: 4,
-        propertyType: PropertyType.TOGGLED,
     },
     style: {
         constraint: [
@@ -68,16 +68,16 @@ const attributes: BeatenPathAttributes = {
                 value: BeatenPathStyle.SMOOTH,
             },
         ],
+        inputType: InputType.OPTIONED,
         order: 2,
-        propertyType: PropertyType.OPTIONED,
     },
 }
 
-const data: Data<BeatenPathSpec> = {
-    attributes,
-    initial: initialSpec,
+const spec: Spec<BeatenPathSpecs> = {
+    configurations,
+    initial: initialSpecs,
 }
 
 export {
-    data,
+    spec,
 }

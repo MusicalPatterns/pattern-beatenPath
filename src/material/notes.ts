@@ -3,13 +3,13 @@ import { Segment } from '@musical-patterns/pattern'
 import { sequence } from '@musical-patterns/utilities'
 import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
 import { Core } from '../nominal'
-import { BeatenPathSpec } from '../spec'
+import { BeatenPathSpecs } from '../spec'
 import { computeFractionsAndScalars } from './custom'
 import { computeSegments } from './segments'
 import { BeatenPathEntity, BeatenPathEntityNotes } from './types'
 
-const computeNotes: (spec: BeatenPathSpec) => BeatenPathEntityNotes =
-    ({ core, repetitions, reverse, style }: BeatenPathSpec): BeatenPathEntityNotes => {
+const computeNotes: (specs: BeatenPathSpecs) => BeatenPathEntityNotes =
+    ({ core, repetitions, reverse, style }: BeatenPathSpecs): BeatenPathEntityNotes => {
         const clampedCore: Core = core < MINIMUM_FUNCTIONAL_CORE ? MINIMUM_FUNCTIONAL_CORE : core
 
         const { fractions, scalars } = computeFractionsAndScalars(clampedCore)
