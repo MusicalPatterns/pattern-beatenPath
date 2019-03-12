@@ -18,7 +18,7 @@ export {
     spec,
 } from './spec/indexForTest'
 
-export { to, from, Core } from './nominal'
+export { to, from, Core } from './nominals'
 
 // tslint:disable-next-line no-default-import
 import * as snapshot from './snapshot.json'

@@ -9,7 +9,7 @@ import {
     ScientificPitchOctaveNumber,
     to,
 } from '@musical-patterns/utilities'
-import { Core, to as beatenPathTo } from '../nominal'
+import { Core, to as beatenPathTo } from '../nominals'
 import { BeatenPathStyle } from './types'
 
 const BEATEN_PATH_INITIAL_CORE: Core = beatenPathTo.Core(5)

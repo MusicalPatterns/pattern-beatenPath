@@ -12,7 +12,7 @@ import {
     to,
     UP_ONE,
 } from '@musical-patterns/utilities'
-import { Core, from as beatenPathFrom } from '../../nominal'
+import { Core, from as beatenPathFrom } from '../../nominals'
 import { FractionsAndScalars } from '../types'
 
 const upwardsIsCloserToOriginalScalarOfOne:
