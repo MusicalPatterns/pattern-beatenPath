@@ -1,2 +1,1 @@
-export { materializeEntities } from './entities'
-export { computeNote } from './features'
+export { material } from './materials'
