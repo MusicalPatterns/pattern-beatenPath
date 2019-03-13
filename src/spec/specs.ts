@@ -5,7 +5,7 @@ import { BeatenPathSpecs } from './types'
 
 const spec: Spec<BeatenPathSpecs> = {
     configurations,
-    initial: initialSpecs,
+    initialSpecs,
 }
 
 export {

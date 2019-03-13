@@ -39,8 +39,8 @@ describe('segments', () => {
 
             describe('polyrhythmic style', () => {
                 beforeEach(() => {
-                    segments = computeSegments({ scalars, fractions, repetitions, style: spec.initial.style })
-                    scales = materializeStandardScales(spec.initial)
+                    segments = computeSegments({ scalars, fractions, repetitions, style: spec.initialSpecs.style })
+                    scales = materializeStandardScales(spec.initialSpecs)
                 })
 
                 sharedSuite()
@@ -52,7 +52,7 @@ describe('segments', () => {
                 beforeEach(() => {
                     segments = computeSegments({ scalars, fractions, repetitions, style: BeatenPathStyle.SMOOTH })
                     scales = materializeStandardScales({
-                        ...spec.initial,
+                        ...spec.initialSpecs,
                         style: BeatenPathStyle.SMOOTH,
                     })
                 })

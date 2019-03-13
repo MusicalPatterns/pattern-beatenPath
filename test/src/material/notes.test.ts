@@ -4,10 +4,10 @@ import { BeatenPathEntity, BeatenPathEntityNotes, BeatenPathSpecs, computeNotes,
 
 describe('notes', () => {
     it('can reverse', () => {
-        const forwardSpecs: BeatenPathSpecs = spec.initial
+        const forwardSpecs: BeatenPathSpecs = spec.initialSpecs
         const forwardVersion: BeatenPathEntityNotes = computeNotes(forwardSpecs)
 
-        const backwardSpecs: BeatenPathSpecs = { ...spec.initial, reverse: true }
+        const backwardSpecs: BeatenPathSpecs = { ...spec.initialSpecs, reverse: true }
         const backwardVersion: BeatenPathEntityNotes = computeNotes(backwardSpecs)
 
         entries(forwardVersion)
