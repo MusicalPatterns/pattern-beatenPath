@@ -12,7 +12,7 @@ export {
     computeSegmentIntervals,
     alignSegmentNoteCountsWithSegmentDurations,
     computeSegmentNoteCountsFromSegmentRatios,
-    computeEntitiesNotesFromSegments,
+    distributeSegmentsToEntities,
     computeLoopCount,
     computeLoopSegmentCycleTranslations,
     computeLoopCycledSegmentSegments,
@@ -22,6 +22,7 @@ export {
     computePolyrhythmicPiece,
     computeSmoothPiece,
     computeNote,
+    computeNotes,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {

@@ -25,6 +25,13 @@ interface ComputePieceParameters {
     repetitions: Cardinal,
 }
 
+interface ComputeNotesParameters {
+    notesCount: Cardinal,
+    notesDuration: Scalar,
+    repetitions: Cardinal,
+    style: BeatenPathStyle,
+}
+
 type ComputePiece = (computePieceParameters: ComputePieceParameters) => ContourPiece<PitchDuration>
 
 interface CoreCycles {
@@ -37,5 +44,6 @@ export {
     ComputeSegmentParameters,
     ComputePieceParameters,
     ComputePiece,
+    ComputeNotesParameters,
     CoreCycles,
 }

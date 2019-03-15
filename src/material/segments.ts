@@ -12,16 +12,14 @@ import {
     to,
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
-import { BeatenPathStyle } from '../spec'
 import {
     computeCoreCycles,
     computeSegmentDurationIndices,
     computeSegmentNoteCounts,
     equalizeDurationsOfSegmentNotes,
 } from './custom'
-import { computeNote } from './features'
-import { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
-import { ComputePiece, ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
+import { computeNotes } from './notes'
+import { ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
 
 const computeSegment: (computeSegmentsParameters: ComputeSegmentParameters) => Segment =
     (parameters: ComputeSegmentParameters): Segment => {
@@ -35,21 +33,13 @@ const computeSegment: (computeSegmentsParameters: ComputeSegmentParameters) => S
             segmentIndex,
         })
 
-        const computePiece: ComputePiece =
-            style === BeatenPathStyle.POLYRHYTHMIC ? computePolyrhythmicPiece : computeSmoothPiece
-
         const segmentDurations: Scalar[] = segmentDurationIndices.map((scalarIndex: Ordinal) =>
             apply.Ordinal(coreDurations, scalarIndex))
 
         return map(segmentDurations, (notesDuration: Scalar, index: Ordinal): Note[] => {
             const notesCount: Cardinal = apply.Ordinal(segmentNoteCounts, index)
 
-            return computePiece({
-                notesCount,
-                notesDuration,
-                repetitions,
-            })
-                .map(computeNote)
+            return computeNotes({ notesCount, notesDuration, repetitions, style })
         })
     }
 

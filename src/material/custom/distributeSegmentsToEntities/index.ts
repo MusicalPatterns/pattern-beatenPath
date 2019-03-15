@@ -1,0 +1,1 @@
+export { distributeSegmentsToEntities } from './distributeSegmentsToEntities'

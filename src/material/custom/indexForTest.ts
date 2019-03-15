@@ -3,6 +3,7 @@
 export { computeCoreCycles } from './coreCycles'
 export { computeSegmentDurationIndices } from './segmentDurationIndices'
 export { computeSegmentNoteCounts } from './segmentNoteCounts'
+export { computeEntitiesNotes } from './entitiesNotes'
 export {
     computeSegmentRatios,
     computeSegmentIntervals,
@@ -10,10 +11,10 @@ export {
     computeSegmentNoteCountsFromSegmentRatios,
 } from './segmentNoteCounts/indexForTest'
 export {
-    computeEntitiesNotesFromSegments,
+    distributeSegmentsToEntities,
     computeLoopCount,
     computeLoopSegmentCycleTranslations,
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,
-} from './entitiesNotesFromSegments/indexForTest'
+} from './distributeSegmentsToEntities/indexForTest'

@@ -3,8 +3,8 @@
 export { material } from './materials'
 export { computeSegments } from './segments'
 export { materializeEntities } from './entities'
-export { computeEntitiesNotes } from './notes'
 export { computeNote } from './features'
+export { computeNotes } from './notes'
 export { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
 export {
     computeCoreCycles,
@@ -14,12 +14,13 @@ export {
     computeSegmentIntervals,
     alignSegmentNoteCountsWithSegmentDurations,
     computeSegmentNoteCountsFromSegmentRatios,
-    computeEntitiesNotesFromSegments,
+    distributeSegmentsToEntities,
     computeLoopCount,
     computeLoopSegmentCycleTranslations,
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,
+    computeEntitiesNotes,
 } from './custom/indexForTest'
 
 export {

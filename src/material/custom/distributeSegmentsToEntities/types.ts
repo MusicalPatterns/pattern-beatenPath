@@ -2,7 +2,7 @@ import { Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import { Cardinal, Ordinal, Translation } from '@musical-patterns/utilities'
 
-interface DistributeSegmentNotesToEntitiesParameters {
+interface DistributeSegmentToEntitiesParameters {
     existingEntitiesNotes: Note[][],
     segments: Segment[],
 }
@@ -19,7 +19,7 @@ interface SegmentsDimensions {
 }
 
 export {
-    DistributeSegmentNotesToEntitiesParameters,
+    DistributeSegmentToEntitiesParameters,
     ComputeLoopCycledSegmentSegmentsParameters,
     SegmentsDimensions,
 }

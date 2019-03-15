@@ -79,16 +79,6 @@ describe('pieces', () => {
         )
     })
 
-    it('whether you pick smooth or polyrhythmic, the end result has the same total duration', () => {
-        const polyrhythmicPiece: ContourPiece<PitchDuration> =
-            computePolyrhythmicPiece({ notesCount, notesDuration, repetitions })
-        const smoothPiece: ContourPiece<PitchDuration> =
-            computeSmoothPiece({ notesCount, notesDuration, repetitions })
-
-        expect(computeNotesTotalDurationByScalar(polyrhythmicPiece.map(computeNote)))
-            .toBe(computeNotesTotalDurationByScalar(smoothPiece.map(computeNote)))
-    })
-
     it('whether you pick smooth or polyrhythmic, the end result has the same total pitch', () => {
         const polyrhythmicPiece: ContourPiece<PitchDuration> =
             computePolyrhythmicPiece({ notesCount, notesDuration, repetitions })

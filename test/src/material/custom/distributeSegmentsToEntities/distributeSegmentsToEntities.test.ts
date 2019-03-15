@@ -1,8 +1,8 @@
 import { Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { computeEntitiesNotesFromSegments } from '../../../../../src/indexForTest'
+import { distributeSegmentsToEntities } from '../../../../../src/indexForTest'
 
-describe('entities notes from segments', () => {
+describe('distribute segments to entities', () => {
     it(
         `when cycle length is 4, entity count is 3 - it loops through the segments 3 times, cycling the segments by 1 each time, \
         until the entities are back at starting positions. you can see that each entity stays with each note a # of times equal to the entity count, \
@@ -38,7 +38,7 @@ describe('entities notes from segments', () => {
                 ],
             ]
 
-            const actualEntitiesNotesFromSegments: Note[][] = computeEntitiesNotesFromSegments(segments)
+            const actualEntitiesNotesFromSegments: Note[][] = distributeSegmentsToEntities(segments)
 
             const expectedEntityNotesOne: Note[] = [
                 C_1, C_1, C_1, B_2,
@@ -118,7 +118,7 @@ describe('entities notes from segments', () => {
                 ],
             ]
 
-            const actualEntitiesNotesFromSegments: Note[][] = computeEntitiesNotesFromSegments(segments)
+            const actualEntitiesNotesFromSegments: Note[][] = distributeSegmentsToEntities(segments)
 
             const expectedEntityNotesOne: Note[] = [
                 D_1, D_1, D_1, D_1, B_2, B_2,
