@@ -1,3 +1,5 @@
-export { computeFractionsAndScalars } from './fractionsAndScalars'
-export { selectScalarsForSegment } from './scalars'
-export { computeNoteCountsForSegment } from './noteCounts'
+export { computeCoreCycles } from './coreCycles'
+export { computeSegmentDurationIndices } from './segmentDurationIndices'
+export { computeSegmentNoteCounts } from './segmentNoteCounts'
+export { equalizeDurationsOfSegmentNotes } from './equalizeDurationsOfSegmentNotes'
+export { computeEntitiesNotesFromSegments } from './entitiesNotesFromSegments'

@@ -3,7 +3,7 @@ import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
-    indexOfLastElement,
+    indexJustBeyondLastElement,
     INITIAL,
     map,
     Ordinal,
@@ -13,34 +13,65 @@ import {
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
 import { BeatenPathStyle } from '../spec'
-import { computeNoteCountsForSegment, selectScalarsForSegment } from './custom'
+import {
+    computeCoreCycles,
+    computeSegmentDurationIndices,
+    computeSegmentNoteCounts,
+    equalizeDurationsOfSegmentNotes,
+} from './custom'
 import { computeNote } from './features'
 import { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
-import { ComputePiece, ComputeSegmentsParameters } from './types'
+import { ComputePiece, ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
 
-const computeSegment: (segmentIndex: Ordinal, computeSegmentsParameters: ComputeSegmentsParameters) => Segment =
-    (segmentIndex: Ordinal, { scalars, fractions, repetitions, style }: ComputeSegmentsParameters): Segment => {
-        const scalarsForSegment: Scalar[] = selectScalarsForSegment({ scalars, segmentIndex })
-        const noteCounts: Cardinal[] = computeNoteCountsForSegment({ fractions, segmentIndex })
+const computeSegment: (computeSegmentsParameters: ComputeSegmentParameters) => Segment =
+    (parameters: ComputeSegmentParameters): Segment => {
+        const { segmentIndex, coreDurations, coreIntervals, repetitions, style, entityCount } = parameters
+
+        const segmentDurationIndices: Ordinal[] = computeSegmentDurationIndices({ segmentIndex, entityCount })
+        const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
+            coreIntervals,
+            entityCount,
+            segmentDurationIndices,
+            segmentIndex,
+        })
 
         const computePiece: ComputePiece =
             style === BeatenPathStyle.POLYRHYTHMIC ? computePolyrhythmicPiece : computeSmoothPiece
 
-        return map(scalarsForSegment, (scalar: Scalar, index: Ordinal): Note[] =>
-            computePiece({
-                notesCount: apply.Ordinal(noteCounts, index),
+        const segmentDurations: Scalar[] = segmentDurationIndices.map((scalarIndex: Ordinal) =>
+            apply.Ordinal(coreDurations, scalarIndex))
+
+        return map(segmentDurations, (notesDuration: Scalar, index: Ordinal): Note[] => {
+            const notesCount: Cardinal = apply.Ordinal(segmentNoteCounts, index)
+
+            return computePiece({
+                notesCount,
+                notesDuration,
                 repetitions,
-                scalar,
             })
-                .map(computeNote))
+                .map(computeNote)
+        })
     }
 
 const computeSegments: (computeSegmentsParameters: ComputeSegmentsParameters) => Segment[] =
-    (computeSegmentsParameters: ComputeSegmentsParameters): Segment[] =>
-        slice(zeroAndPositiveIntegers, INITIAL, indexOfLastElement(computeSegmentsParameters.scalars))
+    ({ core, entityCount, repetitions, style }: ComputeSegmentsParameters): Segment[] => {
+        const { coreDurations, coreIntervals } = computeCoreCycles(core)
+
+        const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal =
+            indexJustBeyondLastElement(coreDurations)
+
+        const segments: Segment[] = slice(
+            zeroAndPositiveIntegers,
+            INITIAL,
+            indexOfFirstElementAgainWrappingAroundTheCycle,
+        )
             .map(to.Ordinal)
             .map((segmentIndex: Ordinal): Segment =>
-                computeSegment(segmentIndex, computeSegmentsParameters))
+                computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),
+            )
+
+        return equalizeDurationsOfSegmentNotes(segments)
+    }
 
 export {
     computeSegments,

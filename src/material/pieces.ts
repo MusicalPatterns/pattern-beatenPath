@@ -3,24 +3,24 @@ import { apply, ContourPiece, from, reciprocal, repeat, to } from '@musical-patt
 import { ComputePieceParameters } from './types'
 
 const computePolyrhythmicPiece: (computePieceParameters: ComputePieceParameters) => ContourPiece<PitchDuration> =
-    ({ scalar, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
+    ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
         to.ContourPiece<PitchDuration>(repeat(
             [
                 [
-                    from.Scalar(reciprocal(scalar)),
-                    from.Scalar(scalar),
+                    from.Scalar(reciprocal(notesDuration)),
+                    from.Scalar(notesDuration),
                 ],
             ],
             apply.Scalar(notesCount, to.Scalar(from.Cardinal(repetitions))),
         ))
 
 const computeSmoothPiece: (computePieceParameters: ComputePieceParameters) => ContourPiece<PitchDuration> =
-    ({ scalar, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
+    ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
         to.ContourPiece<PitchDuration>(repeat(
             [
                 [
-                    from.Scalar(reciprocal(scalar)),
-                    from.Scalar(apply.Scalar(scalar, to.Scalar(from.Cardinal(notesCount)))),
+                    from.Scalar(reciprocal(notesDuration)),
+                    from.Scalar(apply.Scalar(notesDuration, to.Scalar(from.Cardinal(notesCount)))),
                 ],
             ],
             repetitions,

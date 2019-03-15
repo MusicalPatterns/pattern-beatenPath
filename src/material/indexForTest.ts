@@ -1,16 +1,27 @@
 // tslint:disable no-reaching-imports
 
+export { material } from './materials'
 export { computeSegments } from './segments'
 export { materializeEntities } from './entities'
-export { computeNotes } from './notes'
+export { computeEntitiesNotes } from './notes'
+export { computeNote } from './features'
+export { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
 export {
-    computeFractionsAndScalars,
-    computeFirstEntityScalarIndex,
-    computeSecondEntityScalarIndex,
+    computeCoreCycles,
+    computeSegmentDurationIndices,
+    computeSegmentNoteCounts,
+    computeSegmentRatios,
+    computeSegmentIntervals,
+    alignSegmentNoteCountsWithSegmentDurations,
+    computeSegmentNoteCountsFromSegmentRatios,
+    computeEntitiesNotesFromSegments,
+    computeLoopCount,
+    computeLoopSegmentCycleTranslations,
+    computeLoopCycledSegmentSegments,
+    computeSegmentsDimensions,
+    SegmentsDimensions,
 } from './custom/indexForTest'
 
 export {
-    FractionsAndScalars,
-    BeatenPathEntity,
-    BeatenPathEntityNotes,
+    CoreCycles,
 } from './types'

@@ -1,7 +1,7 @@
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/pattern'
-import { Units } from '@musical-patterns/utilities'
-import { MINIMUM_FUNCTIONAL_CORE } from '../constants'
-import { from } from '../nominals'
+import { from, Units } from '@musical-patterns/utilities'
+import { from as beatenPathFrom } from '../nominals'
+import { BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE, BEATEN_PATH_MINIMUM_FUNCTIONAL_ENTITY_COUNT } from './constants'
 import { BeatenPathConfigurations, BeatenPathStyle } from './types'
 
 const configurations: BeatenPathConfigurations = {
@@ -9,13 +9,22 @@ const configurations: BeatenPathConfigurations = {
     core: {
         constraint: {
             integer: true,
-            min: from.Core(MINIMUM_FUNCTIONAL_CORE),
+            min: beatenPathFrom.Core(BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE),
         },
         description: `every bar will consist of a harmony and polyrhythm of this value against itself \
 either plus or minus 1`,
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
         order: 1,
+    },
+    entityCount: {
+        constraint: {
+            integer: true,
+            min: from.Cardinal(BEATEN_PATH_MINIMUM_FUNCTIONAL_ENTITY_COUNT),
+        },
+        hideInput: RangedInputType.RANGE,
+        inputType: InputType.RANGED,
+        order: 2,
     },
     repetitions: {
         constraint: {
@@ -24,12 +33,12 @@ either plus or minus 1`,
         },
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
-        order: 3,
+        order: 4,
         units: Units.BARS,
     },
     reverse: {
         inputType: InputType.TOGGLED,
-        order: 4,
+        order: 5,
     },
     style: {
         constraint: [
@@ -43,7 +52,7 @@ either plus or minus 1`,
             },
         ],
         inputType: InputType.OPTIONED,
-        order: 2,
+        order: 3,
     },
 }
 

@@ -1,0 +1,1 @@
+export { computeEntitiesNotesFromSegments } from './entitiesNotesFromSegments'

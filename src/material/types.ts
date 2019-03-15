@@ -1,40 +1,41 @@
-import { Note } from '@musical-patterns/compiler'
 import { PitchDuration } from '@musical-patterns/pattern'
-import { Cardinal, ContourPiece, Fraction, Scalar } from '@musical-patterns/utilities'
+import { Cardinal, ContourPiece, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Core } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 
 interface ComputeSegmentsParameters {
-    fractions: Fraction[],
+    core: Core,
+    entityCount: Cardinal,
     repetitions: Cardinal,
-    scalars: Scalar[],
+    style: BeatenPathStyle,
+}
+
+interface ComputeSegmentParameters {
+    coreDurations: Cycle<Scalar>,
+    coreIntervals: Cycle<Fraction>,
+    entityCount: Cardinal,
+    repetitions: Cardinal,
+    segmentIndex: Ordinal,
     style: BeatenPathStyle,
 }
 
 interface ComputePieceParameters {
     notesCount: Cardinal,
+    notesDuration: Scalar,
     repetitions: Cardinal,
-    scalar: Scalar,
 }
 
 type ComputePiece = (computePieceParameters: ComputePieceParameters) => ContourPiece<PitchDuration>
 
-interface FractionsAndScalars {
-    fractions: Fraction[],
-    scalars: Scalar[],
+interface CoreCycles {
+    coreDurations: Cycle<Scalar>,
+    coreIntervals: Cycle<Fraction>,
 }
-
-enum BeatenPathEntity {
-    FIRST = 'FIRST',
-    SECOND = 'SECOND',
-}
-
-type BeatenPathEntityNotes = { [Index in BeatenPathEntity]: Note[] }
 
 export {
     ComputeSegmentsParameters,
+    ComputeSegmentParameters,
     ComputePieceParameters,
     ComputePiece,
-    FractionsAndScalars,
-    BeatenPathEntityNotes,
-    BeatenPathEntity,
+    CoreCycles,
 }

@@ -1,26 +1,27 @@
-import { Entity, MaterializeEntities, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, MaterializeEntities, Note, TimbreNameEnum } from '@musical-patterns/compiler'
+import { apply, Cycle, map, Ordinal, to } from '@musical-patterns/utilities'
 import { BeatenPathSpecs } from '../spec'
-import { computeNotes } from './notes'
-import { BeatenPathEntity, BeatenPathEntityNotes } from './types'
+import { computeEntitiesNotes } from './notes'
 
 const materializeEntities: MaterializeEntities =
     (specs: BeatenPathSpecs): Entity[] => {
-        const notes: BeatenPathEntityNotes = computeNotes(specs)
+        const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
 
-        const firstEntity: Entity = {
-            notes: notes[ BeatenPathEntity.FIRST ],
-            timbreName: TimbreNameEnum.PUTNEY_WAVERING,
-        }
+        const timbreNames: Cycle<string> = to.Cycle([
+            TimbreNameEnum.PUTNEY_WAVERING,
+            TimbreNameEnum.ORGAN_2,
+            TimbreNameEnum.PHONEME_OOH,
+            TimbreNameEnum.PHONEME_AH,
+        ])
 
-        const secondEntity: Entity = {
-            notes: notes[ BeatenPathEntity.SECOND ],
-            timbreName: TimbreNameEnum.ORGAN_2,
-        }
-
-        return [
-            firstEntity,
-            secondEntity,
-        ]
+        return map(
+            entitiesNotes,
+            (entityNotes: Note[], timbreNameIndex: Ordinal): Entity => ({
+                notes: entityNotes,
+                // @ts-ignore
+                timbreName: apply.Ordinal(timbreNames, timbreNameIndex),
+            }),
+        )
     }
 
 export {

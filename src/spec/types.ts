@@ -5,7 +5,7 @@ import {
     Specs,
     ToggledConfiguration,
 } from '@musical-patterns/pattern'
-import { Cardinal } from '@musical-patterns/utilities'
+import { Cardinal, Ordinal } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
 
 enum BeatenPathStyle {
@@ -15,6 +15,7 @@ enum BeatenPathStyle {
 
 interface BeatenPathSpecs extends Specs {
     core: Core,
+    entityCount: Ordinal,
     repetitions: Cardinal,
     reverse: boolean,
     style: BeatenPathStyle,
@@ -22,6 +23,7 @@ interface BeatenPathSpecs extends Specs {
 
 interface BeatenPathConfigurations extends Configurations<BeatenPathSpecs> {
     core: RangedConfiguration,
+    entityCount: RangedConfiguration,
     repetitions: RangedConfiguration,
     reverse: ToggledConfiguration,
     style: OptionedConfiguration,
