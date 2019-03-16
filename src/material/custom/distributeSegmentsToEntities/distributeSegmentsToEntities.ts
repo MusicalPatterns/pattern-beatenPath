@@ -26,10 +26,10 @@ const distributeSegmentToEntities: (parameters: DistributeSegmentToEntitiesParam
             forEach(
                 segment,
                 (notes: Note[], entityIndex: Ordinal): void => {
-                    populatedEntitiesNotes[ entityIndex ] = sequence([
+                    populatedEntitiesNotes[ entityIndex ] = sequence(
                         populatedEntitiesNotes[ entityIndex ],
                         notes,
-                    ])
+                    )
                 })
         })
 
