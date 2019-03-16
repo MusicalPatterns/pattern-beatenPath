@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { apply, Cardinal, from, Ms, NEXT, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { apply, Cardinal, from, Ms, NEXT, testIsCloseTo, testIsNotCloseTo, to } from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeSegments, Core, spec, to as beatenPathTo } from '../../../src/indexForTest'
 
 describe('segments', () => {
@@ -23,13 +23,10 @@ describe('segments', () => {
                             segmentDuration = computeNotesTotalCompiledDuration(notes)
                         }
                         else {
-                            expect(
-                                testIsCloseTo(
-                                    from.Ms(computeNotesTotalCompiledDuration(notes)),
-                                    from.Ms(segmentDuration),
-                                ),
+                            testIsCloseTo(
+                                from.Ms(computeNotesTotalCompiledDuration(notes)),
+                                from.Ms(segmentDuration),
                             )
-                                .toBeTruthy()
                         }
                     })
                 })
@@ -42,13 +39,10 @@ describe('segments', () => {
                     const totalDuration: Ms = computeNotesTotalCompiledDuration(exemplarySegmentNotes)
 
                     seenTotalDurations.forEach((seenDuration: Ms): void => {
-                        expect(
-                            testIsCloseTo(
-                                from.Ms(seenDuration),
-                                from.Ms(totalDuration),
-                                true,
-                            ))
-                            .toBeTruthy()
+                        testIsNotCloseTo(
+                            from.Ms(seenDuration),
+                            from.Ms(totalDuration),
+                        )
                     })
 
                     seenTotalDurations.push(totalDuration)

@@ -271,8 +271,7 @@ describe('core cycles', () => {
                 })
 
                 it('first duration is 1', () => {
-                    expect(testIsCloseTo(coreDurations[ 0 ], to.Scalar(1)))
-                        .toBeTruthy()
+                    testIsCloseTo(coreDurations[ 0 ], to.Scalar(1))
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the previous interval', () => {
@@ -289,13 +288,13 @@ describe('core cycles', () => {
                             coreIntervals,
                             apply.Translation(index, PREVIOUS),
                         )))
-                        expect(testIsCloseTo(
+                        testIsCloseTo(
                             apply.Ordinal(coreDurations, index),
                             apply.Scalar(
                                 previousDuration,
                                 previousIntervalAsScalar,
                             ),
-                        ))
+                        )
                     }
                 })
             })
