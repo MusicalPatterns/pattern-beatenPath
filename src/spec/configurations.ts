@@ -34,7 +34,6 @@ either plus or minus 1`,
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
         order: 4,
-        units: Units.BARS,
     },
     reverse: {
         inputType: InputType.TOGGLED,
