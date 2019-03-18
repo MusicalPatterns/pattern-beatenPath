@@ -8,7 +8,7 @@ import {
     Ordinal,
     to,
     Translation,
-    TRANSLATION_FROM_LENGTH_TO_LAST_INDEX,
+    TRANSLATION_FROM_LENGTH_TO_FINAL_INDEX,
 } from '@musical-patterns/utilities'
 import { ComputeSegmentDurationIndicesParameters } from './types'
 
@@ -24,7 +24,7 @@ const computeSegmentDurationIndices: (parameters: ComputeSegmentDurationIndicesP
             const initialEntityDurationIndex: Ordinal = to.Ordinal(from.Cardinal(apply.Translation(
                 apply.Translation(
                     entityCount,
-                    TRANSLATION_FROM_LENGTH_TO_LAST_INDEX,
+                    TRANSLATION_FROM_LENGTH_TO_FINAL_INDEX,
                 ),
                 to.Translation(from.Ordinal(negative(entityIndex))),
             )))

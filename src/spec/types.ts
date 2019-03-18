@@ -15,7 +15,7 @@ enum BeatenPathStyle {
 
 interface BeatenPathSpecs extends StandardSpecs {
     core: Core,
-    entityCount: Ordinal,
+    entityCount: Cardinal,
     repetitions: Cardinal,
     reverse: boolean,
     style: BeatenPathStyle,

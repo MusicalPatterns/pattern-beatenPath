@@ -4,10 +4,10 @@ import {
     Cycle,
     Denominator,
     DOWN_ONE,
+    finalElement,
     Fraction,
     from,
     isCloseTo,
-    lastElement,
     reciprocal,
     Scalar,
     to,
@@ -41,9 +41,9 @@ const computeCoreCycles: (core: Core) => CoreCycles =
 
         let hasLooped: boolean = false
         while (!hasLooped) {
-            const lastDuration: Scalar = lastElement(coreDurations)
-            const maybeNextUpwardsDuration: Scalar = apply.Scalar(lastDuration, upwardsDuration)
-            const maybeNextDownwardsDuration: Scalar = apply.Scalar(lastDuration, downwardsDuration)
+            const previousDuration: Scalar = finalElement(coreDurations)
+            const maybeNextUpwardsDuration: Scalar = apply.Scalar(previousDuration, upwardsDuration)
+            const maybeNextDownwardsDuration: Scalar = apply.Scalar(previousDuration, downwardsDuration)
 
             if (isUpwardsDurationCloserToOriginalDurationOfOne(maybeNextUpwardsDuration, maybeNextDownwardsDuration)) {
                 if (isCloseTo(maybeNextUpwardsDuration, INITIAL_CORE_DURATION)) {

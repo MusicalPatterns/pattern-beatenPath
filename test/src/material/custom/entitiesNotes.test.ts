@@ -10,7 +10,7 @@ import {
     difference,
     forEach,
     from,
-    indexOfLastElement,
+    indexOfFinalElement,
     Ms,
     ONE_HOUR,
     Ordinal,
@@ -32,7 +32,7 @@ describe('entities notes', () => {
             (notes: Note[], entityIndex: Ordinal): void => {
                 forEach(notes, (note: Note, index: Ordinal) => {
                     const backwardNotes: Note[] = apply.Ordinal(backwardVersion, entityIndex)
-                    const mirroredIndex: Ordinal = difference(indexOfLastElement(notes), index)
+                    const mirroredIndex: Ordinal = difference(indexOfFinalElement(notes), index)
                     const mirroredNote: Note = apply.Ordinal(backwardNotes, mirroredIndex)
 
                     expect(note)
@@ -77,7 +77,7 @@ describe('entities notes', () => {
 
         it(
             `also works when entity count is greater than 2 (it makes a difference because massaging approach needs to change;\
-        you can't simply equalize durations on the last segment, but every segment that is touched by the duration which should be something\
+        you can't simply equalize durations on the final segment, but every segment that is touched by the duration which should be something\
         very very close to 1 but is instead substituted by 1 itself for looping back around, and the more entities there are\
         the more segments each entity holds each of its durations for before changing, so the more that will be touched by this substitution`,
             async (done: DoneFn) => {

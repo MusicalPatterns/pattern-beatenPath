@@ -3,7 +3,7 @@ import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
-    indexJustBeyondLastElement,
+    indexJustBeyondFinalElement,
     INITIAL,
     map,
     Ordinal,
@@ -48,7 +48,7 @@ const computeSegments: (computeSegmentsParameters: ComputeSegmentsParameters) =>
         const { coreDurations, coreIntervals } = computeCoreCycles(core)
 
         const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal =
-            indexJustBeyondLastElement(coreDurations)
+            indexJustBeyondFinalElement(coreDurations)
 
         const segments: Segment[] = slice(
             zeroAndPositiveIntegers,
