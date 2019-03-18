@@ -2,7 +2,7 @@ import {
     Configurations,
     OptionedConfiguration,
     RangedConfiguration,
-    Specs,
+    StandardSpecs,
     ToggledConfiguration,
 } from '@musical-patterns/pattern'
 import { Cardinal, Ordinal } from '@musical-patterns/utilities'
@@ -13,7 +13,7 @@ enum BeatenPathStyle {
     SMOOTH = 'SMOOTH',
 }
 
-interface BeatenPathSpecs extends Specs {
+interface BeatenPathSpecs extends StandardSpecs {
     core: Core,
     entityCount: Ordinal,
     repetitions: Cardinal,
