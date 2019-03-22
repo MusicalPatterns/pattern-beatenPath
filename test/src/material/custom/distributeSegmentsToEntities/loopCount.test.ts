@@ -4,7 +4,7 @@ import { computeLoopCount } from '../../../../../src/indexForTest'
 describe('loop count', () => {
     it(
         `is equal to the LCM of the entity count and the cycle length, divided by the cycle length - \
-    because this is how many loops of the segments are necessary until each entity will realign with its original notes index within the segments`,
+because this is how many loops of the segments are necessary until each entity will realign with its original notes index within the segments`,
         () => {
             const entityCount: Cardinal = to.Cardinal(3)
             const cycleLength: Cardinal = to.Cardinal(5)

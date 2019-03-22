@@ -5,8 +5,8 @@ import { distributeSegmentsToEntities } from '../../../../../src/indexForTest'
 describe('distribute segments to entities', () => {
     it(
         `when cycle length is 4, entity count is 3 - it loops through the segments 3 times, cycling the segments by 1 each time, \
-        until the entities are back at starting positions. you can see that each entity stays with each note a # of times equal to the entity count, \
-        as long as you count the _2 version of it as the same as the _1 version (which it is, it just represents modulus around the cycle length`,
+until the entities are back at starting positions. you can see that each entity stays with each note a # of times equal to the entity count, \
+as long as you count the _2 version of it as the same as the _1 version (which it is, it just represents modulus around the cycle length`,
         () => {
             const A_1: Note = { gain: {} }
             const B_1: Note = { duration: {} }
@@ -67,7 +67,7 @@ describe('distribute segments to entities', () => {
 
     it(
         `also works when the cycle length and entity count share a common factor other than each other, e.g 6 and 4 respectively; \
-        in this case it loops through 2 times, cycling the segments by 2 each time (so it skips half of the segment rotation possibilities)`,
+in this case it loops through 2 times, cycling the segments by 2 each time (so it skips half of the segment rotation possibilities)`,
         () => {
             const A_1: Note = { gain: {} }
             const B_1: Note = { duration: {} }

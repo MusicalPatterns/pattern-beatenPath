@@ -4,12 +4,12 @@ import { computeSegmentNoteCounts } from '../../../../../src/indexForTest'
 describe('segment note counts', () => {
     describe('when entity count is 2', () => {
         it(
-            `given that the entities in this segment are going to be playing notes of duration in proportion to each other\
-            by a subsequence of intervals from the core cycle, find that subsequence and then from it determine \
-            the ratios each of the durations will be in with each other duration, and from that determine \
-            the fewest number of notes each entity will have to play before they make a single polyrhythm and all line up again. \
-            this is an integration test of sorts - for more details look at:\
-            computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
+            `given that the entities in this segment are going to be playing notes of duration in proportion to each other \
+by a subsequence of intervals from the core cycle, find that subsequence and then from it determine \
+the ratios each of the durations will be in with each other duration, and from that determine \
+the fewest number of notes each entity will have to play before they make a single polyrhythm and all line up again. \
+this is an integration test of sorts - for more details look at: \
+computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
             () => {
                 const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
                     coreIntervals: to.Cycle([ to.Fraction([ 4, 5 ]), to.Fraction([ 4, 3 ]) ]),
@@ -38,12 +38,12 @@ describe('segment note counts', () => {
 
     describe('when entity count is 3', () => {
         it(
-            `given that the entities in this segment are going to be playing notes of duration in proportion to each other\
-            by a subsequence of intervals from the core cycle, find that subsequence and then from it determine \
-            the ratios each of the durations will be in with each other duration, and from that determine \
-            the fewest number of notes each entity will have to play before they make a single polyrhythm and all line up again. \
-            this is an integration test of sorts - for more details look at:\
-            computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
+            `given that the entities in this segment are going to be playing notes of duration in proportion to each other \
+by a subsequence of intervals from the core cycle, find that subsequence and then from it determine \
+the ratios each of the durations will be in with each other duration, and from that determine \
+the fewest number of notes each entity will have to play before they make a single polyrhythm and all line up again. \
+this is an integration test of sorts - for more details look at: \
+computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
             () => {
                 const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
                     coreIntervals: to.Cycle([ to.Fraction([ 4, 5 ]), to.Fraction([ 4, 3 ]), to.Fraction([ 4, 5 ]) ]),

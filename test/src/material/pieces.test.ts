@@ -39,7 +39,7 @@ describe('pieces', () => {
 
         it(
             `pitches are all the reciprocal of the durations, such that every note in beaten path could be \
-            changed into any other simply by time stretching because they are all proportional`,
+changed into any other simply by time stretching because they are all proportional`,
             () => {
                 piece.forEach((contourElement: ContourElement<PitchDuration>) => {
                     expect(apply.Ordinal(contourElement, PITCH_DURATION_CONTOUR_PITCH_INDEX))
@@ -68,8 +68,8 @@ describe('pieces', () => {
 
         it(
             `pitches are all the reciprocal of the durations, such that every note in beaten path could be \
-            changed into any other simply by time stretching because they are all proportional\
-            and in the case of smooth mode yes it is the original duration, what it would have been before scaling by the notes count`,
+changed into any other simply by time stretching because they are all proportional \
+and in the case of smooth mode yes it is the original duration, what it would have been before scaling by the notes count`,
             () => {
                 piece.forEach((contourElement: ContourElement<PitchDuration>) => {
                     expect(apply.Ordinal(contourElement, PITCH_DURATION_CONTOUR_PITCH_INDEX))

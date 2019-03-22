@@ -3,9 +3,9 @@ import { computeSegmentNoteCountsFromSegmentRatios } from '../../../../../src/in
 
 describe('segment note counts from segment ratios', () => {
     it(
-        `puts them into common terms then maps them to their numerators\
-        which represents the total length of the segment in units that each of the durations can be expressed wholly in\
-        then divides its numerator by that number to give you your notes count`,
+        `puts them into common terms then maps them to their numerators \
+which represents the total length of the segment in units that each of the durations can be expressed wholly in \
+then divides its numerator by that number to give you your notes count`,
         () => {
             // 15 * 12 * 16 = 240
             const segmentRatios: Fraction[] = [
