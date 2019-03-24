@@ -1,5 +1,6 @@
 import {
     apply,
+    finalIndexFromElementsTotal,
     floor,
     from,
     INITIAL,
@@ -8,7 +9,6 @@ import {
     Ordinal,
     to,
     Translation,
-    TRANSLATION_FROM_LENGTH_TO_FINAL_INDEX,
 } from '@musical-patterns/utilities'
 import { ComputeSegmentDurationIndicesParameters } from './types'
 
@@ -18,16 +18,13 @@ const computeSegmentDurationIndices: (parameters: ComputeSegmentDurationIndicesP
 
         for (
             let entityIndex: Ordinal = INITIAL;
-            entityIndex < to.Ordinal(from.Cardinal(entityCount));
+            entityIndex <= finalIndexFromElementsTotal(entityCount);
             entityIndex = apply.Translation(entityIndex, NEXT)
         ) {
-            const initialEntityDurationIndex: Ordinal = to.Ordinal(from.Cardinal(apply.Translation(
-                apply.Translation(
-                    entityCount,
-                    TRANSLATION_FROM_LENGTH_TO_FINAL_INDEX,
-                ),
+            const initialEntityDurationIndex: Ordinal = apply.Translation(
+                finalIndexFromElementsTotal(entityCount),
                 to.Translation(from.Ordinal(negative(entityIndex))),
-            )))
+            )
             const entityCoreCycleProgressBeforeStepping: Ordinal = apply.Translation(
                 segmentIndex,
                 to.Translation(from.Ordinal(entityIndex)),
