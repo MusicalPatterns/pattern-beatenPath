@@ -2,6 +2,7 @@ import { Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
+    arraySet,
     Cardinal,
     deepClone,
     forEach,
@@ -26,9 +27,13 @@ const distributeSegmentToEntities: (parameters: DistributeSegmentToEntitiesParam
             forEach(
                 segment,
                 (notes: Note[], entityIndex: Ordinal): void => {
-                    populatedEntitiesNotes[ entityIndex ] = sequence(
-                        populatedEntitiesNotes[ entityIndex ],
-                        notes,
+                    arraySet(
+                        populatedEntitiesNotes,
+                        entityIndex,
+                        sequence(
+                            populatedEntitiesNotes[ entityIndex ],
+                            notes,
+                        ),
                     )
                 })
         })
