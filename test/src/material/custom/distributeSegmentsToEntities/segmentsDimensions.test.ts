@@ -4,7 +4,7 @@ import { to } from '@musical-patterns/utilities'
 import { computeSegmentsDimensions, SegmentsDimensions } from '../../../../../src/indexForTest'
 
 describe('segments dimensions', () => {
-    it(`from the segments, correctly computes the cycle length (the length of the segments) and entity counts (the length of each segment) `, () => {
+    it(`from the segments, computes the cycle length (how many segments) and entity count (the length of each segment) `, () => {
         const exampleNote: Note = { gain: {} }
 
         const segments: Segment[] = [

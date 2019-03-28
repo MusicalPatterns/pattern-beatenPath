@@ -29,21 +29,21 @@ const computeCoreCycles: (core: Core) => CoreCycles =
 
         const rawCore: number = beatenPathFrom.Core(core)
 
-        const upwardsDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, UP_ONE)))
-        const upwardsDuration: Scalar = to.Scalar(apply.Scalar(rawCore, upwardsDivisor))
-        const upwardsDenominator: Denominator = to.Denominator(apply.Translation(rawCore, UP_ONE))
-        const upwardsInterval: Fraction = [ to.Numerator(rawCore), upwardsDenominator ]
+        const superparticular: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, UP_ONE)))
+        const superparticularDuration: Scalar = to.Scalar(apply.Scalar(rawCore, superparticular))
+        const superparticularDenominator: Denominator = to.Denominator(apply.Translation(rawCore, UP_ONE))
+        const superparticularInterval: Fraction = [ to.Numerator(rawCore), superparticularDenominator ]
 
-        const downwardsDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, DOWN_ONE)))
-        const downwardsDuration: Scalar = to.Scalar(apply.Scalar(rawCore, downwardsDivisor))
-        const downwardsDenominator: Denominator = to.Denominator(apply.Translation(rawCore, DOWN_ONE))
-        const downwardsInterval: Fraction = [ to.Numerator(rawCore), downwardsDenominator ]
+        const subparticularDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, DOWN_ONE)))
+        const subparticularDuration: Scalar = to.Scalar(apply.Scalar(rawCore, subparticularDivisor))
+        const subparticularDenominator: Denominator = to.Denominator(apply.Translation(rawCore, DOWN_ONE))
+        const subparticularInterval: Fraction = [ to.Numerator(rawCore), subparticularDenominator ]
 
         let hasLooped: boolean = false
         while (!hasLooped) {
             const previousDuration: Scalar = finalElement(coreDurations)
-            const maybeNextUpwardsDuration: Scalar = apply.Scalar(previousDuration, upwardsDuration)
-            const maybeNextDownwardsDuration: Scalar = apply.Scalar(previousDuration, downwardsDuration)
+            const maybeNextUpwardsDuration: Scalar = apply.Scalar(previousDuration, superparticularDuration)
+            const maybeNextDownwardsDuration: Scalar = apply.Scalar(previousDuration, subparticularDuration)
 
             if (isUpwardsDurationCloserToOriginalDurationOfOne(maybeNextUpwardsDuration, maybeNextDownwardsDuration)) {
                 if (isCloseTo(maybeNextUpwardsDuration, INITIAL_CORE_DURATION)) {
@@ -52,7 +52,7 @@ const computeCoreCycles: (core: Core) => CoreCycles =
                 else {
                     coreDurations.push(maybeNextUpwardsDuration)
                 }
-                coreIntervals.push(upwardsInterval)
+                coreIntervals.push(superparticularInterval)
             }
             else {
                 if (isCloseTo(maybeNextDownwardsDuration, INITIAL_CORE_DURATION)) {
@@ -61,7 +61,7 @@ const computeCoreCycles: (core: Core) => CoreCycles =
                 else {
                     coreDurations.push(maybeNextDownwardsDuration)
                 }
-                coreIntervals.push(downwardsInterval)
+                coreIntervals.push(subparticularInterval)
             }
         }
 

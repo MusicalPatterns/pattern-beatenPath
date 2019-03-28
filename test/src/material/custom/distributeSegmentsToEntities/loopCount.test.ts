@@ -16,7 +16,7 @@ because this is how many loops of the segments are necessary until each entity w
         },
     )
 
-    it('works in situtions where the entity count and cycle length share a factor other than themselves', () => {
+    it('works in situations where the entity count and cycle length share a factor other than themselves', () => {
         const entityCount: Cardinal = to.Cardinal(4)
         const cycleLength: Cardinal = to.Cardinal(6)
 

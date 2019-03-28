@@ -3,13 +3,13 @@ import { alignSegmentNoteCountsWithSegmentDurations } from '../../../../../src/i
 
 describe('align segment note counts with segment durations', () => {
     it(
-        `makes sure each entity gets assigned the note count for the segment which matches the scalar it got assigned \
-(so that they make a polyrhythm within each segment) - \
-the idea is that the entity with the highest duration index is the furthest through the core scalars at this segment, \
-so it needs to use the scalar for the segment which is furthest through the core scalars`,
+        `makes sure, within a segment, that each entity gets assigned the note count which matches the duration it got assigned \
+(so that all together they make a polyrhythm within each segment) - \
+the idea is that the entity with the highest duration index is the furthest through the core durations at this segment, \
+so it needs to use the duration for the segment which is furthest through the core duration`,
         () => {
-            const segmentNoteCounts: Cardinal[] = [ 15, 12, 16 ].map(to.Ordinal)
-            const segmentDurationIndices: Ordinal[] = [ 2, 4, 3 ].map(to.Ordinal)
+            const segmentNoteCounts: Cardinal[] = [ 15, 12, 16 ].map(to.Ordinal) // In order
+            const segmentDurationIndices: Ordinal[] = [ 2, 4, 3 ].map(to.Ordinal) // Ground to 0, 2, 1
 
             const actualSegmentNoteCountsAlignedWithSegmentDurations: Cardinal[] =
                 alignSegmentNoteCountsWithSegmentDurations({
@@ -18,7 +18,7 @@ so it needs to use the scalar for the segment which is furthest through the core
                 })
 
             expect(actualSegmentNoteCountsAlignedWithSegmentDurations)
-                .toEqual([ 15, 16, 12 ].map(to.Ordinal))
+                .toEqual([ 15, 16, 12 ].map(to.Ordinal)) // 0 takes index 0, 2 takes index 2, 1 takes index 1
         },
     )
 })
