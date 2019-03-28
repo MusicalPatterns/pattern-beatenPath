@@ -9,6 +9,9 @@ import {
     PRESET_DENSE_CORE,
     PRESET_DENSE_ENTITY_COUNT,
     PRESET_DENSE_REPETITIONS,
+    PRESET_ISOLATE_BASE_DURATION,
+    PRESET_ISOLATE_CORE,
+    PRESET_ISOLATE_ENTITY_COUNT,
     PRESET_PRIMAL_BASE_DURATION,
     PRESET_PRIMAL_BASE_FREQUENCY,
     PRESET_PRIMAL_CORE,
@@ -49,6 +52,16 @@ const presets: ObjectOf<Preset<BeatenPathSpecs>> = {
         description: 'simple illustration of entities movement, with a sufficiently interestingly complex core',
         order: 0,
         specs: initialSpecs,
+    },
+    isolate: {
+        description: 'isolating the core cycle',
+        order: 5,
+        specs: {
+            ...initialSpecs,
+            [ StandardSpec.BASE_DURATION ]: PRESET_ISOLATE_BASE_DURATION,
+            core: PRESET_ISOLATE_CORE,
+            entityCount: PRESET_ISOLATE_ENTITY_COUNT,
+        },
     },
     primal: {
         description: 'demonstration of the power of the 11th and 13th harmonics',

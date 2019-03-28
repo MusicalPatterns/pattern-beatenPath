@@ -1,7 +1,7 @@
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/pattern'
 import { from, Units } from '@musical-patterns/utilities'
 import { from as beatenPathFrom } from '../nominals'
-import { BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE, BEATEN_PATH_MINIMUM_FUNCTIONAL_ENTITY_COUNT } from './constants'
+import { BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE } from './constants'
 import { BeatenPathConfigurations, BeatenPathStyle } from './types'
 
 const configurations: BeatenPathConfigurations = {
@@ -20,7 +20,7 @@ either plus or minus 1`,
     entityCount: {
         constraint: {
             integer: true,
-            min: from.Cardinal(BEATEN_PATH_MINIMUM_FUNCTIONAL_ENTITY_COUNT),
+            min: 1,
         },
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,

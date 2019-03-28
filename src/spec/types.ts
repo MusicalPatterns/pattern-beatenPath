@@ -5,7 +5,7 @@ import {
     StandardSpecs,
     ToggledConfiguration,
 } from '@musical-patterns/pattern'
-import { Cardinal, Ordinal } from '@musical-patterns/utilities'
+import { Cardinal } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
 
 enum BeatenPathStyle {
