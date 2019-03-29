@@ -7,7 +7,7 @@ never deviating any further from original duration than necessary
 
 The first major step in materializing a Beaten Path is computing the `core` cycles. 
 They take the `core`, a Beaten-Path-specific nominal integer type, as their only parameter.
-The cycle is a series of values, starting and with `1`, and ending by wrapping back around to that same `1` (hence "cycle").
+The cycle is a series of values, starting with `1` and ending by wrapping back around to that same `1` (hence "cycle").
 
 Each next value in the cycle is found by multiplying the previous value by one of two important fractions 
 which each `core` is associated with: a superparticular fraction, and a subparticular fraction.
