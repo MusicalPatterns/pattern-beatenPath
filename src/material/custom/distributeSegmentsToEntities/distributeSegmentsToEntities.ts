@@ -19,7 +19,7 @@ import { computeLoopSegmentCycleTranslations } from './loopSegmentCycleTranslati
 import { computeSegmentsDimensions } from './segmentsDimensions'
 import { DistributeSegmentToEntitiesParameters, SegmentsDimensions } from './types'
 
-const distributeSegmentToEntities: (parameters: DistributeSegmentToEntitiesParameters) => Note[][] =
+const distributeSegmentToEntities: (parameters: { existingEntitiesNotes: Note[][], segments: Segment[] }) => Note[][] =
     ({ segments, existingEntitiesNotes }: DistributeSegmentToEntitiesParameters): Note[][] => {
         const populatedEntitiesNotes: Note[][] = deepClone(existingEntitiesNotes)
 

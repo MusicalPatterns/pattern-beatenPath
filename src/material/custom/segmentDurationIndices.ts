@@ -1,5 +1,5 @@
 import {
-    apply,
+    apply, Cardinal,
     finalIndexFromElementsTotal,
     floor,
     from,
@@ -12,7 +12,7 @@ import {
 } from '@musical-patterns/utilities'
 import { ComputeSegmentDurationIndicesParameters } from './types'
 
-const computeSegmentDurationIndices: (parameters: ComputeSegmentDurationIndicesParameters) => Ordinal[] =
+const computeSegmentDurationIndices: (parameters: { entityCount: Cardinal, segmentIndex: Ordinal }) => Ordinal[] =
     ({ segmentIndex, entityCount }: ComputeSegmentDurationIndicesParameters): Ordinal[] => {
         const output: Ordinal[] = []
 

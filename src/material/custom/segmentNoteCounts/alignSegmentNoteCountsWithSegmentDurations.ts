@@ -2,7 +2,7 @@ import { apply, Cardinal, difference, min, Ordinal } from '@musical-patterns/uti
 import { AlignSegmentNoteCountsWithSegmentDurationsParameters } from './types'
 
 const alignSegmentNoteCountsWithSegmentDurations:
-    (parameters: AlignSegmentNoteCountsWithSegmentDurationsParameters) => Cardinal[] =
+    (parameters: { segmentDurationIndices: Ordinal[], segmentNoteCounts: Cardinal[] }) => Cardinal[] =
     (parameters: AlignSegmentNoteCountsWithSegmentDurationsParameters): Cardinal[] => {
         const { segmentNoteCounts, segmentDurationIndices } = parameters
 

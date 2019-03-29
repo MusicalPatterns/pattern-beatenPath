@@ -1,7 +1,8 @@
-import { apply, cycleSlice, Fraction, PREVIOUS } from '@musical-patterns/utilities'
+import { apply, Cardinal, Cycle, cycleSlice, Fraction, Ordinal, PREVIOUS } from '@musical-patterns/utilities'
 import { ComputeSegmentIntervalsParameters } from './types'
 
-const computeSegmentIntervals: (parameters: ComputeSegmentIntervalsParameters) => Fraction[] =
+const computeSegmentIntervals:
+    (parameters: { coreIntervals: Cycle<Fraction>, entityCount: Cardinal, segmentIndex: Ordinal }) => Fraction[] =
     ({ entityCount, segmentIndex, coreIntervals }: ComputeSegmentIntervalsParameters): Fraction[] =>
         cycleSlice(
             coreIntervals,

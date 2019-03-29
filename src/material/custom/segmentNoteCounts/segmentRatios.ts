@@ -2,7 +2,7 @@ import { finalElement, Fraction, multiplyFractions } from '@musical-patterns/uti
 import { INITIAL_RATIO_FOR_COMPUTE_SEGMENT_RATIOS } from './constants'
 import { ComputeSegmentRatiosParameters } from './types'
 
-const computeSegmentRatios: (parameters: ComputeSegmentRatiosParameters) => Fraction[] =
+const computeSegmentRatios: (parameters: { segmentIntervals: Fraction[] }) => Fraction[] =
     ({ segmentIntervals }: ComputeSegmentRatiosParameters): Fraction[] => {
         const segmentRatios: Fraction[] = [ INITIAL_RATIO_FOR_COMPUTE_SEGMENT_RATIOS ]
 

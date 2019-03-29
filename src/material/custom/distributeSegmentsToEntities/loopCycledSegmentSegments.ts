@@ -1,8 +1,12 @@
 import { Segment } from '@musical-patterns/pattern'
-import { apply, from, to, Translation } from '@musical-patterns/utilities'
+import { apply, from, Ordinal, to, Translation } from '@musical-patterns/utilities'
 import { ComputeLoopCycledSegmentSegmentsParameters } from './types'
 
-const computeLoopCycledSegmentSegments: (parameters: ComputeLoopCycledSegmentSegmentsParameters) => Segment[] =
+const computeLoopCycledSegmentSegments: (parameters: {
+    loopIndex: Ordinal,
+    loopSegmentCycleTranslations: Translation,
+    segments: Segment[],
+}) => Segment[] =
     (parameters: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
         const { loopSegmentCycleTranslations, segments, loopIndex } = parameters
 
