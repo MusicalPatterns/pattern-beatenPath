@@ -50,6 +50,10 @@ const PRESET_ISOLATE_BASE_DURATION: Scalar<Ms> = to.Scalar(to.Ms(180))
 const PRESET_ISOLATE_ENTITY_COUNT: Cardinal = to.Cardinal(1)
 const PRESET_ISOLATE_CORE: Core = beatenPathTo.Core(3)
 
+const PRESET_ANVIL_BASE_DURATION: Scalar<Ms> = to.Scalar(to.Ms(400))
+const PRESET_ANVIL_CORE: Core = beatenPathTo.Core(4)
+const PRESET_ANVIL_ENTITY_COUNT: Cardinal = to.Cardinal(6)
+
 export {
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_REPETITIONS,
@@ -77,4 +81,7 @@ export {
     PRESET_ISOLATE_BASE_DURATION,
     PRESET_ISOLATE_CORE,
     PRESET_ISOLATE_ENTITY_COUNT,
+    PRESET_ANVIL_BASE_DURATION,
+    PRESET_ANVIL_CORE,
+    PRESET_ANVIL_ENTITY_COUNT,
 }
