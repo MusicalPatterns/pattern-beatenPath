@@ -17,7 +17,7 @@ const materializeEntities: MaterializeEntities =
         return map(
             entitiesNotes,
             (entityNotes: Note[], timbreNameIndex: Ordinal): Entity => ({
-                notes: entityNotes,
+                sections: [ { notes: entityNotes } ],
                 timbreName: apply.Ordinal(timbreNames, timbreNameIndex),
             }),
         )
