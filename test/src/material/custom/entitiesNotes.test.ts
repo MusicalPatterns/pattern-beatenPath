@@ -1,9 +1,4 @@
-import {
-    computeNotesTotalCompiledDuration,
-    computePatternTotalCompiledDuration,
-    Note,
-    Scale,
-} from '@musical-patterns/compiler'
+import { compilePattern, computeNotesTotalCompiledDuration, Note, Scale } from '@musical-patterns/compiler'
 import { materializeStandardScales } from '@musical-patterns/pattern'
 import {
     apply,
@@ -67,8 +62,8 @@ I'm using standard scales here because that's what the pattern uses and I want i
                     }
                 })
 
-                const patternTotalCompiledDuration: Ms = await computePatternTotalCompiledDuration({ specs, material })
-                expect(from.Ms(patternTotalCompiledDuration))
+                const { totalDuration } = await compilePattern({ specs, material })
+                expect(from.Ms(totalDuration))
                     .toBeLessThan(from.Ms(ONE_HOUR))
 
                 done()
@@ -99,8 +94,8 @@ the more segments each entity holds each of its durations for before changing, s
                     }
                 })
 
-                const patternTotalCompiledDuration: Ms = await computePatternTotalCompiledDuration({ specs, material })
-                expect(from.Ms(patternTotalCompiledDuration))
+                const { totalDuration } = await compilePattern({ specs, material })
+                expect(from.Ms(totalDuration))
                     .toBeLessThan(from.Ms(ONE_HOUR))
 
                 done()
@@ -126,8 +121,8 @@ the more segments each entity holds each of its durations for before changing, s
                 }
             })
 
-            const patternTotalCompiledDuration: Ms = await computePatternTotalCompiledDuration({ specs, material })
-            expect(from.Ms(patternTotalCompiledDuration))
+            const { totalDuration } = await compilePattern({ specs, material })
+            expect(from.Ms(totalDuration))
                 .toBeLessThan(from.Ms(ONE_HOUR))
 
             done()
