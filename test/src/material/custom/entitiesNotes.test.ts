@@ -10,6 +10,7 @@ import {
     ONE_HOUR,
     Ordinal,
     testIsCloseTo,
+    testIsLessThan,
     to,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, computeEntitiesNotes, material, spec } from '../../../../src/indexForTest'
@@ -63,8 +64,7 @@ I'm using standard scales here because that's what the pattern uses and I want i
                 })
 
                 const { totalDuration } = await compilePattern({ specs, material })
-                expect(from.Ms(totalDuration))
-                    .toBeLessThan(from.Ms(ONE_HOUR))
+                testIsLessThan(totalDuration, ONE_HOUR)
 
                 done()
             },
@@ -122,8 +122,7 @@ the more segments each entity holds each of its durations for before changing, s
             })
 
             const { totalDuration } = await compilePattern({ specs, material })
-            expect(from.Ms(totalDuration))
-                .toBeLessThan(from.Ms(ONE_HOUR))
+            testIsLessThan(totalDuration, ONE_HOUR)
 
             done()
         })
