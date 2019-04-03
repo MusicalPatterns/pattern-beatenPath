@@ -7,6 +7,7 @@ import {
     from,
     indexOfFinalElement,
     Ms,
+    NO_DURATION,
     ONE_HOUR,
     Ordinal,
     testIsCloseTo,
@@ -49,7 +50,7 @@ I'm using standard scales here because that's what the pattern uses and I want i
 
                 const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
-                let expectedEntityNotesDuration: Ms = to.Ms(0)
+                let expectedEntityNotesDuration: Ms = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
                     const entityNotesDuration: Ms = computeNotesTotalCompiledDuration(entityNotes, scales)
                     if (from.Ms(expectedEntityNotesDuration) === 0) {
@@ -80,7 +81,7 @@ the more segments each entity holds each of its durations for before changing, s
 
                 const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
-                let expectedEntityNotesDuration: Ms = to.Ms(0)
+                let expectedEntityNotesDuration: Ms = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
                     const entityNotesDuration: Ms = computeNotesTotalCompiledDuration(entityNotes, scales)
                     if (from.Ms(expectedEntityNotesDuration) === 0) {
@@ -107,7 +108,7 @@ the more segments each entity holds each of its durations for before changing, s
 
             const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
             const scales: Scale[] = materializeStandardScales(specs)
-            let expectedEntityNotesDuration: Ms = to.Ms(0)
+            let expectedEntityNotesDuration: Ms = NO_DURATION
             entitiesNotes.forEach((entityNotes: Note[]): void => {
                 const entityNotesDuration: Ms = computeNotesTotalCompiledDuration(entityNotes, scales)
                 if (from.Ms(expectedEntityNotesDuration) === 0) {

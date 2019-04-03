@@ -1,6 +1,16 @@
 import { computeNotesTotalCompiledDuration, Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { apply, Cardinal, from, Ms, NEXT, testIsCloseTo, testIsNotCloseTo, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Cardinal,
+    from,
+    Ms,
+    NEXT,
+    NO_DURATION,
+    testIsCloseTo,
+    testIsNotCloseTo,
+    to,
+} from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeSegments, Core, spec, to as beatenPathTo } from '../../../src/indexForTest'
 
 describe('segments', () => {
@@ -17,7 +27,7 @@ describe('segments', () => {
 
             it(`each segment's sets of notes each have the same total duration`, () => {
                 segments.forEach((segment: Segment): void => {
-                    let segmentDuration: Ms = to.Ms(0)
+                    let segmentDuration: Ms = NO_DURATION
                     segment.forEach((notes: Note[]): void => {
                         if (from.Ms(segmentDuration) === 0) {
                             segmentDuration = computeNotesTotalCompiledDuration(notes)
