@@ -23,6 +23,9 @@ export {
     computeSmoothPiece,
     computeNote,
     computeNotes,
+    BeatenPathEntitiesNotes,
+    applySmooth,
+    SmoothNotes,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {

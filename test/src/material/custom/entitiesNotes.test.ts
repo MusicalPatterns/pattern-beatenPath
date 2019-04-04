@@ -14,15 +14,21 @@ import {
     testIsLessThan,
     to,
 } from '@musical-patterns/utilities'
-import { BeatenPathSpecs, computeEntitiesNotes, material, spec } from '../../../../src/indexForTest'
+import {
+    BeatenPathEntitiesNotes,
+    BeatenPathSpecs,
+    computeEntitiesNotes,
+    material,
+    spec,
+} from '../../../../src/indexForTest'
 
 describe('entities notes', () => {
     it('can reverse', () => {
         const forwardSpecs: BeatenPathSpecs = spec.initialSpecs
-        const forwardVersion: Note[][] = computeEntitiesNotes(forwardSpecs)
+        const { entitiesNotes: forwardVersion }: BeatenPathEntitiesNotes = computeEntitiesNotes(forwardSpecs)
 
         const backwardSpecs: BeatenPathSpecs = { ...spec.initialSpecs, reverse: true }
-        const backwardVersion: Note[][] = computeEntitiesNotes(backwardSpecs)
+        const { entitiesNotes: backwardVersion }: BeatenPathEntitiesNotes = computeEntitiesNotes(backwardSpecs)
 
         forEach(
             forwardVersion,
@@ -48,7 +54,7 @@ I'm using standard scales here because that's what the pattern uses and I want i
             async (done: DoneFn) => {
                 const specs: BeatenPathSpecs = spec.initialSpecs
 
-                const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
+                const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Ms = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
@@ -79,7 +85,7 @@ the more segments each entity holds each of its durations for before changing, s
             async (done: DoneFn) => {
                 const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal(3) }
 
-                const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
+                const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Ms = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
@@ -106,7 +112,7 @@ the more segments each entity holds each of its durations for before changing, s
         it('an even higher entity count example just to ensure we do things in a generalizable way', async (done: DoneFn) => {
             const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal(4) }
 
-            const entitiesNotes: Note[][] = computeEntitiesNotes(specs)
+            const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
             const scales: Scale[] = materializeStandardScales(specs)
             let expectedEntityNotesDuration: Ms = NO_DURATION
             entitiesNotes.forEach((entityNotes: Note[]): void => {

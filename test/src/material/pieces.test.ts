@@ -1,15 +1,16 @@
-import { computeNotesTotalDurationByScalar, PitchDuration } from '@musical-patterns/pattern'
+import { PitchDuration } from '@musical-patterns/pattern'
 import {
     apply,
     Cardinal,
     ContourElement,
-    ContourPiece, EXAMPLE_ELEMENT_INDEX,
+    ContourPiece,
+    EXAMPLE_ELEMENT_INDEX,
     Ordinal,
     Scalar,
     to,
     totalElements,
 } from '@musical-patterns/utilities'
-import { computeNote, computePolyrhythmicPiece, computeSmoothPiece } from '../../../src/indexForTest'
+import { computePolyrhythmicPiece, computeSmoothPiece } from '../../../src/indexForTest'
 
 describe('pieces', () => {
     const PITCH_DURATION_CONTOUR_DURATION_INDEX: Ordinal = to.Ordinal(1)
@@ -54,15 +55,15 @@ changed into any other simply by time stretching because they are all proportion
             piece = computeSmoothPiece({ notesCount, notesDuration, repetitions })
         })
 
-        it('count of notes is equal to the repetitions', () => {
+        it('count of notes is always one', () => {
             expect(totalElements(piece))
-                .toBe(to.Cardinal(2))
+                .toBe(to.Cardinal(1))
         })
 
-        it(`durations are all equal to the notes duration, but times the notes count`, () => {
+        it(`durations are all equal to the notes duration, but times the notes count and the repetitions`, () => {
             piece.forEach((contourElement: ContourElement<PitchDuration>) => {
                 expect(apply.Ordinal(contourElement, PITCH_DURATION_CONTOUR_DURATION_INDEX))
-                    .toBe(3.75)
+                    .toBe(7.5)
             })
         })
 
@@ -79,7 +80,7 @@ and in the case of smooth mode yes it is the original duration, what it would ha
         )
     })
 
-    it('whether you pick smooth or polyrhythmic, the end result has the same total pitch', () => {
+    it('whether you pick smooth or polyrhythmic, the end result has the same pitch', () => {
         const polyrhythmicPiece: ContourPiece<PitchDuration> =
             computePolyrhythmicPiece({ notesCount, notesDuration, repetitions })
         const smoothPiece: ContourPiece<PitchDuration> =

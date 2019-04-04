@@ -21,6 +21,9 @@ export {
     computeSegmentsDimensions,
     SegmentsDimensions,
     computeEntitiesNotes,
+    BeatenPathEntitiesNotes,
+    applySmooth,
+    SmoothNotes,
 } from './custom/indexForTest'
 
 export {

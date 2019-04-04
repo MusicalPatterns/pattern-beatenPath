@@ -1,5 +1,6 @@
 import {
-    apply, Cardinal,
+    apply,
+    Cardinal,
     finalIndexFromElementsTotal,
     floor,
     from,

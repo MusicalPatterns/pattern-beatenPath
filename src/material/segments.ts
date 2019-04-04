@@ -2,7 +2,9 @@ import { Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
 import {
     apply,
-    Cardinal, Cycle, Fraction,
+    Cardinal,
+    Cycle,
+    Fraction,
     indexJustBeyondFinalElement,
     INITIAL,
     map,

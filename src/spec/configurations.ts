@@ -1,5 +1,4 @@
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/pattern'
-import { from, Units } from '@musical-patterns/utilities'
 import { from as beatenPathFrom } from '../nominals'
 import { BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE } from './constants'
 import { BeatenPathConfigurations, BeatenPathStyle } from './types'

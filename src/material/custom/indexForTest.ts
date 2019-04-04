@@ -18,3 +18,8 @@ export {
     computeSegmentsDimensions,
     SegmentsDimensions,
 } from './distributeSegmentsToEntities/indexForTest'
+export {
+    applySmooth,
+    BeatenPathEntitiesNotes,
+    SmoothNotes,
+} from './smooth/indexForTest'

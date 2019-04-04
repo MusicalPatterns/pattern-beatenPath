@@ -3,6 +3,7 @@
   "totalDuration": 730665,
   "voices": [
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 668.06021,
@@ -5417,18 +5418,7 @@
           "sustain": 337.5
         },
         {
-          "duration": 12.54188,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 11.2877
-        },
-        {
-          "duration": 375,
+          "duration": 387.54188,
           "gain": 1,
           "frequency": 293.33333,
           "position": [
@@ -11214,18 +11204,7 @@
           "sustain": 450
         },
         {
-          "duration": 12.54188,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 11.2877
-        },
-        {
-          "duration": 500,
+          "duration": 512.54188,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -11357,18 +11336,7 @@
           "sustain": 450
         },
         {
-          "duration": 8.36126,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 7.52513
-        },
-        {
-          "duration": 500,
+          "duration": 508.36126,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -16292,20 +16260,10 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
-          "duration": 12.54188,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 11.2877
-        },
-        {
-          "duration": 375,
+          "duration": 387.54188,
           "gain": 1,
           "frequency": 293.33333,
           "position": [
@@ -22091,18 +22049,7 @@
           "sustain": 450
         },
         {
-          "duration": 12.54188,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 11.2877
-        },
-        {
-          "duration": 500,
+          "duration": 512.54188,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -22234,18 +22181,7 @@
           "sustain": 450
         },
         {
-          "duration": 8.36126,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 7.52513
-        },
-        {
-          "duration": 500,
+          "duration": 508.36126,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -32581,20 +32517,10 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
-          "duration": 12.54188,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 11.2877
-        },
-        {
-          "duration": 500,
+          "duration": 512.54188,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -32726,18 +32652,7 @@
           "sustain": 450
         },
         {
-          "duration": 8.36126,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 7.52513
-        },
-        {
-          "duration": 500,
+          "duration": 508.36126,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -43066,18 +42981,7 @@
           "sustain": 337.5
         },
         {
-          "duration": 12.54188,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 11.2877
-        },
-        {
-          "duration": 375,
+          "duration": 387.54188,
           "gain": 1,
           "frequency": 293.33333,
           "position": [

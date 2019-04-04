@@ -24,15 +24,18 @@ const computeSmoothPiece: (computePieceParameters: {
     repetitions: Cardinal,
 }) => ContourPiece<PitchDuration> =
     ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
-        to.ContourPiece<PitchDuration>(repeat(
+        to.ContourPiece<PitchDuration>([
             [
-                [
-                    from.Scalar(reciprocal(notesDuration)),
-                    from.Scalar(apply.Scalar(notesDuration, to.Scalar(from.Cardinal(notesCount)))),
-                ],
+                from.Scalar(reciprocal(notesDuration)),
+                from.Scalar(apply.Scalar(
+                    apply.Scalar(
+                        notesDuration,
+                        to.Scalar(from.Cardinal(repetitions)),
+                    ),
+                    to.Scalar(from.Cardinal(notesCount)),
+                )),
             ],
-            repetitions,
-        ))
+        ])
 
 export {
     computePolyrhythmicPiece,

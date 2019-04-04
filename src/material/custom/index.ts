@@ -4,3 +4,5 @@ export { computeSegmentNoteCounts } from './segmentNoteCounts'
 export { equalizeDurationsOfSegmentNotes } from './equalizeDurationsOfSegmentNotes'
 export { distributeSegmentsToEntities } from './distributeSegmentsToEntities'
 export { computeEntitiesNotes } from './entitiesNotes'
+
+export { BeatenPathEntitiesNotes } from './smooth'

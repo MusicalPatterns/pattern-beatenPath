@@ -3,6 +3,7 @@
   "totalDuration": 69862,
   "voices": [
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 583.33333,
@@ -1112,6 +1113,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 700,
@@ -2225,7 +2227,7 @@
           "sustain": 630
         },
         {
-          "duration": 700,
+          "duration": 711.58627,
           "gain": 1,
           "frequency": 220,
           "position": [
@@ -2234,17 +2236,6 @@
             0
           ],
           "sustain": 630
-        },
-        {
-          "duration": 11.58627,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 10.42764
         }
       ],
       "sourceRequest": {

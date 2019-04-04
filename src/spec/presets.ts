@@ -3,7 +3,9 @@
 import { Preset, StandardSpec } from '@musical-patterns/pattern'
 import { ObjectOf } from '@musical-patterns/utilities'
 import {
-    PRESET_ANVIL_BASE_DURATION, PRESET_ANVIL_CORE, PRESET_ANVIL_ENTITY_COUNT,
+    PRESET_ANVIL_BASE_DURATION,
+    PRESET_ANVIL_CORE,
+    PRESET_ANVIL_ENTITY_COUNT,
     PRESET_BALANCED_BASE_DURATION,
     PRESET_BALANCED_CORE,
     PRESET_BALANCED_ENTITY_COUNT,

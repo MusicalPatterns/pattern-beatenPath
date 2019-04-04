@@ -3,6 +3,7 @@
   "totalDuration": 1048329,
   "voices": [
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 328,
@@ -31982,29 +31983,7 @@
           "sustain": 497.11088
         },
         {
-          "duration": 552.34542,
-          "gain": 1,
-          "frequency": 164.97346,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 497.11088
-        },
-        {
-          "duration": 27.70981,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 24.93883
-        },
-        {
-          "duration": 552.34542,
+          "duration": 580.05523,
           "gain": 1,
           "frequency": 164.97346,
           "position": [
@@ -32180,18 +32159,7 @@
           "sustain": 497.11088
         },
         {
-          "duration": 18.47321,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 16.62589
-        },
-        {
-          "duration": 552.34542,
+          "duration": 570.81863,
           "gain": 1,
           "frequency": 164.97346,
           "position": [
@@ -32543,15 +32511,15 @@
           "sustain": 497.11088
         },
         {
-          "duration": 36.94641,
-          "gain": 0,
-          "frequency": 1,
+          "duration": 589.29184,
+          "gain": 1,
+          "frequency": 164.97346,
           "position": [
             0,
             0,
             0
           ],
-          "sustain": 33.25177
+          "sustain": 497.11088
         }
       ],
       "sourceRequest": {
@@ -32561,6 +32529,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 492,
@@ -63176,29 +63145,7 @@
           "sustain": 248.55544
         },
         {
-          "duration": 276.17271,
-          "gain": 1,
-          "frequency": 329.94692,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 248.55544
-        },
-        {
-          "duration": 27.70981,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 24.93883
-        },
-        {
-          "duration": 276.17271,
+          "duration": 303.88252,
           "gain": 1,
           "frequency": 329.94692,
           "position": [
@@ -63550,15 +63497,15 @@
           "sustain": 248.55544
         },
         {
-          "duration": 18.47321,
-          "gain": 0,
-          "frequency": 1,
+          "duration": 294.64592,
+          "gain": 1,
+          "frequency": 329.94692,
           "position": [
             0,
             0,
             0
           ],
-          "sustain": 16.62589
+          "sustain": 248.55544
         },
         {
           "duration": 492,
@@ -63964,6 +63911,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 246,
@@ -94403,7 +94351,7 @@
           "sustain": 372.83316
         },
         {
-          "duration": 414.25907,
+          "duration": 441.96888,
           "gain": 1,
           "frequency": 219.96461,
           "position": [
@@ -94412,17 +94360,6 @@
             0
           ],
           "sustain": 372.83316
-        },
-        {
-          "duration": 27.70981,
-          "gain": 0,
-          "frequency": 1,
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "sustain": 24.93883
         },
         {
           "duration": 246,
@@ -95620,6 +95557,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 369,
