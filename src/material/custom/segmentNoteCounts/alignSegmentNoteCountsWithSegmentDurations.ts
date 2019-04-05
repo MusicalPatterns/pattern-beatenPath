@@ -3,9 +3,12 @@ import { AlignSegmentNoteCountsWithSegmentDurationsParameters } from './types'
 
 const alignSegmentNoteCountsWithSegmentDurations:
     (parameters: { segmentDurationIndices: Ordinal[], segmentNoteCounts: Cardinal[] }) => Cardinal[] =
-    (parameters: AlignSegmentNoteCountsWithSegmentDurationsParameters): Cardinal[] => {
-        const { segmentNoteCounts, segmentDurationIndices } = parameters
-
+    (
+        {
+            segmentNoteCounts,
+            segmentDurationIndices,
+        }: AlignSegmentNoteCountsWithSegmentDurationsParameters,
+    ): Cardinal[] => {
         const leastSegmentDurationIndex: Ordinal = min(...segmentDurationIndices)
         const segmentNoteCountsIndices: Ordinal[] = segmentDurationIndices.map(
             (segmentDurationIndex: Ordinal) =>

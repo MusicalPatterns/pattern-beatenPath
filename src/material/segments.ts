@@ -33,9 +33,16 @@ const computeSegment: (computeSegmentsParameters: {
     segmentIndex: Ordinal,
     style: BeatenPathStyle,
 }) => Segment =
-    (parameters: ComputeSegmentParameters): Segment => {
-        const { segmentIndex, coreDurations, coreIntervals, repetitions, style, entityCount } = parameters
-
+    (
+        {
+            segmentIndex,
+            coreDurations,
+            coreIntervals,
+            repetitions,
+            style,
+            entityCount,
+        }: ComputeSegmentParameters,
+    ): Segment => {
         const segmentDurationIndices: Ordinal[] = computeSegmentDurationIndices({ segmentIndex, entityCount })
         const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
             coreIntervals,

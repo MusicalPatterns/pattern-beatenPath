@@ -7,9 +7,7 @@ const computeLoopCycledSegmentSegments: (parameters: {
     loopSegmentCycleTranslations: Translation,
     segments: Segment[],
 }) => Segment[] =
-    (parameters: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
-        const { loopSegmentCycleTranslations, segments, loopIndex } = parameters
-
+    ({ loopSegmentCycleTranslations, segments, loopIndex }: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
         const loopTranslation: Translation = apply.Scalar(
             loopSegmentCycleTranslations,
             to.Scalar(from.Ordinal(loopIndex)),

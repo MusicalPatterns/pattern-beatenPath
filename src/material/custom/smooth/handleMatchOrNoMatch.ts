@@ -19,15 +19,17 @@ const handleMatchOrNoMatch: (parameters: {
     pitchToMatch: Scalar,
     smoothNoteTotalDurationScalar: Scalar,
 }) => ApplySmoothVariables =
-    ({
-         delayScalar: delayScalarArgument,
-         entityCount,
-         noteDuration,
-         notePitch,
-         pitchMatchCount: pitchMatchCountArgument,
-         pitchToMatch: pitchToMatchArgument,
-         smoothNoteTotalDurationScalar: smoothNoteTotalDurationScalarArgument,
-     }: HandleMatchOrNoMatchParameters): ApplySmoothVariables => {
+    (
+        {
+            delayScalar: delayScalarArgument,
+            entityCount,
+            noteDuration,
+            notePitch,
+            pitchMatchCount: pitchMatchCountArgument,
+            pitchToMatch: pitchToMatchArgument,
+            smoothNoteTotalDurationScalar: smoothNoteTotalDurationScalarArgument,
+        }: HandleMatchOrNoMatchParameters,
+    ): ApplySmoothVariables => {
         let pitchMatchCount: Cardinal
         let smoothNoteTotalDurationScalar: Scalar
         let delayScalar: Scalar = delayScalarArgument
