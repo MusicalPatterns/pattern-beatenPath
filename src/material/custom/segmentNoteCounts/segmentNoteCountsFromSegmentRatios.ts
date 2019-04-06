@@ -4,6 +4,7 @@ import {
     computeLeastCommonMultiple,
     Fraction,
     getNumerator,
+    Integer,
     Numerator,
     quotient,
     round,
@@ -15,7 +16,8 @@ const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => 
         const segmentRatiosInCommonTerms: Fraction[] = computeCommonTerms(...segmentRatios)
 
         const numerators: Numerator[] = segmentRatiosInCommonTerms.map(getNumerator)
-        const leastCommonMultipleOfNumerators: Numerator = computeLeastCommonMultiple(...numerators)
+        const leastCommonMultipleOfNumerators: Numerator =
+            to.Numerator(computeLeastCommonMultiple(...numerators as Integer[]))
 
         return numerators
             .map((numerator: Numerator) =>

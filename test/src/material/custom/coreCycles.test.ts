@@ -32,8 +32,8 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = to.Fraction([ 2, 1 ])
-            const subp: Fraction = to.Fraction([ 2, 3 ])
+            const superp: Fraction = to.Fraction([ to.Numerator(2), to.Denominator(1) ])
+            const subp: Fraction = to.Fraction([ to.Numerator(2), to.Denominator(3) ])
 
             const expectedIntervals: Cycle<Fraction> = to.Cycle([
                 subp,
@@ -131,8 +131,8 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = to.Fraction([ 3, 2 ])
-            const subp: Fraction = to.Fraction([ 3, 4 ])
+            const superp: Fraction = to.Fraction([ to.Numerator(3), to.Denominator(2) ])
+            const subp: Fraction = to.Fraction([ to.Numerator(3), to.Denominator(4) ])
 
             const expectedIntervals: Cycle<Fraction> = to.Cycle([
                 subp,
@@ -199,8 +199,8 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = to.Fraction([ 4, 3 ])
-            const subp: Fraction = to.Fraction([ 4, 5 ])
+            const superp: Fraction = to.Fraction([ to.Numerator(4), to.Denominator(3) ])
+            const subp: Fraction = to.Fraction([ to.Numerator(4), to.Denominator(5) ])
 
             const expectedIntervals: Cycle<Fraction> = to.Cycle([
                 subp,
@@ -230,8 +230,8 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = to.Fraction([ 5, 4 ])
-            const subp: Fraction = to.Fraction([ 5, 6 ])
+            const superp: Fraction = to.Fraction([ to.Numerator(5), to.Denominator(4) ])
+            const subp: Fraction = to.Fraction([ to.Numerator(5), to.Denominator(6) ])
 
             const expectedIntervals: Cycle<Fraction> = to.Cycle([
                 subp,

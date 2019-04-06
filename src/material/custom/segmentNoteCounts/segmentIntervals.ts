@@ -1,4 +1,4 @@
-import { apply, Cardinal, Cycle, cycleSlice, Fraction, Ordinal, PREVIOUS } from '@musical-patterns/utilities'
+import { apply, Cardinal, Cycle, cycleSlice, Fraction, from, Ordinal, PREVIOUS, to } from '@musical-patterns/utilities'
 import { ComputeSegmentIntervalsParameters } from './types'
 
 const computeSegmentIntervals:
@@ -7,7 +7,7 @@ const computeSegmentIntervals:
         cycleSlice(
             coreIntervals,
             segmentIndex,
-            apply.Translation(apply.Translation(segmentIndex, entityCount), PREVIOUS),
+            apply.Translation(apply.Translation(segmentIndex, to.Translation(from.Cardinal(entityCount))), PREVIOUS),
         )
 
 export {

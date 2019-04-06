@@ -8,7 +8,7 @@ describe('align segment note counts with segment durations', () => {
 the idea is that the entity with the highest duration index is the furthest through the core durations at this segment, \
 so it needs to use the duration for the segment which is furthest through the core duration`,
         () => {
-            const segmentNoteCounts: Cardinal[] = [ 15, 12, 16 ].map(to.Ordinal) // In order
+            const segmentNoteCounts: Cardinal[] = [ 15, 12, 16 ].map(to.Cardinal) // In order
             const segmentDurationIndices: Ordinal[] = [ 2, 4, 3 ].map(to.Ordinal) // Ground to 0, 2, 1
 
             const actualSegmentNoteCountsAlignedWithSegmentDurations: Cardinal[] =
@@ -18,7 +18,7 @@ so it needs to use the duration for the segment which is furthest through the co
                 })
 
             expect(actualSegmentNoteCountsAlignedWithSegmentDurations)
-                .toEqual([ 15, 16, 12 ].map(to.Ordinal)) // 0 takes index 0, 2 takes index 2, 1 takes index 1
+                .toEqual([ 15, 16, 12 ].map(to.Cardinal)) // 0 takes index 0, 2 takes index 2, 1 takes index 1
         },
     )
 })

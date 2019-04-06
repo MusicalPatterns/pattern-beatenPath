@@ -1,10 +1,9 @@
-import { finalElement, Fraction, multiplyFractions } from '@musical-patterns/utilities'
-import { INITIAL_RATIO_FOR_COMPUTE_SEGMENT_RATIOS } from './constants'
+import { finalElement, Fraction, FRACTIONAL_IDENTITY, multiplyFractions } from '@musical-patterns/utilities'
 import { ComputeSegmentRatiosParameters } from './types'
 
 const computeSegmentRatios: (parameters: { segmentIntervals: Fraction[] }) => Fraction[] =
     ({ segmentIntervals }: ComputeSegmentRatiosParameters): Fraction[] => {
-        const segmentRatios: Fraction[] = [ INITIAL_RATIO_FOR_COMPUTE_SEGMENT_RATIOS ]
+        const segmentRatios: Fraction[] = [ FRACTIONAL_IDENTITY ]
 
         segmentIntervals.forEach((segmentInterval: Fraction) => {
             const nextSegmentRatio: Fraction = multiplyFractions(finalElement(segmentRatios), segmentInterval)

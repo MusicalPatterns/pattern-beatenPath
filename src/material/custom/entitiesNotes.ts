@@ -1,6 +1,14 @@
 import { Note } from '@musical-patterns/compiler'
 import { Segment } from '@musical-patterns/pattern'
-import { INITIAL, Ms, Scalar, slice, to, zeroAndPositiveIntegers } from '@musical-patterns/utilities'
+import {
+    indexJustBeyondFinalElementFromElementsTotal,
+    INITIAL,
+    Ms,
+    Scalar,
+    slice,
+    to,
+    zeroAndPositiveIntegers,
+} from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
 import { computeSegments } from '../segments'
 import { distributeSegmentsToEntities } from './distributeSegmentsToEntities'
@@ -36,8 +44,9 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
             })
         }
         else {
-            delayScalars = slice(zeroAndPositiveIntegers, INITIAL, entityCount)
-                .map(() => to.Scalar(0))
+            delayScalars =
+                slice(zeroAndPositiveIntegers, INITIAL, indexJustBeyondFinalElementFromElementsTotal(entityCount))
+                    .map(() => to.Scalar(0))
         }
 
         const delays: Ms[] = delayScalars.map((delayScalar: Scalar) => pseudocompileDelay({

@@ -1,3 +1,5 @@
+// tslint:disable comment-format
+
 import { Cardinal, to } from '@musical-patterns/utilities'
 import { computeSegmentNoteCounts } from '../../../../../src/indexForTest'
 
@@ -12,26 +14,32 @@ this is an integration test of sorts - for more details look at: \
 computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
             () => {
                 const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
-                    coreIntervals: to.Cycle([ to.Fraction([ 4, 5 ]), to.Fraction([ 4, 3 ]) ]),
+                    coreIntervals: to.Cycle([
+                        to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                        to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
+                    ]),
                     entityCount: to.Cardinal(2),
                     segmentDurationIndices: [ 1, 0 ].map(to.Ordinal),
                     segmentIndex: to.Ordinal(0),
                 })
 
                 // # Step 1: computeSegmentIntervals
-                // [ to.Fraction([ 4, 5 ]) ]
+                // [ to.Fraction([ to.Numerator(4), to.Denominator(5) ]) ]
 
                 // # Step 2: computeSegmentRatios
-                // [ to.Fraction([ 1, 1 ]), to.Fraction([ 4, 5 ]) ]
+                // [
+                //      to.Fraction([ to.Numerator(1), to.Denominator(1) ]),
+                //      to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                // ]
 
                 // # Step 3: computeSegmentNoteCountsFromSegmentRatios
-                // [ 4, 5 ].map(to.Ordinal)
+                // [ 4, 5 ].map(to.Cardinal)
 
                 // # Step 4: alignSegmentNoteCountsWithSegmentDurations
-                // [ 5, 4 ].map(to.Ordinal)
+                // [ 5, 4 ].map(to.Cardinal)
 
                 expect(segmentNoteCounts)
-                    .toEqual([ 5, 4 ].map(to.Ordinal))
+                    .toEqual([ 5, 4 ].map(to.Cardinal))
             },
         )
     })
@@ -46,26 +54,37 @@ this is an integration test of sorts - for more details look at: \
 computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
             () => {
                 const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
-                    coreIntervals: to.Cycle([ to.Fraction([ 4, 5 ]), to.Fraction([ 4, 3 ]), to.Fraction([ 4, 5 ]) ]),
+                    coreIntervals: to.Cycle([
+                        to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                        to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
+                        to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                    ]),
                     entityCount: to.Cardinal(3),
                     segmentDurationIndices: [ 2, 1, 0 ].map(to.Ordinal),
                     segmentIndex: to.Ordinal(0),
                 })
 
                 // # Step 1: computeSegmentIntervals
-                // [ to.Fraction([ 4, 5 ]), to.Fraction([ 4, 3 ]) ]
+                // [
+                //      to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                //      to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
+                // ]
 
                 // # Step 2: computeSegmentRatios
-                // [ to.Fraction([ 1, 1 ]), to.Fraction([ 4, 5 ]), to.Fraction([ 16, 15 ]) ]
+                // [
+                //      to.Fraction([ to.Numerator(1), to.Denominator(1) ]),
+                //      to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                //      to.Fraction([ to.Numerator(16), to.Denominator(15) ]),
+                // ]
 
                 // # Step 3: computeSegmentNoteCountsFromSegmentRatios
-                // [ 16, 20, 15 ].map(to.Ordinal)
+                // [ 16, 20, 15 ].map(to.Cardinal)
 
                 // # Step 4: alignSegmentNoteCountsWithSegmentDurations
-                // [ 15, 20, 16 ].map(to.Ordinal)
+                // [ 15, 20, 16 ].map(to.Cardinal)
 
                 expect(segmentNoteCounts)
-                    .toEqual([ 15, 20, 16 ].map(to.Ordinal))
+                    .toEqual([ 15, 20, 16 ].map(to.Cardinal))
             },
         )
     })
