@@ -1,5 +1,4 @@
-import { Note } from '@musical-patterns/material'
-import { Segment } from '@musical-patterns/pattern'
+import { Note, Segment } from '@musical-patterns/material'
 import { distributeSegmentsToEntities } from '../../../../../src/indexForTest'
 
 describe('distribute segments to entities', () => {

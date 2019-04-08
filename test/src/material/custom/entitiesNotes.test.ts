@@ -1,5 +1,10 @@
-import { compilePattern, computeNotesTotalCompiledDuration, Note, Scale } from '@musical-patterns/material'
-import { materializeStandardScales } from '@musical-patterns/pattern'
+import {
+    compilePattern,
+    computeNotesTotalCompiledDuration,
+    materializeStandardScales,
+    Note,
+    Scale,
+} from '@musical-patterns/material'
 import {
     apply,
     difference,

@@ -1,4 +1,4 @@
-import { PitchDuration } from '@musical-patterns/pattern'
+import { PitchDuration } from '@musical-patterns/material'
 import { apply, Cardinal, ContourPiece, from, reciprocal, repeat, Scalar, to } from '@musical-patterns/utilities'
 import { ComputePieceParameters } from './types'
 

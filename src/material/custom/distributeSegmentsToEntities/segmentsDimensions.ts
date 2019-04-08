@@ -1,4 +1,4 @@
-import { Segment } from '@musical-patterns/pattern'
+import { Segment } from '@musical-patterns/material'
 import { apply, Cardinal, EXAMPLE_ELEMENT_INDEX, totalElements } from '@musical-patterns/utilities'
 import { SegmentsDimensions } from './types'
 

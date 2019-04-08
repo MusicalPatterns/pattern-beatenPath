@@ -1,4 +1,4 @@
-import { PitchDuration } from '@musical-patterns/pattern'
+import { PitchDuration } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,

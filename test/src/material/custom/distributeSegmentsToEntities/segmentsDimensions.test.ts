@@ -1,5 +1,4 @@
-import { Note } from '@musical-patterns/material'
-import { Segment } from '@musical-patterns/pattern'
+import { Note, Segment } from '@musical-patterns/material'
 import { to } from '@musical-patterns/utilities'
 import { computeSegmentsDimensions, SegmentsDimensions } from '../../../../../src/indexForTest'
 

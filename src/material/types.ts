@@ -1,4 +1,4 @@
-import { PitchDuration } from '@musical-patterns/pattern'
+import { PitchDuration } from '@musical-patterns/material'
 import { Cardinal, ContourPiece, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
 import { BeatenPathStyle } from '../spec'

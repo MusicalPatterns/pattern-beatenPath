@@ -4,7 +4,7 @@ import {
     RangedConfiguration,
     StandardSpecs,
     ToggledConfiguration,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/spec'
 import { Cardinal } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
 

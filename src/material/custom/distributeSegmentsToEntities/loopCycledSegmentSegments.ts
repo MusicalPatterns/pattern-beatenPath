@@ -1,4 +1,4 @@
-import { Segment } from '@musical-patterns/pattern'
+import { Segment } from '@musical-patterns/material'
 import { apply, from, Ordinal, to, Translation } from '@musical-patterns/utilities'
 import { ComputeLoopCycledSegmentSegmentsParameters } from './types'
 

@@ -1,4 +1,4 @@
-import { standardInitialSpecs, StandardSpec } from '@musical-patterns/pattern'
+import { standardInitialSpecs, StandardSpec } from '@musical-patterns/spec'
 import {
     BEATEN_PATH_INITIAL_BASE_FREQUENCY,
     BEATEN_PATH_INITIAL_CORE,
