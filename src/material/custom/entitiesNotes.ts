@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { Segment } from '@musical-patterns/pattern'
 import {
     indexJustBeyondFinalElementFromElementsTotal,

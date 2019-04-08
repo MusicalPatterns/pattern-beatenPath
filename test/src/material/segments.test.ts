@@ -1,4 +1,4 @@
-import { computeNotesTotalCompiledDuration, Note } from '@musical-patterns/compiler'
+import { computeNotesTotalCompiledDuration, Note } from '@musical-patterns/material'
 import { Segment } from '@musical-patterns/pattern'
 import {
     apply,

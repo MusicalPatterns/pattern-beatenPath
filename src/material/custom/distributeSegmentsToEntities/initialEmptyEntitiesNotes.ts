@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { apply, INITIAL, NEXT, Ordinal } from '@musical-patterns/utilities'
 import { SegmentsDimensions } from './types'
 

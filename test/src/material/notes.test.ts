@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { computeNotesTotalDurationByScalar } from '@musical-patterns/pattern'
 import { Cardinal, Scalar, to } from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeNotes } from '../../../src/indexForTest'

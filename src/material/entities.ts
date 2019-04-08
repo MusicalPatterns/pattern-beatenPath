@@ -1,4 +1,4 @@
-import { Entity, MaterializeEntities, Note, TimbreName, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, MaterializeEntities, Note, TimbreName, TimbreNameEnum } from '@musical-patterns/material'
 import { apply, Cycle, map, Ordinal, to } from '@musical-patterns/utilities'
 import { BeatenPathSpecs } from '../spec'
 import { BeatenPathEntitiesNotes, computeEntitiesNotes } from './custom'

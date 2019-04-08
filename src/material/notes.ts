@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { Cardinal, Scalar } from '@musical-patterns/utilities'
 import { BeatenPathStyle } from '../spec'
 import { computeNote } from './features'

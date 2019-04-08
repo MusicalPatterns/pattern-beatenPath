@@ -1,4 +1,4 @@
-import { compilePattern, computeNotesTotalCompiledDuration, Note, Scale } from '@musical-patterns/compiler'
+import { compilePattern, computeNotesTotalCompiledDuration, Note, Scale } from '@musical-patterns/material'
 import { materializeStandardScales } from '@musical-patterns/pattern'
 import {
     apply,

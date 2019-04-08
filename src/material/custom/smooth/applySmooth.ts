@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { apply, Cardinal, forEach, from, indexOfFinalElement, Ordinal, Scalar, to } from '@musical-patterns/utilities'
 import { SUSTAIN_AMOUNT } from '../../constants'
 import { handleMatchOrNoMatch } from './handleMatchOrNoMatch'

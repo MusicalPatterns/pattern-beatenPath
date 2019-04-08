@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { PitchDuration, STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import { apply, ContourElement, to } from '@musical-patterns/utilities'
 import { SUSTAIN_AMOUNT } from './constants'

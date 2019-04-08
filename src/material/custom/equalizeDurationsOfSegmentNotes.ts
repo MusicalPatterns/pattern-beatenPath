@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { computeNotesTotalDurationByScalar, Segment } from '@musical-patterns/pattern'
 import { apply, deepClone, difference, finalElement, forEach, max, Ordinal, to } from '@musical-patterns/utilities'
 import { ADJUSTMENT_SIZE_BELOW_WHICH_IT_MATTERS_NOT_AND_BREAKS_THE_TOTAL_DURATION_CALCULATION } from './constants'
