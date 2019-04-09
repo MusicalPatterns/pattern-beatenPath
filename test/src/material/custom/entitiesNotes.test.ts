@@ -15,8 +15,6 @@ import {
     NO_DURATION,
     ONE_HOUR,
     Ordinal,
-    testIsCloseTo,
-    testIsLessThan,
     to,
 } from '@musical-patterns/utilities'
 import {
@@ -68,15 +66,14 @@ I'm using standard scales here because that's what the pattern uses and I want i
                         expectedEntityNotesDuration = entityNotesDuration
                     }
                     else {
-                        testIsCloseTo(
-                            from.Ms(entityNotesDuration),
-                            from.Ms(expectedEntityNotesDuration),
-                        )
+                        expect(entityNotesDuration)
+                            .toBeCloseToTyped(expectedEntityNotesDuration)
                     }
                 })
 
                 const { totalDuration } = await compilePattern({ specs, material })
-                testIsLessThan(totalDuration, ONE_HOUR)
+                expect(totalDuration)
+                    .toBeLessThanTyped(ONE_HOUR)
 
                 done()
             },
@@ -99,10 +96,8 @@ the more segments each entity holds each of its durations for before changing, s
                         expectedEntityNotesDuration = entityNotesDuration
                     }
                     else {
-                        testIsCloseTo(
-                            from.Ms(entityNotesDuration),
-                            from.Ms(expectedEntityNotesDuration),
-                        )
+                        expect(entityNotesDuration)
+                            .toBeCloseToTyped(expectedEntityNotesDuration)
                     }
                 })
 
@@ -126,15 +121,14 @@ the more segments each entity holds each of its durations for before changing, s
                     expectedEntityNotesDuration = entityNotesDuration
                 }
                 else {
-                    testIsCloseTo(
-                        from.Ms(entityNotesDuration),
-                        from.Ms(expectedEntityNotesDuration),
-                    )
+                    expect(entityNotesDuration)
+                        .toBeCloseToTyped(expectedEntityNotesDuration)
                 }
             })
 
             const { totalDuration } = await compilePattern({ specs, material })
-            testIsLessThan(totalDuration, ONE_HOUR)
+            expect(totalDuration)
+                .toBeLessThanTyped(ONE_HOUR)
 
             done()
         })

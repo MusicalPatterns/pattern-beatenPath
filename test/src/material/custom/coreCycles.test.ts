@@ -15,8 +15,6 @@ import {
     quotient,
     Scalar,
     sum,
-    testArraysAreCloseSoFar,
-    testIsCloseTo,
     to,
     totalElements,
 } from '@musical-patterns/utilities'
@@ -271,7 +269,8 @@ describe('core cycles', () => {
                 })
 
                 it('first duration is 1', () => {
-                    testIsCloseTo(coreDurations[ 0 ], to.Scalar(1))
+                    expect(coreDurations[ 0 ])
+                        .toBeCloseToTyped(to.Scalar(1))
                 })
 
                 it('each successive duration is equal to the previous duration multiplied by the previous interval', () => {
@@ -288,13 +287,11 @@ describe('core cycles', () => {
                             coreIntervals,
                             apply.Translation(index, PREVIOUS),
                         )))
-                        testIsCloseTo(
-                            apply.Ordinal(coreDurations, index),
-                            apply.Scalar(
+                        expect(apply.Ordinal(coreDurations, index))
+                            .toBeCloseToTyped(apply.Scalar(
                                 previousDuration,
                                 previousIntervalAsScalar,
-                            ),
-                        )
+                            ))
                     }
                 })
             })
@@ -520,67 +517,67 @@ describe('core cycles', () => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
                     coreDurations = coreCycles.coreDurations
 
-                    testArraysAreCloseSoFar(
-                        coreDurations,
-                        [
-                            1,
-                            2 / 3,
-                            4 / 3,
-                            8 / 9,
-                            16 / 27,
-                            32 / 27,
-                            64 / 81,
-                        ].map(to.Scalar),
-                    )
+                    expect(coreDurations)
+                        .toBeCloseSoFar(
+                            [
+                                1,
+                                2 / 3,
+                                4 / 3,
+                                8 / 9,
+                                16 / 27,
+                                32 / 27,
+                                64 / 81,
+                            ].map(to.Scalar),
+                        )
                 })
 
                 it('when core is 3', () => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
                     coreDurations = coreCycles.coreDurations
 
-                    testArraysAreCloseSoFar(
-                        coreDurations,
-                        [
-                            1,
-                            3 / 4,
-                            9 / 8,
-                            27 / 32,
-                            81 / 64,
-                            243 / 256,
-                        ].map(to.Scalar),
-                    )
+                    expect(coreDurations)
+                        .toBeCloseSoFar(
+                            [
+                                1,
+                                3 / 4,
+                                9 / 8,
+                                27 / 32,
+                                81 / 64,
+                                243 / 256,
+                            ].map(to.Scalar),
+                        )
                 })
 
                 it('when core is 4', () => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
                     coreDurations = coreCycles.coreDurations
 
-                    testArraysAreCloseSoFar(
-                        coreDurations,
-                        [
-                            1,
-                            4 / 5,
-                            16 / 15,
-                            64 / 75,
-                            256 / 225,
-                        ].map(to.Scalar),
-                    )
+                    expect(coreDurations)
+                        .toBeCloseSoFar(
+                            [
+                                1,
+                                4 / 5,
+                                16 / 15,
+                                64 / 75,
+                                256 / 225,
+                            ].map(to.Scalar),
+                        )
                 })
 
                 it('when core is 5', () => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
                     coreDurations = coreCycles.coreDurations
 
-                    testArraysAreCloseSoFar(
-                        coreDurations,
-                        [
-                            1,
-                            5 / 6,
-                            25 / 24,
-                            125 / 144,
-                            625 / 576,
-                        ].map(to.Scalar),
-                    )
+                    expect(coreDurations)
+                        .toBeCloseSoFar(
+                            [
+                                1,
+                                5 / 6,
+                                25 / 24,
+                                125 / 144,
+                                625 / 576,
+                            ].map(to.Scalar),
+                        )
                 })
             },
         )

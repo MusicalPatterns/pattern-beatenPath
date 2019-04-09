@@ -1,15 +1,5 @@
 import { computeNotesTotalCompiledDuration, Note, Segment } from '@musical-patterns/material'
-import {
-    apply,
-    Cardinal,
-    from,
-    Ms,
-    NEXT,
-    NO_DURATION,
-    testIsCloseTo,
-    testIsNotCloseTo,
-    to,
-} from '@musical-patterns/utilities'
+import { apply, Cardinal, from, Ms, NEXT, NO_DURATION, to } from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeSegments, Core, spec, to as beatenPathTo } from '../../../src/indexForTest'
 
 describe('segments', () => {
@@ -32,10 +22,8 @@ describe('segments', () => {
                             segmentDuration = computeNotesTotalCompiledDuration(notes)
                         }
                         else {
-                            testIsCloseTo(
-                                from.Ms(computeNotesTotalCompiledDuration(notes)),
-                                from.Ms(segmentDuration),
-                            )
+                            expect(computeNotesTotalCompiledDuration(notes))
+                                .toBeCloseToTyped(segmentDuration)
                         }
                     })
                 })
@@ -48,10 +36,9 @@ describe('segments', () => {
                     const totalDuration: Ms = computeNotesTotalCompiledDuration(exemplarySegmentNotes)
 
                     seenTotalDurations.forEach((seenDuration: Ms): void => {
-                        testIsNotCloseTo(
-                            from.Ms(seenDuration),
-                            from.Ms(totalDuration),
-                        )
+                        expect(seenDuration)
+                            .not
+                            .toBeCloseToTyped(totalDuration)
                     })
 
                     seenTotalDurations.push(totalDuration)
