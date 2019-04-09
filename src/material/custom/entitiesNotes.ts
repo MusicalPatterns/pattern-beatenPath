@@ -6,7 +6,7 @@ import {
     Scalar,
     slice,
     to,
-    zeroAndPositiveIntegers,
+    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
 import { computeSegments } from '../segments'
@@ -44,7 +44,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
         }
         else {
             delayScalars =
-                slice(zeroAndPositiveIntegers, INITIAL, indexJustBeyondFinalElementFromElementsTotal(entityCount))
+                slice(ZERO_AND_POSITIVE_INTEGERS, INITIAL, indexJustBeyondFinalElementFromElementsTotal(entityCount))
                     .map(() => to.Scalar(0))
         }
 

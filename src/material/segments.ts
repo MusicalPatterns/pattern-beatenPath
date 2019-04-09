@@ -11,7 +11,7 @@ import {
     Scalar,
     slice,
     to,
-    zeroAndPositiveIntegers,
+    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
 import { BeatenPathStyle } from '../spec'
@@ -73,7 +73,7 @@ const computeSegments: (computeSegmentsParameters: {
             indexJustBeyondFinalElement(coreDurations)
 
         const segments: Segment[] = slice(
-            zeroAndPositiveIntegers,
+            ZERO_AND_POSITIVE_INTEGERS,
             INITIAL,
             indexOfFirstElementAgainWrappingAroundTheCycle,
         )
