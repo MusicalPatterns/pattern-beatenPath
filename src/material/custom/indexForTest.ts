@@ -13,7 +13,7 @@ export {
 export {
     distributeSegmentsToEntities,
     computeLoopCount,
-    computeLoopSegmentCycleTranslations,
+    computeLoopSegmentCycleTranslation,
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,

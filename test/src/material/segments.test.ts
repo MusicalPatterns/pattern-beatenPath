@@ -1,5 +1,5 @@
 import { computeNotesTotalCompiledDuration, Note, Segment } from '@musical-patterns/material'
-import { apply, Cardinal, from, Ms, NEXT, NO_DURATION, to } from '@musical-patterns/utilities'
+import { apply, Cardinal, from, Ms, NO_DURATION, ONE_MORE, to, totalElements } from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeSegments, Core, spec, to as beatenPathTo } from '../../../src/indexForTest'
 
 describe('segments', () => {
@@ -9,7 +9,7 @@ describe('segments', () => {
         (entityCount: Cardinal): void => {
             it('each segment has a set of notes for each entity', () => {
                 segments.forEach((segment: Segment): void => {
-                    expect(segment.length)
+                    expect(totalElements(segment))
                         .toBe(entityCount)
                 })
             })
@@ -48,8 +48,8 @@ describe('segments', () => {
 
     let repetitions: Cardinal
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = apply.Translation(core, NEXT)) {
-        for (let entityCount: Cardinal = to.Cardinal(2); entityCount <= to.Cardinal(4); entityCount = apply.Translation(entityCount, NEXT)) {
+    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = apply.Translation(core, to.Translation(beatenPathTo.Core(1)))) {
+        for (let entityCount: Cardinal = to.Cardinal(2); entityCount <= to.Cardinal(4); entityCount = apply.Translation(entityCount, ONE_MORE)) {
             describe(`when core is ${core} and entity count is ${entityCount}`, () => {
                 describe('without repetition of segments', () => {
                     beforeEach(() => {

@@ -1,22 +1,22 @@
-import { Segment } from '@musical-patterns/material'
-import { apply, from, Ordinal, to, Translation } from '@musical-patterns/utilities'
-import { ComputeLoopCycledSegmentSegmentsParameters } from './types'
+import { Note, Segment } from '@musical-patterns/material'
+import { apply, Cycle, from, Ordinal, to, Translation } from '@musical-patterns/utilities'
+import { ComputeLoopCycledSegmentSegmentsParameters, LoopSegmentCycleTranslation } from './types'
 
 const computeLoopCycledSegmentSegments: (parameters: {
-    loopIndex: Ordinal,
-    loopSegmentCycleTranslations: Translation,
+    loopIndex: Ordinal<LoopSegmentCycleTranslation>,
+    loopSegmentCycleTranslation: LoopSegmentCycleTranslation,
     segments: Segment[],
 }) => Segment[] =
-    ({ loopSegmentCycleTranslations, segments, loopIndex }: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
-        const loopTranslation: Translation = apply.Scalar(
-            loopSegmentCycleTranslations,
-            to.Scalar(from.Ordinal(loopIndex)),
+    ({ loopSegmentCycleTranslation, segments, loopIndex }: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
+        const loopTranslation: Translation<Cycle<Note[]>> = apply.Scalar(
+            loopSegmentCycleTranslation,
+            to.Scalar<Translation<Cycle<Note[]>>>(from.Ordinal(loopIndex)),
         )
 
         return segments.map((segment: Segment) => from.Cycle(apply.Translation(
             to.Cycle(segment),
-            loopTranslation),
-        ))
+            loopTranslation,
+        )))
     }
 
 export {

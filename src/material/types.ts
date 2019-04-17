@@ -1,4 +1,4 @@
-import { PitchDuration } from '@musical-patterns/material'
+import { PitchDuration, Segment } from '@musical-patterns/material'
 import { Cardinal, ContourPiece, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
 import { BeatenPathStyle } from '../spec'
@@ -15,7 +15,7 @@ interface ComputeSegmentParameters {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal,
     repetitions: Cardinal,
-    segmentIndex: Ordinal,
+    segmentIndex: Ordinal<Segment>,
     style: BeatenPathStyle,
 }
 

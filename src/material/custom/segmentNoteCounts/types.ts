@@ -1,16 +1,17 @@
-import { Cardinal, Cycle, Fraction, Ordinal } from '@musical-patterns/utilities'
+import { Segment } from '@musical-patterns/material'
+import { Cardinal, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
 
 interface ComputeSegmentNoteCountsParameters {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal,
-    segmentDurationIndices: Ordinal[],
-    segmentIndex: Ordinal,
+    segmentDurationIndices: Array<Ordinal<Scalar>>,
+    segmentIndex: Ordinal<Segment>,
 }
 
 interface ComputeSegmentIntervalsParameters {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal,
-    segmentIndex: Ordinal,
+    segmentIndex: Ordinal<Segment>,
 }
 
 interface ComputeSegmentRatiosParameters {
@@ -18,7 +19,7 @@ interface ComputeSegmentRatiosParameters {
 }
 
 interface AlignSegmentNoteCountsWithSegmentDurationsParameters {
-    segmentDurationIndices: Ordinal[],
+    segmentDurationIndices: Array<Ordinal<Scalar>>,
     segmentNoteCounts: Cardinal[],
 }
 

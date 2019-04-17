@@ -1,14 +1,14 @@
-import { apply, from, negative, to, Translation } from '@musical-patterns/utilities'
-import { SegmentsDimensions } from './types'
+import { Note } from '@musical-patterns/material'
+import { apply, Cycle, negative, to } from '@musical-patterns/utilities'
+import { LoopSegmentCycleTranslation, SegmentsDimensions } from './types'
 
-const computeLoopSegmentCycleTranslations:
-    (parameters: SegmentsDimensions) => Translation =
-    ({ cycleLength, entityCount }: SegmentsDimensions): Translation =>
-        to.Translation(from.Cardinal(negative(apply.Modulus(
+const computeLoopSegmentCycleTranslation: (parameters: SegmentsDimensions) => LoopSegmentCycleTranslation =
+    ({ cycleLength, entityCount }: SegmentsDimensions): LoopSegmentCycleTranslation =>
+        to.Translation<Cycle<Note[]>>(negative(apply.Modulus(
             cycleLength,
-            to.Modulus(from.Cardinal(entityCount)),
-        ))))
+            to.Modulus(entityCount),
+        )))
 
 export {
-    computeLoopSegmentCycleTranslations,
+    computeLoopSegmentCycleTranslation,
 }

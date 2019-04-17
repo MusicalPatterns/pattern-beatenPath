@@ -3,8 +3,8 @@ import {
     computeCommonTerms,
     computeLeastCommonMultiple,
     Fraction,
+    from,
     getNumerator,
-    Integer,
     Numerator,
     quotient,
     round,
@@ -17,11 +17,12 @@ const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => 
 
         const numerators: Numerator[] = segmentRatiosInCommonTerms.map(getNumerator)
         const leastCommonMultipleOfNumerators: Numerator =
-            to.Numerator(computeLeastCommonMultiple(...numerators as Integer[]))
+            computeLeastCommonMultiple(...numerators)
 
         return numerators
-            .map((numerator: Numerator) =>
+            .map((numerator: Numerator): Numerator =>
                 round(quotient(leastCommonMultipleOfNumerators, numerator)))
+            .map(from.Numerator)
             .map(to.Cardinal)
 
     }

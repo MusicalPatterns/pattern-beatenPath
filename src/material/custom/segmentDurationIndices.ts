@@ -1,47 +1,55 @@
+import { Segment } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,
     finalIndexFromElementsTotal,
     floor,
     from,
+    INCREMENT,
     INITIAL,
+    insteadOf,
     negative,
-    NEXT,
+    ofFrom,
     Ordinal,
+    Scalar,
     to,
     Translation,
 } from '@musical-patterns/utilities'
 import { ComputeSegmentDurationIndicesParameters } from './types'
 
-const computeSegmentDurationIndices: (parameters: { entityCount: Cardinal, segmentIndex: Ordinal }) => Ordinal[] =
-    ({ segmentIndex, entityCount }: ComputeSegmentDurationIndicesParameters): Ordinal[] => {
-        const output: Ordinal[] = []
+const computeSegmentDurationIndices: (parameters: {
+    entityCount: Cardinal,
+    segmentIndex: Ordinal<Segment>,
+}) => Array<Ordinal<Scalar>> =
+    ({ segmentIndex, entityCount }: ComputeSegmentDurationIndicesParameters): Array<Ordinal<Scalar>> => {
+        const segmentDurationIndices: Array<Ordinal<Scalar>> = []
 
         for (
-            let entityIndex: Ordinal = INITIAL;
-            entityIndex <= finalIndexFromElementsTotal(entityCount);
-            entityIndex = apply.Translation(entityIndex, NEXT)
+            let entityIndex: Ordinal<Scalar> = INITIAL;
+            entityIndex <= insteadOf<Ordinal, Scalar>(finalIndexFromElementsTotal(entityCount));
+            entityIndex = apply.Translation(entityIndex, INCREMENT)
         ) {
-            const initialEntityDurationIndex: Ordinal = apply.Translation(
-                finalIndexFromElementsTotal(entityCount),
-                to.Translation(from.Ordinal(negative(entityIndex))),
+            const initialEntityDurationIndex: Ordinal<Scalar> = apply.Translation(
+                insteadOf<Ordinal, Scalar>(finalIndexFromElementsTotal(entityCount)),
+                to.Translation(ofFrom(negative(entityIndex))),
             )
-            const entityCoreCycleProgressBeforeStepping: Ordinal = apply.Translation(
+            const entityCoreCycleProgressBeforeStepping: Ordinal<Segment> = apply.Translation(
                 segmentIndex,
-                to.Translation(from.Ordinal(entityIndex)),
+                to.Translation(ofFrom(insteadOf<Ordinal, Segment>(entityIndex))),
             )
-            const entityCoreCycleProgressAfterStepping: Translation = to.Translation(apply.Scalar(
-                floor(from.Ordinal(entityCoreCycleProgressBeforeStepping) / from.Cardinal(entityCount)),
-                to.Scalar(from.Cardinal(entityCount)),
-            ))
+            const entityCoreCycleProgressAfterStepping: Translation<Ordinal<Scalar>> =
+                to.Translation<Ordinal<Scalar>>(apply.Scalar(
+                    floor(from.Ordinal<Segment>(entityCoreCycleProgressBeforeStepping) / from.Cardinal(entityCount)),
+                    to.Scalar(from.Cardinal(entityCount)),
+                ))
 
-            output.push(to.Ordinal(apply.Translation(
+            segmentDurationIndices.push(apply.Translation(
                 initialEntityDurationIndex,
                 entityCoreCycleProgressAfterStepping,
-            )))
+            ))
         }
 
-        return output
+        return segmentDurationIndices
     }
 
 export {

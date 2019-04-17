@@ -16,7 +16,7 @@ export {
     computeSegmentNoteCountsFromSegmentRatios,
     distributeSegmentsToEntities,
     computeLoopCount,
-    computeLoopSegmentCycleTranslations,
+    computeLoopSegmentCycleTranslation,
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,

@@ -1,5 +1,15 @@
 import { PitchDuration } from '@musical-patterns/material'
-import { apply, Cardinal, ContourPiece, from, reciprocal, repeat, Scalar, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Cardinal,
+    ContourPiece,
+    from,
+    ofFrom,
+    reciprocal,
+    repeat,
+    Scalar,
+    to,
+} from '@musical-patterns/utilities'
 import { ComputePieceParameters } from './types'
 
 const computePolyrhythmicPiece: (computePieceParameters: {
@@ -15,7 +25,7 @@ const computePolyrhythmicPiece: (computePieceParameters: {
                     from.Scalar(notesDuration),
                 ],
             ],
-            apply.Scalar(notesCount, to.Scalar(from.Cardinal(repetitions))),
+            apply.Scalar(notesCount, to.Scalar(ofFrom(repetitions))),
         ))
 
 const computeSmoothPiece: (computePieceParameters: {
@@ -30,9 +40,9 @@ const computeSmoothPiece: (computePieceParameters: {
                 from.Scalar(apply.Scalar(
                     apply.Scalar(
                         notesDuration,
-                        to.Scalar(from.Cardinal(repetitions)),
+                        to.Scalar<Scalar>(from.Cardinal(repetitions)),
                     ),
-                    to.Scalar(from.Cardinal(notesCount)),
+                    to.Scalar<Scalar>(from.Cardinal(notesCount)),
                 )),
             ],
         ])

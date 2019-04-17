@@ -86,7 +86,7 @@ and in the case of smooth mode yes it is the original duration, what it would ha
         const smoothPiece: ContourPiece<PitchDuration> =
             computeSmoothPiece({ notesCount, notesDuration, repetitions })
 
-        expect(apply.Ordinal(apply.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX), PITCH_DURATION_CONTOUR_PITCH_INDEX))
-            .toBe(apply.Ordinal(apply.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX), PITCH_DURATION_CONTOUR_PITCH_INDEX))
+        expect(apply.Ordinal(apply.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX as Ordinal<ContourElement<PitchDuration>>), PITCH_DURATION_CONTOUR_PITCH_INDEX))
+            .toBe(apply.Ordinal(apply.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX as Ordinal<ContourElement<PitchDuration>>), PITCH_DURATION_CONTOUR_PITCH_INDEX))
     })
 })

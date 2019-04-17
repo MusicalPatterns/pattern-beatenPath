@@ -5,18 +5,19 @@ import {
     Cardinal,
     deepClone,
     forEach,
+    from,
+    INCREMENT,
     INITIAL,
-    NEXT,
     Ordinal,
     sequence,
-    Translation,
+    to,
 } from '@musical-patterns/utilities'
 import { computeInitialEmptyEntitiesNotes } from './initialEmptyEntitiesNotes'
 import { computeLoopCount } from './loopCount'
 import { computeLoopCycledSegmentSegments } from './loopCycledSegmentSegments'
-import { computeLoopSegmentCycleTranslations } from './loopSegmentCycleTranslations'
+import { computeLoopSegmentCycleTranslation } from './loopSegmentCycleTranslations'
 import { computeSegmentsDimensions } from './segmentsDimensions'
-import { DistributeSegmentToEntitiesParameters, SegmentsDimensions } from './types'
+import { DistributeSegmentToEntitiesParameters, LoopSegmentCycleTranslation, SegmentsDimensions } from './types'
 
 const distributeSegmentToEntities: (parameters: { existingEntitiesNotes: Note[][], segments: Segment[] }) => Note[][] =
     ({ segments, existingEntitiesNotes }: DistributeSegmentToEntitiesParameters): Note[][] => {
@@ -25,12 +26,12 @@ const distributeSegmentToEntities: (parameters: { existingEntitiesNotes: Note[][
         segments.forEach((segment: Segment): void => {
             forEach(
                 segment,
-                (notes: Note[], entityIndex: Ordinal): void => {
+                (notes: Note[], notesIndex: Ordinal<Note[]>): void => {
                     arraySet(
                         populatedEntitiesNotes,
-                        entityIndex,
+                        notesIndex,
                         sequence(
-                            populatedEntitiesNotes[ entityIndex ],
+                            apply.Ordinal(populatedEntitiesNotes, notesIndex),
                             notes,
                         ),
                     )
@@ -46,16 +47,17 @@ const distributeSegmentsToEntities: (segments: Segment[]) => Note[][] =
 
         let populatedEntitiesNotes: Note[][] = computeInitialEmptyEntitiesNotes(segmentsDimensions)
         const loopCount: Cardinal = computeLoopCount(segmentsDimensions)
-        const loopSegmentCycleTranslations: Translation = computeLoopSegmentCycleTranslations(segmentsDimensions)
+        const loopSegmentCycleTranslation: LoopSegmentCycleTranslation =
+            computeLoopSegmentCycleTranslation(segmentsDimensions)
 
         for (
-            let loopIndex: Ordinal = INITIAL;
-            loopIndex < loopCount;
-            loopIndex = apply.Translation(loopIndex, NEXT)
+            let loopIndex: Ordinal<LoopSegmentCycleTranslation> = INITIAL;
+            loopIndex < to.Ordinal<LoopSegmentCycleTranslation>(from.Cardinal(loopCount));
+            loopIndex = apply.Translation(loopIndex, INCREMENT)
         ) {
             const loopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({
                 loopIndex,
-                loopSegmentCycleTranslations,
+                loopSegmentCycleTranslation,
                 segments,
             })
 

@@ -1,4 +1,5 @@
-import { Cardinal, Cycle, Fraction, Ordinal } from '@musical-patterns/utilities'
+import { Segment } from '@musical-patterns/material'
+import { Cardinal, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { alignSegmentNoteCountsWithSegmentDurations } from './alignSegmentNoteCountsWithSegmentDurations'
 import { computeSegmentIntervals } from './segmentIntervals'
 import { computeSegmentNoteCountsFromSegmentRatios } from './segmentNoteCountsFromSegmentRatios'
@@ -8,8 +9,8 @@ import { ComputeSegmentNoteCountsParameters } from './types'
 const computeSegmentNoteCounts: (parameters: {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal,
-    segmentDurationIndices: Ordinal[],
-    segmentIndex: Ordinal,
+    segmentDurationIndices: Array<Ordinal<Scalar>>,
+    segmentIndex: Ordinal<Segment>,
 }) => Cardinal[] =
     (computeSegmentNoteCountsParameters: ComputeSegmentNoteCountsParameters): Cardinal[] => {
         const { segmentDurationIndices, segmentIndex, coreIntervals, entityCount } = computeSegmentNoteCountsParameters

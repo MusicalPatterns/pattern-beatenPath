@@ -3,15 +3,14 @@ import {
     apply,
     Cycle,
     Denominator,
-    DOWN_ONE,
     finalElement,
     Fraction,
     from,
     isCloseTo,
+    negative,
     reciprocal,
     Scalar,
     to,
-    UP_ONE,
 } from '@musical-patterns/utilities'
 import { Core, from as beatenPathFrom } from '../../nominals'
 import { CoreCycles } from '../types'
@@ -29,21 +28,24 @@ const computeCoreCycles: (core: Core) => CoreCycles =
 
         const rawCore: number = beatenPathFrom.Core(core)
 
-        const superparticular: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, UP_ONE)))
-        const superparticularDuration: Scalar = to.Scalar(apply.Scalar(rawCore, superparticular))
-        const superparticularDenominator: Denominator = to.Denominator(apply.Translation(rawCore, UP_ONE))
+        const superparticular: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(1))))
+        const superparticularDurationScalar: Scalar<Scalar> = to.Scalar<Scalar>(apply.Scalar(rawCore, superparticular))
+        const superparticularDenominator: Denominator = to.Denominator(apply.Translation(rawCore, to.Translation(1)))
         const superparticularInterval: Fraction = [ to.Numerator(rawCore), superparticularDenominator ]
 
-        const subparticularDivisor: Scalar = to.Scalar(reciprocal(apply.Translation(rawCore, DOWN_ONE)))
-        const subparticularDuration: Scalar = to.Scalar(apply.Scalar(rawCore, subparticularDivisor))
-        const subparticularDenominator: Denominator = to.Denominator(apply.Translation(rawCore, DOWN_ONE))
+        const subparticularDivisor: Scalar =
+            to.Scalar(reciprocal(apply.Translation(rawCore, to.Translation(negative(1)))))
+        const subparticularDurationScalar: Scalar<Scalar> =
+            to.Scalar<Scalar>(apply.Scalar(rawCore, subparticularDivisor))
+        const subparticularDenominator: Denominator =
+            to.Denominator(apply.Translation(rawCore, to.Translation(negative(1))))
         const subparticularInterval: Fraction = [ to.Numerator(rawCore), subparticularDenominator ]
 
         let hasLooped: boolean = false
         while (!hasLooped) {
             const previousDuration: Scalar = finalElement(coreDurations)
-            const maybeNextUpwardsDuration: Scalar = apply.Scalar(previousDuration, superparticularDuration)
-            const maybeNextDownwardsDuration: Scalar = apply.Scalar(previousDuration, subparticularDuration)
+            const maybeNextUpwardsDuration: Scalar = apply.Scalar(previousDuration, superparticularDurationScalar)
+            const maybeNextDownwardsDuration: Scalar = apply.Scalar(previousDuration, subparticularDurationScalar)
 
             if (isUpwardsDurationCloserToOriginalDurationOfOne(maybeNextUpwardsDuration, maybeNextDownwardsDuration)) {
                 if (isCloseTo(maybeNextUpwardsDuration, INITIAL_CORE_DURATION)) {

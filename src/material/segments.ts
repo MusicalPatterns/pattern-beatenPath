@@ -6,6 +6,8 @@ import {
     Fraction,
     indexJustBeyondFinalElement,
     INITIAL,
+    insteadOf,
+    Integer,
     map,
     Ordinal,
     Scalar,
@@ -29,7 +31,7 @@ const computeSegment: (computeSegmentsParameters: {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal,
     repetitions: Cardinal,
-    segmentIndex: Ordinal,
+    segmentIndex: Ordinal<Segment>,
     style: BeatenPathStyle,
 }) => Segment =
     (
@@ -42,7 +44,8 @@ const computeSegment: (computeSegmentsParameters: {
             entityCount,
         }: ComputeSegmentParameters,
     ): Segment => {
-        const segmentDurationIndices: Ordinal[] = computeSegmentDurationIndices({ segmentIndex, entityCount })
+        const segmentDurationIndices: Array<Ordinal<Scalar>> =
+            computeSegmentDurationIndices({ segmentIndex, entityCount })
         const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
             coreIntervals,
             entityCount,
@@ -50,11 +53,12 @@ const computeSegment: (computeSegmentsParameters: {
             segmentIndex,
         })
 
-        const segmentDurations: Scalar[] = segmentDurationIndices.map((scalarIndex: Ordinal) =>
-            apply.Ordinal(coreDurations, scalarIndex))
+        const segmentDurations: Scalar[] = segmentDurationIndices.map((segmentDurationIndex: Ordinal<Scalar>) =>
+            apply.Ordinal(coreDurations, segmentDurationIndex),
+        )
 
-        return map(segmentDurations, (notesDuration: Scalar, index: Ordinal): Note[] => {
-            const notesCount: Cardinal = apply.Ordinal(segmentNoteCounts, index)
+        return map(segmentDurations, (notesDuration: Scalar, index: Ordinal<Scalar>): Note[] => {
+            const notesCount: Cardinal = apply.Ordinal(segmentNoteCounts, insteadOf<Ordinal, Cardinal>(index))
 
             return computeNotes({ notesCount, notesDuration, repetitions, style })
         })
@@ -69,7 +73,7 @@ const computeSegments: (computeSegmentsParameters: {
     ({ core, entityCount, repetitions, style }: ComputeSegmentsParameters): Segment[] => {
         const { coreDurations, coreIntervals } = computeCoreCycles(core)
 
-        const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal =
+        const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal<Scalar> =
             indexJustBeyondFinalElement(coreDurations)
 
         const segments: Segment[] = slice(
@@ -77,8 +81,8 @@ const computeSegments: (computeSegmentsParameters: {
             INITIAL,
             indexOfFirstElementAgainWrappingAroundTheCycle,
         )
-            .map(to.Ordinal)
-            .map((segmentIndex: Ordinal): Segment =>
+            .map((integer: Integer) => to.Ordinal<Segment>(integer))
+            .map((segmentIndex: Ordinal<Segment>): Segment =>
                 computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),
             )
 

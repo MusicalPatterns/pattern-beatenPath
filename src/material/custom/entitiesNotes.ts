@@ -15,8 +15,8 @@ import { applySmooth, BeatenPathEntitiesNotes, pseudocompileDelay } from './smoo
 
 const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes =
     ({
-         baseDuration = to.Scalar(to.Ms(1)),
-         baseDurationTranslation = to.Translation(to.Ms(0)),
+         baseDuration = to.Scalar<Ms>(1),
+         baseDurationTranslation = to.Translation<Ms>(0),
          core,
          entityCount,
          repetitions,
@@ -33,7 +33,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
             })
         }
 
-        let delayScalars: Scalar[] = []
+        let delayScalars: Array<Scalar<Ms>> = []
         if (style === BeatenPathStyle.SMOOTH) {
             entitiesNotes = entitiesNotes.map((notes: Note[]) => {
                 const { notes: smoothNotes, delayScalar } = applySmooth(notes, entityCount)
@@ -45,10 +45,10 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
         else {
             delayScalars =
                 slice(ZERO_AND_POSITIVE_INTEGERS, INITIAL, indexJustBeyondFinalElementFromElementsTotal(entityCount))
-                    .map(() => to.Scalar(0))
+                    .map(() => to.Scalar<Ms>(0))
         }
 
-        const delays: Ms[] = delayScalars.map((delayScalar: Scalar) => pseudocompileDelay({
+        const delays: Ms[] = delayScalars.map((delayScalar: Scalar<Ms>) => pseudocompileDelay({
             baseDuration,
             baseDurationTranslation,
             delayScalar,

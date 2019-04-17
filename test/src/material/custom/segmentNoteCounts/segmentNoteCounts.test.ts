@@ -1,5 +1,6 @@
 // tslint:disable comment-format
 
+import { Segment } from '@musical-patterns/material'
 import { Cardinal, to } from '@musical-patterns/utilities'
 import { computeSegmentNoteCounts } from '../../../../../src/indexForTest'
 
@@ -20,7 +21,7 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegme
                     ]),
                     entityCount: to.Cardinal(2),
                     segmentDurationIndices: [ 1, 0 ].map(to.Ordinal),
-                    segmentIndex: to.Ordinal(0),
+                    segmentIndex: to.Ordinal<Segment>(0),
                 })
 
                 // # Step 1: computeSegmentIntervals
@@ -61,7 +62,7 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegme
                     ]),
                     entityCount: to.Cardinal(3),
                     segmentDurationIndices: [ 2, 1, 0 ].map(to.Ordinal),
-                    segmentIndex: to.Ordinal(0),
+                    segmentIndex: to.Ordinal<Segment>(0),
                 })
 
                 // # Step 1: computeSegmentIntervals

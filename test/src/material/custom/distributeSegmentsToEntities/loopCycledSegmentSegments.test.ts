@@ -32,12 +32,12 @@ describe('loop cycled segment segments', () => {
                 [ D ],
             ],
         ]
-        const loopSegmentCycleTranslations: Translation = to.Translation(2)
+        const loopSegmentCycleTranslation: Translation = to.Translation(2)
         const loopIndex: Ordinal = to.Ordinal(3)
 
         const actualLoopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({
             loopIndex,
-            loopSegmentCycleTranslations,
+            loopSegmentCycleTranslation,
             segments,
         })
 

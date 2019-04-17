@@ -37,9 +37,9 @@ describe('entities notes', () => {
             forwardVersion,
             (notes: Note[], entityIndex: Ordinal): void => {
                 forEach(notes, (note: Note, index: Ordinal) => {
-                    const backwardNotes: Note[] = apply.Ordinal(backwardVersion, entityIndex)
+                    const backwardNotes: Note[] = apply.Ordinal(backwardVersion, entityIndex as Ordinal<Note[]>)
                     const mirroredIndex: Ordinal = difference(indexOfFinalElement(notes), index)
-                    const mirroredNote: Note = apply.Ordinal(backwardNotes, mirroredIndex)
+                    const mirroredNote: Note = apply.Ordinal(backwardNotes, mirroredIndex as Ordinal<Note>)
 
                     expect(note)
                         .toEqual(mirroredNote)
