@@ -9,6 +9,7 @@ import {
     INITIAL,
     insteadOf,
     negative,
+    of,
     ofFrom,
     Ordinal,
     Scalar,
@@ -35,7 +36,7 @@ const computeSegmentDurationIndices: (parameters: {
             )
             const entityCoreCycleProgressBeforeStepping: Ordinal<Segment> = apply.Translation(
                 segmentIndex,
-                to.Translation(ofFrom(insteadOf<Ordinal, Segment>(entityIndex))),
+                to.Translation(of.Ordinal<Segment>(from.Ordinal(entityIndex))),
             )
             const entityCoreCycleProgressAfterStepping: Translation<Ordinal<Scalar>> =
                 to.Translation<Ordinal<Scalar>>(apply.Scalar(
