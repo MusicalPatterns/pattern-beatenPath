@@ -7,6 +7,7 @@ import {
     Fraction,
     from,
     indexOfFinalElement,
+    length,
     NEXT,
     Ordinal,
     Power,
@@ -16,7 +17,6 @@ import {
     Scalar,
     sum,
     to,
-    totalElements,
 } from '@musical-patterns/utilities'
 import { computeCoreCycles, Core, CoreCycles, to as beatenPathTo } from '../../../../src/indexForTest'
 
@@ -665,7 +665,7 @@ describe('core cycles', () => {
 
                 const totalUpIntervals: Power = to.Power(53)
                 const totalDownIntervals: Power = to.Power(31)
-                const totalIntervals: Power = to.Power(from.Cardinal(totalElements(coreIntervals)))
+                const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(quotient(
                         apply.Power(2, totalIntervals),
@@ -690,7 +690,7 @@ describe('core cycles', () => {
 
                 const totalUpIntervals: Power = to.Power(31)
                 const totalDownIntervals: Power = to.Power(22)
-                const totalIntervals: Power = to.Power(from.Cardinal(totalElements(coreIntervals)))
+                const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(quotient(
                         apply.Power(3, totalIntervals),
@@ -715,7 +715,7 @@ describe('core cycles', () => {
 
                 const totalUpIntervals: Power = to.Power(9)
                 const totalDownIntervals: Power = to.Power(7)
-                const totalIntervals: Power = to.Power(from.Cardinal(totalElements(coreIntervals)))
+                const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(quotient(
                         apply.Power(4, totalIntervals),
@@ -740,7 +740,7 @@ describe('core cycles', () => {
 
                 const totalUpIntervals: Power = to.Power(11)
                 const totalDownIntervals: Power = to.Power(9)
-                const totalIntervals: Power = to.Power(from.Cardinal(totalElements(coreIntervals)))
+                const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(quotient(
                         apply.Power(5, totalIntervals),
@@ -763,9 +763,9 @@ describe('core cycles', () => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
-                expect(totalElements(coreIntervals))
+                expect(length(coreIntervals))
                     .toBe(to.Cardinal(84))
-                expect(totalElements(coreDurations))
+                expect(length(coreDurations))
                     .toBe(to.Cardinal(84))
             })
 
@@ -773,9 +773,9 @@ describe('core cycles', () => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
-                expect(totalElements(coreIntervals))
+                expect(length(coreIntervals))
                     .toBe(to.Cardinal(53))
-                expect(totalElements(coreDurations))
+                expect(length(coreDurations))
                     .toBe(to.Cardinal(53))
             })
 
@@ -783,9 +783,9 @@ describe('core cycles', () => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
-                expect(totalElements(coreIntervals))
+                expect(length(coreIntervals))
                     .toBe(to.Cardinal(16))
-                expect(totalElements(coreDurations))
+                expect(length(coreDurations))
                     .toBe(to.Cardinal(16))
             })
 
@@ -793,9 +793,9 @@ describe('core cycles', () => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
-                expect(totalElements(coreIntervals))
+                expect(length(coreIntervals))
                     .toBe(to.Cardinal(20))
-                expect(totalElements(coreDurations))
+                expect(length(coreDurations))
                     .toBe(to.Cardinal(20))
             })
         },

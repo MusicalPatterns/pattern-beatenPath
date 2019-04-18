@@ -1,5 +1,5 @@
 import { computeNotesTotalCompiledDuration, Note, Segment } from '@musical-patterns/material'
-import { apply, Cardinal, from, Ms, NO_DURATION, ONE_MORE, to, totalElements } from '@musical-patterns/utilities'
+import { apply, Cardinal, from, length, Ms, NO_DURATION, ONE_MORE, to } from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeSegments, Core, spec, to as beatenPathTo } from '../../../src/indexForTest'
 
 describe('segments', () => {
@@ -9,7 +9,7 @@ describe('segments', () => {
         (entityCount: Cardinal): void => {
             it('each segment has a set of notes for each entity', () => {
                 segments.forEach((segment: Segment): void => {
-                    expect(totalElements(segment))
+                    expect(length(segment))
                         .toBe(entityCount)
                 })
             })

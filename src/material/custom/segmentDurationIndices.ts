@@ -1,4 +1,4 @@
-import { Segment } from '@musical-patterns/material'
+import { Entity, Segment } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,
@@ -26,17 +26,17 @@ const computeSegmentDurationIndices: (parameters: {
         const segmentDurationIndices: Array<Ordinal<Scalar>> = []
 
         for (
-            let entityIndex: Ordinal<Scalar> = INITIAL;
-            entityIndex <= insteadOf<Ordinal, Scalar>(finalIndexFromElementsTotal(entityCount));
-            entityIndex = apply.Translation(entityIndex, INCREMENT)
+            let entityDurationIndex: Ordinal<Scalar> = INITIAL;
+            entityDurationIndex <= insteadOf<Ordinal, Scalar>(finalIndexFromElementsTotal(entityCount));
+            entityDurationIndex = apply.Translation(entityDurationIndex, INCREMENT)
         ) {
             const initialEntityDurationIndex: Ordinal<Scalar> = apply.Translation(
                 insteadOf<Ordinal, Scalar>(finalIndexFromElementsTotal(entityCount)),
-                to.Translation(ofFrom(negative(entityIndex))),
+                to.Translation(ofFrom(negative(entityDurationIndex))),
             )
             const entityCoreCycleProgressBeforeStepping: Ordinal<Segment> = apply.Translation(
                 segmentIndex,
-                to.Translation(of.Ordinal<Segment>(from.Ordinal(entityIndex))),
+                to.Translation(of.Ordinal<Segment>(from.Ordinal<Scalar>(entityDurationIndex))),
             )
             const entityCoreCycleProgressAfterStepping: Translation<Ordinal<Scalar>> =
                 to.Translation<Ordinal<Scalar>>(apply.Scalar(

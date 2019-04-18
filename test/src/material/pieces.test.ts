@@ -5,10 +5,10 @@ import {
     ContourElement,
     ContourPiece,
     EXAMPLE_ELEMENT_INDEX,
+    length,
     Ordinal,
     Scalar,
     to,
-    totalElements,
 } from '@musical-patterns/utilities'
 import { computePolyrhythmicPiece, computeSmoothPiece } from '../../../src/indexForTest'
 
@@ -27,7 +27,7 @@ describe('pieces', () => {
         })
 
         it('count of notes equal to the notes count, but times the repetitions', () => {
-            expect(totalElements(piece))
+            expect(length(piece))
                 .toBe(to.Cardinal(6))
         })
 
@@ -56,7 +56,7 @@ changed into any other simply by time stretching because they are all proportion
         })
 
         it('count of notes is always one', () => {
-            expect(totalElements(piece))
+            expect(length(piece))
                 .toBe(to.Cardinal(1))
         })
 

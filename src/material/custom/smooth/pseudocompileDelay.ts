@@ -8,7 +8,7 @@ const pseudocompileDelay: (parameters: {
     delayScalar: Scalar<Ms>,
 }) => Ms =
     ({ delayScalar, baseDuration, baseDurationTranslation }: PseudocompileDelayParameters): Ms =>
-        to.Ms(from.Scalar(apply.Translation(
+        to.Ms(from.Scalar<Ms>(apply.Translation(
             apply.Scalar(
                 delayScalar,
                 to.Scalar(ofFrom(baseDuration)),
