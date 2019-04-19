@@ -1,3 +1,4 @@
+import { Entity } from '@musical-patterns/material'
 import { apply, Cardinal, from, insteadOf, Ms, ONE_MORE, Scalar, to } from '@musical-patterns/utilities'
 import { ApplySmoothVariables, HandleMatchOrNoMatchParameters } from './types'
 
@@ -6,13 +7,13 @@ const noteMatchesPreviousNote: (currentPitch: Scalar<Scalar>, notePitch: Scalar<
         currentPitch === notePitch
 
 const smoothNoteTotalDurationNotReachedBeforeMatchingStreakBroke:
-    (pitchMatchCount: Cardinal, entityCount: Cardinal) => boolean =
-    (pitchMatchCount: Cardinal, entityCount: Cardinal): boolean =>
+    (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity>) => boolean =
+    (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity>): boolean =>
         pitchMatchCount < entityCount
 
 const handleMatchOrNoMatch: (parameters: {
     delayScalar: Scalar<Ms>,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     noteDuration: Scalar<Scalar>,
     notePitch: Scalar<Scalar>,
     pitchMatchCount: Cardinal,

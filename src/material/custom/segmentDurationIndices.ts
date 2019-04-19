@@ -9,7 +9,6 @@ import {
     INITIAL,
     insteadOf,
     negative,
-    of,
     ofFrom,
     Ordinal,
     Scalar,
@@ -19,7 +18,7 @@ import {
 import { ComputeSegmentDurationIndicesParameters } from './types'
 
 const computeSegmentDurationIndices: (parameters: {
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     segmentIndex: Ordinal<Segment>,
 }) => Array<Ordinal<Scalar>> =
     ({ segmentIndex, entityCount }: ComputeSegmentDurationIndicesParameters): Array<Ordinal<Scalar>> => {
@@ -36,7 +35,7 @@ const computeSegmentDurationIndices: (parameters: {
             )
             const entityCoreCycleProgressBeforeStepping: Ordinal<Segment> = apply.Translation(
                 segmentIndex,
-                to.Translation(of.Ordinal<Segment>(from.Ordinal<Scalar>(entityDurationIndex))),
+                to.Translation<Ordinal<Segment>>(from.Ordinal(entityDurationIndex)),
             )
             const entityCoreCycleProgressAfterStepping: Translation<Ordinal<Scalar>> =
                 to.Translation<Ordinal<Scalar>>(apply.Scalar(

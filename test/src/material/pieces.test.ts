@@ -28,7 +28,7 @@ describe('pieces', () => {
 
         it('count of notes equal to the notes count, but times the repetitions', () => {
             expect(length(piece))
-                .toBe(to.Cardinal(6))
+                .toBe(to.Cardinal<ContourElement<PitchDuration>>(6))
         })
 
         it(`durations are all equal to... the notes duration`, () => {
@@ -57,7 +57,7 @@ changed into any other simply by time stretching because they are all proportion
 
         it('count of notes is always one', () => {
             expect(length(piece))
-                .toBe(to.Cardinal(1))
+                .toBe(to.Cardinal<ContourElement<PitchDuration>>(1))
         })
 
         it(`durations are all equal to the notes duration, but times the notes count and the repetitions`, () => {
@@ -86,7 +86,7 @@ and in the case of smooth mode yes it is the original duration, what it would ha
         const smoothPiece: ContourPiece<PitchDuration> =
             computeSmoothPiece({ notesCount, notesDuration, repetitions })
 
-        expect(apply.Ordinal(apply.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX as Ordinal<ContourElement<PitchDuration>>), PITCH_DURATION_CONTOUR_PITCH_INDEX))
-            .toBe(apply.Ordinal(apply.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX as Ordinal<ContourElement<PitchDuration>>), PITCH_DURATION_CONTOUR_PITCH_INDEX))
+        expect(apply.Ordinal(apply.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX), PITCH_DURATION_CONTOUR_PITCH_INDEX))
+            .toBe(apply.Ordinal(apply.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX), PITCH_DURATION_CONTOUR_PITCH_INDEX))
     })
 })

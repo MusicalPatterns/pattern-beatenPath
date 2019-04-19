@@ -1,4 +1,4 @@
-import { Segment } from '@musical-patterns/material'
+import { Entity, Segment } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,
@@ -15,7 +15,7 @@ import { computeSegmentDurationIndices } from '../../../../src/indexForTest'
 describe('segment duration indices', () => {
     describe('with entity count 2', () => {
         it('alternates which entity has its turn to leapfrog to the next duration from the core durations that neither entity is using yet', () => {
-            const entityCount: Cardinal = to.Cardinal(2)
+            const entityCount: Cardinal<Entity> = to.Cardinal<Entity>(2)
             const expectedSegmentsDurationIndices: Array<Array<Ordinal<Scalar>>> = [
                 [ 1, 0 ],
                 [ 1, 2 ],
@@ -41,7 +41,7 @@ describe('segment duration indices', () => {
 
     describe('with entity count 3', () => {
         it('cycles which entity has its turn to leapfrog to the next duration from the core durations that no entity is using yet', () => {
-            const entityCount: Cardinal = to.Cardinal(3)
+            const entityCount: Cardinal<Entity> = to.Cardinal<Entity>(3)
             const expectedSegmentsDurationIndices: Array<Array<Ordinal<Scalar>>> = [
                 [ 2, 1, 0 ],
                 [ 2, 1, 3 ],

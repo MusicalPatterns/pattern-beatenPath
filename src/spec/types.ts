@@ -1,3 +1,4 @@
+import { Entity } from '@musical-patterns/material'
 import {
     Configurations,
     OptionedConfiguration,
@@ -15,7 +16,7 @@ enum BeatenPathStyle {
 
 interface BeatenPathSpecs extends StandardSpecs {
     core: Core,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     repetitions: Cardinal,
     reverse: boolean,
     style: BeatenPathStyle,

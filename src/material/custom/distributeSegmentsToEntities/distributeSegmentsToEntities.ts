@@ -46,13 +46,13 @@ const distributeSegmentsToEntities: (segments: Segment[]) => Note[][] =
         const segmentsDimensions: SegmentsDimensions = computeSegmentsDimensions(segments)
 
         let populatedEntitiesNotes: Note[][] = computeInitialEmptyEntitiesNotes(segmentsDimensions)
-        const loopCount: Cardinal = computeLoopCount(segmentsDimensions)
+        const loopCount: Cardinal<LoopSegmentCycleTranslation> = computeLoopCount(segmentsDimensions)
         const loopSegmentCycleTranslation: LoopSegmentCycleTranslation =
             computeLoopSegmentCycleTranslation(segmentsDimensions)
 
         for (
             let loopIndex: Ordinal<LoopSegmentCycleTranslation> = INITIAL;
-            loopIndex < to.Ordinal<LoopSegmentCycleTranslation>(from.Cardinal(loopCount));
+            loopIndex < to.Ordinal<LoopSegmentCycleTranslation>(from.Cardinal<LoopSegmentCycleTranslation>(loopCount));
             loopIndex = apply.Translation(loopIndex, INCREMENT)
         ) {
             const loopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({

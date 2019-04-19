@@ -764,9 +764,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(to.Cardinal(84))
+                    .toBe(to.Cardinal<Fraction>(84))
                 expect(length(coreDurations))
-                    .toBe(to.Cardinal(84))
+                    .toBe(to.Cardinal<Scalar>(84))
             })
 
             it('for core 3, they are both 53', () => {
@@ -774,9 +774,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(to.Cardinal(53))
+                    .toBe(to.Cardinal<Fraction>(53))
                 expect(length(coreDurations))
-                    .toBe(to.Cardinal(53))
+                    .toBe(to.Cardinal<Scalar>(53))
             })
 
             it('for core 4, they are both 16', () => {
@@ -784,9 +784,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(to.Cardinal(16))
+                    .toBe(to.Cardinal<Fraction>(16))
                 expect(length(coreDurations))
-                    .toBe(to.Cardinal(16))
+                    .toBe(to.Cardinal<Scalar>(16))
             })
 
             it('for core 5, they are both 20', () => {
@@ -794,9 +794,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(to.Cardinal(20))
+                    .toBe(to.Cardinal<Fraction>(20))
                 expect(length(coreDurations))
-                    .toBe(to.Cardinal(20))
+                    .toBe(to.Cardinal<Scalar>(20))
             })
         },
     )

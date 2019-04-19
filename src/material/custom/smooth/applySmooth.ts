@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/material'
+import { Entity, Note } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,
@@ -15,8 +15,8 @@ import { SUSTAIN_AMOUNT } from '../../constants'
 import { handleMatchOrNoMatch } from './handleMatchOrNoMatch'
 import { ApplySmoothVariables, SmoothNotes } from './types'
 
-const smoothNoteTotalDurationReached: (pitchMatchCount: Cardinal, entityCount: Cardinal) => boolean =
-    (pitchMatchCount: Cardinal, entityCount: Cardinal): boolean =>
+const smoothNoteTotalDurationReached: (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity>) => boolean =
+    (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity>): boolean =>
         pitchMatchCount === entityCount
 
 const notesEndReached: (index: Ordinal<Note>, notes: Note[]) => boolean =
@@ -36,8 +36,8 @@ const computeSmoothNote: (note: Note, smoothNoteTotalDurationScalar: Scalar<Ms>)
         },
     })
 
-const applySmooth: (notes: Note[], entityCount: Cardinal) => SmoothNotes =
-    (notes: Note[], entityCount: Cardinal): SmoothNotes => {
+const applySmooth: (notes: Note[], entityCount: Cardinal<Entity>) => SmoothNotes =
+    (notes: Note[], entityCount: Cardinal<Entity>): SmoothNotes => {
         const smoothNotes: Note[] = []
 
         let pitchToMatch: Scalar<Scalar>

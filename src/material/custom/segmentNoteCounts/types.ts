@@ -1,16 +1,16 @@
-import { Segment } from '@musical-patterns/material'
+import { Entity, Segment } from '@musical-patterns/material'
 import { Cardinal, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
 
 interface ComputeSegmentNoteCountsParameters {
     coreIntervals: Cycle<Fraction>,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     segmentDurationIndices: Array<Ordinal<Scalar>>,
     segmentIndex: Ordinal<Segment>,
 }
 
 interface ComputeSegmentIntervalsParameters {
     coreIntervals: Cycle<Fraction>,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     segmentIndex: Ordinal<Segment>,
 }
 

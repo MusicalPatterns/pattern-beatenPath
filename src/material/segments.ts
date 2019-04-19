@@ -1,4 +1,4 @@
-import { Note, Segment } from '@musical-patterns/material'
+import { Entity, Note, Segment } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,
@@ -29,7 +29,7 @@ import { ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
 const computeSegment: (computeSegmentsParameters: {
     coreDurations: Cycle<Scalar>,
     coreIntervals: Cycle<Fraction>,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     repetitions: Cardinal,
     segmentIndex: Ordinal<Segment>,
     style: BeatenPathStyle,
@@ -66,7 +66,7 @@ const computeSegment: (computeSegmentsParameters: {
 
 const computeSegments: (computeSegmentsParameters: {
     core: Core,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     repetitions: Cardinal,
     style: BeatenPathStyle,
 }) => Segment[] =

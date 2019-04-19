@@ -1,5 +1,6 @@
 // tslint:disable no-magic-numbers
 
+import { Entity } from '@musical-patterns/material'
 import {
     Cardinal,
     Hz,
@@ -20,40 +21,40 @@ const BEATEN_PATH_INITIAL_BASE_FREQUENCY: Scalar<Hz> =
     to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.A ][ ScientificPitchOctaveNumber._3 ]))
 const BEATEN_PATH_INITIAL_REVERSE: boolean = false
 const BEATEN_PATH_INITIAL_STYLE: BeatenPathStyle = BeatenPathStyle.POLYRHYTHMIC
-const BEATEN_PATH_INITIAL_ENTITY_COUNT: Cardinal = to.Cardinal(2)
+const BEATEN_PATH_INITIAL_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(2)
 
 const BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE: Core = beatenPathTo.Core(2)
 
 const PRESET_BALANCED_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(500)
 const PRESET_BALANCED_CORE: Core = beatenPathTo.Core(3)
-const PRESET_BALANCED_ENTITY_COUNT: Cardinal = to.Cardinal(3)
+const PRESET_BALANCED_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(3)
 
 const PRESET_DENSE_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(369)
 const PRESET_DENSE_CORE: Core = beatenPathTo.Core(2)
 const PRESET_DENSE_BASE_FREQUENCY: Scalar<Hz> =
     to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.B ][ ScientificPitchOctaveNumber._3 ]))
-const PRESET_DENSE_ENTITY_COUNT: Cardinal = to.Cardinal(4)
+const PRESET_DENSE_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(4)
 const PRESET_DENSE_REPETITIONS: Cardinal = to.Cardinal(4)
 
 const PRESET_PRIMAL_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(3)
 const PRESET_PRIMAL_BASE_FREQUENCY: Scalar<Hz> =
     to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.A ][ ScientificPitchOctaveNumber._4 ]))
 const PRESET_PRIMAL_CORE: Core = beatenPathTo.Core(12)
-const PRESET_PRIMAL_ENTITY_COUNT: Cardinal = to.Cardinal(3)
+const PRESET_PRIMAL_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(3)
 
 const PRESET_ROUND_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(20)
 const PRESET_ROUND_BASE_FREQUENCY: Scalar<Hz> =
     to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C_SHARP_D_FLAT ][ ScientificPitchOctaveNumber._4 ]))
 const PRESET_ROUND_CORE: Core = beatenPathTo.Core(2)
-const PRESET_ROUND_ENTITY_COUNT: Cardinal = to.Cardinal(7)
+const PRESET_ROUND_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(7)
 
 const PRESET_ISOLATE_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(180)
-const PRESET_ISOLATE_ENTITY_COUNT: Cardinal = to.Cardinal(1)
+const PRESET_ISOLATE_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(1)
 const PRESET_ISOLATE_CORE: Core = beatenPathTo.Core(3)
 
 const PRESET_ANVIL_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(400)
 const PRESET_ANVIL_CORE: Core = beatenPathTo.Core(4)
-const PRESET_ANVIL_ENTITY_COUNT: Cardinal = to.Cardinal(6)
+const PRESET_ANVIL_ENTITY_COUNT: Cardinal<Entity> = to.Cardinal<Entity>(6)
 
 export {
     BEATEN_PATH_INITIAL_CORE,

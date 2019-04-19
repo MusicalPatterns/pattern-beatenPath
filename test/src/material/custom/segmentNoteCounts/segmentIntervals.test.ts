@@ -1,4 +1,4 @@
-import { Segment } from '@musical-patterns/material'
+import { Entity, Segment } from '@musical-patterns/material'
 import { Fraction, to } from '@musical-patterns/utilities'
 import { computeSegmentIntervals } from '../../../../../src/indexForTest'
 
@@ -11,7 +11,7 @@ describe('segment intervals', () => {
                 to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
                 to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
             ]),
-            entityCount: to.Cardinal(3),
+            entityCount: to.Cardinal<Entity>(3),
             segmentIndex: to.Ordinal<Segment>(0),
         })
 
@@ -31,7 +31,7 @@ describe('segment intervals', () => {
                 to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
                 to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
             ]),
-            entityCount: to.Cardinal(4),
+            entityCount: to.Cardinal<Entity>(4),
             segmentIndex: to.Ordinal<Segment>(0),
         })
 
@@ -52,7 +52,7 @@ describe('segment intervals', () => {
                 to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
                 to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
             ]),
-            entityCount: to.Cardinal(3),
+            entityCount: to.Cardinal<Entity>(3),
             segmentIndex: to.Ordinal<Segment>(1),
         })
 

@@ -1,4 +1,4 @@
-import { Segment } from '@musical-patterns/material'
+import { Entity, Segment } from '@musical-patterns/material'
 import {
     apply,
     Cardinal,
@@ -15,7 +15,7 @@ import { ComputeSegmentIntervalsParameters } from './types'
 
 const computeSegmentIntervals: (parameters: {
     coreIntervals: Cycle<Fraction>,
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     segmentIndex: Ordinal<Segment>,
 }) => Fraction[] =
     ({ entityCount, segmentIndex, coreIntervals }: ComputeSegmentIntervalsParameters): Fraction[] =>
@@ -25,7 +25,7 @@ const computeSegmentIntervals: (parameters: {
             apply.Translation(
                 apply.Translation(
                     segmentIndex,
-                    to.Translation<Ordinal<Segment>>(from.Cardinal(entityCount)),
+                    to.Translation<Ordinal<Segment>>(from.Cardinal<Entity>(entityCount)),
                 ),
                 DECREMENT,
             ),

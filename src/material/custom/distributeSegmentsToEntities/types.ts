@@ -1,4 +1,4 @@
-import { Note, Segment } from '@musical-patterns/material'
+import { Entity, Note, Segment } from '@musical-patterns/material'
 import { Cardinal, Cycle, Ordinal, Translation } from '@musical-patterns/utilities'
 
 interface DistributeSegmentToEntitiesParameters {
@@ -13,8 +13,8 @@ interface ComputeLoopCycledSegmentSegmentsParameters {
 }
 
 interface SegmentsDimensions {
-    cycleLength: Cardinal,
-    entityCount: Cardinal,
+    cycleLength: Cardinal<Segment>,
+    entityCount: Cardinal<Entity>,
 }
 
 type LoopSegmentCycleTranslation = Translation<Cycle<Note[]>>

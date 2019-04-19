@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/material'
+import { Entity, Note } from '@musical-patterns/material'
 import { StandardSpec } from '@musical-patterns/spec'
 import { Cardinal, Ms, Scalar, Translation } from '@musical-patterns/utilities'
 
@@ -26,7 +26,7 @@ interface ApplySmoothVariables {
 }
 
 interface HandleMatchOrNoMatchParameters extends ApplySmoothVariables {
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     noteDuration: Scalar<Scalar>,
     notePitch: Scalar<Scalar>,
 }

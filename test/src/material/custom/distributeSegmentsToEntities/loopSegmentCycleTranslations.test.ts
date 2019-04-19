@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/material'
+import { Entity, Note, Segment } from '@musical-patterns/material'
 import { Cycle, negative, to } from '@musical-patterns/utilities'
 import { computeLoopSegmentCycleTranslation, LoopSegmentCycleTranslation } from '../../../../../src/indexForTest'
 
@@ -11,8 +11,8 @@ except that it's negative because you're effectively cycling the segments toward
 what i would think the more natural direction would be, to cycle the entities toward their destination notes`,
         () => {
             const actualLoopSegmentCycleTranslations: LoopSegmentCycleTranslation = computeLoopSegmentCycleTranslation({
-                cycleLength: to.Cardinal(44),
-                entityCount: to.Cardinal(3),
+                cycleLength: to.Cardinal<Segment>(44),
+                entityCount: to.Cardinal<Entity>(3),
             })
 
             expect(actualLoopSegmentCycleTranslations)

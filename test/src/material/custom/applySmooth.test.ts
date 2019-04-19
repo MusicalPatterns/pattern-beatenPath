@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/material'
+import { Entity, Note } from '@musical-patterns/material'
 import { Cardinal, Ms, Scalar, to } from '@musical-patterns/utilities'
 import { applySmooth, SmoothNotes } from '../../../../src/indexForTest'
 
@@ -57,7 +57,7 @@ left one note per segment`,
                     sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
             ]
-            const entityCount: Cardinal = to.Cardinal(3)
+            const entityCount: Cardinal<Entity> = to.Cardinal<Entity>(3)
 
             const actualSmoothNotes: SmoothNotes = applySmooth(notes, entityCount)
 
@@ -136,7 +136,7 @@ extends the final note by the equivalent amount`,
                     sustain: { scalar: to.Scalar<Scalar>(4 / 5) },
                 },
             ]
-            const entityCount: Cardinal = to.Cardinal(3)
+            const entityCount: Cardinal<Entity> = to.Cardinal<Entity>(3)
 
             const actualSmoothNotes: SmoothNotes = applySmooth(notes, entityCount)
 
@@ -214,7 +214,7 @@ extends the final note by the equivalent amount`,
                     sustain: { scalar: to.Scalar<Scalar>(4 / 5) },
                 },
             ]
-            const entityCount: Cardinal = to.Cardinal(3)
+            const entityCount: Cardinal<Entity> = to.Cardinal<Entity>(3)
 
             const actualSmoothNotes: SmoothNotes = applySmooth(notes, entityCount)
 

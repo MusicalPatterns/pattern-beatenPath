@@ -1,6 +1,6 @@
 import {
     compilePattern,
-    computeNotesTotalCompiledDuration,
+    computeNotesTotalCompiledDuration, Entity,
     materializeStandardScales,
     Note,
     Scale,
@@ -85,7 +85,7 @@ you can't simply equalize durations on the final segment, but every segment that
 very very close to 1 but is instead substituted by 1 itself for looping back around, and the more entities there are \
 the more segments each entity holds each of its durations for before changing, so the more that will be touched by this substitution`,
             async (done: DoneFn) => {
-                const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal(3) }
+                const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal<Entity>(3) }
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
@@ -110,7 +110,7 @@ the more segments each entity holds each of its durations for before changing, s
         )
 
         it('an even higher entity count example just to ensure we do things in a generalizable way', async (done: DoneFn) => {
-            const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal(4) }
+            const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal<Entity>(4) }
 
             const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
             const scales: Scale[] = materializeStandardScales(specs)

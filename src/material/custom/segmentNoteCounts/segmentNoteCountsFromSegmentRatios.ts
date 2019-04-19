@@ -21,7 +21,7 @@ const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => 
 
         return numerators
             .map((numerator: Numerator): Numerator =>
-                round(quotient(leastCommonMultipleOfNumerators, numerator)))
+                to.Numerator(round(quotient(leastCommonMultipleOfNumerators, numerator))))
             .map(from.Numerator)
             .map(to.Cardinal)
 

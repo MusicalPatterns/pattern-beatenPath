@@ -1,8 +1,8 @@
-import { Segment } from '@musical-patterns/material'
+import { Entity, Segment } from '@musical-patterns/material'
 import { Cardinal, Ordinal } from '@musical-patterns/utilities'
 
 interface ComputeSegmentDurationIndicesParameters {
-    entityCount: Cardinal,
+    entityCount: Cardinal<Entity>,
     segmentIndex: Ordinal<Segment>,
 }
 
