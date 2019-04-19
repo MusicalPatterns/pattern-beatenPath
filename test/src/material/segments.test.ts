@@ -48,7 +48,7 @@ describe('segments', () => {
 
     let repetitions: Cardinal
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = apply.Translation(core, to.Translation(beatenPathTo.Core(1)))) {
+    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = apply.Translation(core, to.Translation<Core>(1))) {
         for (let entityCount: Cardinal = to.Cardinal(2); entityCount <= to.Cardinal(4); entityCount = apply.Translation(entityCount, ONE_MORE)) {
             describe(`when core is ${core} and entity count is ${entityCount}`, () => {
                 describe('without repetition of segments', () => {

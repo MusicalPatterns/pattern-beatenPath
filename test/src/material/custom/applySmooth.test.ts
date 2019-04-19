@@ -1,5 +1,5 @@
 import { Note } from '@musical-patterns/material'
-import { Cardinal, to } from '@musical-patterns/utilities'
+import { Cardinal, Ms, Scalar, to } from '@musical-patterns/utilities'
 import { applySmooth, SmoothNotes } from '../../../../src/indexForTest'
 
 describe('apply smooth', () => {
@@ -12,49 +12,49 @@ left one note per segment`,
         () => {
             const notes: Note[] = [
                 {
-                    duration: { scalar: to.Scalar(1) },
-                    pitch: { scalar: to.Scalar(1) },
-                    sustain: { scalar: to.Scalar(0.9) },
+                    duration: { scalar: to.Scalar<Scalar>(1) },
+                    pitch: { scalar: to.Scalar<Scalar>(1) },
+                    sustain: { scalar: to.Scalar<Scalar>(0.9) },
                 },
                 {
-                    duration: { scalar: to.Scalar(1.3) },
-                    pitch: { scalar: to.Scalar(1) },
-                    sustain: { scalar: to.Scalar(0.9) },
+                    duration: { scalar: to.Scalar<Scalar>(1.3) },
+                    pitch: { scalar: to.Scalar<Scalar>(1) },
+                    sustain: { scalar: to.Scalar<Scalar>(0.9) },
                 },
                 {
-                    duration: { scalar: to.Scalar(1.1) },
-                    pitch: { scalar: to.Scalar(1) },
-                    sustain: { scalar: to.Scalar(0.9) },
+                    duration: { scalar: to.Scalar<Scalar>(1.1) },
+                    pitch: { scalar: to.Scalar<Scalar>(1) },
+                    sustain: { scalar: to.Scalar<Scalar>(0.9) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2.2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2.2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2.1 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2.1 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4.2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4.2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4.1 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4.1 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
             ]
             const entityCount: Cardinal = to.Cardinal(3)
@@ -63,22 +63,22 @@ left one note per segment`,
 
             expect(actualSmoothNotes)
                 .toEqual({
-                    delayScalar: to.Scalar(0),
+                    delayScalar: to.Scalar<Ms>(0),
                     notes: [
                         {
-                            duration: { scalar: to.Scalar(3.4) },
-                            pitch: { scalar: to.Scalar(1) },
-                            sustain: { scalar: to.Scalar(3.06) },
+                            duration: { scalar: to.Scalar<Scalar>(3.4) },
+                            pitch: { scalar: to.Scalar<Scalar>(1) },
+                            sustain: { scalar: to.Scalar<Scalar>(3.06) },
                         },
                         {
-                            duration: { scalar: to.Scalar(2.1) },
-                            pitch: { scalar: to.Scalar(3 / 2) },
-                            sustain: { scalar: to.Scalar(1.8900000000000001) },
+                            duration: { scalar: to.Scalar<Scalar>(2.1) },
+                            pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                            sustain: { scalar: to.Scalar<Scalar>(1.8900000000000001) },
                         },
                         {
-                            duration: { scalar: to.Scalar(4.1) },
-                            pitch: { scalar: to.Scalar(3 / 4) },
-                            sustain: { scalar: to.Scalar(3.69) },
+                            duration: { scalar: to.Scalar<Scalar>(4.1) },
+                            pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                            sustain: { scalar: to.Scalar<Scalar>(3.69) },
                         },
                     ],
                 })
@@ -91,49 +91,49 @@ extends the final note by the equivalent amount`,
         () => {
             const notes: Note[] = [
                 {
-                    duration: { scalar: to.Scalar(1.1) },
-                    pitch: { scalar: to.Scalar(1) },
-                    sustain: { scalar: to.Scalar(0.9) },
+                    duration: { scalar: to.Scalar<Scalar>(1.1) },
+                    pitch: { scalar: to.Scalar<Scalar>(1) },
+                    sustain: { scalar: to.Scalar<Scalar>(0.9) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2.2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2.2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2.1 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2.1 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4.2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4.2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4.1 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4.1 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(8 / 9) },
-                    pitch: { scalar: to.Scalar(9 / 8) },
-                    sustain: { scalar: to.Scalar(4 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(8 / 9) },
+                    pitch: { scalar: to.Scalar<Scalar>(9 / 8) },
+                    sustain: { scalar: to.Scalar<Scalar>(4 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(8.1 / 9) },
-                    pitch: { scalar: to.Scalar(9 / 8) },
-                    sustain: { scalar: to.Scalar(4 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(8.1 / 9) },
+                    pitch: { scalar: to.Scalar<Scalar>(9 / 8) },
+                    sustain: { scalar: to.Scalar<Scalar>(4 / 5) },
                 },
             ]
             const entityCount: Cardinal = to.Cardinal(3)
@@ -142,22 +142,22 @@ extends the final note by the equivalent amount`,
 
             expect(actualSmoothNotes)
                 .toEqual({
-                    delayScalar: to.Scalar(1.1),
+                    delayScalar: to.Scalar<Ms>(1.1),
                     notes: [
                         {
-                            duration: { scalar: to.Scalar(2.1) },
-                            pitch: { scalar: to.Scalar(3 / 2) },
-                            sustain: { scalar: to.Scalar(1.8900000000000001) },
+                            duration: { scalar: to.Scalar<Scalar>(2.1) },
+                            pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                            sustain: { scalar: to.Scalar<Scalar>(1.8900000000000001) },
                         },
                         {
-                            duration: { scalar: to.Scalar(4.1) },
-                            pitch: { scalar: to.Scalar(3 / 4) },
-                            sustain: { scalar: to.Scalar(3.69) },
+                            duration: { scalar: to.Scalar<Scalar>(4.1) },
+                            pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                            sustain: { scalar: to.Scalar<Scalar>(3.69) },
                         },
                         {
-                            duration: { scalar: to.Scalar(2.888888888888889) },
-                            pitch: { scalar: to.Scalar(9 / 8) },
-                            sustain: { scalar: to.Scalar(2.6) },
+                            duration: { scalar: to.Scalar<Scalar>(2.888888888888889) },
+                            pitch: { scalar: to.Scalar<Scalar>(9 / 8) },
+                            sustain: { scalar: to.Scalar<Scalar>(2.6) },
                         },
                     ],
                 })
@@ -169,49 +169,49 @@ extends the final note by the equivalent amount`,
         () => {
             const notes: Note[] = [
                 {
-                    duration: { scalar: to.Scalar(1.3) },
-                    pitch: { scalar: to.Scalar(1) },
-                    sustain: { scalar: to.Scalar(0.9) },
+                    duration: { scalar: to.Scalar<Scalar>(1.3) },
+                    pitch: { scalar: to.Scalar<Scalar>(1) },
+                    sustain: { scalar: to.Scalar<Scalar>(0.9) },
                 },
                 {
-                    duration: { scalar: to.Scalar(1.1) },
-                    pitch: { scalar: to.Scalar(1) },
-                    sustain: { scalar: to.Scalar(0.9) },
+                    duration: { scalar: to.Scalar<Scalar>(1.1) },
+                    pitch: { scalar: to.Scalar<Scalar>(1) },
+                    sustain: { scalar: to.Scalar<Scalar>(0.9) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2.2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2.2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(2.1 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 2) },
-                    sustain: { scalar: to.Scalar(3 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(2.1 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                    sustain: { scalar: to.Scalar<Scalar>(3 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4.2 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4.2 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(4.1 / 3) },
-                    pitch: { scalar: to.Scalar(3 / 4) },
-                    sustain: { scalar: to.Scalar(6 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(4.1 / 3) },
+                    pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                    sustain: { scalar: to.Scalar<Scalar>(6 / 5) },
                 },
                 {
-                    duration: { scalar: to.Scalar(8 / 9) },
-                    pitch: { scalar: to.Scalar(9 / 8) },
-                    sustain: { scalar: to.Scalar(4 / 5) },
+                    duration: { scalar: to.Scalar<Scalar>(8 / 9) },
+                    pitch: { scalar: to.Scalar<Scalar>(9 / 8) },
+                    sustain: { scalar: to.Scalar<Scalar>(4 / 5) },
                 },
             ]
             const entityCount: Cardinal = to.Cardinal(3)
@@ -220,22 +220,22 @@ extends the final note by the equivalent amount`,
 
             expect(actualSmoothNotes)
                 .toEqual({
-                    delayScalar: to.Scalar(2.4000000000000004),
+                    delayScalar: to.Scalar<Ms>(2.4000000000000004),
                     notes: [
                         {
-                            duration: { scalar: to.Scalar(2.1) },
-                            pitch: { scalar: to.Scalar(3 / 2) },
-                            sustain: { scalar: to.Scalar(1.8900000000000001) },
+                            duration: { scalar: to.Scalar<Scalar>(2.1) },
+                            pitch: { scalar: to.Scalar<Scalar>(3 / 2) },
+                            sustain: { scalar: to.Scalar<Scalar>(1.8900000000000001) },
                         },
                         {
-                            duration: { scalar: to.Scalar(4.1) },
-                            pitch: { scalar: to.Scalar(3 / 4) },
-                            sustain: { scalar: to.Scalar(3.69) },
+                            duration: { scalar: to.Scalar<Scalar>(4.1) },
+                            pitch: { scalar: to.Scalar<Scalar>(3 / 4) },
+                            sustain: { scalar: to.Scalar<Scalar>(3.69) },
                         },
                         {
-                            duration: { scalar: to.Scalar(3.288888888888889) },
-                            pitch: { scalar: to.Scalar(9 / 8) },
-                            sustain: { scalar: to.Scalar(2.9600000000000004) },
+                            duration: { scalar: to.Scalar<Scalar>(3.288888888888889) },
+                            pitch: { scalar: to.Scalar<Scalar>(9 / 8) },
+                            sustain: { scalar: to.Scalar<Scalar>(2.9600000000000004) },
                         },
                     ],
                 })

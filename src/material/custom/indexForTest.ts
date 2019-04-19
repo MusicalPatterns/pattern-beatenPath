@@ -17,6 +17,7 @@ export {
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,
+    LoopSegmentCycleTranslation,
 } from './distributeSegmentsToEntities/indexForTest'
 export {
     applySmooth,

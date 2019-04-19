@@ -8,4 +8,5 @@ export { computeSegmentsDimensions } from './segmentsDimensions'
 
 export {
     SegmentsDimensions,
+    LoopSegmentCycleTranslation,
 } from './types'

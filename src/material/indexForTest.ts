@@ -24,6 +24,7 @@ export {
     BeatenPathEntitiesNotes,
     applySmooth,
     SmoothNotes,
+    LoopSegmentCycleTranslation,
 } from './custom/indexForTest'
 
 export {

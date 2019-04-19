@@ -260,7 +260,7 @@ describe('core cycles', () => {
     })
 
     describe('core durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, to.Translation(beatenPathTo.Core(1)))) {
+        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = apply.Translation(core, to.Translation<Core>(1))) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const coreCycles: CoreCycles = computeCoreCycles(core)
@@ -275,19 +275,19 @@ describe('core cycles', () => {
 
                 it('each successive duration is equal to the previous duration multiplied by the previous interval', () => {
                     for (
-                        let index: Ordinal = to.Ordinal(1);
+                        let index: Ordinal<Scalar> = to.Ordinal<Scalar>(1);
                         index < indexOfFinalElement(coreDurations);
                         index = apply.Translation(index, NEXT)
                     ) {
                         const previousDuration: Scalar = apply.Ordinal(
                             coreDurations,
-                            apply.Translation(index, PREVIOUS) as Ordinal<Scalar>,
+                            apply.Translation(index, PREVIOUS),
                         )
-                        const previousIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(apply.Ordinal(
+                        const previousIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(apply.Ordinal(
                             coreIntervals,
-                            apply.Translation(index, PREVIOUS) as Ordinal<Fraction>,
-                        ))))
-                        expect(apply.Ordinal(coreDurations, index as Ordinal<Scalar>))
+                            apply.Translation(index, PREVIOUS),
+                        )))
+                        expect(apply.Ordinal(coreDurations, index))
                             .toBeCloseToTyped(apply.Scalar(
                                 previousDuration,
                                 previousIntervalAsScalar,
@@ -592,7 +592,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -608,7 +608,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -624,7 +624,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -640,7 +640,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                    const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -659,7 +659,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -667,14 +667,14 @@ describe('core cycles', () => {
                 const totalDownIntervals: Power = to.Power(31)
                 const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
-                    .toBeCloseToTyped(quotient(
+                    .toBeCloseToTyped(to.Scalar(quotient(
                         apply.Power(2, totalIntervals),
                         product(
                             apply.Power(3, totalUpIntervals),
                             apply.Power(1, totalDownIntervals),
                         ),
-                    ))
-                expect(to.Power(sum(totalUpIntervals, totalDownIntervals)))
+                    )))
+                expect(sum(totalUpIntervals, totalDownIntervals))
                     .toBe(totalIntervals)
             })
 
@@ -684,7 +684,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -692,14 +692,14 @@ describe('core cycles', () => {
                 const totalDownIntervals: Power = to.Power(22)
                 const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
-                    .toBeCloseToTyped(quotient(
+                    .toBeCloseToTyped(to.Scalar(quotient(
                         apply.Power(3, totalIntervals),
                         product(
                             apply.Power(4, totalUpIntervals),
                             apply.Power(2, totalDownIntervals),
                         ),
-                    ))
-                expect(to.Power(sum(totalUpIntervals, totalDownIntervals)))
+                    )))
+                expect(sum(totalUpIntervals, totalDownIntervals))
                     .toBe(totalIntervals)
             })
 
@@ -709,7 +709,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -717,14 +717,14 @@ describe('core cycles', () => {
                 const totalDownIntervals: Power = to.Power(7)
                 const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
-                    .toBeCloseToTyped(quotient(
+                    .toBeCloseToTyped(to.Scalar(quotient(
                         apply.Power(4, totalIntervals),
                         product(
                             apply.Power(5, totalUpIntervals),
                             apply.Power(3, totalDownIntervals),
                         ),
-                    ))
-                expect(to.Power(sum(totalUpIntervals, totalDownIntervals)))
+                    )))
+                expect(sum(totalUpIntervals, totalDownIntervals))
                     .toBe(totalIntervals)
             })
 
@@ -734,7 +734,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar(to.Scalar(from.Fraction(finalElement(coreIntervals))))
+                const finalIntervalAsScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Fraction(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = apply.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -742,14 +742,14 @@ describe('core cycles', () => {
                 const totalDownIntervals: Power = to.Power(9)
                 const totalIntervals: Power = to.Power(from.Cardinal(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
-                    .toBeCloseToTyped(quotient(
+                    .toBeCloseToTyped(to.Scalar(quotient(
                         apply.Power(5, totalIntervals),
                         product(
                             apply.Power(6, totalUpIntervals),
                             apply.Power(4, totalDownIntervals),
                         ),
-                    ))
-                expect(to.Power(sum(totalUpIntervals, totalDownIntervals)))
+                    )))
+                expect(sum(totalUpIntervals, totalDownIntervals))
                     .toBe(totalIntervals)
             })
         })

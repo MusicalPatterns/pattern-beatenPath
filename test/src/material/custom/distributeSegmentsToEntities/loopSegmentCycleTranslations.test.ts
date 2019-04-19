@@ -1,5 +1,6 @@
-import { negative, to, Translation } from '@musical-patterns/utilities'
-import { computeLoopSegmentCycleTranslation } from '../../../../../src/indexForTest'
+import { Note } from '@musical-patterns/material'
+import { Cycle, negative, to } from '@musical-patterns/utilities'
+import { computeLoopSegmentCycleTranslation, LoopSegmentCycleTranslation } from '../../../../../src/indexForTest'
 
 describe('loop segment cycle translation', () => {
     it(
@@ -9,13 +10,13 @@ and the answer is the modulus of the cycle length with the entity count, \
 except that it's negative because you're effectively cycling the segments toward the entities rather than \
 what i would think the more natural direction would be, to cycle the entities toward their destination notes`,
         () => {
-            const actualLoopSegmentCycleTranslations: Translation = computeLoopSegmentCycleTranslation({
+            const actualLoopSegmentCycleTranslations: LoopSegmentCycleTranslation = computeLoopSegmentCycleTranslation({
                 cycleLength: to.Cardinal(44),
                 entityCount: to.Cardinal(3),
             })
 
             expect(actualLoopSegmentCycleTranslations)
-                .toBe(to.Translation(negative(2)))
+                .toBe(to.Translation<Cycle<Note[]>>(negative(2)))
         },
     )
 })

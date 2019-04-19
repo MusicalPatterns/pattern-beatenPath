@@ -26,6 +26,7 @@ export {
     BeatenPathEntitiesNotes,
     applySmooth,
     SmoothNotes,
+    LoopSegmentCycleTranslation,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {
