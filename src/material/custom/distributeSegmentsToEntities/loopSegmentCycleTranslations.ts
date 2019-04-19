@@ -9,7 +9,7 @@ const computeLoopSegmentCycleTranslation: (parameters: {
     ({ cycleLength, entityCount }: SegmentsDimensions): LoopSegmentCycleTranslation =>
         to.Translation<Cycle<Note[]>>(from.Cardinal(negative(apply.Modulus(
             cycleLength,
-            to.Modulus(ofFrom(entityCount)),
+            to.IntegerModulus(ofFrom(entityCount)),
         ))))
 
 export {

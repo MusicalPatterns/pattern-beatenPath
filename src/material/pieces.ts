@@ -25,7 +25,7 @@ const computePolyrhythmicPiece: (computePieceParameters: {
                     from.Scalar(notesDuration),
                 ],
             ],
-            apply.Scalar(notesCount, to.Scalar(ofFrom(repetitions))),
+            apply.Multiple(notesCount, to.Multiple(ofFrom(repetitions))),
         ))
 
 const computeSmoothPiece: (computePieceParameters: {
