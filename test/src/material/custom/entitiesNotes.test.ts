@@ -1,21 +1,22 @@
 import {
     compilePattern,
-    computeNotesTotalCompiledDuration, Entity,
+    computeNotesTotalCompiledDuration,
+    Entity,
     materializeStandardScales,
     Note,
     Scale,
 } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     difference,
     forEach,
-    from,
     indexOfFinalElement,
     Ms,
     NO_DURATION,
+    notAs,
     ONE_HOUR,
     Ordinal,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import {
     BeatenPathEntitiesNotes,
@@ -37,9 +38,9 @@ describe('entities notes', () => {
             forwardVersion,
             (notes: Note[], entityIndex: Ordinal<Note[]>): void => {
                 forEach(notes, (note: Note, index: Ordinal<Note>) => {
-                    const backwardNotes: Note[] = apply.Ordinal(backwardVersion, entityIndex)
+                    const backwardNotes: Note[] = use.Ordinal(backwardVersion, entityIndex)
                     const mirroredIndex: Ordinal<Note> = difference(indexOfFinalElement(notes), index)
-                    const mirroredNote: Note = apply.Ordinal(backwardNotes, mirroredIndex)
+                    const mirroredNote: Note = use.Ordinal(backwardNotes, mirroredIndex)
 
                     expect(note)
                         .toEqual(mirroredNote)
@@ -62,7 +63,7 @@ I'm using standard scales here because that's what the pattern uses and I want i
                 let expectedEntityNotesDuration: Ms = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
                     const entityNotesDuration: Ms = computeNotesTotalCompiledDuration(entityNotes, scales)
-                    if (from.Ms(expectedEntityNotesDuration) === 0) {
+                    if (notAs.Ms(expectedEntityNotesDuration) === 0) {
                         expectedEntityNotesDuration = entityNotesDuration
                     }
                     else {
@@ -85,14 +86,14 @@ you can't simply equalize durations on the final segment, but every segment that
 very very close to 1 but is instead substituted by 1 itself for looping back around, and the more entities there are \
 the more segments each entity holds each of its durations for before changing, so the more that will be touched by this substitution`,
             async (done: DoneFn) => {
-                const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal<Entity>(3) }
+                const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity>(3) }
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Ms = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
                     const entityNotesDuration: Ms = computeNotesTotalCompiledDuration(entityNotes, scales)
-                    if (from.Ms(expectedEntityNotesDuration) === 0) {
+                    if (notAs.Ms(expectedEntityNotesDuration) === 0) {
                         expectedEntityNotesDuration = entityNotesDuration
                     }
                     else {
@@ -102,22 +103,22 @@ the more segments each entity holds each of its durations for before changing, s
                 })
 
                 const { totalDuration } = await compilePattern({ specs, material })
-                expect(from.Ms(totalDuration))
-                    .toBeLessThan(from.Ms(ONE_HOUR))
+                expect(notAs.Ms(totalDuration))
+                    .toBeLessThan(notAs.Ms(ONE_HOUR))
 
                 done()
             },
         )
 
         it('an even higher entity count example just to ensure we do things in a generalizable way', async (done: DoneFn) => {
-            const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: to.Cardinal<Entity>(4) }
+            const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity>(4) }
 
             const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
             const scales: Scale[] = materializeStandardScales(specs)
             let expectedEntityNotesDuration: Ms = NO_DURATION
             entitiesNotes.forEach((entityNotes: Note[]): void => {
                 const entityNotesDuration: Ms = computeNotesTotalCompiledDuration(entityNotes, scales)
-                if (from.Ms(expectedEntityNotesDuration) === 0) {
+                if (notAs.Ms(expectedEntityNotesDuration) === 0) {
                     expectedEntityNotesDuration = entityNotesDuration
                 }
                 else {

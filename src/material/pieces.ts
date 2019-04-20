@@ -1,14 +1,14 @@
 import { PitchDuration } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     Cardinal,
     ContourPiece,
-    from,
-    ofFrom,
+    notAs,
+    ofNotAs,
     reciprocal,
     repeat,
     Scalar,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { ComputePieceParameters } from './types'
 
@@ -18,14 +18,14 @@ const computePolyrhythmicPiece: (computePieceParameters: {
     repetitions: Cardinal,
 }) => ContourPiece<PitchDuration> =
     ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
-        to.ContourPiece<PitchDuration>(repeat(
+        as.ContourPiece<PitchDuration>(repeat(
             [
                 [
-                    from.Scalar(reciprocal(notesDuration)),
-                    from.Scalar(notesDuration),
+                    notAs.Scalar(reciprocal(notesDuration)),
+                    notAs.Scalar(notesDuration),
                 ],
             ],
-            apply.Multiple(notesCount, to.Multiple(ofFrom(repetitions))),
+            use.Multiple(notesCount, as.Multiple(ofNotAs(repetitions))),
         ))
 
 const computeSmoothPiece: (computePieceParameters: {
@@ -34,15 +34,15 @@ const computeSmoothPiece: (computePieceParameters: {
     repetitions: Cardinal,
 }) => ContourPiece<PitchDuration> =
     ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
-        to.ContourPiece<PitchDuration>([
+        as.ContourPiece<PitchDuration>([
             [
-                from.Scalar(reciprocal(notesDuration)),
-                from.Scalar(apply.Scalar(
-                    apply.Scalar(
+                notAs.Scalar(reciprocal(notesDuration)),
+                notAs.Scalar(use.Scalar(
+                    use.Scalar(
                         notesDuration,
-                        to.Scalar<Scalar>(from.Cardinal(repetitions)),
+                        as.Scalar<Scalar>(notAs.Cardinal(repetitions)),
                     ),
-                    to.Scalar<Scalar>(from.Cardinal(notesCount)),
+                    as.Scalar<Scalar>(notAs.Cardinal(notesCount)),
                 )),
             ],
         ])

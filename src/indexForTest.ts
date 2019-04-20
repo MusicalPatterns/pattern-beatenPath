@@ -35,4 +35,4 @@ export {
     spec,
 } from './spec/indexForTest'
 
-export { to, from, Core } from './nominals'
+export { as, notAs, Core } from './nominals'

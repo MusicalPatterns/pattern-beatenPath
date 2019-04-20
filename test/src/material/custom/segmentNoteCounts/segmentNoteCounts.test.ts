@@ -1,7 +1,7 @@
 // tslint:disable comment-format
 
 import { Entity, Segment } from '@musical-patterns/material'
-import { Cardinal, Scalar, to } from '@musical-patterns/utilities'
+import { as, Cardinal, Scalar } from '@musical-patterns/utilities'
 import { computeSegmentNoteCounts } from '../../../../../src/indexForTest'
 
 describe('segment note counts', () => {
@@ -15,32 +15,32 @@ this is an integration test of sorts - for more details look at: \
 computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
             () => {
                 const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
-                    coreIntervals: to.Cycle([
-                        to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
-                        to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
+                    coreIntervals: as.Cycle([
+                        as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
+                        as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
                     ]),
-                    entityCount: to.Cardinal<Entity>(2),
-                    segmentDurationIndices: [ 1, 0 ].map((value: number) => to.Ordinal<Scalar>(value)),
-                    segmentIndex: to.Ordinal<Segment>(0),
+                    entityCount: as.Cardinal<Entity>(2),
+                    segmentDurationIndices: [ 1, 0 ].map((value: number) => as.Ordinal<Scalar>(value)),
+                    segmentIndex: as.Ordinal<Segment>(0),
                 })
 
                 // # Step 1: computeSegmentIntervals
-                // [ to.Fraction([ to.Numerator(4), to.Denominator(5) ]) ]
+                // [ as.Fraction([ as.Numerator(4), as.Denominator(5) ]) ]
 
                 // # Step 2: computeSegmentRatios
                 // [
-                //      to.Fraction([ to.Numerator(1), to.Denominator(1) ]),
-                //      to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                //      as.Fraction([ as.Numerator(1), as.Denominator(1) ]),
+                //      as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                 // ]
 
                 // # Step 3: computeSegmentNoteCountsFromSegmentRatios
-                // [ 4, 5 ].map(to.Cardinal)
+                // [ 4, 5 ].map(as.Cardinal)
 
                 // # Step 4: alignSegmentNoteCountsWithSegmentDurations
-                // [ 5, 4 ].map(to.Cardinal)
+                // [ 5, 4 ].map(as.Cardinal)
 
                 expect(segmentNoteCounts)
-                    .toEqual([ 5, 4 ].map(to.Cardinal))
+                    .toEqual([ 5, 4 ].map(as.Cardinal))
             },
         )
     })
@@ -55,37 +55,37 @@ this is an integration test of sorts - for more details look at: \
 computeSegmentIntervals, computeSegmentRatios, computeSegmentNoteCountsFromSegmentRatios, and alignSegmentNoteCountsWithSegmentDurations`,
             () => {
                 const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
-                    coreIntervals: to.Cycle([
-                        to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
-                        to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
-                        to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
+                    coreIntervals: as.Cycle([
+                        as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
+                        as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
+                        as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                     ]),
-                    entityCount: to.Cardinal<Entity>(3),
-                    segmentDurationIndices: [ 2, 1, 0 ].map((value: number) => to.Ordinal<Scalar>(value)),
-                    segmentIndex: to.Ordinal<Segment>(0),
+                    entityCount: as.Cardinal<Entity>(3),
+                    segmentDurationIndices: [ 2, 1, 0 ].map((value: number) => as.Ordinal<Scalar>(value)),
+                    segmentIndex: as.Ordinal<Segment>(0),
                 })
 
                 // # Step 1: computeSegmentIntervals
                 // [
-                //      to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
-                //      to.Fraction([ to.Numerator(4), to.Denominator(3) ]),
+                //      as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
+                //      as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
                 // ]
 
                 // # Step 2: computeSegmentRatios
                 // [
-                //      to.Fraction([ to.Numerator(1), to.Denominator(1) ]),
-                //      to.Fraction([ to.Numerator(4), to.Denominator(5) ]),
-                //      to.Fraction([ to.Numerator(16), to.Denominator(15) ]),
+                //      as.Fraction([ as.Numerator(1), as.Denominator(1) ]),
+                //      as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
+                //      as.Fraction([ as.Numerator(16), as.Denominator(15) ]),
                 // ]
 
                 // # Step 3: computeSegmentNoteCountsFromSegmentRatios
-                // [ 16, 20, 15 ].map(to.Cardinal)
+                // [ 16, 20, 15 ].map(as.Cardinal)
 
                 // # Step 4: alignSegmentNoteCountsWithSegmentDurations
-                // [ 15, 20, 16 ].map(to.Cardinal)
+                // [ 15, 20, 16 ].map(as.Cardinal)
 
                 expect(segmentNoteCounts)
-                    .toEqual([ 15, 20, 16 ].map(to.Cardinal))
+                    .toEqual([ 15, 20, 16 ].map(as.Cardinal))
             },
         )
     })

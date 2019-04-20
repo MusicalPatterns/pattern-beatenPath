@@ -1,5 +1,5 @@
 import { Note } from '@musical-patterns/material'
-import { apply, from, INITIAL, NEXT, Ordinal, to } from '@musical-patterns/utilities'
+import { as, INITIAL, NEXT, notAs, Ordinal, use } from '@musical-patterns/utilities'
 import { SegmentsDimensions } from './types'
 
 const computeInitialEmptyEntitiesNotes: (parameters: SegmentsDimensions) => Note[][] =
@@ -8,8 +8,8 @@ const computeInitialEmptyEntitiesNotes: (parameters: SegmentsDimensions) => Note
 
         for (
             let entityIndex: Ordinal = INITIAL;
-            entityIndex < to.Ordinal(from.Cardinal(entityCount));
-            entityIndex = apply.Translation(entityIndex, NEXT)
+            entityIndex < as.Ordinal(notAs.Cardinal(entityCount));
+            entityIndex = use.Translation(entityIndex, NEXT)
         ) {
             initialEmptyEntitiesNotes.push([])
         }

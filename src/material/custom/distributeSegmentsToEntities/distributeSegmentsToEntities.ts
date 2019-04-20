@@ -1,16 +1,16 @@
 import { Note, Segment } from '@musical-patterns/material'
 import {
-    apply,
     arraySet,
+    as,
     Cardinal,
     deepClone,
     forEach,
-    from,
     INCREMENT,
     INITIAL,
+    notAs,
     Ordinal,
     sequence,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { computeInitialEmptyEntitiesNotes } from './initialEmptyEntitiesNotes'
 import { computeLoopCount } from './loopCount'
@@ -31,7 +31,7 @@ const distributeSegmentToEntities: (parameters: { existingEntitiesNotes: Note[][
                         populatedEntitiesNotes,
                         notesIndex,
                         sequence(
-                            apply.Ordinal(populatedEntitiesNotes, notesIndex),
+                            use.Ordinal(populatedEntitiesNotes, notesIndex),
                             notes,
                         ),
                     )
@@ -52,8 +52,8 @@ const distributeSegmentsToEntities: (segments: Segment[]) => Note[][] =
 
         for (
             let loopIndex: Ordinal<LoopSegmentCycleTranslation> = INITIAL;
-            loopIndex < to.Ordinal<LoopSegmentCycleTranslation>(from.Cardinal<LoopSegmentCycleTranslation>(loopCount));
-            loopIndex = apply.Translation(loopIndex, INCREMENT)
+            loopIndex < as.Ordinal<LoopSegmentCycleTranslation>(notAs.Cardinal<LoopSegmentCycleTranslation>(loopCount));
+            loopIndex = use.Translation(loopIndex, INCREMENT)
         ) {
             const loopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({
                 loopIndex,

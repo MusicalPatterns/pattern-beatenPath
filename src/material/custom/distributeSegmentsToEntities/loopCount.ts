@@ -1,11 +1,11 @@
-import { Cardinal, computeLeastCommonMultiple, from, quotient, to } from '@musical-patterns/utilities'
+import { as, Cardinal, computeLeastCommonMultiple, notAs, quotient } from '@musical-patterns/utilities'
 import { LoopSegmentCycleTranslation, SegmentsDimensions } from './types'
 
 const computeLoopCount: (parameters: SegmentsDimensions) => Cardinal<LoopSegmentCycleTranslation> =
     ({ entityCount, cycleLength }: SegmentsDimensions): Cardinal<LoopSegmentCycleTranslation> =>
-        to.Cardinal<LoopSegmentCycleTranslation>(quotient(
+        as.Cardinal<LoopSegmentCycleTranslation>(quotient(
             computeLeastCommonMultiple(entityCount, cycleLength),
-            from.Cardinal(cycleLength),
+            notAs.Cardinal(cycleLength),
         ))
 
 export {

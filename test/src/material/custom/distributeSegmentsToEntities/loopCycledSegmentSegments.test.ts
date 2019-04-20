@@ -1,5 +1,5 @@
 import { Note, Segment } from '@musical-patterns/material'
-import { Cycle, Ordinal, to } from '@musical-patterns/utilities'
+import { as, Cycle, Ordinal } from '@musical-patterns/utilities'
 import { computeLoopCycledSegmentSegments, LoopSegmentCycleTranslation } from '../../../../../src/indexForTest'
 
 describe('loop cycled segment segments', () => {
@@ -32,8 +32,8 @@ describe('loop cycled segment segments', () => {
                 [ D ],
             ],
         ]
-        const loopSegmentCycleTranslation: LoopSegmentCycleTranslation = to.Translation<Cycle<Note[]>>(2)
-        const loopIndex: Ordinal<LoopSegmentCycleTranslation> = to.Ordinal<LoopSegmentCycleTranslation>(3)
+        const loopSegmentCycleTranslation: LoopSegmentCycleTranslation = as.Translation<Cycle<Note[]>>(2)
+        const loopIndex: Ordinal<LoopSegmentCycleTranslation> = as.Ordinal<LoopSegmentCycleTranslation>(3)
 
         const actualLoopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({
             loopIndex,

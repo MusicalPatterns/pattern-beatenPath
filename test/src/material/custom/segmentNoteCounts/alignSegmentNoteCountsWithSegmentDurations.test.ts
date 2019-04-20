@@ -1,4 +1,4 @@
-import { Cardinal, Ordinal, Scalar, to } from '@musical-patterns/utilities'
+import { as, Cardinal, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { alignSegmentNoteCountsWithSegmentDurations } from '../../../../../src/indexForTest'
 
 describe('align segment note counts with segment durations', () => {
@@ -8,8 +8,8 @@ describe('align segment note counts with segment durations', () => {
 the idea is that the entity with the highest duration index is the furthest through the core durations at this segment, \
 so it needs to use the duration for the segment which is furthest through the core duration`,
         () => {
-            const segmentNoteCounts: Cardinal[] = [ 15, 12, 16 ].map(to.Cardinal) // In order
-            const segmentDurationIndices: Array<Ordinal<Scalar>> = [ 2, 4, 3 ].map((value: number) => to.Ordinal<Scalar>(value)) // Ground to 0, 2, 1
+            const segmentNoteCounts: Cardinal[] = [ 15, 12, 16 ].map(as.Cardinal) // In order
+            const segmentDurationIndices: Array<Ordinal<Scalar>> = [ 2, 4, 3 ].map((value: number) => as.Ordinal<Scalar>(value)) // Ground to 0, 2, 1
 
             const actualSegmentNoteCountsAlignedWithSegmentDurations: Cardinal[] =
                 alignSegmentNoteCountsWithSegmentDurations({
@@ -18,7 +18,7 @@ so it needs to use the duration for the segment which is furthest through the co
                 })
 
             expect(actualSegmentNoteCountsAlignedWithSegmentDurations)
-                .toEqual([ 15, 16, 12 ].map(to.Cardinal)) // 0 takes index 0, 2 takes index 2, 1 takes index 1
+                .toEqual([ 15, 16, 12 ].map(as.Cardinal)) // 0 takes index 0, 2 takes index 2, 1 takes index 1
         },
     )
 })

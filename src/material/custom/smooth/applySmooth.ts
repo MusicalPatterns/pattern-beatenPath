@@ -1,15 +1,15 @@
 import { Entity, Note } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     Cardinal,
     forEach,
     indexOfFinalElement,
     insteadOf,
     Ms,
-    ofFrom,
+    ofNotAs,
     Ordinal,
     Scalar,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { SUSTAIN_AMOUNT } from '../../constants'
 import { handleMatchOrNoMatch } from './handleMatchOrNoMatch'
@@ -32,7 +32,7 @@ const computeSmoothNote: (note: Note, smoothNoteTotalDurationScalar: Scalar<Ms>)
         },
         sustain: {
             ...note.sustain,
-            scalar: apply.Scalar(insteadOf<Scalar, Scalar>(smoothNoteTotalDurationScalar), SUSTAIN_AMOUNT),
+            scalar: use.Scalar(insteadOf<Scalar, Scalar>(smoothNoteTotalDurationScalar), SUSTAIN_AMOUNT),
         },
     })
 
@@ -41,9 +41,9 @@ const applySmooth: (notes: Note[], entityCount: Cardinal<Entity>) => SmoothNotes
         const smoothNotes: Note[] = []
 
         let pitchToMatch: Scalar<Scalar>
-        let pitchMatchCount: Cardinal = to.Cardinal(0)
-        let smoothNoteTotalDurationScalar: Scalar<Ms> = to.Scalar<Ms>(0)
-        let delayScalar: Scalar<Ms> = to.Scalar<Ms>(0)
+        let pitchMatchCount: Cardinal = as.Cardinal(0)
+        let smoothNoteTotalDurationScalar: Scalar<Ms> = as.Scalar<Ms>(0)
+        let delayScalar: Scalar<Ms> = as.Scalar<Ms>(0)
 
         forEach(notes, (note: Note, index: Ordinal<Note>) => {
             // tslint:disable-next-line no-non-null-assertion
@@ -66,9 +66,9 @@ const applySmooth: (notes: Note[], entityCount: Cardinal<Entity>) => SmoothNotes
             pitchToMatch = applySmoothVariables.pitchToMatch
 
             if (notesEndReached(index, notes)) {
-                smoothNoteTotalDurationScalar = apply.Translation(
+                smoothNoteTotalDurationScalar = use.Translation(
                     smoothNoteTotalDurationScalar,
-                    to.Translation(ofFrom(delayScalar)),
+                    as.Translation(ofNotAs(delayScalar)),
                 )
             }
 

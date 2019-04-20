@@ -1,5 +1,5 @@
 import { Entity, Note, Segment } from '@musical-patterns/material'
-import { to } from '@musical-patterns/utilities'
+import { as } from '@musical-patterns/utilities'
 import { computeSegmentsDimensions, SegmentsDimensions } from '../../../../../src/indexForTest'
 
 describe('segments dimensions', () => {
@@ -24,8 +24,8 @@ describe('segments dimensions', () => {
         const { cycleLength, entityCount }: SegmentsDimensions = computeSegmentsDimensions(segments)
 
         expect(cycleLength)
-            .toBe(to.Cardinal<Segment>(3))
+            .toBe(as.Cardinal<Segment>(3))
         expect(entityCount)
-            .toBe(to.Cardinal<Entity>(2))
+            .toBe(as.Cardinal<Entity>(2))
     })
 })

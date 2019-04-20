@@ -1,5 +1,5 @@
 import { Entity, Note, Segment } from '@musical-patterns/material'
-import { apply, Cardinal, Cycle, from, negative, to } from '@musical-patterns/utilities'
+import { as, Cardinal, Cycle, negative, notAs, use } from '@musical-patterns/utilities'
 import { LoopSegmentCycleTranslation, SegmentsDimensions } from './types'
 
 const computeLoopSegmentCycleTranslation: (parameters: {
@@ -7,9 +7,9 @@ const computeLoopSegmentCycleTranslation: (parameters: {
     entityCount: Cardinal<Entity>,
 }) => LoopSegmentCycleTranslation =
     ({ cycleLength, entityCount }: SegmentsDimensions): LoopSegmentCycleTranslation =>
-        to.Translation<Cycle<Note[]>>(from.Cardinal(negative(apply.Modulus(
+        as.Translation<Cycle<Note[]>>(notAs.Cardinal(negative(use.Modulus(
             cycleLength,
-            to.IntegerModulus<Cardinal<Segment>>(from.Cardinal(entityCount)),
+            as.IntegerModulus<Cardinal<Segment>>(notAs.Cardinal(entityCount)),
         ))))
 
 export {

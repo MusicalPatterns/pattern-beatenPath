@@ -1,14 +1,14 @@
 import {
+    as,
     Cardinal,
     computeCommonTerms,
     computeLeastCommonMultiple,
     Fraction,
-    from,
     getNumerator,
+    notAs,
     Numerator,
     quotient,
     round,
-    to,
 } from '@musical-patterns/utilities'
 
 const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => Cardinal[] =
@@ -21,9 +21,9 @@ const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => 
 
         return numerators
             .map((numerator: Numerator): Numerator =>
-                to.Numerator(round(quotient(leastCommonMultipleOfNumerators, numerator))))
-            .map(from.Numerator)
-            .map(to.Cardinal)
+                as.Numerator(round(quotient(leastCommonMultipleOfNumerators, numerator))))
+            .map(notAs.Numerator)
+            .map(as.Cardinal)
 
     }
 

@@ -1,6 +1,6 @@
 import { Entity, Note, Segment } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     Cardinal,
     Cycle,
     Fraction,
@@ -12,7 +12,7 @@ import {
     Ordinal,
     Scalar,
     slice,
-    to,
+    use,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { Core } from '../nominals'
@@ -54,11 +54,11 @@ const computeSegment: (computeSegmentsParameters: {
         })
 
         const segmentDurations: Scalar[] = segmentDurationIndices.map((segmentDurationIndex: Ordinal<Scalar>) =>
-            apply.Ordinal(coreDurations, segmentDurationIndex),
+            use.Ordinal(coreDurations, segmentDurationIndex),
         )
 
         return map(segmentDurations, (notesDuration: Scalar, index: Ordinal<Scalar>): Note[] => {
-            const notesCount: Cardinal = apply.Ordinal(segmentNoteCounts, insteadOf<Ordinal, Cardinal>(index))
+            const notesCount: Cardinal = use.Ordinal(segmentNoteCounts, insteadOf<Ordinal, Cardinal>(index))
 
             return computeNotes({ notesCount, notesDuration, repetitions, style })
         })
@@ -81,7 +81,7 @@ const computeSegments: (computeSegmentsParameters: {
             INITIAL,
             indexOfFirstElementAgainWrappingAroundTheCycle,
         )
-            .map((integer: Integer) => to.Ordinal<Segment>(integer))
+            .map((integer: Integer) => as.Ordinal<Segment>(integer))
             .map((segmentIndex: Ordinal<Segment>): Segment =>
                 computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),
             )

@@ -1,6 +1,6 @@
 import { computeNotesTotalDurationByScalar, Note, Segment } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     deepClone,
     difference,
     finalElement,
@@ -9,7 +9,7 @@ import {
     max,
     Ordinal,
     Scalar,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { ADJUSTMENT_SIZE_BELOW_WHICH_IT_MATTERS_NOT_AND_BREAKS_THE_TOTAL_DURATION_CALCULATION } from './constants'
 
@@ -29,20 +29,20 @@ const equalizeDurationsOfSegmentNotes: (segments: Segment[]) => Segment[] =
                     return
                 }
 
-                const equalizedSegment: Segment = apply.Ordinal(
+                const equalizedSegment: Segment = use.Ordinal(
                     equalizedSegments,
                     segmentIndex,
                 )
-                const equalizedNotes: Note[] = apply.Ordinal(
+                const equalizedNotes: Note[] = use.Ordinal(
                     equalizedSegment,
                     insteadOf<Ordinal, Note[]>(notesIndex),
                 )
                 const equalizedNote: Note = finalElement(equalizedNotes)
                 // tslint:disable-next-line no-non-null-assertion
-                equalizedNote.duration!.scalar = apply.Translation(
+                equalizedNote.duration!.scalar = use.Translation(
                     // tslint:disable-next-line no-non-null-assertion
                     equalizedNote.duration!.scalar,
-                    to.Translation<Scalar<Scalar>>(neededAdjustment),
+                    as.Translation<Scalar<Scalar>>(neededAdjustment),
                 )
             })
         })

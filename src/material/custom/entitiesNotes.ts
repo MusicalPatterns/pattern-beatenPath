@@ -1,11 +1,11 @@
 import { Note, Segment } from '@musical-patterns/material'
 import {
+    as,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
     Ms,
     Scalar,
     slice,
-    to,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
@@ -15,8 +15,8 @@ import { applySmooth, BeatenPathEntitiesNotes, pseudocompileDelay } from './smoo
 
 const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes =
     ({
-         baseDuration = to.Scalar<Ms>(1),
-         baseDurationTranslation = to.Translation<Ms>(0),
+         baseDuration = as.Scalar<Ms>(1),
+         baseDurationTranslation = as.Translation<Ms>(0),
          core,
          entityCount,
          repetitions,
@@ -45,7 +45,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
         else {
             delayScalars =
                 slice(ZERO_AND_POSITIVE_INTEGERS, INITIAL, indexJustBeyondFinalElementFromElementsTotal(entityCount))
-                    .map(() => to.Scalar<Ms>(0))
+                    .map(() => as.Scalar<Ms>(0))
         }
 
         const delays: Ms[] = delayScalars.map((delayScalar: Scalar<Ms>) => pseudocompileDelay({

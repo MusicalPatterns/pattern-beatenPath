@@ -1,15 +1,15 @@
 import { Entity, Segment } from '@musical-patterns/material'
 import {
-    apply,
+    as,
     Cardinal,
     Cycle,
     cycleSlice,
     DECREMENT,
     Fraction,
-    from,
     insteadOf,
+    notAs,
     Ordinal,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { ComputeSegmentIntervalsParameters } from './types'
 
@@ -22,10 +22,10 @@ const computeSegmentIntervals: (parameters: {
         cycleSlice(
             coreIntervals,
             insteadOf<Ordinal, Fraction>(segmentIndex),
-            apply.Translation(
-                apply.Translation(
+            use.Translation(
+                use.Translation(
                     segmentIndex,
-                    to.Translation<Ordinal<Segment>>(from.Cardinal<Entity>(entityCount)),
+                    as.Translation<Ordinal<Segment>>(notAs.Cardinal<Entity>(entityCount)),
                 ),
                 DECREMENT,
             ),

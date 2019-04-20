@@ -2,14 +2,14 @@ import { computeNominalInterface, DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE } 
 
 type Core = Number & { _NominalBrand: 'Core' }
 
-const { to, from } = computeNominalInterface({
+const { as, notAs } = computeNominalInterface({
     number: {
         Core: DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE as Core,
     },
 })
 
 export {
-    to,
-    from,
+    as,
+    notAs,
     Core,
 }

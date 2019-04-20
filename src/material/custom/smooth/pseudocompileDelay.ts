@@ -1,5 +1,5 @@
 import { StandardSpec } from '@musical-patterns/spec'
-import { apply, from, insteadOf, Ms, ofFrom, Scalar, to, Translation } from '@musical-patterns/utilities'
+import { as, insteadOf, Ms, notAs, ofNotAs, Scalar, Translation, use } from '@musical-patterns/utilities'
 import { PseudocompileDelayParameters } from './types'
 
 const pseudocompileDelay: (parameters: {
@@ -8,10 +8,10 @@ const pseudocompileDelay: (parameters: {
     delayScalar: Scalar<Ms>,
 }) => Ms =
     ({ delayScalar, baseDuration, baseDurationTranslation }: PseudocompileDelayParameters): Ms =>
-        to.Ms(from.Scalar<Ms>(apply.Translation(
-            apply.Scalar(
+        as.Ms(notAs.Scalar<Ms>(use.Translation(
+            use.Scalar(
                 delayScalar,
-                to.Scalar(ofFrom(baseDuration)),
+                as.Scalar(ofNotAs(baseDuration)),
             ),
             insteadOf<Translation, Scalar<Ms>>(baseDurationTranslation),
         )))

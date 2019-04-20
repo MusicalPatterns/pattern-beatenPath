@@ -1,4 +1,4 @@
-import { apply, Cardinal, insteadOf, min, negative, ofFrom, Ordinal, Scalar, to } from '@musical-patterns/utilities'
+import { as, Cardinal, insteadOf, min, negative, ofNotAs, Ordinal, Scalar, use } from '@musical-patterns/utilities'
 import { AlignSegmentNoteCountsWithSegmentDurationsParameters } from './types'
 
 const alignSegmentNoteCountsWithSegmentDurations:
@@ -12,14 +12,14 @@ const alignSegmentNoteCountsWithSegmentDurations:
         const leastSegmentDurationIndex: Ordinal<Scalar> = min(...segmentDurationIndices)
         const segmentNoteCountsIndices: Array<Ordinal<Cardinal>> = segmentDurationIndices.map(
             (segmentDurationIndex: Ordinal<Scalar>) =>
-                insteadOf<Ordinal, Cardinal>(apply.Translation(
+                insteadOf<Ordinal, Cardinal>(use.Translation(
                     segmentDurationIndex,
-                    to.Translation(ofFrom(negative(leastSegmentDurationIndex))),
+                    as.Translation(ofNotAs(negative(leastSegmentDurationIndex))),
                 )),
         )
 
         return segmentNoteCountsIndices.map((segmentNoteCountsIndex: Ordinal<Cardinal>) =>
-            apply.Ordinal(segmentNoteCounts, segmentNoteCountsIndex),
+            use.Ordinal(segmentNoteCounts, segmentNoteCountsIndex),
         )
     }
 
