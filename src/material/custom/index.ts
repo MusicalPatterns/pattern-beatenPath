@@ -1,6 +1,6 @@
 export { computeCoreCycles } from './coreCycles'
 export { computeSegmentDurationIndices } from './segmentDurationIndices'
-export { computeSegmentNoteCounts } from './segmentNoteCounts'
+export { computeSegmentPieceLengths } from './segmentPieceLength'
 export { equalizeDurationsOfSegmentNotes } from './equalizeDurationsOfSegmentNotes'
 export { distributeSegmentsToEntities } from './distributeSegmentsToEntities'
 export { computeEntitiesNotes } from './entitiesNotes'

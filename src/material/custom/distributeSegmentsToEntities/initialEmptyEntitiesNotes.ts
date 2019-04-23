@@ -9,7 +9,7 @@ const computeInitialEmptyEntitiesNotes: (parameters: SegmentsDimensions) => Note
         for (
             let entityIndex: Ordinal = INITIAL;
             entityIndex < as.Ordinal(notAs.Cardinal(entityCount));
-            entityIndex = use.Translation(entityIndex, NEXT)
+            entityIndex = use.Cardinal(entityIndex, NEXT)
         ) {
             initialEmptyEntitiesNotes.push([])
         }

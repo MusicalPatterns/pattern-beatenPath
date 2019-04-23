@@ -15,9 +15,9 @@ import {
 import { computeInitialEmptyEntitiesNotes } from './initialEmptyEntitiesNotes'
 import { computeLoopCount } from './loopCount'
 import { computeLoopCycledSegmentSegments } from './loopCycledSegmentSegments'
-import { computeLoopSegmentCycleTranslation } from './loopSegmentCycleTranslations'
+import { computeLoopSegmentCycleShift } from './loopSegmentCycleShifts'
 import { computeSegmentsDimensions } from './segmentsDimensions'
-import { DistributeSegmentToEntitiesParameters, LoopSegmentCycleTranslation, SegmentsDimensions } from './types'
+import { DistributeSegmentToEntitiesParameters, LoopSegmentCycleShift, SegmentsDimensions } from './types'
 
 const distributeSegmentToEntities: (parameters: { existingEntitiesNotes: Note[][], segments: Segment[] }) => Note[][] =
     ({ segments, existingEntitiesNotes }: DistributeSegmentToEntitiesParameters): Note[][] => {
@@ -26,7 +26,7 @@ const distributeSegmentToEntities: (parameters: { existingEntitiesNotes: Note[][
         segments.forEach((segment: Segment): void => {
             forEach(
                 segment,
-                (notes: Note[], notesIndex: Ordinal<Note[]>): void => {
+                (notes: Note[], notesIndex: Ordinal<Segment>): void => {
                     arraySet(
                         populatedEntitiesNotes,
                         notesIndex,
@@ -46,18 +46,18 @@ const distributeSegmentsToEntities: (segments: Segment[]) => Note[][] =
         const segmentsDimensions: SegmentsDimensions = computeSegmentsDimensions(segments)
 
         let populatedEntitiesNotes: Note[][] = computeInitialEmptyEntitiesNotes(segmentsDimensions)
-        const loopCount: Cardinal<LoopSegmentCycleTranslation> = computeLoopCount(segmentsDimensions)
-        const loopSegmentCycleTranslation: LoopSegmentCycleTranslation =
-            computeLoopSegmentCycleTranslation(segmentsDimensions)
+        const loopCount: Cardinal<LoopSegmentCycleShift> = computeLoopCount(segmentsDimensions)
+        const loopSegmentCycleShift: LoopSegmentCycleShift =
+            computeLoopSegmentCycleShift(segmentsDimensions)
 
         for (
-            let loopIndex: Ordinal<LoopSegmentCycleTranslation> = INITIAL;
-            loopIndex < as.Ordinal<LoopSegmentCycleTranslation>(notAs.Cardinal<LoopSegmentCycleTranslation>(loopCount));
-            loopIndex = use.Translation(loopIndex, INCREMENT)
+            let loopIndex: Ordinal<LoopSegmentCycleShift[]> = INITIAL;
+            loopIndex < as.Ordinal<LoopSegmentCycleShift[]>(notAs.Cardinal<LoopSegmentCycleShift>(loopCount));
+            loopIndex = use.Cardinal(loopIndex, INCREMENT)
         ) {
             const loopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({
                 loopIndex,
-                loopSegmentCycleTranslation,
+                loopSegmentCycleShift,
                 segments,
             })
 

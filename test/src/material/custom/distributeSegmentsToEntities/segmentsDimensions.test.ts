@@ -24,8 +24,8 @@ describe('segments dimensions', () => {
         const { cycleLength, entityCount }: SegmentsDimensions = computeSegmentsDimensions(segments)
 
         expect(cycleLength)
-            .toBe(as.Cardinal<Segment>(3))
+            .toBe(as.Cardinal<Segment[]>(3))
         expect(entityCount)
-            .toBe(as.Cardinal<Entity>(2))
+            .toBe(as.Cardinal<Entity[]>(2))
     })
 })

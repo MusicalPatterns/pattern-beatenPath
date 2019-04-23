@@ -2,22 +2,23 @@ import { PitchDuration } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
+    ContourElement,
     ContourPiece,
     notAs,
-    ofNotAs,
     reciprocal,
     repeat,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
+import { Repetition } from '../nominals'
 import { ComputePieceParameters } from './types'
 
 const computePolyrhythmicPiece: (computePieceParameters: {
-    notesCount: Cardinal,
+    contourLength: Cardinal<ContourPiece<PitchDuration>>,
     notesDuration: Scalar,
-    repetitions: Cardinal,
+    repetitions: Cardinal<Repetition[]>,
 }) => ContourPiece<PitchDuration> =
-    ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
+    ({ notesDuration, contourLength, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
         as.ContourPiece<PitchDuration>(repeat(
             [
                 [
@@ -25,15 +26,18 @@ const computePolyrhythmicPiece: (computePieceParameters: {
                     notAs.Scalar(notesDuration),
                 ],
             ],
-            use.Multiple(notesCount, as.Multiple(ofNotAs(repetitions))),
+            use.Multiple(
+                contourLength,
+                as.Multiple<Cardinal<ContourPiece<PitchDuration>>>(notAs.Cardinal(repetitions)),
+            ),
         ))
 
 const computeSmoothPiece: (computePieceParameters: {
-    notesCount: Cardinal,
+    contourLength: Cardinal<ContourPiece<PitchDuration>>,
     notesDuration: Scalar,
-    repetitions: Cardinal,
+    repetitions: Cardinal<Repetition[]>,
 }) => ContourPiece<PitchDuration> =
-    ({ notesDuration, notesCount, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
+    ({ notesDuration, contourLength, repetitions }: ComputePieceParameters): ContourPiece<PitchDuration> =>
         as.ContourPiece<PitchDuration>([
             [
                 notAs.Scalar(reciprocal(notesDuration)),
@@ -42,7 +46,7 @@ const computeSmoothPiece: (computePieceParameters: {
                         notesDuration,
                         as.Scalar<Scalar>(notAs.Cardinal(repetitions)),
                     ),
-                    as.Scalar<Scalar>(notAs.Cardinal(notesCount)),
+                    as.Scalar<Scalar>(notAs.Cardinal(contourLength)),
                 )),
             ],
         ])

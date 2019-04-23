@@ -1,7 +1,8 @@
-import { Entity, Note, Segment } from '@musical-patterns/material'
+import { Entity, Note, PitchDuration, Segment } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
+    ContourPiece,
     Cycle,
     Fraction,
     indexJustBeyondFinalElement,
@@ -15,12 +16,12 @@ import {
     use,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
-import { Core } from '../nominals'
+import { Core, Repetition } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import {
     computeCoreCycles,
     computeSegmentDurationIndices,
-    computeSegmentNoteCounts,
+    computeSegmentPieceLengths,
     equalizeDurationsOfSegmentNotes,
 } from './custom'
 import { computeNotes } from './notes'
@@ -29,9 +30,9 @@ import { ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
 const computeSegment: (computeSegmentsParameters: {
     coreDurations: Cycle<Scalar>,
     coreIntervals: Cycle<Fraction>,
-    entityCount: Cardinal<Entity>,
-    repetitions: Cardinal,
-    segmentIndex: Ordinal<Segment>,
+    entityCount: Cardinal<Entity[]>,
+    repetitions: Cardinal<Repetition[]>,
+    segmentIndex: Ordinal<Segment[]>,
     style: BeatenPathStyle,
 }) => Segment =
     (
@@ -44,36 +45,39 @@ const computeSegment: (computeSegmentsParameters: {
             entityCount,
         }: ComputeSegmentParameters,
     ): Segment => {
-        const segmentDurationIndices: Array<Ordinal<Scalar>> =
+        const segmentDurationIndices: Array<Ordinal<Scalar[]>> =
             computeSegmentDurationIndices({ segmentIndex, entityCount })
-        const segmentNoteCounts: Cardinal[] = computeSegmentNoteCounts({
+        const segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>> = computeSegmentPieceLengths({
             coreIntervals,
             entityCount,
             segmentDurationIndices,
             segmentIndex,
         })
 
-        const segmentDurations: Scalar[] = segmentDurationIndices.map((segmentDurationIndex: Ordinal<Scalar>) =>
+        const segmentDurations: Scalar[] = segmentDurationIndices.map((segmentDurationIndex: Ordinal<Scalar[]>) =>
             use.Ordinal(coreDurations, segmentDurationIndex),
         )
 
-        return map(segmentDurations, (notesDuration: Scalar, index: Ordinal<Scalar>): Note[] => {
-            const notesCount: Cardinal = use.Ordinal(segmentNoteCounts, insteadOf<Ordinal, Cardinal>(index))
+        return map(segmentDurations, (notesDuration: Scalar, index: Ordinal<Scalar[]>): Note[] => {
+            const contourLength: Cardinal<ContourPiece<PitchDuration>> = use.Ordinal(
+                segmentPieceLengths,
+                insteadOf<Ordinal, Array<Cardinal<ContourPiece<PitchDuration>>>>(index),
+            )
 
-            return computeNotes({ notesCount, notesDuration, repetitions, style })
+            return computeNotes({ contourLength, notesDuration, repetitions, style })
         })
     }
 
 const computeSegments: (computeSegmentsParameters: {
     core: Core,
-    entityCount: Cardinal<Entity>,
-    repetitions: Cardinal,
+    entityCount: Cardinal<Entity[]>,
+    repetitions: Cardinal<Repetition[]>,
     style: BeatenPathStyle,
 }) => Segment[] =
     ({ core, entityCount, repetitions, style }: ComputeSegmentsParameters): Segment[] => {
         const { coreDurations, coreIntervals } = computeCoreCycles(core)
 
-        const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal<Scalar> =
+        const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal<Scalar[]> =
             indexJustBeyondFinalElement(coreDurations)
 
         const segments: Segment[] = slice(
@@ -81,8 +85,8 @@ const computeSegments: (computeSegmentsParameters: {
             INITIAL,
             indexOfFirstElementAgainWrappingAroundTheCycle,
         )
-            .map((integer: Integer) => as.Ordinal<Segment>(integer))
-            .map((segmentIndex: Ordinal<Segment>): Segment =>
+            .map((integer: Integer) => as.Ordinal<Segment[]>(integer))
+            .map((segmentIndex: Ordinal<Segment[]>): Segment =>
                 computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),
             )
 

@@ -17,7 +17,7 @@ const equalizeDurationsOfSegmentNotes: (segments: Segment[]) => Segment[] =
     (segments: Segment[]): Segment[] => {
         const equalizedSegments: Segment[] = deepClone(segments)
 
-        forEach(segments, (segment: Segment, segmentIndex: Ordinal<Segment>) => {
+        forEach(segments, (segment: Segment, segmentIndex: Ordinal<Segment[]>) => {
             const notesDurations: number[] = segment.map(computeNotesTotalDurationByScalar)
             const maxNotesDuration: number = max(...notesDurations)
             const neededAdjustments: number[] = notesDurations.map((notesDuration: number) =>
@@ -35,13 +35,13 @@ const equalizeDurationsOfSegmentNotes: (segments: Segment[]) => Segment[] =
                 )
                 const equalizedNotes: Note[] = use.Ordinal(
                     equalizedSegment,
-                    insteadOf<Ordinal, Note[]>(notesIndex),
+                    insteadOf<Ordinal, Note[][]>(notesIndex),
                 )
                 const equalizedNote: Note = finalElement(equalizedNotes)
                 // tslint:disable-next-line no-non-null-assertion
                 equalizedNote.duration!.scalar = use.Translation(
                     // tslint:disable-next-line no-non-null-assertion
-                    equalizedNote.duration!.scalar,
+                    equalizedNote.duration!.scalar!,
                     as.Translation<Scalar<Scalar>>(neededAdjustment),
                 )
             })

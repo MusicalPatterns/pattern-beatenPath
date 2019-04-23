@@ -2,22 +2,22 @@
 
 export { computeCoreCycles } from './coreCycles'
 export { computeSegmentDurationIndices } from './segmentDurationIndices'
-export { computeSegmentNoteCounts } from './segmentNoteCounts'
 export { computeEntitiesNotes } from './entitiesNotes'
 export {
     computeSegmentRatios,
     computeSegmentIntervals,
-    alignSegmentNoteCountsWithSegmentDurations,
-    computeSegmentNoteCountsFromSegmentRatios,
-} from './segmentNoteCounts/indexForTest'
+    alignSegmentPieceLengthsWithSegmentDurations,
+    computeSegmentPieceLengthsFromSegmentRatios,
+    computeSegmentPieceLengths,
+} from './segmentPieceLength/indexForTest'
 export {
     distributeSegmentsToEntities,
     computeLoopCount,
-    computeLoopSegmentCycleTranslation,
+    computeLoopSegmentCycleShift,
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,
-    LoopSegmentCycleTranslation,
+    LoopSegmentCycleShift,
 } from './distributeSegmentsToEntities/indexForTest'
 export {
     applySmooth,

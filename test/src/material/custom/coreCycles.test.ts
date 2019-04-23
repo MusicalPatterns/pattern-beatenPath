@@ -5,9 +5,10 @@ import {
     Cycle,
     finalElement,
     Fraction,
+    INCREMENT,
     indexOfFinalElement,
+    insteadOf,
     length,
-    NEXT,
     notAs,
     Ordinal,
     Power,
@@ -260,7 +261,7 @@ describe('core cycles', () => {
     })
 
     describe('core durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = use.Translation(core, as.Translation<Core>(1))) {
+        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = use.Cardinal(core, INCREMENT)) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const coreCycles: CoreCycles = computeCoreCycles(core)
@@ -275,17 +276,17 @@ describe('core cycles', () => {
 
                 it('each successive duration is equal to the previous duration multiplied by the previous interval', () => {
                     for (
-                        let index: Ordinal<Scalar> = as.Ordinal<Scalar>(1);
+                        let index: Ordinal<Scalar[]> = as.Ordinal<Scalar[]>(1);
                         index < indexOfFinalElement(coreDurations);
-                        index = use.Translation(index, NEXT)
+                        index = use.Cardinal(index, INCREMENT)
                     ) {
                         const previousDuration: Scalar = use.Ordinal(
                             coreDurations,
-                            use.Translation(index, PREVIOUS),
+                            use.Cardinal(index, PREVIOUS),
                         )
                         const previousIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(use.Ordinal(
                             coreIntervals,
-                            use.Translation(index, PREVIOUS),
+                            use.Cardinal(insteadOf<Ordinal, Fraction[]>(index), PREVIOUS),
                         )))
                         expect(use.Ordinal(coreDurations, index))
                             .toBeCloseToTyped(use.Scalar(
@@ -764,9 +765,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(as.Cardinal<Fraction>(84))
+                    .toBe(as.Cardinal<Cycle<Fraction>>(84))
                 expect(length(coreDurations))
-                    .toBe(as.Cardinal<Scalar>(84))
+                    .toBe(as.Cardinal<Cycle<Scalar>>(84))
             })
 
             it('for core 3, they are both 53', () => {
@@ -774,9 +775,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(as.Cardinal<Fraction>(53))
+                    .toBe(as.Cardinal<Cycle<Fraction>>(53))
                 expect(length(coreDurations))
-                    .toBe(as.Cardinal<Scalar>(53))
+                    .toBe(as.Cardinal<Cycle<Scalar>>(53))
             })
 
             it('for core 4, they are both 16', () => {
@@ -784,9 +785,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(as.Cardinal<Fraction>(16))
+                    .toBe(as.Cardinal<Cycle<Fraction>>(16))
                 expect(length(coreDurations))
-                    .toBe(as.Cardinal<Scalar>(16))
+                    .toBe(as.Cardinal<Cycle<Scalar>>(16))
             })
 
             it('for core 5, they are both 20', () => {
@@ -794,9 +795,9 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
-                    .toBe(as.Cardinal<Fraction>(20))
+                    .toBe(as.Cardinal<Cycle<Fraction>>(20))
                 expect(length(coreDurations))
-                    .toBe(as.Cardinal<Scalar>(20))
+                    .toBe(as.Cardinal<Cycle<Scalar>>(20))
             })
         },
     )

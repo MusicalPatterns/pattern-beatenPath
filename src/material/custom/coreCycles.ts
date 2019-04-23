@@ -2,11 +2,11 @@ import {
     absoluteRatio,
     as,
     Cycle,
+    DECREMENT,
     Denominator,
     finalElement,
     Fraction,
-    isCloseTo,
-    negative,
+    INCREMENT, isCloseTo,
     notAs,
     reciprocal,
     Scalar,
@@ -28,17 +28,17 @@ const computeCoreCycles: (core: Core) => CoreCycles =
 
         const rawCore: number = beatenPathFrom.Core(core)
 
-        const superparticular: Scalar = as.Scalar(reciprocal(use.Translation(rawCore, as.Translation(1))))
+        const superparticular: Scalar = as.Scalar(reciprocal(use.Cardinal(rawCore, INCREMENT)))
         const superparticularDurationScalar: Scalar<Scalar> = as.Scalar<Scalar>(use.Scalar(rawCore, superparticular))
-        const superparticularDenominator: Denominator = as.Denominator(use.Translation(rawCore, as.Translation(1)))
+        const superparticularDenominator: Denominator = as.Denominator(use.Cardinal(rawCore, INCREMENT))
         const superparticularInterval: Fraction = [ as.Numerator(rawCore), superparticularDenominator ]
 
         const subparticularDivisor: Scalar =
-            as.Scalar(reciprocal(use.Translation(rawCore, as.Translation(negative(1)))))
+            as.Scalar(reciprocal(use.Cardinal(rawCore, DECREMENT)))
         const subparticularDurationScalar: Scalar<Scalar> =
             as.Scalar<Scalar>(use.Scalar(rawCore, subparticularDivisor))
         const subparticularDenominator: Denominator =
-            as.Denominator(use.Translation(rawCore, as.Translation(negative(1))))
+            as.Denominator(use.Cardinal(rawCore, DECREMENT))
         const subparticularInterval: Fraction = [ as.Numerator(rawCore), subparticularDenominator ]
 
         let hasLooped: boolean = false

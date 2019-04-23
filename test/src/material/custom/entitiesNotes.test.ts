@@ -5,15 +5,17 @@ import {
     materializeStandardScales,
     Note,
     Scale,
+    Segment,
 } from '@musical-patterns/material'
 import {
     as,
-    difference,
     forEach,
     indexOfFinalElement,
     Ms,
+    negative,
     NO_DURATION,
     notAs,
+    ofNotAs,
     ONE_HOUR,
     Ordinal,
     use,
@@ -36,10 +38,13 @@ describe('entities notes', () => {
 
         forEach(
             forwardVersion,
-            (notes: Note[], entityIndex: Ordinal<Note[]>): void => {
-                forEach(notes, (note: Note, index: Ordinal<Note>) => {
+            (notes: Note[], entityIndex: Ordinal<Segment>): void => {
+                forEach(notes, (note: Note, index: Ordinal<Note[]>) => {
                     const backwardNotes: Note[] = use.Ordinal(backwardVersion, entityIndex)
-                    const mirroredIndex: Ordinal<Note> = difference(indexOfFinalElement(notes), index)
+                    const mirroredIndex: Ordinal<Note[]> = use.Cardinal(
+                        indexOfFinalElement(notes),
+                        as.Cardinal(ofNotAs(negative(index))),
+                    )
                     const mirroredNote: Note = use.Ordinal(backwardNotes, mirroredIndex)
 
                     expect(note)
@@ -86,7 +91,7 @@ you can't simply equalize durations on the final segment, but every segment that
 very very close to 1 but is instead substituted by 1 itself for looping back around, and the more entities there are \
 the more segments each entity holds each of its durations for before changing, so the more that will be touched by this substitution`,
             async (done: DoneFn) => {
-                const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity>(3) }
+                const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity[]>(3) }
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
@@ -111,7 +116,7 @@ the more segments each entity holds each of its durations for before changing, s
         )
 
         it('an even higher entity count example just to ensure we do things in a generalizable way', async (done: DoneFn) => {
-            const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity>(4) }
+            const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity[]>(4) }
 
             const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
             const scales: Scale[] = materializeStandardScales(specs)

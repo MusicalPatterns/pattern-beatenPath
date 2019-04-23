@@ -7,14 +7,14 @@ export {
     computeCoreCycles,
     computeSegmentDurationIndices,
     CoreCycles,
-    computeSegmentNoteCounts,
+    computeSegmentPieceLengths,
     computeSegmentRatios,
     computeSegmentIntervals,
-    alignSegmentNoteCountsWithSegmentDurations,
-    computeSegmentNoteCountsFromSegmentRatios,
+    alignSegmentPieceLengthsWithSegmentDurations,
+    computeSegmentPieceLengthsFromSegmentRatios,
     distributeSegmentsToEntities,
     computeLoopCount,
-    computeLoopSegmentCycleTranslation,
+    computeLoopSegmentCycleShift,
     computeLoopCycledSegmentSegments,
     material,
     computeSegmentsDimensions,
@@ -26,7 +26,7 @@ export {
     BeatenPathEntitiesNotes,
     applySmooth,
     SmoothNotes,
-    LoopSegmentCycleTranslation,
+    LoopSegmentCycleShift,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 export {
@@ -35,4 +35,4 @@ export {
     spec,
 } from './spec/indexForTest'
 
-export { as, notAs, Core } from './nominals'
+export { as, notAs, Core, Repetition } from './nominals'

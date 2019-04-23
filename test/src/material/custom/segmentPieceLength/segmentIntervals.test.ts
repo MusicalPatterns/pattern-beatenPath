@@ -11,8 +11,8 @@ describe('segment intervals', () => {
                 as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                 as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
             ]),
-            entityCount: as.Cardinal<Entity>(3),
-            segmentIndex: as.Ordinal<Segment>(0),
+            entityCount: as.Cardinal<Entity[]>(3),
+            segmentIndex: as.Ordinal<Segment[]>(0),
         })
 
         expect(segmentIntervals)
@@ -31,8 +31,8 @@ describe('segment intervals', () => {
                 as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                 as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
             ]),
-            entityCount: as.Cardinal<Entity>(4),
-            segmentIndex: as.Ordinal<Segment>(0),
+            entityCount: as.Cardinal<Entity[]>(4),
+            segmentIndex: as.Ordinal<Segment[]>(0),
         })
 
         expect(segmentIntervals)
@@ -52,8 +52,8 @@ describe('segment intervals', () => {
                 as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                 as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
             ]),
-            entityCount: as.Cardinal<Entity>(3),
-            segmentIndex: as.Ordinal<Segment>(1),
+            entityCount: as.Cardinal<Entity[]>(3),
+            segmentIndex: as.Ordinal<Segment[]>(1),
         })
 
         expect(segmentIntervals)

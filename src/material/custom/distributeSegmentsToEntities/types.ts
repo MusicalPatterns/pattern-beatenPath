@@ -1,5 +1,5 @@
 import { Entity, Note, Segment } from '@musical-patterns/material'
-import { Cardinal, Cycle, Ordinal, Translation } from '@musical-patterns/utilities'
+import { Cardinal, Cycle, Ordinal } from '@musical-patterns/utilities'
 
 interface DistributeSegmentToEntitiesParameters {
     existingEntitiesNotes: Note[][],
@@ -7,21 +7,21 @@ interface DistributeSegmentToEntitiesParameters {
 }
 
 interface ComputeLoopCycledSegmentSegmentsParameters {
-    loopIndex: Ordinal<LoopSegmentCycleTranslation>,
-    loopSegmentCycleTranslation: LoopSegmentCycleTranslation,
+    loopIndex: Ordinal<LoopSegmentCycleShift[]>,
+    loopSegmentCycleShift: LoopSegmentCycleShift,
     segments: Segment[],
 }
 
 interface SegmentsDimensions {
-    cycleLength: Cardinal<Segment>,
-    entityCount: Cardinal<Entity>,
+    cycleLength: Cardinal<Segment[]>,
+    entityCount: Cardinal<Entity[]>,
 }
 
-type LoopSegmentCycleTranslation = Translation<Cycle<Note[]>>
+type LoopSegmentCycleShift = Cardinal<Cycle<Note[]>>
 
 export {
     DistributeSegmentToEntitiesParameters,
     ComputeLoopCycledSegmentSegmentsParameters,
     SegmentsDimensions,
-    LoopSegmentCycleTranslation,
+    LoopSegmentCycleShift,
 }

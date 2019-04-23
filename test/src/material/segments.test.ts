@@ -1,16 +1,16 @@
 import { computeNotesTotalCompiledDuration, Entity, Note, Segment } from '@musical-patterns/material'
 import { as, Cardinal, insteadOf, length, Ms, NO_DURATION, notAs, ONE_MORE, use } from '@musical-patterns/utilities'
-import { as as beatenPathTo, BeatenPathStyle, computeSegments, Core, spec } from '../../../src/indexForTest'
+import { as as beatenPathTo, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
 
 describe('segments', () => {
     let segments: Segment[]
 
-    const suite: (entityCount: Cardinal<Entity>) => void =
-        (entityCount: Cardinal<Entity>): void => {
+    const suite: (entityCount: Cardinal<Entity[]>) => void =
+        (entityCount: Cardinal<Entity[]>): void => {
             it('each segment has a set of notes for each entity', () => {
                 segments.forEach((segment: Segment): void => {
                     expect(length(segment))
-                        .toBe(insteadOf<Cardinal, Note[]>(entityCount))
+                        .toBe(insteadOf<Cardinal, Segment>(entityCount))
                 })
             })
 
@@ -46,14 +46,14 @@ describe('segments', () => {
             })
         }
 
-    let repetitions: Cardinal
+    let repetitions: Cardinal<Repetition[]>
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = use.Translation(core, as.Translation<Core>(1))) {
-        for (let entityCount: Cardinal<Entity> = as.Cardinal<Entity>(2); entityCount <= as.Cardinal<Entity>(4); entityCount = use.Translation(entityCount, ONE_MORE)) {
+    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = use.Cardinal(core, as.Cardinal<Core>(1))) {
+        for (let entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(2); entityCount <= as.Cardinal<Entity[]>(4); entityCount = use.Cardinal(entityCount, ONE_MORE)) {
             describe(`when core is ${core} and entity count is ${entityCount}`, () => {
                 describe('without repetition of segments', () => {
                     beforeEach(() => {
-                        repetitions = as.Cardinal(1)
+                        repetitions = as.Cardinal<Repetition[]>(1)
                     })
 
                     describe('in the polyrhythmic style', () => {
@@ -77,7 +77,7 @@ describe('segments', () => {
 
                 describe('with repetition of segments', () => {
                     beforeEach(() => {
-                        repetitions = as.Cardinal(2)
+                        repetitions = as.Cardinal<Repetition[]>(2)
                     })
 
                     describe('in the polyrhythmic style', () => {

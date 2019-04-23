@@ -1,8 +1,10 @@
+import { PitchDuration } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
     computeCommonTerms,
     computeLeastCommonMultiple,
+    ContourPiece,
     Fraction,
     getNumerator,
     notAs,
@@ -11,8 +13,9 @@ import {
     round,
 } from '@musical-patterns/utilities'
 
-const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => Cardinal[] =
-    (segmentRatios: Fraction[]): Cardinal[] => {
+const computeSegmentPieceLengthsFromSegmentRatios:
+    (segmentRatios: Fraction[]) => Array<Cardinal<ContourPiece<PitchDuration>>> =
+    (segmentRatios: Fraction[]): Array<Cardinal<ContourPiece<PitchDuration>>> => {
         const segmentRatiosInCommonTerms: Fraction[] = computeCommonTerms(...segmentRatios)
 
         const numerators: Numerator[] = segmentRatiosInCommonTerms.map(getNumerator)
@@ -22,11 +25,9 @@ const computeSegmentNoteCountsFromSegmentRatios: (segmentRatios: Fraction[]) => 
         return numerators
             .map((numerator: Numerator): Numerator =>
                 as.Numerator(round(quotient(leastCommonMultipleOfNumerators, numerator))))
-            .map(notAs.Numerator)
-            .map(as.Cardinal)
-
+            .map((numerator: Numerator) => as.Cardinal<ContourPiece<PitchDuration>>(notAs.Numerator(numerator)))
     }
 
 export {
-    computeSegmentNoteCountsFromSegmentRatios,
+    computeSegmentPieceLengthsFromSegmentRatios,
 }

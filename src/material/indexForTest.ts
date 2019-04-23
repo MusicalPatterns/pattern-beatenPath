@@ -9,14 +9,14 @@ export { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
 export {
     computeCoreCycles,
     computeSegmentDurationIndices,
-    computeSegmentNoteCounts,
+    computeSegmentPieceLengths,
     computeSegmentRatios,
     computeSegmentIntervals,
-    alignSegmentNoteCountsWithSegmentDurations,
-    computeSegmentNoteCountsFromSegmentRatios,
+    alignSegmentPieceLengthsWithSegmentDurations,
+    computeSegmentPieceLengthsFromSegmentRatios,
     distributeSegmentsToEntities,
     computeLoopCount,
-    computeLoopSegmentCycleTranslation,
+    computeLoopSegmentCycleShift,
     computeLoopCycledSegmentSegments,
     computeSegmentsDimensions,
     SegmentsDimensions,
@@ -24,7 +24,7 @@ export {
     BeatenPathEntitiesNotes,
     applySmooth,
     SmoothNotes,
-    LoopSegmentCycleTranslation,
+    LoopSegmentCycleShift,
 } from './custom/indexForTest'
 
 export {

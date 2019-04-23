@@ -16,10 +16,10 @@ const materializeEntities: MaterializeEntities =
 
         return map(
             entitiesNotes,
-            (entityNotes: Note[], index: Ordinal<Note[]>): Entity => ({
-                delay: use.Ordinal(delays, insteadOf<Ordinal, Ms>(index)),
+            (entityNotes: Note[], index: Ordinal<Note[][]>): Entity => ({
+                delay: use.Ordinal(delays, insteadOf<Ordinal, Ms[]>(index)),
                 sections: [ { notes: entityNotes } ],
-                timbreName: use.Ordinal(timbreNames, insteadOf<Ordinal, TimbreName>(index)),
+                timbreName: use.Ordinal(timbreNames, insteadOf<Ordinal, TimbreName[]>(index)),
             }),
         )
     }

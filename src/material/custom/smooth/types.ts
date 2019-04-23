@@ -26,7 +26,7 @@ interface ApplySmoothVariables {
 }
 
 interface HandleMatchOrNoMatchParameters extends ApplySmoothVariables {
-    entityCount: Cardinal<Entity>,
+    entityCount: Cardinal<Entity[]>,
     noteDuration: Scalar<Scalar>,
     notePitch: Scalar<Scalar>,
 }

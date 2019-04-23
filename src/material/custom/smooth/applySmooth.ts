@@ -15,12 +15,12 @@ import { SUSTAIN_AMOUNT } from '../../constants'
 import { handleMatchOrNoMatch } from './handleMatchOrNoMatch'
 import { ApplySmoothVariables, SmoothNotes } from './types'
 
-const smoothNoteTotalDurationReached: (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity>) => boolean =
-    (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity>): boolean =>
-        pitchMatchCount === entityCount
+const smoothNoteTotalDurationReached: (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity[]>) => boolean =
+    (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity[]>): boolean =>
+        pitchMatchCount === insteadOf<Cardinal>(entityCount)
 
-const notesEndReached: (index: Ordinal<Note>, notes: Note[]) => boolean =
-    (index: Ordinal<Note>, notes: Note[]): boolean =>
+const notesEndReached: (index: Ordinal<Note[]>, notes: Note[]) => boolean =
+    (index: Ordinal<Note[]>, notes: Note[]): boolean =>
         index === indexOfFinalElement(notes)
 
 const computeSmoothNote: (note: Note, smoothNoteTotalDurationScalar: Scalar<Ms>) => Note =
@@ -36,8 +36,8 @@ const computeSmoothNote: (note: Note, smoothNoteTotalDurationScalar: Scalar<Ms>)
         },
     })
 
-const applySmooth: (notes: Note[], entityCount: Cardinal<Entity>) => SmoothNotes =
-    (notes: Note[], entityCount: Cardinal<Entity>): SmoothNotes => {
+const applySmooth: (notes: Note[], entityCount: Cardinal<Entity[]>) => SmoothNotes =
+    (notes: Note[], entityCount: Cardinal<Entity[]>): SmoothNotes => {
         const smoothNotes: Note[] = []
 
         let pitchToMatch: Scalar<Scalar>
@@ -45,7 +45,7 @@ const applySmooth: (notes: Note[], entityCount: Cardinal<Entity>) => SmoothNotes
         let smoothNoteTotalDurationScalar: Scalar<Ms> = as.Scalar<Ms>(0)
         let delayScalar: Scalar<Ms> = as.Scalar<Ms>(0)
 
-        forEach(notes, (note: Note, index: Ordinal<Note>) => {
+        forEach(notes, (note: Note, index: Ordinal<Note[]>) => {
             // tslint:disable-next-line no-non-null-assertion
             const noteDuration: Scalar<Scalar> = note.duration!.scalar!
             // tslint:disable-next-line no-non-null-assertion

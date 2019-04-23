@@ -1,21 +1,21 @@
 import { Note, Segment } from '@musical-patterns/material'
-import { as, Cycle, notAs, Ordinal, Translation, use } from '@musical-patterns/utilities'
-import { ComputeLoopCycledSegmentSegmentsParameters, LoopSegmentCycleTranslation } from './types'
+import { as, Cardinal, Cycle, notAs, Ordinal, use } from '@musical-patterns/utilities'
+import { ComputeLoopCycledSegmentSegmentsParameters, LoopSegmentCycleShift } from './types'
 
 const computeLoopCycledSegmentSegments: (parameters: {
-    loopIndex: Ordinal<LoopSegmentCycleTranslation>,
-    loopSegmentCycleTranslation: LoopSegmentCycleTranslation,
+    loopIndex: Ordinal<LoopSegmentCycleShift[]>,
+    loopSegmentCycleShift: LoopSegmentCycleShift,
     segments: Segment[],
 }) => Segment[] =
-    ({ loopSegmentCycleTranslation, segments, loopIndex }: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
-        const loopTranslation: Translation<Cycle<Note[]>> = use.Scalar(
-            loopSegmentCycleTranslation,
-            as.Scalar<Translation<Cycle<Note[]>>>(notAs.Ordinal(loopIndex)),
+    ({ loopSegmentCycleShift, segments, loopIndex }: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
+        const loopCycling: Cardinal<Cycle<Note[]>> = use.Multiple(
+            loopSegmentCycleShift,
+            as.Multiple<Cardinal<Cycle<Note[]>>>(notAs.Ordinal<LoopSegmentCycleShift[]>(loopIndex)),
         )
 
-        return segments.map((segment: Segment) => notAs.Cycle(use.Translation(
+        return segments.map((segment: Segment) => notAs.Cycle(use.Cardinal(
             as.Cycle(segment),
-            loopTranslation,
+            loopCycling,
         )))
     }
 

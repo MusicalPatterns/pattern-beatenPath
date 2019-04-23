@@ -57,7 +57,7 @@ left one note per segment`,
                     sustain: { scalar: as.Scalar<Scalar>(6 / 5) },
                 },
             ]
-            const entityCount: Cardinal<Entity> = as.Cardinal<Entity>(3)
+            const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
 
             const actualSmoothNotes: SmoothNotes = applySmooth(notes, entityCount)
 
@@ -136,7 +136,7 @@ extends the final note by the equivalent amount`,
                     sustain: { scalar: as.Scalar<Scalar>(4 / 5) },
                 },
             ]
-            const entityCount: Cardinal<Entity> = as.Cardinal<Entity>(3)
+            const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
 
             const actualSmoothNotes: SmoothNotes = applySmooth(notes, entityCount)
 
@@ -214,7 +214,7 @@ extends the final note by the equivalent amount`,
                     sustain: { scalar: as.Scalar<Scalar>(4 / 5) },
                 },
             ]
-            const entityCount: Cardinal<Entity> = as.Cardinal<Entity>(3)
+            const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
 
             const actualSmoothNotes: SmoothNotes = applySmooth(notes, entityCount)
 

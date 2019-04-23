@@ -2,11 +2,11 @@
 
 export { distributeSegmentsToEntities } from './distributeSegmentsToEntities'
 export { computeLoopCount } from './loopCount'
-export { computeLoopSegmentCycleTranslation } from './loopSegmentCycleTranslations'
+export { computeLoopSegmentCycleShift } from './loopSegmentCycleShifts'
 export { computeLoopCycledSegmentSegments } from './loopCycledSegmentSegments'
 export { computeSegmentsDimensions } from './segmentsDimensions'
 
 export {
     SegmentsDimensions,
-    LoopSegmentCycleTranslation,
+    LoopSegmentCycleShift,
 } from './types'
