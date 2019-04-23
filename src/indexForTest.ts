@@ -36,3 +36,6 @@ export {
 } from './spec/indexForTest'
 
 export { as, notAs, Core, Repetition } from './nominals'
+export {
+    PieceLength,
+} from './types'

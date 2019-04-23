@@ -1,6 +1,6 @@
 import { PitchDuration } from '@musical-patterns/material'
-import { as, Cardinal, ContourPiece, Ordinal, Scalar } from '@musical-patterns/utilities'
-import { alignSegmentPieceLengthsWithSegmentDurations } from '../../../../../src/indexForTest'
+import { as, ContourPiece, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { alignSegmentPieceLengthsWithSegmentDurations, PieceLength } from '../../../../../src/indexForTest'
 
 describe('align segment piece lengths with segment durations', () => {
     it(
@@ -9,11 +9,11 @@ describe('align segment piece lengths with segment durations', () => {
 the idea is that the entity with the highest duration index is the furthest through the core durations at this segment, \
 so it needs to use the duration for the segment which is furthest through the core duration`,
         () => {
-            const segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>> = [ 15, 12, 16 ] // In order
+            const segmentPieceLengths: PieceLength[] = [ 15, 12, 16 ] // In order
                 .map((actual: number) => as.Cardinal<ContourPiece<PitchDuration>>(actual))
             const segmentDurationIndices: Array<Ordinal<Scalar[]>> = [ 2, 4, 3 ].map((value: number) => as.Ordinal<Scalar[]>(value)) // Ground to 0, 2, 1
 
-            const actualSegmentPieceLengthsAlignedWithSegmentDurations: Array<Cardinal<ContourPiece<PitchDuration>>> =
+            const actualSegmentPieceLengthsAlignedWithSegmentDurations: PieceLength[] =
                 alignSegmentPieceLengthsWithSegmentDurations({
                     segmentDurationIndices,
                     segmentPieceLengths,

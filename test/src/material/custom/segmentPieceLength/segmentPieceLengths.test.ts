@@ -1,8 +1,8 @@
 // tslint:disable comment-format
 
 import { Entity, PitchDuration, Segment } from '@musical-patterns/material'
-import { as, Cardinal, ContourPiece, Scalar } from '@musical-patterns/utilities'
-import { computeSegmentPieceLengths } from '../../../../../src/indexForTest'
+import { as, ContourPiece, Scalar } from '@musical-patterns/utilities'
+import { computeSegmentPieceLengths, PieceLength } from '../../../../../src/indexForTest'
 
 describe('segment piece lengths', () => {
     describe('when entity count is 2', () => {
@@ -14,7 +14,7 @@ the fewest number of notes each entity will have to play before they make a sing
 this is an integration test of sorts - for more details look at: \
 computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSegmentRatios, and alignSegmentPieceLengthsWithSegmentDurations`,
             () => {
-                const segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>> = computeSegmentPieceLengths({
+                const segmentPieceLengths: PieceLength[] = computeSegmentPieceLengths({
                     coreIntervals: as.Cycle([
                         as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                         as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
@@ -54,7 +54,7 @@ the fewest number of notes each entity will have to play before they make a sing
 this is an integration test of sorts - for more details look at: \
 computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSegmentRatios, and alignSegmentPieceLengthsWithSegmentDurations`,
             () => {
-                const segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>> = computeSegmentPieceLengths({
+                const segmentPieceLengths: PieceLength[] = computeSegmentPieceLengths({
                     coreIntervals: as.Cycle([
                         as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                         as.Fraction([ as.Numerator(4), as.Denominator(3) ]),

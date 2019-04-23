@@ -1,40 +1,29 @@
-import { PitchDuration } from '@musical-patterns/material'
-import {
-    as,
-    Cardinal,
-    ContourPiece,
-    insteadOf,
-    min,
-    negative,
-    ofNotAs,
-    Ordinal,
-    Scalar,
-    use,
-} from '@musical-patterns/utilities'
+import { as, insteadOf, min, negative, ofNotAs, Ordinal, Scalar, use } from '@musical-patterns/utilities'
+import { PieceLength } from '../../../types'
 import { AlignSegmentPieceLengthsWithSegmentDurationsParameters } from './types'
 
 const alignSegmentPieceLengthsWithSegmentDurations: (parameters: {
     segmentDurationIndices: Array<Ordinal<Scalar[]>>,
-    segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>>,
-}) => Array<Cardinal<ContourPiece<PitchDuration>>> =
+    segmentPieceLengths: PieceLength[],
+}) => PieceLength[] =
     (
         {
             segmentPieceLengths,
             segmentDurationIndices,
         }: AlignSegmentPieceLengthsWithSegmentDurationsParameters,
-    ): Array<Cardinal<ContourPiece<PitchDuration>>> => {
+    ): PieceLength[] => {
         const leastSegmentDurationIndex: Ordinal<Scalar[]> = min(...segmentDurationIndices)
-        const segmentPieceLengthsIndices: Array<Ordinal<Array<Cardinal<ContourPiece<PitchDuration>>>>> =
+        const segmentPieceLengthsIndices: Array<Ordinal<PieceLength[]>> =
             segmentDurationIndices.map(
                 (segmentDurationIndex: Ordinal<Scalar[]>) =>
-                    insteadOf<Ordinal, Array<Cardinal<ContourPiece<PitchDuration>>>>(use.Cardinal(
+                    insteadOf<Ordinal, PieceLength[]>(use.Cardinal(
                         segmentDurationIndex,
                         as.Cardinal(ofNotAs(negative(leastSegmentDurationIndex))),
                     )),
             )
 
         return segmentPieceLengthsIndices.map(
-            (segmentPieceLengthsIndex: Ordinal<Array<Cardinal<ContourPiece<PitchDuration>>>>) =>
+            (segmentPieceLengthsIndex: Ordinal<PieceLength[]>) =>
                 use.Ordinal(segmentPieceLengths, segmentPieceLengthsIndex),
         )
     }

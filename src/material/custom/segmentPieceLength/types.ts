@@ -1,5 +1,6 @@
-import { Entity, PitchDuration, Segment } from '@musical-patterns/material'
-import { Cardinal, ContourPiece, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Entity, Segment } from '@musical-patterns/material'
+import { Cardinal, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { PieceLength } from '../../../types'
 
 interface ComputeSegmentPieceLengthsParameters {
     coreIntervals: Cycle<Fraction>,
@@ -20,7 +21,7 @@ interface ComputeSegmentRatiosParameters {
 
 interface AlignSegmentPieceLengthsWithSegmentDurationsParameters {
     segmentDurationIndices: Array<Ordinal<Scalar[]>>,
-    segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>>,
+    segmentPieceLengths: PieceLength[],
 }
 
 export {

@@ -1,8 +1,7 @@
-import { Entity, Note, PitchDuration, Segment } from '@musical-patterns/material'
+import { Entity, Note, Segment } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
-    ContourPiece,
     Cycle,
     Fraction,
     indexJustBeyondFinalElement,
@@ -18,6 +17,7 @@ import {
 } from '@musical-patterns/utilities'
 import { Core, Repetition } from '../nominals'
 import { BeatenPathStyle } from '../spec'
+import { PieceLength } from '../types'
 import {
     computeCoreCycles,
     computeSegmentDurationIndices,
@@ -47,7 +47,7 @@ const computeSegment: (computeSegmentsParameters: {
     ): Segment => {
         const segmentDurationIndices: Array<Ordinal<Scalar[]>> =
             computeSegmentDurationIndices({ segmentIndex, entityCount })
-        const segmentPieceLengths: Array<Cardinal<ContourPiece<PitchDuration>>> = computeSegmentPieceLengths({
+        const segmentPieceLengths: PieceLength[] = computeSegmentPieceLengths({
             coreIntervals,
             entityCount,
             segmentDurationIndices,
@@ -59,12 +59,12 @@ const computeSegment: (computeSegmentsParameters: {
         )
 
         return map(segmentDurations, (notesDuration: Scalar, index: Ordinal<Scalar[]>): Note[] => {
-            const contourLength: Cardinal<ContourPiece<PitchDuration>> = use.Ordinal(
+            const pieceLength: PieceLength = use.Ordinal(
                 segmentPieceLengths,
-                insteadOf<Ordinal, Array<Cardinal<ContourPiece<PitchDuration>>>>(index),
+                insteadOf<Ordinal, PieceLength[]>(index),
             )
 
-            return computeNotes({ contourLength, notesDuration, repetitions, style })
+            return computeNotes({ pieceLength, notesDuration, repetitions, style })
         })
     }
 
