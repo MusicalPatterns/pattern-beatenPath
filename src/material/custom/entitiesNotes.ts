@@ -3,7 +3,10 @@ import {
     as,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
+    insteadOf,
+    Integer,
     Ms,
+    Ordinal,
     Scalar,
     slice,
     ZERO_AND_POSITIVE_INTEGERS,
@@ -43,9 +46,12 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
             })
         }
         else {
-            delayScalars =
-                slice(ZERO_AND_POSITIVE_INTEGERS, INITIAL, indexJustBeyondFinalElementFromElementsTotal(entityCount))
-                    .map(() => as.Scalar<Ms>(0))
+            delayScalars = slice(
+                ZERO_AND_POSITIVE_INTEGERS,
+                INITIAL,
+                insteadOf<Ordinal, Integer[]>(indexJustBeyondFinalElementFromElementsTotal(entityCount)),
+            )
+                .map(() => as.Scalar<Ms>(0))
         }
 
         const delays: Ms[] = delayScalars.map((delayScalar: Scalar<Ms>) => pseudocompileDelay({

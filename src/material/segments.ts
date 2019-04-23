@@ -83,7 +83,7 @@ const computeSegments: (computeSegmentsParameters: {
         const segments: Segment[] = slice(
             ZERO_AND_POSITIVE_INTEGERS,
             INITIAL,
-            indexOfFirstElementAgainWrappingAroundTheCycle,
+            insteadOf<Ordinal, Integer[]>(indexOfFirstElementAgainWrappingAroundTheCycle),
         )
             .map((integer: Integer) => as.Ordinal<Segment[]>(integer))
             .map((segmentIndex: Ordinal<Segment[]>): Segment =>
