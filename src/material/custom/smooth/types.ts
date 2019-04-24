@@ -8,7 +8,7 @@ interface SmoothNotes {
 }
 
 interface BeatenPathEntitiesNotes {
-    delays: Ms[],
+    delays: Array<Translation<Ms>>,
     entitiesNotes: Note[][],
 }
 

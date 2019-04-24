@@ -6,9 +6,9 @@ const pseudocompileDelay: (parameters: {
     [ StandardSpec.BASE_DURATION ]: Scalar<Ms>,
     [ StandardSpec.BASE_DURATION_TRANSLATION ]: Translation<Ms>,
     delayScalar: Scalar<Ms>,
-}) => Ms =
-    ({ delayScalar, baseDuration, baseDurationTranslation }: PseudocompileDelayParameters): Ms =>
-        as.Ms(notAs.Scalar<Ms>(use.Translation(
+}) => Translation<Ms> =
+    ({ delayScalar, baseDuration, baseDurationTranslation }: PseudocompileDelayParameters): Translation<Ms> =>
+        as.Translation<Ms>(notAs.Scalar<Ms>(use.Translation(
             use.Scalar(
                 delayScalar,
                 as.Scalar(ofNotAs(baseDuration)),

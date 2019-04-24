@@ -675,8 +675,8 @@ describe('core cycles', () => {
                             use.Power(1, totalDownIntervals),
                         ),
                     )))
-                expect(sum(totalUpIntervals, totalDownIntervals))
-                    .toBe(totalIntervals)
+                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
+                    .toBe(notAs.Power(totalIntervals))
             })
 
             it('for core 3', () => {
@@ -700,8 +700,8 @@ describe('core cycles', () => {
                             use.Power(2, totalDownIntervals),
                         ),
                     )))
-                expect(sum(totalUpIntervals, totalDownIntervals))
-                    .toBe(totalIntervals)
+                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
+                    .toBe(notAs.Power(totalIntervals))
             })
 
             it('for core 4', () => {
@@ -725,8 +725,8 @@ describe('core cycles', () => {
                             use.Power(3, totalDownIntervals),
                         ),
                     )))
-                expect(sum(totalUpIntervals, totalDownIntervals))
-                    .toBe(totalIntervals)
+                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
+                    .toBe(notAs.Power(totalIntervals))
             })
 
             it('for core 5', () => {
@@ -750,8 +750,8 @@ describe('core cycles', () => {
                             use.Power(4, totalDownIntervals),
                         ),
                     )))
-                expect(sum(totalUpIntervals, totalDownIntervals))
-                    .toBe(totalIntervals)
+                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
+                    .toBe(notAs.Power(totalIntervals))
             })
         })
     })

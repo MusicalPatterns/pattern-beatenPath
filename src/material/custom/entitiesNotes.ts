@@ -9,6 +9,7 @@ import {
     Ordinal,
     Scalar,
     slice,
+    Translation,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
@@ -54,7 +55,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
                 .map(() => as.Scalar<Ms>(0))
         }
 
-        const delays: Ms[] = delayScalars.map((delayScalar: Scalar<Ms>) => pseudocompileDelay({
+        const delays: Array<Translation<Ms>> = delayScalars.map((delayScalar: Scalar<Ms>) => pseudocompileDelay({
             baseDuration,
             baseDurationTranslation,
             delayScalar,

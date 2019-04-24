@@ -1,5 +1,5 @@
 import { computeNotesTotalCompiledDuration, Entity, Note, Segment } from '@musical-patterns/material'
-import { as, Cardinal, insteadOf, length, Ms, NO_DURATION, notAs, ONE_MORE, use } from '@musical-patterns/utilities'
+import { as, Cardinal, insteadOf, length, Ms, NO_DURATION, notAs, ONE_MORE, Translation, use } from '@musical-patterns/utilities'
 import { as as beatenPathTo, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
 
 describe('segments', () => {
@@ -16,9 +16,9 @@ describe('segments', () => {
 
             it(`each segment's sets of notes each have the same total duration`, () => {
                 segments.forEach((segment: Segment): void => {
-                    let segmentDuration: Ms = NO_DURATION
+                    let segmentDuration: Translation<Ms> = NO_DURATION
                     segment.forEach((notes: Note[]): void => {
-                        if (notAs.Ms(segmentDuration) === 0) {
+                        if (segmentDuration === NO_DURATION) {
                             segmentDuration = computeNotesTotalCompiledDuration(notes)
                         }
                         else {
@@ -30,12 +30,12 @@ describe('segments', () => {
             })
 
             it('each segment has a different total duration than any other segment', () => {
-                const seenTotalDurations: Ms[] = []
+                const seenTotalDurations: Array<Translation<Ms>> = []
                 segments.forEach((segment: Segment): void => {
                     const exemplarySegmentNotes: Note[] = segment[ 0 ]
-                    const totalDuration: Ms = computeNotesTotalCompiledDuration(exemplarySegmentNotes)
+                    const totalDuration: Translation<Ms> = computeNotesTotalCompiledDuration(exemplarySegmentNotes)
 
-                    seenTotalDurations.forEach((seenDuration: Ms): void => {
+                    seenTotalDurations.forEach((seenDuration: Translation<Ms>): void => {
                         expect(seenDuration)
                             .not
                             .toBeCloseToTyped(totalDuration)
