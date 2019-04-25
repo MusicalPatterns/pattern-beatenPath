@@ -12,6 +12,7 @@ import {
     ofNotAs,
     Ordinal,
     Scalar,
+    Transition,
     use,
 } from '@musical-patterns/utilities'
 import { ComputeSegmentDurationIndicesParameters } from './types'
@@ -32,12 +33,12 @@ const computeSegmentDurationIndices: (parameters: {
                 insteadOf<Ordinal, Scalar[]>(finalIndexFromElementsTotal(entityCount)),
                 as.Cardinal(ofNotAs(negative(entityDurationIndex))),
             )
-            const entityCoreCycleProgressBeforeStepping: Ordinal<Segment[]> = use.Cardinal(
+            const entityCoreCycleProgressBeforeStepping: Ordinal<Segment[]> = use.Transition(
                 segmentIndex,
-                as.Cardinal<Ordinal<Segment[]>>(notAs.Ordinal(entityDurationIndex)),
+                as.Transition<Segment[]>(notAs.Ordinal(entityDurationIndex)),
             )
-            const entityCoreCycleProgressAfterStepping: Cardinal<Ordinal<Scalar[]>> =
-                as.Cardinal<Ordinal<Scalar[]>>(use.Multiple(
+            const entityCoreCycleProgressAfterStepping: Transition<Scalar[]> =
+                as.Transition<Scalar[]>(use.Multiple(
                     floor(
                         notAs.Ordinal<Segment[]>(entityCoreCycleProgressBeforeStepping) / notAs.Cardinal(entityCount),
                     ),

@@ -20,7 +20,7 @@ import { applySmooth, BeatenPathEntitiesNotes, pseudocompileDelay } from './smoo
 
 const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes =
     ({
-         baseDuration = as.Translation<Point<Ms>>(1),
+         baseDuration = as.Delta<Ms>(1),
          baseDurationTranslation = as.Translation<Duration>(0),
          core,
          entityCount,
