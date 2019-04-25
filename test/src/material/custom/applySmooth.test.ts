@@ -1,5 +1,5 @@
 import { Entity, Note } from '@musical-patterns/material'
-import { as, Cardinal, Duration, Ms, Pitch } from '@musical-patterns/utilities'
+import { as, Cardinal, Duration, Pitch } from '@musical-patterns/utilities'
 import { applySmooth, SmoothNotes } from '../../../../src/indexForTest'
 
 describe('apply smooth', () => {
@@ -63,7 +63,7 @@ left one note per segment`,
 
             expect(actualSmoothNotes)
                 .toEqual({
-                    delayScalar: as.Scalar<Ms>(0),
+                    delayScalar: as.Scalar<Duration>(0),
                     notes: [
                         {
                             duration: { scalar: as.Scalar<Duration>(3.4) },
@@ -142,7 +142,7 @@ extends the final note by the equivalent amount`,
 
             expect(actualSmoothNotes)
                 .toEqual({
-                    delayScalar: as.Scalar<Ms>(1.1),
+                    delayScalar: as.Scalar<Duration>(1.1),
                     notes: [
                         {
                             duration: { scalar: as.Scalar<Duration>(2.1) },
@@ -220,7 +220,7 @@ extends the final note by the equivalent amount`,
 
             expect(actualSmoothNotes)
                 .toEqual({
-                    delayScalar: as.Scalar<Ms>(2.4000000000000004),
+                    delayScalar: as.Scalar<Duration>(2.4000000000000004),
                     notes: [
                         {
                             duration: { scalar: as.Scalar<Duration>(2.1) },
