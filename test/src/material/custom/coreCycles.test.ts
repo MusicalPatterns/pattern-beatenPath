@@ -16,7 +16,6 @@ import {
     product,
     quotient,
     Scalar,
-    sum,
     use,
 } from '@musical-patterns/utilities'
 import { as as beatenPathTo, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'

@@ -3,6 +3,7 @@ import {
     as,
     deepClone,
     difference,
+    Duration,
     finalElement,
     forEach,
     insteadOf,
@@ -42,7 +43,7 @@ const equalizeDurationsOfSegmentNotes: (segments: Segment[]) => Segment[] =
                 equalizedNote.duration!.scalar = use.Translation(
                     // tslint:disable-next-line no-non-null-assertion
                     equalizedNote.duration!.scalar!,
-                    as.Translation<Scalar<Scalar>>(neededAdjustment),
+                    as.Translation<Scalar<Duration>>(neededAdjustment),
                 )
             })
         })

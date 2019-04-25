@@ -9,16 +9,14 @@ import {
 } from '@musical-patterns/material'
 import {
     as,
+    Duration,
     forEach,
     indexOfFinalElement,
-    Ms,
     negative,
     NO_DURATION,
-    notAs,
     ofNotAs,
     ONE_HOUR,
     Ordinal,
-    Translation,
     use,
 } from '@musical-patterns/utilities'
 import {
@@ -66,9 +64,9 @@ I'm using standard scales here because that's what the pattern uses and I want i
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
-                let expectedEntityNotesDuration: Translation<Ms> = NO_DURATION
+                let expectedEntityNotesDuration: Duration = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
-                    const entityNotesDuration: Translation<Ms> = computeNotesTotalCompiledDuration(entityNotes, scales)
+                    const entityNotesDuration: Duration = computeNotesTotalCompiledDuration(entityNotes, scales)
                     if (expectedEntityNotesDuration === NO_DURATION) {
                         expectedEntityNotesDuration = entityNotesDuration
                     }
@@ -96,9 +94,9 @@ the more segments each entity holds each of its durations for before changing, s
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
                 const scales: Scale[] = materializeStandardScales(specs)
-                let expectedEntityNotesDuration: Translation<Ms> = NO_DURATION
+                let expectedEntityNotesDuration: Duration = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
-                    const entityNotesDuration: Translation<Ms> = computeNotesTotalCompiledDuration(entityNotes, scales)
+                    const entityNotesDuration: Duration = computeNotesTotalCompiledDuration(entityNotes, scales)
                     if (expectedEntityNotesDuration === NO_DURATION) {
                         expectedEntityNotesDuration = entityNotesDuration
                     }
@@ -121,9 +119,9 @@ the more segments each entity holds each of its durations for before changing, s
 
             const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
             const scales: Scale[] = materializeStandardScales(specs)
-            let expectedEntityNotesDuration: Translation<Ms> = NO_DURATION
+            let expectedEntityNotesDuration: Duration = NO_DURATION
             entitiesNotes.forEach((entityNotes: Note[]): void => {
-                const entityNotesDuration: Translation<Ms> = computeNotesTotalCompiledDuration(entityNotes, scales)
+                const entityNotesDuration: Duration = computeNotesTotalCompiledDuration(entityNotes, scales)
                 if (expectedEntityNotesDuration === NO_DURATION) {
                     expectedEntityNotesDuration = entityNotesDuration
                 }

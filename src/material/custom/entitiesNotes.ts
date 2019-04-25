@@ -1,15 +1,16 @@
 import { Note, Segment } from '@musical-patterns/material'
 import {
     as,
+    Duration,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
     insteadOf,
     Integer,
     Ms,
     Ordinal,
+    Point,
     Scalar,
     slice,
-    Translation,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
@@ -19,8 +20,8 @@ import { applySmooth, BeatenPathEntitiesNotes, pseudocompileDelay } from './smoo
 
 const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes =
     ({
-         baseDuration = as.Scalar<Ms>(1),
-         baseDurationTranslation = as.Translation<Ms>(0),
+         baseDuration = as.Translation<Point<Ms>>(1),
+         baseDurationTranslation = as.Translation<Duration>(0),
          core,
          entityCount,
          repetitions,
@@ -37,7 +38,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
             })
         }
 
-        let delayScalars: Array<Scalar<Ms>> = []
+        let delayScalars: Array<Scalar<Duration>> = []
         if (style === BeatenPathStyle.SMOOTH) {
             entitiesNotes = entitiesNotes.map((notes: Note[]) => {
                 const { notes: smoothNotes, delayScalar } = applySmooth(notes, entityCount)
@@ -52,10 +53,10 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
                 INITIAL,
                 insteadOf<Ordinal, Integer[]>(indexJustBeyondFinalElementFromElementsTotal(entityCount)),
             )
-                .map(() => as.Scalar<Ms>(0))
+                .map(() => as.Scalar<Duration>(0))
         }
 
-        const delays: Array<Translation<Ms>> = delayScalars.map((delayScalar: Scalar<Ms>) => pseudocompileDelay({
+        const delays: Duration[] = delayScalars.map((delayScalar: Scalar<Duration>) => pseudocompileDelay({
             baseDuration,
             baseDurationTranslation,
             delayScalar,

@@ -2,12 +2,13 @@ import { Entity, Note } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
+    Duration,
     forEach,
     indexOfFinalElement,
     insteadOf,
-    Ms,
     ofNotAs,
     Ordinal,
+    Pitch,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
@@ -23,16 +24,16 @@ const notesEndReached: (index: Ordinal<Note[]>, notes: Note[]) => boolean =
     (index: Ordinal<Note[]>, notes: Note[]): boolean =>
         index === indexOfFinalElement(notes)
 
-const computeSmoothNote: (note: Note, smoothNoteTotalDurationScalar: Scalar<Ms>) => Note =
-    (note: Note, smoothNoteTotalDurationScalar: Scalar<Ms>): Note => ({
+const computeSmoothNote: (note: Note, smoothNoteTotalDurationScalar: Scalar<Duration>) => Note =
+    (note: Note, smoothNoteTotalDurationScalar: Scalar<Duration>): Note => ({
         ...note,
         duration: {
             ...note.duration,
-            scalar: insteadOf<Scalar, Scalar>(smoothNoteTotalDurationScalar),
+            scalar: insteadOf<Scalar, Duration>(smoothNoteTotalDurationScalar),
         },
         sustain: {
             ...note.sustain,
-            scalar: use.Scalar(insteadOf<Scalar, Scalar>(smoothNoteTotalDurationScalar), SUSTAIN_AMOUNT),
+            scalar: use.Scalar(smoothNoteTotalDurationScalar, SUSTAIN_AMOUNT),
         },
     })
 
@@ -40,16 +41,16 @@ const applySmooth: (notes: Note[], entityCount: Cardinal<Entity[]>) => SmoothNot
     (notes: Note[], entityCount: Cardinal<Entity[]>): SmoothNotes => {
         const smoothNotes: Note[] = []
 
-        let pitchToMatch: Scalar<Scalar>
+        let pitchToMatch: Scalar<Pitch>
         let pitchMatchCount: Cardinal = as.Cardinal(0)
-        let smoothNoteTotalDurationScalar: Scalar<Ms> = as.Scalar<Ms>(0)
-        let delayScalar: Scalar<Ms> = as.Scalar<Ms>(0)
+        let smoothNoteTotalDurationScalar: Scalar<Duration> = as.Scalar<Duration>(0)
+        let delayScalar: Scalar<Duration> = as.Scalar<Duration>(0)
 
         forEach(notes, (note: Note, index: Ordinal<Note[]>) => {
             // tslint:disable-next-line no-non-null-assertion
-            const noteDuration: Scalar<Scalar> = note.duration!.scalar!
+            const noteDuration: Scalar<Duration> = note.duration!.scalar!
             // tslint:disable-next-line no-non-null-assertion
-            const notePitch: Scalar<Scalar> = note.pitch!.scalar!
+            const notePitch: Scalar<Pitch> = note.pitch!.scalar!
 
             const applySmoothVariables: ApplySmoothVariables = handleMatchOrNoMatch({
                 delayScalar,
