@@ -8,7 +8,6 @@ import {
     INITIAL,
     insteadOf,
     negative,
-    notAs,
     ofNotAs,
     Ordinal,
     Scalar,
@@ -35,14 +34,14 @@ const computeSegmentDurationIndices: (parameters: {
             )
             const entityCoreCycleProgressBeforeStepping: Ordinal<Segment[]> = use.Transition(
                 segmentIndex,
-                as.Transition<Segment[]>(notAs.Ordinal(entityDurationIndex)),
+                as.Transition<Segment[]>(as.number(entityDurationIndex)),
             )
             const entityCoreCycleProgressAfterStepping: Transition<Scalar[]> =
                 as.Transition<Scalar[]>(use.Multiple(
                     floor(
-                        notAs.Ordinal<Segment[]>(entityCoreCycleProgressBeforeStepping) / notAs.Cardinal(entityCount),
+                        as.number(entityCoreCycleProgressBeforeStepping) / as.number(entityCount),
                     ),
-                    as.Multiple(notAs.Cardinal(entityCount)),
+                    as.Multiple(as.number(entityCount)),
                 ))
 
             segmentDurationIndices.push(use.Cardinal(

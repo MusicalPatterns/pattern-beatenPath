@@ -1,6 +1,6 @@
 import { computeNotesTotalCompiledDuration, Entity, Note, Segment } from '@musical-patterns/material'
 import { as, Cardinal, Duration, insteadOf, length, NO_DURATION, ONE_MORE, use } from '@musical-patterns/utilities'
-import { as as beatenPathTo, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
+import { as as beatenPathAs, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
 
 describe('segments', () => {
     let segments: Segment[]
@@ -48,7 +48,7 @@ describe('segments', () => {
 
     let repetitions: Cardinal<Repetition[]>
 
-    for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(6); core = use.Cardinal(core, as.Cardinal<Core>(1))) {
+    for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(6); core = use.Cardinal(core, as.Cardinal<Core>(1))) {
         for (let entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(2); entityCount <= as.Cardinal<Entity[]>(4); entityCount = use.Cardinal(entityCount, ONE_MORE)) {
             describe(`when core is ${core} and entity count is ${entityCount}`, () => {
                 describe('without repetition of segments', () => {

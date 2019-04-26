@@ -9,16 +9,16 @@ import {
     indexOfFinalElement,
     insteadOf,
     length,
-    notAs,
     Ordinal,
     Power,
     PREVIOUS,
     product,
     quotient,
+    resolve,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
-import { as as beatenPathTo, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'
+import { as as beatenPathAs, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'
 
 describe('core cycles', () => {
     let coreIntervals: Cycle<Fraction>
@@ -26,7 +26,7 @@ describe('core cycles', () => {
 
     describe('core intervals', () => {
         it('when core is 2', () => {
-            const core: Core = beatenPathTo.Core(2)
+            const core: Core = beatenPathAs.Core(2)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
@@ -125,7 +125,7 @@ describe('core cycles', () => {
         })
 
         it('when core is 3', () => {
-            const core: Core = beatenPathTo.Core(3)
+            const core: Core = beatenPathAs.Core(3)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
@@ -193,7 +193,7 @@ describe('core cycles', () => {
         })
 
         it('when core is 4', () => {
-            const core: Core = beatenPathTo.Core(4)
+            const core: Core = beatenPathAs.Core(4)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
@@ -224,7 +224,7 @@ describe('core cycles', () => {
         })
 
         it('when core is 5', () => {
-            const core: Core = beatenPathTo.Core(5)
+            const core: Core = beatenPathAs.Core(5)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
@@ -260,7 +260,7 @@ describe('core cycles', () => {
     })
 
     describe('core durations', () => {
-        for (let core: Core = beatenPathTo.Core(2); core <= beatenPathTo.Core(7); core = use.Cardinal(core, INCREMENT)) {
+        for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(7); core = use.Cardinal(core, INCREMENT)) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
                     const coreCycles: CoreCycles = computeCoreCycles(core)
@@ -283,7 +283,7 @@ describe('core cycles', () => {
                             coreDurations,
                             use.Cardinal(index, PREVIOUS),
                         )
-                        const previousIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(use.Ordinal(
+                        const previousIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(use.Ordinal(
                             coreIntervals,
                             use.Cardinal(insteadOf<Ordinal, Fraction[]>(index), PREVIOUS),
                         )))
@@ -299,7 +299,7 @@ describe('core cycles', () => {
 
         describe('in hard-coded decimal terms so I have a clearer record of what exactly is going on here', () => {
             it('when core is 2', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                 coreDurations = coreCycles.coreDurations
 
                 expect(coreDurations)
@@ -392,7 +392,7 @@ describe('core cycles', () => {
             })
 
             it('when core is 3', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                 coreDurations = coreCycles.coreDurations
 
                 expect(coreDurations)
@@ -454,7 +454,7 @@ describe('core cycles', () => {
             })
 
             it('when core is 4', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                 coreDurations = coreCycles.coreDurations
 
                 expect(coreDurations)
@@ -479,7 +479,7 @@ describe('core cycles', () => {
             })
 
             it('when core is 5', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                 coreDurations = coreCycles.coreDurations
 
                 expect(coreDurations)
@@ -514,7 +514,7 @@ describe('core cycles', () => {
             contains only factors of +/- 1 of the core, so they can never be reduced in terms`,
             () => {
                 it('when core is 2', () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                     coreDurations = coreCycles.coreDurations
 
                     expect(coreDurations)
@@ -532,7 +532,7 @@ describe('core cycles', () => {
                 })
 
                 it('when core is 3', () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                     coreDurations = coreCycles.coreDurations
 
                     expect(coreDurations)
@@ -549,7 +549,7 @@ describe('core cycles', () => {
                 })
 
                 it('when core is 4', () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                     coreDurations = coreCycles.coreDurations
 
                     expect(coreDurations)
@@ -565,7 +565,7 @@ describe('core cycles', () => {
                 })
 
                 it('when core is 5', () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                     coreDurations = coreCycles.coreDurations
 
                     expect(coreDurations)
@@ -587,12 +587,12 @@ describe('core cycles', () => {
             so we could wrap around creating a cycle at these points`,
             () => {
                 it(`for core 2, in monzo form it's | 84 -53 >, AKA the reciprocal of Mercator's comma`, () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -603,12 +603,12 @@ describe('core cycles', () => {
                 })
 
                 it(`for core 3, in monzo form it's | -84 53 >, AKA Mercator's comma`, () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -619,12 +619,12 @@ describe('core cycles', () => {
                 })
 
                 it(`for core 4, in monzo form it's | 32 -7 -9>, AKA the escapade comma`, () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -635,12 +635,12 @@ describe('core cycles', () => {
                 })
 
                 it(`for core 5, in monzo form it's | -29 -11 20 >, AKA the gammic comma`, () => {
-                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
+                    const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -654,18 +654,18 @@ describe('core cycles', () => {
 
         describe('in terms of subps and superps', () => {
             it('for core 2', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
                 const totalUpIntervals: Power = as.Power(53)
                 const totalDownIntervals: Power = as.Power(31)
-                const totalIntervals: Power = as.Power(notAs.Cardinal(length(coreIntervals)))
+                const totalIntervals: Power = as.Power(as.number(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(as.Scalar(quotient(
                         use.Power(2, totalIntervals),
@@ -674,23 +674,23 @@ describe('core cycles', () => {
                             use.Power(1, totalDownIntervals),
                         ),
                     )))
-                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
-                    .toBe(notAs.Power(totalIntervals))
+                expect(as.number(totalUpIntervals) + as.number(totalDownIntervals))
+                    .toBe(as.number(totalIntervals))
             })
 
             it('for core 3', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
                 const totalUpIntervals: Power = as.Power(31)
                 const totalDownIntervals: Power = as.Power(22)
-                const totalIntervals: Power = as.Power(notAs.Cardinal(length(coreIntervals)))
+                const totalIntervals: Power = as.Power(as.number(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(as.Scalar(quotient(
                         use.Power(3, totalIntervals),
@@ -699,23 +699,23 @@ describe('core cycles', () => {
                             use.Power(2, totalDownIntervals),
                         ),
                     )))
-                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
-                    .toBe(notAs.Power(totalIntervals))
+                expect(as.number(totalUpIntervals) + as.number(totalDownIntervals))
+                    .toBe(as.number(totalIntervals))
             })
 
             it('for core 4', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
                 const totalUpIntervals: Power = as.Power(9)
                 const totalDownIntervals: Power = as.Power(7)
-                const totalIntervals: Power = as.Power(notAs.Cardinal(length(coreIntervals)))
+                const totalIntervals: Power = as.Power(as.number(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(as.Scalar(quotient(
                         use.Power(4, totalIntervals),
@@ -724,23 +724,23 @@ describe('core cycles', () => {
                             use.Power(3, totalDownIntervals),
                         ),
                     )))
-                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
-                    .toBe(notAs.Power(totalIntervals))
+                expect(as.number(totalUpIntervals) + as.number(totalDownIntervals))
+                    .toBe(as.number(totalIntervals))
             })
 
             it('for core 5', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Fraction(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
                 const totalUpIntervals: Power = as.Power(11)
                 const totalDownIntervals: Power = as.Power(9)
-                const totalIntervals: Power = as.Power(notAs.Cardinal(length(coreIntervals)))
+                const totalIntervals: Power = as.Power(as.number(length(coreIntervals)))
                 expect(nextDurationWouldHaveBeen)
                     .toBeCloseToTyped(as.Scalar(quotient(
                         use.Power(5, totalIntervals),
@@ -749,8 +749,8 @@ describe('core cycles', () => {
                             use.Power(4, totalDownIntervals),
                         ),
                     )))
-                expect(notAs.Power(totalUpIntervals) + notAs.Power(totalDownIntervals))
-                    .toBe(notAs.Power(totalIntervals))
+                expect(as.number(totalUpIntervals) + as.number(totalDownIntervals))
+                    .toBe(as.number(totalIntervals))
             })
         })
     })
@@ -760,7 +760,7 @@ describe('core cycles', () => {
     (because they are cycles, so there is the same number of intervals between things as there are things (durations)`,
         () => {
             it('for core 2, they are both 84', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(2))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
@@ -770,7 +770,7 @@ describe('core cycles', () => {
             })
 
             it('for core 3, they are both 53', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(3))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
@@ -780,7 +780,7 @@ describe('core cycles', () => {
             })
 
             it('for core 4, they are both 16', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(4))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))
@@ -790,7 +790,7 @@ describe('core cycles', () => {
             })
 
             it('for core 5, they are both 20', () => {
-                const coreCycles: CoreCycles = computeCoreCycles(beatenPathTo.Core(5))
+                const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(length(coreIntervals))

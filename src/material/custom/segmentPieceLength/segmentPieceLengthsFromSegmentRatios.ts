@@ -6,7 +6,7 @@ import {
     ContourPiece,
     Fraction,
     getNumerator,
-    notAs,
+
     Numerator,
     quotient,
     round,
@@ -24,7 +24,7 @@ const computeSegmentPieceLengthsFromSegmentRatios: (segmentRatios: Fraction[]) =
         return numerators
             .map((numerator: Numerator): Numerator =>
                 as.Numerator(round(quotient(leastCommonMultipleOfNumerators, numerator))))
-            .map((numerator: Numerator) => as.Cardinal<ContourPiece<PitchDuration>>(notAs.Numerator(numerator)))
+            .map((numerator: Numerator) => as.Cardinal<ContourPiece<PitchDuration>>(as.number(numerator)))
     }
 
 export {

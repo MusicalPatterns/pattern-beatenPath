@@ -1,5 +1,5 @@
 import { Note, Segment } from '@musical-patterns/material'
-import { as, Cardinal, Cycle, notAs, Ordinal, use } from '@musical-patterns/utilities'
+import { as, Cardinal, Cycle,  Ordinal, use } from '@musical-patterns/utilities'
 import { ComputeLoopCycledSegmentSegmentsParameters, LoopSegmentCycleShift } from './types'
 
 const computeLoopCycledSegmentSegments: (parameters: {
@@ -10,13 +10,19 @@ const computeLoopCycledSegmentSegments: (parameters: {
     ({ loopSegmentCycleShift, segments, loopIndex }: ComputeLoopCycledSegmentSegmentsParameters): Segment[] => {
         const loopCycling: Cardinal<Cycle<Note[]>> = use.Multiple(
             loopSegmentCycleShift,
-            as.Multiple<Cardinal<Cycle<Note[]>>>(notAs.Ordinal<LoopSegmentCycleShift[]>(loopIndex)),
+            as.Multiple<Cardinal<Cycle<Note[]>>>(as.number(loopIndex)),
         )
 
-        return segments.map((segment: Segment) => notAs.Cycle(use.Cardinal(
-            as.Cycle(segment),
-            loopCycling,
-        )))
+        return segments.map((segment: Segment): Segment => {
+            const cycle: Cycle<Note[]> = use.Cardinal(
+                as.Cycle(segment),
+                loopCycling,
+            )
+
+            delete cycle._CycleBrand
+
+            return cycle
+        })
     }
 
 export {

@@ -7,7 +7,6 @@ import {
     forEach,
     INCREMENT,
     INITIAL,
-    notAs,
     Ordinal,
     sequence,
     use,
@@ -52,7 +51,7 @@ const distributeSegmentsToEntities: (segments: Segment[]) => Note[][] =
 
         for (
             let loopIndex: Ordinal<LoopSegmentCycleShift[]> = INITIAL;
-            loopIndex < as.Ordinal<LoopSegmentCycleShift[]>(notAs.Cardinal<LoopSegmentCycleShift>(loopCount));
+            loopIndex < as.Ordinal<LoopSegmentCycleShift[]>(as.number(loopCount));
             loopIndex = use.Cardinal(loopIndex, INCREMENT)
         ) {
             const loopCycledSegmentSegments: Segment[] = computeLoopCycledSegmentSegments({

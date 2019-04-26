@@ -1,5 +1,5 @@
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/spec'
-import { notAs as beatenPathFrom } from '../nominals'
+import { as } from '@musical-patterns/utilities'
 import { BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE } from './constants'
 import { BeatenPathConfigurations, BeatenPathStyle } from './types'
 
@@ -8,7 +8,7 @@ const configurations: BeatenPathConfigurations = {
     core: {
         constraint: {
             integer: true,
-            min: beatenPathFrom.Core(BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE),
+            min: as.number(BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE),
         },
         description: `every bar will consist of a harmony and polyrhythm of this value against itself \
 either plus or minus 1`,

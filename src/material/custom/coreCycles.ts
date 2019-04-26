@@ -8,26 +8,25 @@ import {
     Fraction,
     INCREMENT,
     isCloseTo,
-    notAs,
     reciprocal,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
-import { Core, notAs as beatenPathFrom } from '../../nominals'
+import { Core } from '../../nominals'
 import { CoreCycles } from '../types'
 import { INITIAL_CORE_DURATION } from './constants'
 
 const isUpwardsDurationCloserToOriginalDurationOfOne:
     (maybeNextUpwardsDuration: Scalar, maybeNextDownwardsDuration: Scalar) => boolean =
     (maybeNextUpwardsDuration: Scalar, maybeNextDownwardsDuration: Scalar): boolean =>
-        absoluteRatio(notAs.Scalar(maybeNextUpwardsDuration)) > absoluteRatio(notAs.Scalar(maybeNextDownwardsDuration))
+        absoluteRatio(as.number(maybeNextUpwardsDuration)) > absoluteRatio(as.number(maybeNextDownwardsDuration))
 
 const computeCoreCycles: (core: Core) => CoreCycles =
     (core: Core): CoreCycles => {
         const coreDurations: Cycle<Scalar> = as.Cycle([ INITIAL_CORE_DURATION ])
         const coreIntervals: Cycle<Fraction> = as.Cycle([])
 
-        const rawCore: number = beatenPathFrom.Core(core)
+        const rawCore: number = as.number(core)
 
         const superparticular: Scalar = as.Scalar(reciprocal(use.Cardinal(rawCore, INCREMENT)))
         const superparticularDurationScalar: Scalar<Scalar> = as.Scalar<Scalar>(use.Scalar(rawCore, superparticular))
