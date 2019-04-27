@@ -11,7 +11,7 @@ so it needs to use the duration for the segment which is furthest through the co
         () => {
             const segmentPieceLengths: PieceLength[] = [ 15, 12, 16 ] // In order
                 .map((actual: number) => as.Cardinal<ContourPiece<PitchDuration>>(actual))
-            const segmentDurationIndices: Array<Ordinal<Scalar[]>> = [ 2, 4, 3 ].map((value: number) => as.Ordinal<Scalar[]>(value)) // Ground to 0, 2, 1
+            const segmentDurationIndices: Array<Ordinal<Scalar[]>> = [ 2, 4, 3 ].map((numeral: number) => as.Ordinal<Scalar[]>(numeral)) // Ground to 0, 2, 1
 
             const actualSegmentPieceLengthsAlignedWithSegmentDurations: PieceLength[] =
                 alignSegmentPieceLengthsWithSegmentDurations({

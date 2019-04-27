@@ -20,7 +20,7 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSeg
                         as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
                     ]),
                     entityCount: as.Cardinal<Entity[]>(2),
-                    segmentDurationIndices: [ 1, 0 ].map((value: number) => as.Ordinal<Scalar[]>(value)),
+                    segmentDurationIndices: [ 1, 0 ].map((numeral: number) => as.Ordinal<Scalar[]>(numeral)),
                     segmentIndex: as.Ordinal<Segment[]>(0),
                 })
 
@@ -61,7 +61,7 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSeg
                         as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
                     ]),
                     entityCount: as.Cardinal<Entity[]>(3),
-                    segmentDurationIndices: [ 2, 1, 0 ].map((value: number) => as.Ordinal<Scalar[]>(value)),
+                    segmentDurationIndices: [ 2, 1, 0 ].map((numeral: number) => as.Ordinal<Scalar[]>(numeral)),
                     segmentIndex: as.Ordinal<Segment[]>(0),
                 })
 
