@@ -7,9 +7,9 @@ const computeLoopSegmentCycleShift: (parameters: {
     entityCount: Cardinal<Entity[]>,
 }) => LoopSegmentCycleShift =
     ({ cycleLength, entityCount }: SegmentsDimensions): LoopSegmentCycleShift =>
-        insteadOf<Cardinal, Cycle<Note[]>>(negative(use.IntegerModulus(
+        insteadOf<Cardinal, Cycle<Note[]>>(negative(use.Remaindee(
             cycleLength,
-            as.IntegerModulus<Cardinal<Segment[]>>(as.number(entityCount)),
+            as.Remaindee<Cardinal<Segment[]>>(as.number(entityCount)),
         )))
 
 export {
