@@ -5,15 +5,13 @@ import {
     Cycle,
     Fraction,
     indexJustBeyondFinalElement,
-    INITIAL,
     insteadOf,
     Integer,
     map,
     Ordinal,
+    range,
     Scalar,
-    slice,
     use,
-    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { Core, Repetition } from '../nominals'
 import { BeatenPathStyle } from '../spec'
@@ -80,11 +78,7 @@ const computeSegments: (computeSegmentsParameters: {
         const indexOfFirstElementAgainWrappingAroundTheCycle: Ordinal<Scalar[]> =
             indexJustBeyondFinalElement(coreDurations)
 
-        const segments: Segment[] = slice(
-            ZERO_AND_POSITIVE_INTEGERS,
-            INITIAL,
-            insteadOf<Ordinal, Integer[]>(indexOfFirstElementAgainWrappingAroundTheCycle),
-        )
+        const segments: Segment[] = range(indexOfFirstElementAgainWrappingAroundTheCycle)
             .map((integer: Integer) => as.Ordinal<Segment[]>(integer))
             .map((segmentIndex: Ordinal<Segment[]>): Segment =>
                 computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),

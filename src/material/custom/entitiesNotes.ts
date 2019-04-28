@@ -2,16 +2,9 @@ import { Note, Segment } from '@musical-patterns/material'
 import {
     as,
     Duration,
-    indexJustBeyondFinalElementFromElementsTotal,
-    INITIAL,
-    insteadOf,
-    Integer,
     Ms,
-    Ordinal,
-    Point,
+    range,
     Scalar,
-    slice,
-    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
 import { computeSegments } from '../segments'
@@ -48,11 +41,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
             })
         }
         else {
-            delayScalars = slice(
-                ZERO_AND_POSITIVE_INTEGERS,
-                INITIAL,
-                insteadOf<Ordinal, Integer[]>(indexJustBeyondFinalElementFromElementsTotal(entityCount)),
-            )
+            delayScalars = range(entityCount)
                 .map(() => as.Scalar<Duration>(0))
         }
 
