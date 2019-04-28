@@ -14,7 +14,6 @@ import {
     PREVIOUS,
     product,
     quotient,
-    resolve,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
@@ -283,7 +282,7 @@ describe('core cycles', () => {
                             coreDurations,
                             use.Cardinal(index, PREVIOUS),
                         )
-                        const previousIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(use.Ordinal(
+                        const previousIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(use.Ordinal(
                             coreIntervals,
                             use.Cardinal(insteadOf<Ordinal, Fraction[]>(index), PREVIOUS),
                         )))
@@ -592,7 +591,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -608,7 +607,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -624,7 +623,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -640,7 +639,7 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
 
                     const finalDuration: Scalar = finalElement(coreDurations)
-                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                    const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                     const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -659,7 +658,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -684,7 +683,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -709,7 +708,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
@@ -734,7 +733,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
 
                 const finalDuration: Scalar = finalElement(coreDurations)
-                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(resolve(finalElement(coreIntervals)))
+                const finalIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(finalElement(coreIntervals)))
 
                 const nextDurationWouldHaveBeen: Scalar = use.Scalar(finalDuration, finalIntervalAsScalar)
 
