@@ -5,9 +5,8 @@ import {
     as,
     Cardinal,
     Duration,
-    Ms,
+    musicalAs,
     Pitch,
-    Point,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
@@ -25,34 +24,34 @@ const BEATEN_PATH_INITIAL_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[
 
 const BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE: Core = beatenPathAs.Core(2)
 
-const PRESET_BALANCED_BASIS_DURATION: Duration = as.Delta<Ms>(500)
+const PRESET_BALANCED_BASIS_DURATION: Duration = musicalAs.Duration(500)
 const PRESET_BALANCED_CORE: Core = beatenPathAs.Core(3)
 const PRESET_BALANCED_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
 
-const PRESET_DENSE_BASIS_DURATION: Duration = as.Delta<Ms>(369)
+const PRESET_DENSE_BASIS_DURATION: Duration = musicalAs.Duration(369)
 const PRESET_DENSE_CORE: Core = beatenPathAs.Core(2)
 const PRESET_DENSE_BASIS_FREQUENCY: Pitch =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.B ][ ScientificPitchOctaveNumber._3 ]
 const PRESET_DENSE_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(4)
 const PRESET_DENSE_REPETITIONS: Cardinal<Repetition[]> = as.Cardinal<Repetition[]>(4)
 
-const PRESET_PRIMAL_BASIS_DURATION: Duration = as.Delta<Ms>(3)
+const PRESET_PRIMAL_BASIS_DURATION: Duration = musicalAs.Duration(3)
 const PRESET_PRIMAL_BASIS_FREQUENCY: Pitch =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.A ][ ScientificPitchOctaveNumber._4 ]
 const PRESET_PRIMAL_CORE: Core = beatenPathAs.Core(12)
 const PRESET_PRIMAL_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
 
-const PRESET_ROUND_BASIS_DURATION: Duration = as.Delta<Ms>(20)
+const PRESET_ROUND_BASIS_DURATION: Duration = musicalAs.Duration(20)
 const PRESET_ROUND_BASIS_FREQUENCY: Pitch =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C_SHARP_D_FLAT ][ ScientificPitchOctaveNumber._4 ]
 const PRESET_ROUND_CORE: Core = beatenPathAs.Core(2)
 const PRESET_ROUND_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(7)
 
-const PRESET_ISOLATE_BASIS_DURATION: Duration = as.Delta<Ms>(180)
+const PRESET_ISOLATE_BASIS_DURATION: Duration = musicalAs.Duration(180)
 const PRESET_ISOLATE_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(1)
 const PRESET_ISOLATE_CORE: Core = beatenPathAs.Core(3)
 
-const PRESET_ANVIL_BASIS_DURATION: Duration = as.Delta<Ms>(400)
+const PRESET_ANVIL_BASIS_DURATION: Duration = musicalAs.Duration(400)
 const PRESET_ANVIL_CORE: Core = beatenPathAs.Core(4)
 const PRESET_ANVIL_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(6)
 

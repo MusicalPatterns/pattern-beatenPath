@@ -1,11 +1,5 @@
 import { Note, Segment } from '@musical-patterns/material'
-import {
-    as,
-    Duration,
-    Ms,
-    range,
-    Scalar,
-} from '@musical-patterns/utilities'
+import { as, Duration, musicalAs, range, Scalar } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
 import { computeSegments } from '../segments'
 import { distributeSegmentsToEntities } from './distributeSegmentsToEntities'
@@ -13,7 +7,7 @@ import { applySmooth, BeatenPathEntitiesNotes, pseudocompileDelay } from './smoo
 
 const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes =
     ({
-         baseDuration = as.Delta<Ms>(1),
+         baseDuration = musicalAs.Duration(1),
          baseDurationTranslation = as.Translation<Duration>(0),
          core,
          entityCount,
