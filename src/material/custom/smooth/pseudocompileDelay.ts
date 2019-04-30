@@ -7,13 +7,13 @@ const pseudocompileDelay: (parameters: {
     [ StandardSpec.BASIS_DURATION_TRANSLATION ]: Translation<Duration>,
     delayScalar: Scalar<Duration>,
 }) => Duration =
-    ({ delayScalar, baseDuration, baseDurationTranslation }: PseudocompileDelayParameters): Duration =>
+    ({ delayScalar, basisDuration, basisDurationTranslation }: PseudocompileDelayParameters): Duration =>
         use.Translation(
             use.Scalar(
-                baseDuration,
+                basisDuration,
                 delayScalar,
             ),
-            baseDurationTranslation,
+            basisDurationTranslation,
         )
 
 export {

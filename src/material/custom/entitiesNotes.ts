@@ -7,8 +7,8 @@ import { applySmooth, BeatenPathEntitiesNotes, pseudocompileDelay } from './smoo
 
 const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes =
     ({
-         baseDuration = musicalAs.Duration(1),
-         baseDurationTranslation = as.Translation<Duration>(0),
+         basisDuration = musicalAs.Duration(1),
+         basisDurationTranslation = as.Translation<Duration>(0),
          core,
          entityCount,
          repetitions,
@@ -40,8 +40,8 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
         }
 
         const delays: Duration[] = delayScalars.map((delayScalar: Scalar<Duration>) => pseudocompileDelay({
-            baseDuration,
-            baseDurationTranslation,
+            basisDuration,
+            basisDurationTranslation,
             delayScalar,
         }))
 
