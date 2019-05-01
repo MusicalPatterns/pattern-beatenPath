@@ -8,11 +8,11 @@ export { computeNotes } from './notes'
 export { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
 export {
     computeCoreCycles,
-    computeSegmentDurationIndices,
+    computeSegmentValueIndices,
     computeSegmentPieceLengths,
     computeSegmentRatios,
     computeSegmentIntervals,
-    alignSegmentPieceLengthsWithSegmentDurations,
+    alignSegmentPieceLengthsWithSegmentValues,
     computeSegmentPieceLengthsFromSegmentRatios,
     distributeSegmentsToEntities,
     computeLoopCount,

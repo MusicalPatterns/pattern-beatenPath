@@ -7,12 +7,12 @@ describe('distribute segments to entities', () => {
 until the entities are back at starting positions. you can see that each entity stays with each note a # of times equal to the entity count, \
 as long as you count the _2 version of it as the same as the _1 version (which it is, it just represents modulus around the cycle length`,
         () => {
-            const A_1: Note = { gain: {} }
-            const B_1: Note = { duration: {} }
-            const C_1: Note = { sustain: {} }
+            const A_1: Note = { intensity: {} }
+            const B_1: Note = { value: {} }
+            const C_1: Note = { envelope: {} }
             const D_1: Note = { pitch: {} }
-            const A_2: Note = { gain: {} }
-            const B_2: Note = { duration: {} }
+            const A_2: Note = { intensity: {} }
+            const B_2: Note = { value: {} }
 
             const segments: Segment[] = [
                 [
@@ -68,15 +68,15 @@ as long as you count the _2 version of it as the same as the _1 version (which i
         `also works when the cycle length and entity count share a common factor other than each other, e.g 6 and 4 respectively; \
 in this case it loops through 2 times, cycling the segments by 2 each time (so it skips half of the segment rotation possibilities)`,
         () => {
-            const A_1: Note = { gain: {} }
-            const B_1: Note = { duration: {} }
-            const C_1: Note = { sustain: {} }
+            const A_1: Note = { intensity: {} }
+            const B_1: Note = { value: {} }
+            const C_1: Note = { envelope: {} }
             const D_1: Note = { pitch: {} }
             const E_1: Note = { position: {} }
-            const F_1: Note = { gain: {}, duration: {} }
-            const A_2: Note = { gain: {} }
-            const B_2: Note = { duration: {} }
-            const C_2: Note = { sustain: {} }
+            const F_1: Note = { intensity: {}, value: {} }
+            const A_2: Note = { intensity: {} }
+            const B_2: Note = { value: {} }
+            const C_2: Note = { envelope: {} }
 
             const segments: Segment[] = [
                 [

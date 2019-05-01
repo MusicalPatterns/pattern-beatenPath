@@ -1,12 +1,12 @@
 import { Entity } from '@musical-patterns/material'
-import { as, Cardinal, Duration, INCREMENT, insteadOf,  Pitch, Scalar, use } from '@musical-patterns/utilities'
+import { as, Cardinal, Duration, INCREMENT, insteadOf, Pitch, Scalar, use, Value } from '@musical-patterns/utilities'
 import { ApplySmoothVariables, HandleMatchOrNoMatchParameters } from './types'
 
-const noteMatchesPreviousNote: (currentPitch: Scalar<Pitch>, notePitch: Scalar<Pitch>) => boolean =
-    (currentPitch: Scalar<Pitch>, notePitch: Scalar<Pitch>): boolean =>
-        currentPitch === notePitch
+const noteMatchesPreviousNote: (currentPitch: Scalar<Pitch>, pitch: Scalar<Pitch>) => boolean =
+    (currentPitch: Scalar<Pitch>, pitch: Scalar<Pitch>): boolean =>
+        currentPitch === pitch
 
-const smoothNoteTotalDurationNotReachedBeforeMatchingStreakBroke:
+const smoothNoteTotalValueNotReachedBeforeMatchingStreakBroke:
     (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity[]>) => boolean =
     (pitchMatchCount: Cardinal, entityCount: Cardinal<Entity[]>): boolean =>
         pitchMatchCount < insteadOf<Cardinal>(entityCount)
@@ -14,45 +14,45 @@ const smoothNoteTotalDurationNotReachedBeforeMatchingStreakBroke:
 const handleMatchOrNoMatch: (parameters: {
     delayScalar: Scalar<Duration>,
     entityCount: Cardinal<Entity[]>,
-    noteDuration: Scalar<Duration>,
-    notePitch: Scalar<Pitch>,
+    pitch: Scalar<Pitch>,
     pitchMatchCount: Cardinal,
     pitchToMatch: Scalar<Pitch>,
-    smoothNoteTotalDurationScalar: Scalar<Duration>,
+    smoothNoteTotalValueScalar: Scalar<Value>,
+    value: Scalar<Value>,
 }) => ApplySmoothVariables =
     (
         {
             delayScalar: delayScalarArgument,
             entityCount,
-            noteDuration,
-            notePitch,
+            value,
+            pitch,
             pitchMatchCount: pitchMatchCountArgument,
             pitchToMatch: pitchToMatchArgument,
-            smoothNoteTotalDurationScalar: smoothNoteTotalDurationScalarArgument,
+            smoothNoteTotalValueScalar: smoothNoteTotalDurationScalarArgument,
         }: HandleMatchOrNoMatchParameters,
     ): ApplySmoothVariables => {
         let pitchMatchCount: Cardinal
-        let smoothNoteTotalDurationScalar: Scalar<Duration>
+        let smoothNoteTotalValueScalar: Scalar<Value>
         let delayScalar: Scalar<Duration> = delayScalarArgument
         let pitchToMatch: Scalar<Pitch> = pitchToMatchArgument
 
-        if (noteMatchesPreviousNote(pitchToMatchArgument, notePitch)) {
+        if (noteMatchesPreviousNote(pitchToMatchArgument, pitch)) {
             pitchMatchCount = use.Cardinal(pitchMatchCountArgument, INCREMENT)
-            smoothNoteTotalDurationScalar = use.Translation(
+            smoothNoteTotalValueScalar = use.Translation(
                 smoothNoteTotalDurationScalarArgument,
-                as.Translation<Scalar<Duration>>(as.number(noteDuration)),
+                as.Translation<Scalar<Value>>(as.number(value)),
             )
         }
         else {
-            if (smoothNoteTotalDurationNotReachedBeforeMatchingStreakBroke(pitchMatchCountArgument, entityCount)) {
-                delayScalar = smoothNoteTotalDurationScalarArgument
+            if (smoothNoteTotalValueNotReachedBeforeMatchingStreakBroke(pitchMatchCountArgument, entityCount)) {
+                delayScalar = insteadOf<Scalar, Duration>(smoothNoteTotalDurationScalarArgument)
             }
-            pitchToMatch = notePitch
+            pitchToMatch = pitch
             pitchMatchCount = as.Cardinal(1)
-            smoothNoteTotalDurationScalar = insteadOf<Scalar, Duration>(noteDuration)
+            smoothNoteTotalValueScalar = insteadOf<Scalar, Value>(value)
         }
 
-        return { pitchMatchCount, smoothNoteTotalDurationScalar, delayScalar, pitchToMatch }
+        return { pitchMatchCount, smoothNoteTotalValueScalar, delayScalar, pitchToMatch }
     }
 
 export {

@@ -18,9 +18,9 @@ import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
 import {
     computeCoreCycles,
-    computeSegmentDurationIndices,
     computeSegmentPieceLengths,
-    equalizeDurationsOfSegmentNotes,
+    computeSegmentValueIndices,
+    equalizeValuesOfSegmentNotes,
 } from './custom'
 import { computeNotes } from './notes'
 import { ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
@@ -35,34 +35,34 @@ const computeSegment: (computeSegmentsParameters: {
 }) => Segment =
     (
         {
-            segmentIndex,
             coreDurations,
             coreIntervals,
-            repetitions,
-            style,
             entityCount,
+            repetitions,
+            segmentIndex,
+            style,
         }: ComputeSegmentParameters,
     ): Segment => {
-        const segmentDurationIndices: Array<Ordinal<Scalar[]>> =
-            computeSegmentDurationIndices({ segmentIndex, entityCount })
+        const segmentValueIndices: Array<Ordinal<Scalar[]>> =
+            computeSegmentValueIndices({ segmentIndex, entityCount })
         const segmentPieceLengths: PieceLength[] = computeSegmentPieceLengths({
             coreIntervals,
             entityCount,
-            segmentDurationIndices,
             segmentIndex,
+            segmentValueIndices,
         })
 
-        const segmentDurations: Scalar[] = segmentDurationIndices.map((segmentDurationIndex: Ordinal<Scalar[]>) =>
-            use.Ordinal(coreDurations, segmentDurationIndex),
+        const segmentValues: Scalar[] = segmentValueIndices.map((segmentValueIndex: Ordinal<Scalar[]>) =>
+            use.Ordinal(coreDurations, segmentValueIndex),
         )
 
-        return map(segmentDurations, (notesDuration: Scalar, index: Ordinal<Scalar[]>): Note[] => {
+        return map(segmentValues, (notesValue: Scalar, index: Ordinal<Scalar[]>): Note[] => {
             const pieceLength: PieceLength = use.Ordinal(
                 segmentPieceLengths,
                 insteadOf<Ordinal, PieceLength[]>(index),
             )
 
-            return computeNotes({ pieceLength, notesDuration, repetitions, style })
+            return computeNotes({ pieceLength, notesValue, repetitions, style })
         })
     }
 
@@ -84,7 +84,7 @@ const computeSegments: (computeSegmentsParameters: {
                 computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),
             )
 
-        return equalizeDurationsOfSegmentNotes(segments)
+        return equalizeValuesOfSegmentNotes(segments)
     }
 
 export {

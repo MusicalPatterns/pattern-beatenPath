@@ -1,12 +1,12 @@
 // tslint:disable no-reaching-imports
 
 export { computeCoreCycles } from './coreCycles'
-export { computeSegmentDurationIndices } from './segmentDurationIndices'
+export { computeSegmentValueIndices } from './segmentValueIndices'
 export { computeEntitiesNotes } from './entitiesNotes'
 export {
     computeSegmentRatios,
     computeSegmentIntervals,
-    alignSegmentPieceLengthsWithSegmentDurations,
+    alignSegmentPieceLengthsWithSegmentValues,
     computeSegmentPieceLengthsFromSegmentRatios,
     computeSegmentPieceLengths,
 } from './segmentPieceLength/indexForTest'

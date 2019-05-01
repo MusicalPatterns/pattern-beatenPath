@@ -8,17 +8,17 @@ import { computePolyrhythmicPiece, computeSmoothPiece } from './pieces'
 import { ComputeNotesParameters, ComputePiece } from './types'
 
 const computeNotes: (parameters: {
-    notesDuration: Scalar,
+    notesValue: Scalar,
     pieceLength: PieceLength,
     repetitions: Cardinal<Repetition[]>,
     style: BeatenPathStyle,
 }) => Note[] =
-    ({ style, pieceLength, notesDuration, repetitions }: ComputeNotesParameters): Note[] => {
+    ({ style, pieceLength, notesValue, repetitions }: ComputeNotesParameters): Note[] => {
         const computePiece: ComputePiece =
             style === BeatenPathStyle.POLYRHYTHMIC ? computePolyrhythmicPiece : computeSmoothPiece
 
         return computePiece({
-            notesDuration,
+            notesValue,
             pieceLength,
             repetitions,
         })

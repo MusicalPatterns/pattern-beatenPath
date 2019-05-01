@@ -1,5 +1,5 @@
 import { Entity, Note } from '@musical-patterns/material'
-import { as, Cardinal, Duration, Pitch } from '@musical-patterns/utilities'
+import { as, Cardinal, Duration, Pitch, Value } from '@musical-patterns/utilities'
 import { applySmooth, SmoothNotes } from '../../../../src/indexForTest'
 
 describe('apply smooth', () => {
@@ -7,54 +7,54 @@ describe('apply smooth', () => {
         `given some notes that were generated as smooth segments, completes the 2-step process of achieving the smooth style; \
 it is much simpler during the 1st step to keep one note per segment, and then after distributing segments to entities do this step; \
 this step being merging notes to span across segments, x segments where x is the entity count, so there is only a single note per \
-duration+pitch combination a voice sounds; so it does this by identifying matching (same pitch) notes in a row, since the 1st step \
+value+pitch combination a voice sounds; so it does this by identifying matching (same pitch) notes in a row, since the 1st step \
 left one note per segment`,
         () => {
             const notes: Note[] = [
                 {
-                    duration: { scalar: as.Scalar<Duration>(1) },
+                    envelope: { scalar: as.Scalar<Value>(0.9) },
                     pitch: { scalar: as.Scalar<Pitch>(1) },
-                    sustain: { scalar: as.Scalar<Duration>(0.9) },
+                    value: { scalar: as.Scalar<Value>(1) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(1.3) },
+                    envelope: { scalar: as.Scalar<Value>(0.9) },
                     pitch: { scalar: as.Scalar<Pitch>(1) },
-                    sustain: { scalar: as.Scalar<Duration>(0.9) },
+                    value: { scalar: as.Scalar<Value>(1.3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(1.1) },
+                    envelope: { scalar: as.Scalar<Value>(0.9) },
                     pitch: { scalar: as.Scalar<Pitch>(1) },
-                    sustain: { scalar: as.Scalar<Duration>(0.9) },
+                    value: { scalar: as.Scalar<Value>(1.1) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2.2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2.2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2.1 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2.1 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4.2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4.2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4.1 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4.1 / 3) },
                 },
             ]
             const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
@@ -66,19 +66,19 @@ left one note per segment`,
                     delayScalar: as.Scalar<Duration>(0),
                     notes: [
                         {
-                            duration: { scalar: as.Scalar<Duration>(3.4) },
+                            envelope: { scalar: as.Scalar<Value>(3.06) },
                             pitch: { scalar: as.Scalar<Pitch>(1) },
-                            sustain: { scalar: as.Scalar<Duration>(3.06) },
+                            value: { scalar: as.Scalar<Value>(3.4) },
                         },
                         {
-                            duration: { scalar: as.Scalar<Duration>(2.1) },
+                            envelope: { scalar: as.Scalar<Value>(1.8900000000000001) },
                             pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                            sustain: { scalar: as.Scalar<Duration>(1.8900000000000001) },
+                            value: { scalar: as.Scalar<Value>(2.1) },
                         },
                         {
-                            duration: { scalar: as.Scalar<Duration>(4.1) },
+                            envelope: { scalar: as.Scalar<Value>(3.69) },
                             pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                            sustain: { scalar: as.Scalar<Duration>(3.69) },
+                            value: { scalar: as.Scalar<Value>(4.1) },
                         },
                     ],
                 })
@@ -91,49 +91,49 @@ extends the final note by the equivalent amount`,
         () => {
             const notes: Note[] = [
                 {
-                    duration: { scalar: as.Scalar<Duration>(1.1) },
+                    envelope: { scalar: as.Scalar<Value>(0.9) },
                     pitch: { scalar: as.Scalar<Pitch>(1) },
-                    sustain: { scalar: as.Scalar<Duration>(0.9) },
+                    value: { scalar: as.Scalar<Value>(1.1) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2.2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2.2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2.1 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2.1 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4.2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4.2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4.1 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4.1 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(8 / 9) },
+                    envelope: { scalar: as.Scalar<Value>(4 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(9 / 8) },
-                    sustain: { scalar: as.Scalar<Duration>(4 / 5) },
+                    value: { scalar: as.Scalar<Value>(8 / 9) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(8.1 / 9) },
+                    envelope: { scalar: as.Scalar<Value>(4 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(9 / 8) },
-                    sustain: { scalar: as.Scalar<Duration>(4 / 5) },
+                    value: { scalar: as.Scalar<Value>(8.1 / 9) },
                 },
             ]
             const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
@@ -145,19 +145,19 @@ extends the final note by the equivalent amount`,
                     delayScalar: as.Scalar<Duration>(1.1),
                     notes: [
                         {
-                            duration: { scalar: as.Scalar<Duration>(2.1) },
+                            envelope: { scalar: as.Scalar<Value>(1.8900000000000001) },
                             pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                            sustain: { scalar: as.Scalar<Duration>(1.8900000000000001) },
+                            value: { scalar: as.Scalar<Value>(2.1) },
                         },
                         {
-                            duration: { scalar: as.Scalar<Duration>(4.1) },
+                            envelope: { scalar: as.Scalar<Value>(3.69) },
                             pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                            sustain: { scalar: as.Scalar<Duration>(3.69) },
+                            value: { scalar: as.Scalar<Value>(4.1) },
                         },
                         {
-                            duration: { scalar: as.Scalar<Duration>(2.888888888888889) },
+                            envelope: { scalar: as.Scalar<Value>(2.6) },
                             pitch: { scalar: as.Scalar<Pitch>(9 / 8) },
-                            sustain: { scalar: as.Scalar<Duration>(2.6) },
+                            value: { scalar: as.Scalar<Value>(2.888888888888889) },
                         },
                     ],
                 })
@@ -169,49 +169,49 @@ extends the final note by the equivalent amount`,
         () => {
             const notes: Note[] = [
                 {
-                    duration: { scalar: as.Scalar<Duration>(1.3) },
+                    envelope: { scalar: as.Scalar<Value>(0.9) },
                     pitch: { scalar: as.Scalar<Pitch>(1) },
-                    sustain: { scalar: as.Scalar<Duration>(0.9) },
+                    value: { scalar: as.Scalar<Value>(1.3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(1.1) },
+                    envelope: { scalar: as.Scalar<Value>(0.9) },
                     pitch: { scalar: as.Scalar<Pitch>(1) },
-                    sustain: { scalar: as.Scalar<Duration>(0.9) },
+                    value: { scalar: as.Scalar<Value>(1.1) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2.2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2.2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(2.1 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(3 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                    sustain: { scalar: as.Scalar<Duration>(3 / 5) },
+                    value: { scalar: as.Scalar<Value>(2.1 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4.2 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4.2 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(4.1 / 3) },
+                    envelope: { scalar: as.Scalar<Value>(6 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                    sustain: { scalar: as.Scalar<Duration>(6 / 5) },
+                    value: { scalar: as.Scalar<Value>(4.1 / 3) },
                 },
                 {
-                    duration: { scalar: as.Scalar<Duration>(8 / 9) },
+                    envelope: { scalar: as.Scalar<Value>(4 / 5) },
                     pitch: { scalar: as.Scalar<Pitch>(9 / 8) },
-                    sustain: { scalar: as.Scalar<Duration>(4 / 5) },
+                    value: { scalar: as.Scalar<Value>(8 / 9) },
                 },
             ]
             const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
@@ -223,19 +223,19 @@ extends the final note by the equivalent amount`,
                     delayScalar: as.Scalar<Duration>(2.4000000000000004),
                     notes: [
                         {
-                            duration: { scalar: as.Scalar<Duration>(2.1) },
+                            envelope: { scalar: as.Scalar<Value>(1.8900000000000001) },
                             pitch: { scalar: as.Scalar<Pitch>(3 / 2) },
-                            sustain: { scalar: as.Scalar<Duration>(1.8900000000000001) },
+                            value: { scalar: as.Scalar<Value>(2.1) },
                         },
                         {
-                            duration: { scalar: as.Scalar<Duration>(4.1) },
+                            envelope: { scalar: as.Scalar<Value>(3.69) },
                             pitch: { scalar: as.Scalar<Pitch>(3 / 4) },
-                            sustain: { scalar: as.Scalar<Duration>(3.69) },
+                            value: { scalar: as.Scalar<Value>(4.1) },
                         },
                         {
-                            duration: { scalar: as.Scalar<Duration>(3.288888888888889) },
+                            envelope: { scalar: as.Scalar<Value>(2.9600000000000004) },
                             pitch: { scalar: as.Scalar<Pitch>(9 / 8) },
-                            sustain: { scalar: as.Scalar<Duration>(2.9600000000000004) },
+                            value: { scalar: as.Scalar<Value>(3.288888888888889) },
                         },
                     ],
                 })

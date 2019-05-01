@@ -1,4 +1,4 @@
-import { computeNotesTotalCompiledDuration, Entity, Note, Segment } from '@musical-patterns/material'
+import { computeNotesDuration, Entity, Note, Segment } from '@musical-patterns/material'
 import { as, Cardinal, Duration, insteadOf, length, NO_DURATION, ONE_MORE, use } from '@musical-patterns/utilities'
 import { as as beatenPathAs, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
 
@@ -14,26 +14,26 @@ describe('segments', () => {
                 })
             })
 
-            it(`each segment's sets of notes each have the same total duration`, () => {
+            it(`each segment's sets of notes each have the same total value`, () => {
                 segments.forEach((segment: Segment): void => {
-                    let segmentDuration: Duration = NO_DURATION
+                    let segmentValue: Duration = NO_DURATION
                     segment.forEach((notes: Note[]): void => {
-                        if (segmentDuration === NO_DURATION) {
-                            segmentDuration = computeNotesTotalCompiledDuration(notes)
+                        if (segmentValue === NO_DURATION) {
+                            segmentValue = computeNotesDuration(notes)
                         }
                         else {
-                            expect(computeNotesTotalCompiledDuration(notes))
-                                .toBeCloseToTyped(segmentDuration)
+                            expect(computeNotesDuration(notes))
+                                .toBeCloseToTyped(segmentValue)
                         }
                     })
                 })
             })
 
-            it('each segment has a different total duration than any other segment', () => {
+            it('each segment has a different total value than any other segment', () => {
                 const seenTotalDurations: Duration[] = []
                 segments.forEach((segment: Segment): void => {
                     const exemplarySegmentNotes: Note[] = segment[ 0 ]
-                    const totalDuration: Duration = computeNotesTotalCompiledDuration(exemplarySegmentNotes)
+                    const totalDuration: Duration = computeNotesDuration(exemplarySegmentNotes)
 
                     seenTotalDurations.forEach((seenDuration: Duration): void => {
                         expect(seenDuration)

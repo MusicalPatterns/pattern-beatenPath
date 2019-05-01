@@ -1,8 +1,8 @@
 import { standardInitialSpecs, StandardSpec } from '@musical-patterns/spec'
 import {
-    BEATEN_PATH_INITIAL_BASIS_FREQUENCY,
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_ENTITY_COUNT,
+    BEATEN_PATH_INITIAL_HZ_PHYSICALIZATION,
     BEATEN_PATH_INITIAL_REPETITIONS,
     BEATEN_PATH_INITIAL_REVERSE,
     BEATEN_PATH_INITIAL_STYLE,
@@ -11,7 +11,7 @@ import { BeatenPathSpecs } from './types'
 
 const initialSpecs: BeatenPathSpecs = {
     ...standardInitialSpecs,
-    [ StandardSpec.BASIS_FREQUENCY ]: BEATEN_PATH_INITIAL_BASIS_FREQUENCY,
+    [ StandardSpec.HZ_PHYSICALIZATION ]: BEATEN_PATH_INITIAL_HZ_PHYSICALIZATION,
     core: BEATEN_PATH_INITIAL_CORE,
     entityCount: BEATEN_PATH_INITIAL_ENTITY_COUNT,
     repetitions: BEATEN_PATH_INITIAL_REPETITIONS,

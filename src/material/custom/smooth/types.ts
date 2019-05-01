@@ -1,6 +1,6 @@
 import { Entity, Note } from '@musical-patterns/material'
 import { StandardSpec } from '@musical-patterns/spec'
-import { Cardinal, Duration, Pitch, Scalar, Translation } from '@musical-patterns/utilities'
+import { Cardinal, Duration, Pitch, Scalar, Translation, Value } from '@musical-patterns/utilities'
 
 interface SmoothNotes {
     delayScalar: Scalar<Duration>,
@@ -13,8 +13,8 @@ interface BeatenPathEntitiesNotes {
 }
 
 interface PseudocompileDelayParameters {
-    [ StandardSpec.BASIS_DURATION ]: Duration,
-    [ StandardSpec.BASIS_DURATION_TRANSLATION ]: Translation<Duration>,
+    [ StandardSpec.MS_PHYSICALIZATION ]: Duration,
+    [ StandardSpec.MS_PHYSICALIZATION_TRANSLATION ]: Translation<Duration>,
     delayScalar: Scalar<Duration>,
 }
 
@@ -22,13 +22,13 @@ interface ApplySmoothVariables {
     delayScalar: Scalar<Duration>,
     pitchMatchCount: Cardinal,
     pitchToMatch: Scalar<Pitch>,
-    smoothNoteTotalDurationScalar: Scalar<Duration>,
+    smoothNoteTotalValueScalar: Scalar<Value>,
 }
 
 interface HandleMatchOrNoMatchParameters extends ApplySmoothVariables {
     entityCount: Cardinal<Entity[]>,
-    noteDuration: Scalar<Duration>,
-    notePitch: Scalar<Pitch>,
+    pitch: Scalar<Pitch>,
+    value: Scalar<Value>,
 }
 
 export {

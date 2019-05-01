@@ -5,8 +5,8 @@ import { PieceLength } from '../../../types'
 interface ComputeSegmentPieceLengthsParameters {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal<Entity[]>,
-    segmentDurationIndices: Array<Ordinal<Scalar[]>>,
     segmentIndex: Ordinal<Segment[]>,
+    segmentValueIndices: Array<Ordinal<Scalar[]>>,
 }
 
 interface ComputeSegmentIntervalsParameters {
@@ -19,14 +19,14 @@ interface ComputeSegmentRatiosParameters {
     segmentIntervals: Fraction[]
 }
 
-interface AlignSegmentPieceLengthsWithSegmentDurationsParameters {
-    segmentDurationIndices: Array<Ordinal<Scalar[]>>,
+interface AlignSegmentPieceLengthsWithSegmentValuesParameters {
     segmentPieceLengths: PieceLength[],
+    segmentValueIndices: Array<Ordinal<Scalar[]>>,
 }
 
 export {
     ComputeSegmentPieceLengthsParameters,
     ComputeSegmentIntervalsParameters,
     ComputeSegmentRatiosParameters,
-    AlignSegmentPieceLengthsWithSegmentDurationsParameters,
+    AlignSegmentPieceLengthsWithSegmentValuesParameters,
 }

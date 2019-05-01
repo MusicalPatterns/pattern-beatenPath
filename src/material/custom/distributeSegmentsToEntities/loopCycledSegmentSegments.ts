@@ -1,5 +1,5 @@
 import { Note, Segment } from '@musical-patterns/material'
-import { as, Cardinal, Cycle,  Ordinal, use } from '@musical-patterns/utilities'
+import { as, Cardinal, Cycle, Ordinal, use } from '@musical-patterns/utilities'
 import { ComputeLoopCycledSegmentSegmentsParameters, LoopSegmentCycleShift } from './types'
 
 const computeLoopCycledSegmentSegments: (parameters: {

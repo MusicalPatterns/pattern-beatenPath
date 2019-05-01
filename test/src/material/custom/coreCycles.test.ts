@@ -258,7 +258,7 @@ describe('core cycles', () => {
         })
     })
 
-    describe('core durations', () => {
+    describe('core values', () => {
         for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(7); core = use.Cardinal(core, INCREMENT)) {
             describe(`when core is ${core}`, () => {
                 beforeEach(() => {
@@ -267,12 +267,12 @@ describe('core cycles', () => {
                     coreIntervals = coreCycles.coreIntervals
                 })
 
-                it('first duration is 1', () => {
+                it('first value is 1', () => {
                     expect(coreDurations[ 0 ])
                         .toBeCloseToTyped(as.Scalar(1))
                 })
 
-                it('each successive duration is equal to the previous duration multiplied by the previous interval', () => {
+                it('each successive value is equal to the previous value multiplied by the previous interval', () => {
                     for (
                         let index: Ordinal<Scalar[]> = as.Ordinal<Scalar[]>(1);
                         index < indexOfFinalElement(coreDurations);
@@ -582,7 +582,7 @@ describe('core cycles', () => {
         )
 
         describe(
-            `hard-coded what the next durations would have been if we did not choose to conflate them with 1 \
+            `hard-coded what the next values would have been if we did not choose to conflate them with 1 \
             so we could wrap around creating a cycle at these points`,
             () => {
                 it(`for core 2, in monzo form it's | 84 -53 >, AKA the reciprocal of Mercator's comma`, () => {
@@ -755,8 +755,8 @@ describe('core cycles', () => {
     })
 
     describe(
-        `is the case that no matter what the core, there is the same count of intervals as there are durations \
-    (because they are cycles, so there is the same number of intervals between things as there are things (durations)`,
+        `is the case that no matter what the core, there is the same count of intervals as there are values \
+    (because they are cycles, so there is the same number of intervals between things as there are things (values)`,
         () => {
             it('for core 2, they are both 84', () => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))

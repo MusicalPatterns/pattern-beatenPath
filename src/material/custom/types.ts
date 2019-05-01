@@ -1,11 +1,11 @@
 import { Entity, Segment } from '@musical-patterns/material'
 import { Cardinal, Ordinal } from '@musical-patterns/utilities'
 
-interface ComputeSegmentDurationIndicesParameters {
+interface ComputeSegmentValueIndicesParameters {
     entityCount: Cardinal<Entity[]>,
     segmentIndex: Ordinal<Segment[]>,
 }
 
 export {
-    ComputeSegmentDurationIndicesParameters,
+    ComputeSegmentValueIndicesParameters,
 }

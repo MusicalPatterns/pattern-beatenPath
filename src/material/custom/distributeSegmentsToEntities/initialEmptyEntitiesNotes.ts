@@ -1,5 +1,5 @@
 import { Note } from '@musical-patterns/material'
-import { as, INITIAL, NEXT,  Ordinal, use } from '@musical-patterns/utilities'
+import { as, INITIAL, NEXT, Ordinal, use } from '@musical-patterns/utilities'
 import { SegmentsDimensions } from './types'
 
 const computeInitialEmptyEntitiesNotes: (parameters: SegmentsDimensions) => Note[][] =

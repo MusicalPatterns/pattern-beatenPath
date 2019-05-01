@@ -1,7 +1,7 @@
 import { Entity, Segment } from '@musical-patterns/material'
 import { Cardinal, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { PieceLength } from '../../../types'
-import { alignSegmentPieceLengthsWithSegmentDurations } from './alignSegmentPieceLengthsWithSegmentDurations'
+import { alignSegmentPieceLengthsWithSegmentValues } from './alignSegmentPieceLengthsWithSegmentValues'
 import { computeSegmentIntervals } from './segmentIntervals'
 import { computeSegmentPieceLengthsFromSegmentRatios } from './segmentPieceLengthsFromSegmentRatios'
 import { computeSegmentRatios } from './segmentRatios'
@@ -10,15 +10,15 @@ import { ComputeSegmentPieceLengthsParameters } from './types'
 const computeSegmentPieceLengths: (parameters: {
     coreIntervals: Cycle<Fraction>,
     entityCount: Cardinal<Entity[]>,
-    segmentDurationIndices: Array<Ordinal<Scalar[]>>,
     segmentIndex: Ordinal<Segment[]>,
+    segmentValueIndices: Array<Ordinal<Scalar[]>>,
 }) => PieceLength[] =
     (
         {
-            segmentDurationIndices,
-            segmentIndex,
             coreIntervals,
             entityCount,
+            segmentIndex,
+            segmentValueIndices,
         }: ComputeSegmentPieceLengthsParameters,
     ): PieceLength[] => {
 
@@ -28,9 +28,9 @@ const computeSegmentPieceLengths: (parameters: {
         const segmentPieceLengthsFromSegmentRatios: PieceLength[] =
             computeSegmentPieceLengthsFromSegmentRatios(segmentRatios)
 
-        return alignSegmentPieceLengthsWithSegmentDurations({
-            segmentDurationIndices,
+        return alignSegmentPieceLengthsWithSegmentValues({
             segmentPieceLengths: segmentPieceLengthsFromSegmentRatios,
+            segmentValueIndices,
         })
     }
 

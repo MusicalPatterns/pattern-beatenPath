@@ -4,13 +4,13 @@ import { computeLoopCycledSegmentSegments, LoopSegmentCycleShift } from '../../.
 
 describe('loop cycled segment segments', () => {
     it('cycles each segment of the segments by an amount equal to the loop index multiplied by the translation per loop', () => {
-        const A: Note = { gain: {} }
-        const B: Note = { duration: {} }
-        const C: Note = { sustain: {} }
+        const A: Note = { intensity: {} }
+        const B: Note = { value: {} }
+        const C: Note = { envelope: {} }
         const D: Note = { pitch: {} }
         const E: Note = { position: {} }
-        const F: Note = { gain: {}, duration: {} }
-        const G: Note = { pitch: {}, sustain: {} }
+        const F: Note = { intensity: {}, value: {} }
+        const G: Note = { pitch: {}, envelope: {} }
 
         const segments: Segment[] = [
             [

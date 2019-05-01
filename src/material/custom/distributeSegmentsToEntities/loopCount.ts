@@ -1,4 +1,4 @@
-import { as, Cardinal, computeLeastCommonMultiple,  quotient } from '@musical-patterns/utilities'
+import { as, Cardinal, computeLeastCommonMultiple, quotient } from '@musical-patterns/utilities'
 import { LoopSegmentCycleShift, SegmentsDimensions } from './types'
 
 const computeLoopCount: (parameters: SegmentsDimensions) => Cardinal<LoopSegmentCycleShift> =

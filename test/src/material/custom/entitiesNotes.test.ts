@@ -1,6 +1,6 @@
 import {
     compilePattern,
-    computeNotesTotalCompiledDuration,
+    computeNotesDuration,
     Entity,
     materializeStandardScales,
     Note,
@@ -56,7 +56,7 @@ describe('entities notes', () => {
         it(
             `the segment construction, equalizing, distributing, and doing all loops is all executed such that \
 the total duration of the pattern won't be multiple years long (lol) \
-because the entity notes have sliiiiightly different durations; \
+because the entity notes have sliiiiightly different values; \
 I'm using standard scales here because that's what the pattern uses and I want it to be at a realistic scale \
 (read: not using base duration of 1ms, but the standard 700ms) so when it checks closeness it means something`,
             async (done: DoneFn) => {
@@ -66,7 +66,7 @@ I'm using standard scales here because that's what the pattern uses and I want i
                 const scales: Scale[] = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Duration = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
-                    const entityNotesDuration: Duration = computeNotesTotalCompiledDuration(entityNotes, scales)
+                    const entityNotesDuration: Duration = computeNotesDuration(entityNotes, scales)
                     if (expectedEntityNotesDuration === NO_DURATION) {
                         expectedEntityNotesDuration = entityNotesDuration
                     }
@@ -86,9 +86,9 @@ I'm using standard scales here because that's what the pattern uses and I want i
 
         it(
             `also works when entity count is greater than 2 (it makes a difference because massaging approach needs to change; \
-you can't simply equalize durations on the final segment, but every segment that is touched by the duration which should be something \
+you can't simply equalize values on the final segment, but every segment that is touched by the duration which should be something \
 very very close to 1 but is instead substituted by 1 itself for looping back around, and the more entities there are \
-the more segments each entity holds each of its durations for before changing, so the more that will be touched by this substitution`,
+the more segments each entity holds each of its values for before changing, so the more that will be touched by this substitution`,
             async (done: DoneFn) => {
                 const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity[]>(3) }
 
@@ -96,7 +96,7 @@ the more segments each entity holds each of its durations for before changing, s
                 const scales: Scale[] = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Duration = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
-                    const entityNotesDuration: Duration = computeNotesTotalCompiledDuration(entityNotes, scales)
+                    const entityNotesDuration: Duration = computeNotesDuration(entityNotes, scales)
                     if (expectedEntityNotesDuration === NO_DURATION) {
                         expectedEntityNotesDuration = entityNotesDuration
                     }
@@ -121,7 +121,7 @@ the more segments each entity holds each of its durations for before changing, s
             const scales: Scale[] = materializeStandardScales(specs)
             let expectedEntityNotesDuration: Duration = NO_DURATION
             entitiesNotes.forEach((entityNotes: Note[]): void => {
-                const entityNotesDuration: Duration = computeNotesTotalCompiledDuration(entityNotes, scales)
+                const entityNotesDuration: Duration = computeNotesDuration(entityNotes, scales)
                 if (expectedEntityNotesDuration === NO_DURATION) {
                     expectedEntityNotesDuration = entityNotesDuration
                 }

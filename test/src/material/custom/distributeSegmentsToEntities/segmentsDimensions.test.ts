@@ -4,7 +4,7 @@ import { computeSegmentsDimensions, SegmentsDimensions } from '../../../../../sr
 
 describe('segments dimensions', () => {
     it(`from the segments, computes the cycle length (how many segments) and entity count (the length of each segment) `, () => {
-        const exampleNote: Note = { gain: {} }
+        const exampleNote: Note = { intensity: {} }
 
         const segments: Segment[] = [
             [

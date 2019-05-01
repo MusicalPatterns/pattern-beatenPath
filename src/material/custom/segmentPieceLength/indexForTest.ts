@@ -3,5 +3,5 @@
 export { computeSegmentRatios } from './segmentRatios'
 export { computeSegmentIntervals } from './segmentIntervals'
 export { computeSegmentPieceLengths } from './segmentPieceLengths'
-export { alignSegmentPieceLengthsWithSegmentDurations } from './alignSegmentPieceLengthsWithSegmentDurations'
+export { alignSegmentPieceLengthsWithSegmentValues } from './alignSegmentPieceLengthsWithSegmentValues'
 export { computeSegmentPieceLengthsFromSegmentRatios } from './segmentPieceLengthsFromSegmentRatios'

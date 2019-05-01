@@ -1,4 +1,4 @@
-import { PitchDuration } from '@musical-patterns/material'
+import { PitchValue } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
@@ -13,37 +13,37 @@ import {
 import { computePolyrhythmicPiece, computeSmoothPiece, PieceLength, Repetition } from '../../../src/indexForTest'
 
 describe('pieces', () => {
-    const PITCH_DURATION_CONTOUR_DURATION_INDEX: Ordinal = as.Ordinal(1)
-    const PITCH_DURATION_CONTOUR_PITCH_INDEX: Ordinal = as.Ordinal(0)
+    const PITCH_VALUE_CONTOUR_DURATION_INDEX: Ordinal = as.Ordinal(1)
+    const PITCH_VALUE_CONTOUR_PITCH_INDEX: Ordinal = as.Ordinal(0)
 
-    const pieceLength: PieceLength = as.Cardinal<ContourPiece<PitchDuration>>(3)
+    const pieceLength: PieceLength = as.Cardinal<ContourPiece<PitchValue>>(3)
     const repetitions: Cardinal<Repetition[]> = as.Cardinal<Repetition[]>(2)
-    const notesDuration: Scalar = as.Scalar(1.25)
-    let piece: ContourPiece<PitchDuration>
+    const notesValue: Scalar = as.Scalar(1.25)
+    let piece: ContourPiece<PitchValue>
 
     describe('polyrhythmic piece', () => {
         beforeEach(() => {
-            piece = computePolyrhythmicPiece({ pieceLength, notesDuration, repetitions })
+            piece = computePolyrhythmicPiece({ pieceLength, notesValue, repetitions })
         })
 
         it('count of notes equal to the notes count, but times the repetitions', () => {
             expect(length(piece))
-                .toBe(as.Cardinal<ContourPiece<PitchDuration>>(6))
+                .toBe(as.Cardinal<ContourPiece<PitchValue>>(6))
         })
 
-        it(`durations are all equal to... the notes duration`, () => {
-            piece.forEach((contourElement: ContourElement<PitchDuration>) => {
-                expect(use.Ordinal(contourElement, PITCH_DURATION_CONTOUR_DURATION_INDEX))
+        it(`values are all equal to... the notes value`, () => {
+            piece.forEach((contourElement: ContourElement<PitchValue>) => {
+                expect(use.Ordinal(contourElement, PITCH_VALUE_CONTOUR_DURATION_INDEX))
                     .toBe(1.25)
             })
         })
 
         it(
-            `pitches are all the reciprocal of the durations, such that every note in beaten path could be \
+            `pitches are all the reciprocal of the values, such that every note in beaten path could be \
 changed into any other simply by time stretching because they are all proportional`,
             () => {
-                piece.forEach((contourElement: ContourElement<PitchDuration>) => {
-                    expect(use.Ordinal(contourElement, PITCH_DURATION_CONTOUR_PITCH_INDEX))
+                piece.forEach((contourElement: ContourElement<PitchValue>) => {
+                    expect(use.Ordinal(contourElement, PITCH_VALUE_CONTOUR_PITCH_INDEX))
                         .toBe(0.8)
                 })
             },
@@ -52,28 +52,28 @@ changed into any other simply by time stretching because they are all proportion
 
     describe('smooth piece', () => {
         beforeEach(() => {
-            piece = computeSmoothPiece({ pieceLength, notesDuration, repetitions })
+            piece = computeSmoothPiece({ pieceLength, notesValue, repetitions })
         })
 
         it('count of notes is always one', () => {
             expect(length(piece))
-                .toBe(as.Cardinal<ContourPiece<PitchDuration>>(1))
+                .toBe(as.Cardinal<ContourPiece<PitchValue>>(1))
         })
 
-        it(`durations are all equal to the notes duration, but times the notes count and the repetitions`, () => {
-            piece.forEach((contourElement: ContourElement<PitchDuration>) => {
-                expect(use.Ordinal(contourElement, PITCH_DURATION_CONTOUR_DURATION_INDEX))
+        it(`values are all equal to the notes value, but times the notes count and the repetitions`, () => {
+            piece.forEach((contourElement: ContourElement<PitchValue>) => {
+                expect(use.Ordinal(contourElement, PITCH_VALUE_CONTOUR_DURATION_INDEX))
                     .toBe(7.5)
             })
         })
 
         it(
-            `pitches are all the reciprocal of the durations, such that every note in beaten path could be \
+            `pitches are all the reciprocal of the values, such that every note in beaten path could be \
 changed into any other simply by time stretching because they are all proportional \
-and in the case of smooth mode yes it is the original duration, what it would have been before scaling by the notes count`,
+and in the case of smooth mode yes it is the original value, what it would have been before scaling by the notes count`,
             () => {
-                piece.forEach((contourElement: ContourElement<PitchDuration>) => {
-                    expect(use.Ordinal(contourElement, PITCH_DURATION_CONTOUR_PITCH_INDEX))
+                piece.forEach((contourElement: ContourElement<PitchValue>) => {
+                    expect(use.Ordinal(contourElement, PITCH_VALUE_CONTOUR_PITCH_INDEX))
                         .toBe(0.8)
                 })
             },
@@ -81,12 +81,12 @@ and in the case of smooth mode yes it is the original duration, what it would ha
     })
 
     it('whether you pick smooth or polyrhythmic, the end result has the same pitch', () => {
-        const polyrhythmicPiece: ContourPiece<PitchDuration> =
-            computePolyrhythmicPiece({ pieceLength, notesDuration, repetitions })
-        const smoothPiece: ContourPiece<PitchDuration> =
-            computeSmoothPiece({ pieceLength, notesDuration, repetitions })
+        const polyrhythmicPiece: ContourPiece<PitchValue> =
+            computePolyrhythmicPiece({ pieceLength, notesValue, repetitions })
+        const smoothPiece: ContourPiece<PitchValue> =
+            computeSmoothPiece({ pieceLength, notesValue, repetitions })
 
-        expect(use.Ordinal(use.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX), PITCH_DURATION_CONTOUR_PITCH_INDEX))
-            .toBe(use.Ordinal(use.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX), PITCH_DURATION_CONTOUR_PITCH_INDEX))
+        expect(use.Ordinal(use.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX), PITCH_VALUE_CONTOUR_PITCH_INDEX))
+            .toBe(use.Ordinal(use.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX), PITCH_VALUE_CONTOUR_PITCH_INDEX))
     })
 })

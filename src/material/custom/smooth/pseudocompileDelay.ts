@@ -3,17 +3,17 @@ import { Duration, Scalar, Translation, use } from '@musical-patterns/utilities'
 import { PseudocompileDelayParameters } from './types'
 
 const pseudocompileDelay: (parameters: {
-    [ StandardSpec.BASIS_DURATION ]: Duration,
-    [ StandardSpec.BASIS_DURATION_TRANSLATION ]: Translation<Duration>,
+    [ StandardSpec.MS_PHYSICALIZATION ]: Duration,
+    [ StandardSpec.MS_PHYSICALIZATION_TRANSLATION ]: Translation<Duration>,
     delayScalar: Scalar<Duration>,
 }) => Duration =
-    ({ delayScalar, basisDuration, basisDurationTranslation }: PseudocompileDelayParameters): Duration =>
+    ({ delayScalar, msPhysicalization, msPhysicalizationTranslation }: PseudocompileDelayParameters): Duration =>
         use.Translation(
             use.Scalar(
-                basisDuration,
+                msPhysicalization,
                 delayScalar,
             ),
-            basisDurationTranslation,
+            msPhysicalizationTranslation,
         )
 
 export {
