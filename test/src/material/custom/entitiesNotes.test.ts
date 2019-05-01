@@ -4,7 +4,7 @@ import {
     Entity,
     materializeStandardScales,
     Note,
-    Scale,
+    Scales,
     Segment,
 } from '@musical-patterns/material'
 import {
@@ -63,7 +63,7 @@ I'm using standard scales here because that's what the pattern uses and I want i
                 const specs: BeatenPathSpecs = spec.initialSpecs
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
-                const scales: Scale[] = materializeStandardScales(specs)
+                const scales: Scales = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Duration = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
                     const entityNotesDuration: Duration = computeNotesDuration(entityNotes, scales)
@@ -93,7 +93,7 @@ the more segments each entity holds each of its values for before changing, so t
                 const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity[]>(3) }
 
                 const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
-                const scales: Scale[] = materializeStandardScales(specs)
+                const scales: Scales = materializeStandardScales(specs)
                 let expectedEntityNotesDuration: Duration = NO_DURATION
                 entitiesNotes.forEach((entityNotes: Note[]): void => {
                     const entityNotesDuration: Duration = computeNotesDuration(entityNotes, scales)
@@ -118,7 +118,7 @@ the more segments each entity holds each of its values for before changing, so t
             const specs: BeatenPathSpecs = { ...spec.initialSpecs, entityCount: as.Cardinal<Entity[]>(4) }
 
             const { entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
-            const scales: Scale[] = materializeStandardScales(specs)
+            const scales: Scales = materializeStandardScales(specs)
             let expectedEntityNotesDuration: Duration = NO_DURATION
             entitiesNotes.forEach((entityNotes: Note[]): void => {
                 const entityNotesDuration: Duration = computeNotesDuration(entityNotes, scales)
