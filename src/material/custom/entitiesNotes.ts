@@ -1,5 +1,5 @@
 import { Note, Segment } from '@musical-patterns/material'
-import { as, Duration, musicalAs, range, Scalar } from '@musical-patterns/utilities'
+import { as, Duration, musicalAs, range, reverse as utilitiesReverse, Scalar } from '@musical-patterns/utilities'
 import { BeatenPathSpecs, BeatenPathStyle } from '../../spec'
 import { computeSegments } from '../segments'
 import { distributeSegmentsToEntities } from './distributeSegmentsToEntities'
@@ -20,9 +20,7 @@ const computeEntitiesNotes: (specs: BeatenPathSpecs) => BeatenPathEntitiesNotes 
         let entitiesNotes: Note[][] = distributeSegmentsToEntities(segments)
 
         if (reverse) {
-            entitiesNotes.forEach((notes: Note[]) => {
-                notes.reverse()
-            })
+            entitiesNotes = entitiesNotes.map(utilitiesReverse)
         }
 
         let delayScalars: Array<Scalar<Duration>> = []
