@@ -3,7 +3,7 @@ import { computeNominalInterface, DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE } 
 type Core = Number & { _NominalBrand: 'Core' }
 type Repetition = Number & { _NominalBrand: 'Repetition' }
 
-const { as } = computeNominalInterface({
+const { as: beatenPathAs } = computeNominalInterface({
     number: {
         Core: DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE as Core,
         Repetition: DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE as Repetition,
@@ -11,7 +11,7 @@ const { as } = computeNominalInterface({
 })
 
 export {
-    as,
+    beatenPathAs,
     Core,
     Repetition,
 }

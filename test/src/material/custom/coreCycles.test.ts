@@ -17,7 +17,7 @@ import {
     Scalar,
     use,
 } from '@musical-patterns/utilities'
-import { as as beatenPathAs, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'
+import { beatenPathAs, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'
 
 describe('core cycles', () => {
     let coreIntervals: Cycle<Fraction>

@@ -1,6 +1,6 @@
 import { computeNotesDuration, Entity, Note, Segment } from '@musical-patterns/material'
 import { as, Cardinal, Duration, insteadOf, length, NO_DURATION, ONE_MORE, use } from '@musical-patterns/utilities'
-import { as as beatenPathAs, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
+import { beatenPathAs, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
 
 describe('segments', () => {
     let segments: Segment[]
