@@ -4,7 +4,7 @@ import {
     Cardinal,
     ContourElement,
     ContourPiece,
-    EXAMPLE_ELEMENT_INDEX,
+    exampleElement,
     length,
     Ordinal,
     Scalar,
@@ -86,7 +86,10 @@ and in the case of smooth mode yes it is the original value, what it would have 
         const smoothPiece: ContourPiece<PitchValue> =
             computeSmoothPiece({ pieceLength, notesValue, repetitions })
 
-        expect(use.Ordinal(use.Ordinal(polyrhythmicPiece, EXAMPLE_ELEMENT_INDEX), PITCH_VALUE_CONTOUR_PITCH_INDEX))
-            .toBe(use.Ordinal(use.Ordinal(smoothPiece, EXAMPLE_ELEMENT_INDEX), PITCH_VALUE_CONTOUR_PITCH_INDEX))
+        const polyrhythmicPitch: number = use.Ordinal(exampleElement(polyrhythmicPiece), PITCH_VALUE_CONTOUR_PITCH_INDEX)
+        const smoothPitch: number = use.Ordinal(exampleElement(smoothPiece), PITCH_VALUE_CONTOUR_PITCH_INDEX)
+
+        expect(polyrhythmicPitch)
+            .toBe(smoothPitch)
     })
 })
