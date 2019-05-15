@@ -2,10 +2,10 @@ import { PitchValue } from '@musical-patterns/material'
 import {
     as,
     Cardinal,
+    computeLength,
     ContourElement,
     ContourPiece,
     exampleElement,
-    length,
     Ordinal,
     Scalar,
     use,
@@ -27,7 +27,7 @@ describe('pieces', () => {
         })
 
         it('count of notes equal to the notes count, but times the repetitions', () => {
-            expect(length(piece))
+            expect(computeLength(piece))
                 .toBe(as.Cardinal<ContourPiece<PitchValue>>(6))
         })
 
@@ -56,7 +56,7 @@ changed into any other simply by time stretching because they are all proportion
         })
 
         it('count of notes is always one', () => {
-            expect(length(piece))
+            expect(computeLength(piece))
                 .toBe(as.Cardinal<ContourPiece<PitchValue>>(1))
         })
 

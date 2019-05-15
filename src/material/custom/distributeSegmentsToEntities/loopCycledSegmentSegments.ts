@@ -15,13 +15,11 @@ const computeLoopCycledSegmentSegments: (parameters: {
 
         return segments.map((segment: Segment): Segment => {
             const cycle: Cycle<Note[]> = use.Cardinal(
-                as.Cycle(segment),
+                as.Cycle<Note[]>(segment),
                 loopCycling,
             )
 
-            delete cycle._CycleBrand
-
-            return cycle
+            return as.unbrandedArray(cycle)
         })
     }
 
