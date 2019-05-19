@@ -590,8 +590,8 @@
         }
       ],
       "sourceRequest": {
-        "sourceType": "OSCILLATOR",
-        "timbreName": "PUTNEY_WAVERING"
+        "sourceType": "SAMPLE",
+        "timbreName": "FLUTE"
       },
       "segnoIndex": 0
     }

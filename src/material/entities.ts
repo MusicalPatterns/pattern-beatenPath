@@ -8,10 +8,10 @@ const materializeEntities: MaterializeEntities =
         const { delays, entitiesNotes }: BeatenPathEntitiesNotes = computeEntitiesNotes(specs)
 
         const timbreNames: Cycle<TimbreName> = as.Cycle([
-            TimbreNameEnum.PUTNEY_WAVERING,
-            TimbreNameEnum.ORGAN_2,
-            TimbreNameEnum.PHONEME_OOH,
-            TimbreNameEnum.PHONEME_AH,
+            TimbreNameEnum.FLUTE,
+            TimbreNameEnum.CELLO,
+            TimbreNameEnum.TROMBONE,
+            TimbreNameEnum.VIOLIN,
         ])
 
         return map(

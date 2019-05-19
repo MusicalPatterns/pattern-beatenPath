@@ -1107,8 +1107,8 @@
         }
       ],
       "sourceRequest": {
-        "sourceType": "OSCILLATOR",
-        "timbreName": "PUTNEY_WAVERING"
+        "sourceType": "SAMPLE",
+        "timbreName": "FLUTE"
       },
       "segnoIndex": 0
     },
@@ -2239,8 +2239,8 @@
         }
       ],
       "sourceRequest": {
-        "sourceType": "OSCILLATOR",
-        "timbreName": "ORGAN_2"
+        "sourceType": "SAMPLE",
+        "timbreName": "CELLO"
       },
       "segnoIndex": 0
     }
