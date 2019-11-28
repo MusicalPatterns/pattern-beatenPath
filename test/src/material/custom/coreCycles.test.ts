@@ -260,7 +260,7 @@ describe('core cycles', () => {
 
     describe('core values', () => {
         for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(7); core = use.Cardinal(core, INCREMENT)) {
-            describe(`when core is ${core}`, () => {
+            describe(`when core is ${String(core)}`, () => {
                 beforeEach(() => {
                     const coreCycles: CoreCycles = computeCoreCycles(core)
                     coreDurations = coreCycles.coreDurations

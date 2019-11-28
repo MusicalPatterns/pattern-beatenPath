@@ -50,7 +50,7 @@ describe('segments', () => {
 
     for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(6); core = use.Cardinal(core, as.Cardinal<Core>(1))) {
         for (let entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(2); entityCount <= as.Cardinal<Entity[]>(4); entityCount = use.Cardinal(entityCount, ONE_MORE)) {
-            describe(`when core is ${core} and entity count is ${entityCount}`, () => {
+            describe(`when core is ${String(core)} and entity count is ${String(entityCount)}`, () => {
                 describe('without repetition of segments', () => {
                     beforeEach(() => {
                         repetitions = as.Cardinal<Repetition[]>(1)
