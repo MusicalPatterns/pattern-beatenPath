@@ -1,7 +1,7 @@
 // tslint:disable comment-format
 
 import { Entity, PitchValue, Segment } from '@musical-patterns/material'
-import { as, ContourPiece, Scalar } from '@musical-patterns/utilities'
+import { as, asFraction, ContourPiece, Scalar } from '@musical-patterns/utilities'
 import { computeSegmentPieceLengths, PieceLength } from '../../../../../src/indexForTest'
 
 describe('segment piece lengths', () => {
@@ -16,8 +16,8 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSeg
             () => {
                 const segmentPieceLengths: PieceLength[] = computeSegmentPieceLengths({
                     coreIntervals: as.Cycle([
-                        as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
-                        as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
+                        asFraction(4, 5),
+                        asFraction(4, 3),
                     ]),
                     entityCount: as.Cardinal<Entity[]>(2),
                     segmentIndex: as.Ordinal<Segment[]>(0),
@@ -25,12 +25,12 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSeg
                 })
 
                 // # Step 1: computeSegmentIntervals
-                // [ as.Fraction([ as.Numerator(4), as.Denominator(5) ]) ]
+                // [ asFraction(4, 5), ]
 
                 // # Step 2: computeSegmentRatios
                 // [
-                //      as.Fraction([ as.Numerator(1), as.Denominator(1) ]),
-                //      as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
+                //      asFraction(1, 1),
+                //      asFraction(4, 5),
                 // ]
 
                 // # Step 3: computeSegmentPieceLengthsFromSegmentRatios
@@ -56,9 +56,9 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSeg
             () => {
                 const segmentPieceLengths: PieceLength[] = computeSegmentPieceLengths({
                     coreIntervals: as.Cycle([
-                        as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
-                        as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
-                        as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
+                        asFraction(4, 5),
+                        asFraction(4, 3),
+                        asFraction(4, 5),
                     ]),
                     entityCount: as.Cardinal<Entity[]>(3),
                     segmentIndex: as.Ordinal<Segment[]>(0),
@@ -67,15 +67,15 @@ computeSegmentIntervals, computeSegmentRatios, computeSegmentPieceLengthsFromSeg
 
                 // # Step 1: computeSegmentIntervals
                 // [
-                //      as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
-                //      as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
+                //      asFraction(4, 5),
+                //      asFraction(4, 3),
                 // ]
 
                 // # Step 2: computeSegmentRatios
                 // [
-                //      as.Fraction([ as.Numerator(1), as.Denominator(1) ]),
-                //      as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
-                //      as.Fraction([ as.Numerator(16), as.Denominator(15) ]),
+                //      asFraction(1, 1),
+                //      asFraction(4, 5),
+                //      asFraction(16, 15),
                 // ]
 
                 // # Step 3: computeSegmentPieceLengthsFromSegmentRatios

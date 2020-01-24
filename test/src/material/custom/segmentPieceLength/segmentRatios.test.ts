@@ -1,4 +1,4 @@
-import { as, Fraction } from '@musical-patterns/utilities'
+import { as, asFraction, Fraction } from '@musical-patterns/utilities'
 import { computeSegmentRatios } from '../../../../../src/indexForTest'
 
 describe('segment ratios', () => {
@@ -8,16 +8,16 @@ always treating one of them as the base ratio of 1`,
         () => {
             const segmentRatios: Fraction[] = computeSegmentRatios({
                 segmentIntervals: [
-                    as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
-                    as.Fraction([ as.Numerator(4), as.Denominator(3) ]),
+                    asFraction(4, 5),
+                    asFraction(4, 3),
                 ],
             })
 
             expect(segmentRatios)
                 .toEqual([
-                    as.Fraction([ as.Numerator(1), as.Denominator(1) ]),
-                    as.Fraction([ as.Numerator(4), as.Denominator(5) ]),
-                    as.Fraction([ as.Numerator(16), as.Denominator(15) ]),
+                    asFraction(1, 1),
+                    asFraction(4, 5),
+                    asFraction(16, 15),
                 ])
         },
     )
