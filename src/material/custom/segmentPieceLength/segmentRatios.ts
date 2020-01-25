@@ -1,12 +1,12 @@
-import { finalElement, Fraction, FRACTIONAL_IDENTITY, multiplyFractions } from '@musical-patterns/utilities'
+import { finalElement, multiplyRationals, Rational, RATIONAL_IDENTITY } from '@musical-patterns/utilities'
 import { ComputeSegmentRatiosParameters } from './types'
 
-const computeSegmentRatios: (parameters: { segmentIntervals: Fraction[] }) => Fraction[] =
-    ({ segmentIntervals }: ComputeSegmentRatiosParameters): Fraction[] => {
-        const segmentRatios: Fraction[] = [ FRACTIONAL_IDENTITY ]
+const computeSegmentRatios: (parameters: { segmentIntervals: Rational[] }) => Rational[] =
+    ({ segmentIntervals }: ComputeSegmentRatiosParameters): Rational[] => {
+        const segmentRatios: Rational[] = [ RATIONAL_IDENTITY ]
 
-        segmentIntervals.forEach((segmentInterval: Fraction) => {
-            const nextSegmentRatio: Fraction = multiplyFractions(finalElement(segmentRatios), segmentInterval)
+        segmentIntervals.forEach((segmentInterval: Rational) => {
+            const nextSegmentRatio: Rational = multiplyRationals(finalElement(segmentRatios), segmentInterval)
             segmentRatios.push(nextSegmentRatio)
         })
 

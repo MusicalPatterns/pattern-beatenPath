@@ -2,11 +2,10 @@
 
 import {
     as,
-    asFraction,
+    asRational,
     computeLength,
     Cycle,
     finalElement,
-    Fraction,
     INCREMENT,
     indexOfFinalElement,
     insteadOf,
@@ -15,13 +14,14 @@ import {
     PREVIOUS,
     product,
     quotient,
+    Rational,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
 import { beatenPathAs, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'
 
 describe('core cycles', () => {
-    let coreIntervals: Cycle<Fraction>
+    let coreIntervals: Cycle<Rational>
     let coreDurations: Cycle<Scalar>
 
     describe('core intervals', () => {
@@ -30,10 +30,10 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = asFraction(2, 1)
-            const subp: Fraction = asFraction(2, 3)
+            const superp: Rational = asRational(2, 1)
+            const subp: Rational = asRational(2, 3)
 
-            const expectedIntervals: Cycle<Fraction> = as.Cycle([
+            const expectedIntervals: Cycle<Rational> = as.Cycle([
                 subp,
                 superp,
                 subp,
@@ -129,10 +129,10 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = asFraction(3, 2)
-            const subp: Fraction = asFraction(3, 4)
+            const superp: Rational = asRational(3, 2)
+            const subp: Rational = asRational(3, 4)
 
-            const expectedIntervals: Cycle<Fraction> = as.Cycle([
+            const expectedIntervals: Cycle<Rational> = as.Cycle([
                 subp,
                 superp,
                 subp,
@@ -197,10 +197,10 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = asFraction(4, 3)
-            const subp: Fraction = asFraction(4, 5)
+            const superp: Rational = asRational(4, 3)
+            const subp: Rational = asRational(4, 5)
 
-            const expectedIntervals: Cycle<Fraction> = as.Cycle([
+            const expectedIntervals: Cycle<Rational> = as.Cycle([
                 subp,
                 superp,
                 subp,
@@ -228,10 +228,10 @@ describe('core cycles', () => {
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
 
-            const superp: Fraction = asFraction(5, 4)
-            const subp: Fraction = asFraction(5, 6)
+            const superp: Rational = asRational(5, 4)
+            const subp: Rational = asRational(5, 6)
 
-            const expectedIntervals: Cycle<Fraction> = as.Cycle([
+            const expectedIntervals: Cycle<Rational> = as.Cycle([
                 subp,
                 superp,
                 subp,
@@ -285,7 +285,7 @@ describe('core cycles', () => {
                         )
                         const previousIntervalAsScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(use.Ordinal(
                             coreIntervals,
-                            use.Cardinal(insteadOf<Ordinal, Fraction[]>(index), PREVIOUS),
+                            use.Cardinal(insteadOf<Ordinal, Rational[]>(index), PREVIOUS),
                         )))
                         expect(use.Ordinal(coreDurations, index))
                             .toBeCloseToTyped(use.Scalar(
@@ -509,7 +509,7 @@ describe('core cycles', () => {
         })
 
         describe(
-            `hard-coded, but expressed as fractions which is also helpful in a different way, \
+            `hard-coded, but expressed as rationals which is also helpful in a different way, \
             so you can see how the numerator is powers of the core while the denominator \
             contains only factors of +/- 1 of the core, so they can never be reduced in terms`,
             () => {
@@ -764,7 +764,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(computeLength(coreIntervals))
-                    .toBe(as.Cardinal<Cycle<Fraction>>(84))
+                    .toBe(as.Cardinal<Cycle<Rational>>(84))
                 expect(computeLength(coreDurations))
                     .toBe(as.Cardinal<Cycle<Scalar>>(84))
             })
@@ -774,7 +774,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(computeLength(coreIntervals))
-                    .toBe(as.Cardinal<Cycle<Fraction>>(53))
+                    .toBe(as.Cardinal<Cycle<Rational>>(53))
                 expect(computeLength(coreDurations))
                     .toBe(as.Cardinal<Cycle<Scalar>>(53))
             })
@@ -784,7 +784,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(computeLength(coreIntervals))
-                    .toBe(as.Cardinal<Cycle<Fraction>>(16))
+                    .toBe(as.Cardinal<Cycle<Rational>>(16))
                 expect(computeLength(coreDurations))
                     .toBe(as.Cardinal<Cycle<Scalar>>(16))
             })
@@ -794,7 +794,7 @@ describe('core cycles', () => {
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
                 expect(computeLength(coreIntervals))
-                    .toBe(as.Cardinal<Cycle<Fraction>>(20))
+                    .toBe(as.Cardinal<Cycle<Rational>>(20))
                 expect(computeLength(coreDurations))
                     .toBe(as.Cardinal<Cycle<Scalar>>(20))
             })

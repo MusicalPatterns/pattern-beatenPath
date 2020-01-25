@@ -5,9 +5,9 @@ import {
     DECREMENT,
     Denominator,
     finalElement,
-    Fraction,
     INCREMENT,
     isCloseTo,
+    Rational,
     reciprocal,
     Scalar,
     use,
@@ -24,14 +24,14 @@ const isUpwardsDurationCloserToOriginalDurationOfOne:
 const computeCoreCycles: (core: Core) => CoreCycles =
     (core: Core): CoreCycles => {
         const coreDurations: Cycle<Scalar> = as.Cycle([ INITIAL_CORE_DURATION ])
-        const coreIntervals: Cycle<Fraction> = as.Cycle([])
+        const coreIntervals: Cycle<Rational> = as.Cycle([])
 
         const rawCore: number = as.number(core)
 
         const superparticular: Scalar = as.Scalar(reciprocal(use.Cardinal(rawCore, INCREMENT)))
         const superparticularDurationScalar: Scalar<Scalar> = as.Scalar<Scalar>(use.Scalar(rawCore, superparticular))
         const superparticularDenominator: Denominator = as.Denominator(use.Cardinal(rawCore, INCREMENT))
-        const superparticularInterval: Fraction = [ as.Numerator(rawCore), superparticularDenominator ]
+        const superparticularInterval: Rational = [ as.Numerator(rawCore), superparticularDenominator ]
 
         const subparticularDivisor: Scalar =
             as.Scalar(reciprocal(use.Cardinal(rawCore, DECREMENT)))
@@ -39,7 +39,7 @@ const computeCoreCycles: (core: Core) => CoreCycles =
             as.Scalar<Scalar>(use.Scalar(rawCore, subparticularDivisor))
         const subparticularDenominator: Denominator =
             as.Denominator(use.Cardinal(rawCore, DECREMENT))
-        const subparticularInterval: Fraction = [ as.Numerator(rawCore), subparticularDenominator ]
+        const subparticularInterval: Rational = [ as.Numerator(rawCore), subparticularDenominator ]
 
         let hasLooped: boolean = false
         while (!hasLooped) {

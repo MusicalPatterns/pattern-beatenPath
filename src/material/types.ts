@@ -1,5 +1,5 @@
 import { Entity, PitchValue, Segment } from '@musical-patterns/material'
-import { Cardinal, ContourPiece, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Cardinal, ContourPiece, Cycle, Ordinal, Rational, Scalar } from '@musical-patterns/utilities'
 import { Core, Repetition } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
@@ -13,7 +13,7 @@ interface ComputeSegmentsParameters {
 
 interface ComputeSegmentParameters {
     coreDurations: Cycle<Scalar>,
-    coreIntervals: Cycle<Fraction>,
+    coreIntervals: Cycle<Rational>,
     entityCount: Cardinal<Entity[]>,
     repetitions: Cardinal<Repetition[]>,
     segmentIndex: Ordinal<Segment[]>,
@@ -37,7 +37,7 @@ type ComputePiece = (computePieceParameters: ComputePieceParameters) => ContourP
 
 interface CoreCycles {
     coreDurations: Cycle<Scalar>,
-    coreIntervals: Cycle<Fraction>,
+    coreIntervals: Cycle<Rational>,
 }
 
 export {

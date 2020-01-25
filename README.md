@@ -9,11 +9,11 @@ The first major step in materializing a Beaten Path is computing the `core` cycl
 They take the `core`, a Beaten-Path-specific nominal integer type, as their only parameter.
 The cycle is a series of values, starting with `1` and ending by wrapping back around to that same `1` (hence "cycle").
 
-Each next value in the cycle is found by multiplying the previous value by one of two important fractions 
-which each `core` is associated with: a superparticular fraction, and a subparticular fraction.
+Each next value in the cycle is found by multiplying the previous value by one of two important rationals 
+which each `core` is associated with: a superparticular rational, and a subparticular rational.
 
-The superparticular is the fraction `core / (core - 1)`.
-The subparticular is the fraction `core / (core + 1)`.
+The superparticular is the rational `core / (core - 1)`.
+The subparticular is the rational `core / (core + 1)`.
 
 The cycle ends when you have arrived at a value that is extremely close to `1` again.
 
@@ -47,7 +47,7 @@ For example, the "misty comma" has thirteen `2`'s in the numerator, and twelve `
 At `67108864 / 66430125 ≈ 1.01021733739` it's not quite as close to 1, but there's a more important reason it is not the comma for core 4:
 You could not arrive at by following the Beaten Path process.
 The fact that there are thirteen `4`'s in the numerator suggests that the cycle completes in thirteen steps.
-However, that means there must be a total of thirteen `3`'s and `5`'s on the other side, one for each fraction we multiplied with a `4` in the numerator.
+However, that means there must be a total of thirteen `3`'s and `5`'s on the other side, one for each rational we multiplied with a `4` in the numerator.
 As we can see, though, there are twelve plus three equals fifteen factors in the denominator.
 
 In other words, Beaten Path is less about the commas it happens to arrive at, and more about the path through them.
@@ -56,7 +56,7 @@ In other words, Beaten Path is less about the commas it happens to arrive at, an
 
 But how do we pick which of the two - super- or sub-particular - we move by each step? 
 Good question. Really, kind of "the" question of Beaten Path.
-The defining constraint of the Beaten Path process is that each next fraction is the one which, when you multiply it with the current value,
+The defining constraint of the Beaten Path process is that each next rational is the one which, when you multiply it with the current value,
 gets you the closest to 1.
 
 We decide this by comparing the "absolute ratios" of the two possibilities.
@@ -138,7 +138,7 @@ until finally the entities have traded all the way back to their original positi
 In terms of the code, we represent the core cycle in two different ways: the `coreDurations` and the `coreIntervals`.
 The `durations` are simple numerical representations of the values arrived at along the way.
 The `intervals` are tuples of numerators and denominators. Each `interval` is either the superparticular or the subparticular.
-and it tells you which of those two fractions gets you from the analogous `duration` to the next.
+and it tells you which of those two rationals gets you from the analogous `duration` to the next.
 
 1) The first major step in materializing a Beaten Path is computing the `core` cycles. 
 2) Then we need to find the duration indices (for each segment, which entity is on which core cycle value - mapping the leapfrogging.)

@@ -4,17 +4,17 @@ import {
     computeCommonTerms,
     computeLeastCommonMultiple,
     ContourPiece,
-    Fraction,
     getNumerator,
     Numerator,
     quotient,
+    Rational,
     round,
 } from '@musical-patterns/utilities'
 import { PieceLength } from '../../../types'
 
-const computeSegmentPieceLengthsFromSegmentRatios: (segmentRatios: Fraction[]) => PieceLength[] =
-    (segmentRatios: Fraction[]): PieceLength[] => {
-        const segmentRatiosInCommonTerms: Fraction[] = computeCommonTerms(...segmentRatios)
+const computeSegmentPieceLengthsFromSegmentRatios: (segmentRatios: Rational[]) => PieceLength[] =
+    (segmentRatios: Rational[]): PieceLength[] => {
+        const segmentRatiosInCommonTerms: Rational[] = computeCommonTerms(...segmentRatios)
 
         const numerators: Numerator[] = segmentRatiosInCommonTerms.map(getNumerator)
         const leastCommonMultipleOfNumerators: Numerator =

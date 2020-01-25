@@ -1,22 +1,22 @@
 import { Entity, Segment } from '@musical-patterns/material'
-import { Cardinal, Cycle, Fraction, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Cardinal, Cycle, Ordinal, Rational, Scalar } from '@musical-patterns/utilities'
 import { PieceLength } from '../../../types'
 
 interface ComputeSegmentPieceLengthsParameters {
-    coreIntervals: Cycle<Fraction>,
+    coreIntervals: Cycle<Rational>,
     entityCount: Cardinal<Entity[]>,
     segmentIndex: Ordinal<Segment[]>,
     segmentValueIndices: Array<Ordinal<Scalar[]>>,
 }
 
 interface ComputeSegmentIntervalsParameters {
-    coreIntervals: Cycle<Fraction>,
+    coreIntervals: Cycle<Rational>,
     entityCount: Cardinal<Entity[]>,
     segmentIndex: Ordinal<Segment[]>,
 }
 
 interface ComputeSegmentRatiosParameters {
-    segmentIntervals: Fraction[]
+    segmentIntervals: Rational[]
 }
 
 interface AlignSegmentPieceLengthsWithSegmentValuesParameters {

@@ -3,13 +3,13 @@ import {
     as,
     Cardinal,
     Cycle,
-    Fraction,
     indexJustBeyondFinalElement,
     insteadOf,
     Integer,
     map,
     Ordinal,
     range,
+    Rational,
     Scalar,
     use,
 } from '@musical-patterns/utilities'
@@ -27,7 +27,7 @@ import { ComputeSegmentParameters, ComputeSegmentsParameters } from './types'
 
 const computeSegment: (computeSegmentsParameters: {
     coreDurations: Cycle<Scalar>,
-    coreIntervals: Cycle<Fraction>,
+    coreIntervals: Cycle<Rational>,
     entityCount: Cardinal<Entity[]>,
     repetitions: Cardinal<Repetition[]>,
     segmentIndex: Ordinal<Segment[]>,

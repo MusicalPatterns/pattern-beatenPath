@@ -1,5 +1,5 @@
 import { PitchValue } from '@musical-patterns/material'
-import { as, asFraction, ContourPiece, Fraction } from '@musical-patterns/utilities'
+import { as, asRational, ContourPiece, Rational } from '@musical-patterns/utilities'
 import { computeSegmentPieceLengthsFromSegmentRatios, PieceLength } from '../../../../../src/indexForTest'
 
 describe('segment piece lengths from segment ratios', () => {
@@ -9,10 +9,10 @@ which represents the total length of the segment in units that each of the value
 then divides its numerator by that number to give you your notes count`,
         () => {
             // 15 * 12 * 16 = 240
-            const segmentRatios: Fraction[] = [
-                asFraction(1, 1),      // 15/15 -> 240 / 15 -> 16
-                asFraction(4, 5),      // 12/15 -> 240 / 12 -> 20
-                asFraction(16, 15),    // 16/15 -> 240 / 16 -> 15
+            const segmentRatios: Rational[] = [
+                asRational(1, 1),      // 15/15 -> 240 / 15 -> 16
+                asRational(4, 5),      // 12/15 -> 240 / 12 -> 20
+                asRational(16, 15),    // 16/15 -> 240 / 16 -> 15
             ]
             const actualSegmentPieceLengths: PieceLength[] =
                 computeSegmentPieceLengthsFromSegmentRatios(segmentRatios)
