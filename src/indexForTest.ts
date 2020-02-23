@@ -35,7 +35,7 @@ export {
     spec,
 } from './spec/indexForTest'
 
-export { beatenPathAs, Core, Repetition } from './nominals'
+export { beatenPathAs, Core, Repetition, Repetitions } from './nominals'
 export {
     PieceLength,
 } from './types'

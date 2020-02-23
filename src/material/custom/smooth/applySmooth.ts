@@ -46,7 +46,7 @@ const applySmooth: (notes: Note[], entityCount: Cardinal<Entity[]>) => SmoothNot
         let smoothNoteTotalValueScalar: Scalar<Value> = as.Scalar<Value>(0)
         let delayScalar: Scalar<Duration> = as.Scalar<Duration>(0)
 
-        forEach(notes, (note: Note, index: Ordinal<Note[]>) => {
+        forEach(notes, (note: Note, index: Ordinal<Note[]>): void => {
             // tslint:disable-next-line no-non-null-assertion
             const value: Scalar<Value> = note.value!.scalar!
             // tslint:disable-next-line no-non-null-assertion

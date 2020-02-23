@@ -7,7 +7,7 @@ import {
     ToggledConfiguration,
 } from '@musical-patterns/spec'
 import { Cardinal } from '@musical-patterns/utilities'
-import { Core, Repetition } from '../nominals'
+import { Core, Repetition, Repetitions } from '../nominals'
 
 enum BeatenPathStyle {
     POLYRHYTHMIC = 'POLYRHYTHMIC',
@@ -17,7 +17,7 @@ enum BeatenPathStyle {
 interface BeatenPathSpecs extends Specs {
     core: Core,
     entityCount: Cardinal<Entity[]>,
-    repetitions: Cardinal<Repetition[]>,
+    repetitions: Repetitions,
     reverse: boolean,
     style: BeatenPathStyle,
 }

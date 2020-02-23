@@ -1,7 +1,19 @@
-import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/spec'
+import { InputType, OptionedConstraint, RangedInputType, standardConfigurations } from '@musical-patterns/spec'
 import { as } from '@musical-patterns/utilities'
 import { BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE } from './constants'
 import { BeatenPathConfigurations, BeatenPathStyle } from './types'
+
+const styleConstraint: OptionedConstraint = [
+    {
+        order: 1,
+        value: BeatenPathStyle.POLYRHYTHMIC,
+    },
+    {
+        order: 2,
+        value: BeatenPathStyle.SMOOTH,
+    },
+]
+styleConstraint.required = true
 
 const configurations: BeatenPathConfigurations = {
     ...standardConfigurations,
@@ -9,6 +21,7 @@ const configurations: BeatenPathConfigurations = {
         constraint: {
             integer: true,
             min: as.number(BEATEN_PATH_MINIMUM_FUNCTIONAL_CORE),
+            required: true,
         },
         description: `every bar will consist of a harmony and polyrhythm of this value against itself \
 either plus or minus 1`,
@@ -20,6 +33,7 @@ either plus or minus 1`,
         constraint: {
             integer: true,
             min: 1,
+            required: true,
         },
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
@@ -39,16 +53,7 @@ either plus or minus 1`,
         order: 5,
     },
     style: {
-        constraint: [
-            {
-                order: 1,
-                value: BeatenPathStyle.POLYRHYTHMIC,
-            },
-            {
-                order: 2,
-                value: BeatenPathStyle.SMOOTH,
-            },
-        ],
+        constraint: styleConstraint,
         inputType: InputType.OPTIONED,
         order: 3,
     },

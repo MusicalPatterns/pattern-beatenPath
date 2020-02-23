@@ -15,7 +15,7 @@ const alignSegmentPieceLengthsWithSegmentValues: (parameters: {
         const leastSegmentValueIndex: Ordinal<Scalar[]> = min(...segmentValueIndices)
         const segmentPieceLengthsIndices: Array<Ordinal<PieceLength[]>> =
             segmentValueIndices.map(
-                (segmentValueIndex: Ordinal<Scalar[]>) =>
+                (segmentValueIndex: Ordinal<Scalar[]>): Ordinal<PieceLength[]> =>
                     insteadOf<Ordinal, PieceLength[]>(use.Cardinal(
                         segmentValueIndex,
                         as.Cardinal(ofNotAs(negative(leastSegmentValueIndex))),
@@ -23,7 +23,7 @@ const alignSegmentPieceLengthsWithSegmentValues: (parameters: {
             )
 
         return segmentPieceLengthsIndices.map(
-            (segmentPieceLengthsIndex: Ordinal<PieceLength[]>) =>
+            (segmentPieceLengthsIndex: Ordinal<PieceLength[]>): PieceLength =>
                 use.Ordinal(segmentPieceLengths, segmentPieceLengthsIndex),
         )
     }

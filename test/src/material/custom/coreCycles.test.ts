@@ -20,12 +20,12 @@ import {
 } from '@musical-patterns/utilities'
 import { beatenPathAs, computeCoreCycles, Core, CoreCycles } from '../../../../src/indexForTest'
 
-describe('core cycles', () => {
+describe('core cycles', (): void => {
     let coreIntervals: Cycle<Rational>
     let coreDurations: Cycle<Scalar>
 
-    describe('core intervals', () => {
-        it('when core is 2', () => {
+    describe('core intervals', (): void => {
+        it('when core is 2', (): void => {
             const core: Core = beatenPathAs.Core(2)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
@@ -124,7 +124,7 @@ describe('core cycles', () => {
                 .toEqual(expectedIntervals)
         })
 
-        it('when core is 3', () => {
+        it('when core is 3', (): void => {
             const core: Core = beatenPathAs.Core(3)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
@@ -192,7 +192,7 @@ describe('core cycles', () => {
                 .toEqual(expectedIntervals)
         })
 
-        it('when core is 4', () => {
+        it('when core is 4', (): void => {
             const core: Core = beatenPathAs.Core(4)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
@@ -223,7 +223,7 @@ describe('core cycles', () => {
                 .toEqual(expectedIntervals)
         })
 
-        it('when core is 5', () => {
+        it('when core is 5', (): void => {
             const core: Core = beatenPathAs.Core(5)
             const coreCycles: CoreCycles = computeCoreCycles(core)
             coreIntervals = coreCycles.coreIntervals
@@ -259,21 +259,21 @@ describe('core cycles', () => {
         })
     })
 
-    describe('core values', () => {
+    describe('core values', (): void => {
         for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(7); core = use.Cardinal(core, INCREMENT)) {
-            describe(`when core is ${String(core)}`, () => {
-                beforeEach(() => {
+            describe(`when core is ${String(core)}`, (): void => {
+                beforeEach((): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(core)
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
                 })
 
-                it('first value is 1', () => {
+                it('first value is 1', (): void => {
                     expect(coreDurations[ 0 ])
                         .toBeCloseToTyped(as.Scalar(1))
                 })
 
-                it('each successive value is equal to the previous value multiplied by the previous interval', () => {
+                it('each successive value is equal to the previous value multiplied by the previous interval', (): void => {
                     for (
                         let index: Ordinal<Scalar[]> = as.Ordinal<Scalar[]>(1);
                         index < indexOfFinalElement(coreDurations);
@@ -297,8 +297,8 @@ describe('core cycles', () => {
             })
         }
 
-        describe('in hard-coded decimal terms so I have a clearer record of what exactly is going on here', () => {
-            it('when core is 2', () => {
+        describe('in hard-coded decimal terms so I have a clearer record of what exactly is going on here', (): void => {
+            it('when core is 2', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                 coreDurations = coreCycles.coreDurations
 
@@ -391,7 +391,7 @@ describe('core cycles', () => {
                     ].map(as.Scalar)))
             })
 
-            it('when core is 3', () => {
+            it('when core is 3', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                 coreDurations = coreCycles.coreDurations
 
@@ -453,7 +453,7 @@ describe('core cycles', () => {
                     ].map(as.Scalar)))
             })
 
-            it('when core is 4', () => {
+            it('when core is 4', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                 coreDurations = coreCycles.coreDurations
 
@@ -478,7 +478,7 @@ describe('core cycles', () => {
                     ].map(as.Scalar)))
             })
 
-            it('when core is 5', () => {
+            it('when core is 5', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                 coreDurations = coreCycles.coreDurations
 
@@ -512,8 +512,8 @@ describe('core cycles', () => {
             `hard-coded, but expressed as rationals which is also helpful in a different way, \
             so you can see how the numerator is powers of the core while the denominator \
             contains only factors of +/- 1 of the core, so they can never be reduced in terms`,
-            () => {
-                it('when core is 2', () => {
+            (): void => {
+                it('when core is 2', (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                     coreDurations = coreCycles.coreDurations
 
@@ -531,7 +531,7 @@ describe('core cycles', () => {
                         )
                 })
 
-                it('when core is 3', () => {
+                it('when core is 3', (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                     coreDurations = coreCycles.coreDurations
 
@@ -548,7 +548,7 @@ describe('core cycles', () => {
                         )
                 })
 
-                it('when core is 4', () => {
+                it('when core is 4', (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                     coreDurations = coreCycles.coreDurations
 
@@ -564,7 +564,7 @@ describe('core cycles', () => {
                         )
                 })
 
-                it('when core is 5', () => {
+                it('when core is 5', (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                     coreDurations = coreCycles.coreDurations
 
@@ -585,8 +585,8 @@ describe('core cycles', () => {
         describe(
             `hard-coded what the next values would have been if we did not choose to conflate them with 1 \
             so we could wrap around creating a cycle at these points`,
-            () => {
-                it(`for core 2, in monzo form it's | 84 -53 >, AKA the reciprocal of Mercator's comma`, () => {
+            (): void => {
+                it(`for core 2, in monzo form it's | 84 -53 >, AKA the reciprocal of Mercator's comma`, (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
@@ -602,7 +602,7 @@ describe('core cycles', () => {
                         .toBeCloseTo(19342813113834066795298816 / 19383245667680019896796723)
                 })
 
-                it(`for core 3, in monzo form it's | -84 53 >, AKA Mercator's comma`, () => {
+                it(`for core 3, in monzo form it's | -84 53 >, AKA Mercator's comma`, (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
@@ -618,7 +618,7 @@ describe('core cycles', () => {
                         .toBeCloseTo(19383245667680019896796723 / 19342813113834066795298816)
                 })
 
-                it(`for core 4, in monzo form it's | 32 -7 -9>, AKA the escapade comma`, () => {
+                it(`for core 4, in monzo form it's | 32 -7 -9>, AKA the escapade comma`, (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
@@ -634,7 +634,7 @@ describe('core cycles', () => {
                         .toBeCloseTo(4294967296 / 4271484375)
                 })
 
-                it(`for core 5, in monzo form it's | -29 -11 20 >, AKA the gammic comma`, () => {
+                it(`for core 5, in monzo form it's | -29 -11 20 >, AKA the gammic comma`, (): void => {
                     const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                     coreDurations = coreCycles.coreDurations
                     coreIntervals = coreCycles.coreIntervals
@@ -652,8 +652,8 @@ describe('core cycles', () => {
             },
         )
 
-        describe('in terms of subps and superps', () => {
-            it('for core 2', () => {
+        describe('in terms of subps and superps', (): void => {
+            it('for core 2', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
@@ -678,7 +678,7 @@ describe('core cycles', () => {
                     .toBe(as.number(totalIntervals))
             })
 
-            it('for core 3', () => {
+            it('for core 3', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
@@ -703,7 +703,7 @@ describe('core cycles', () => {
                     .toBe(as.number(totalIntervals))
             })
 
-            it('for core 4', () => {
+            it('for core 4', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
@@ -728,7 +728,7 @@ describe('core cycles', () => {
                     .toBe(as.number(totalIntervals))
             })
 
-            it('for core 5', () => {
+            it('for core 5', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                 coreDurations = coreCycles.coreDurations
                 coreIntervals = coreCycles.coreIntervals
@@ -758,8 +758,8 @@ describe('core cycles', () => {
     describe(
         `is the case that no matter what the core, there is the same count of intervals as there are values \
     (because they are cycles, so there is the same number of intervals between things as there are things (values)`,
-        () => {
-            it('for core 2, they are both 84', () => {
+        (): void => {
+            it('for core 2, they are both 84', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(2))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
@@ -769,7 +769,7 @@ describe('core cycles', () => {
                     .toBe(as.Cardinal<Cycle<Scalar>>(84))
             })
 
-            it('for core 3, they are both 53', () => {
+            it('for core 3, they are both 53', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(3))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
@@ -779,7 +779,7 @@ describe('core cycles', () => {
                     .toBe(as.Cardinal<Cycle<Scalar>>(53))
             })
 
-            it('for core 4, they are both 16', () => {
+            it('for core 4, they are both 16', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(4))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations
@@ -789,7 +789,7 @@ describe('core cycles', () => {
                     .toBe(as.Cardinal<Cycle<Scalar>>(16))
             })
 
-            it('for core 5, they are both 20', () => {
+            it('for core 5, they are both 20', (): void => {
                 const coreCycles: CoreCycles = computeCoreCycles(beatenPathAs.Core(5))
                 coreIntervals = coreCycles.coreIntervals
                 coreDurations = coreCycles.coreDurations

@@ -2,8 +2,8 @@ import { Note, Segment } from '@musical-patterns/material'
 import { as, Cycle, Ordinal } from '@musical-patterns/utilities'
 import { computeLoopCycledSegmentSegments, LoopSegmentCycleShift } from '../../../../../src/indexForTest'
 
-describe('loop cycled segment segments', () => {
-    it('cycles each segment of the segments by an amount equal to the loop index multiplied by the translation per loop', () => {
+describe('loop cycled segment segments', (): void => {
+    it('cycles each segment of the segments by an amount equal to the loop index multiplied by the translation per loop', (): void => {
         const A: Note = { intensity: {} }
         const B: Note = { value: {} }
         const C: Note = { envelope: {} }

@@ -13,7 +13,7 @@ import {
     Scalar,
     use,
 } from '@musical-patterns/utilities'
-import { Core, Repetition } from '../nominals'
+import { Core, Repetition, Repetitions } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
 import {
@@ -29,7 +29,7 @@ const computeSegment: (computeSegmentsParameters: {
     coreDurations: Cycle<Scalar>,
     coreIntervals: Cycle<Rational>,
     entityCount: Cardinal<Entity[]>,
-    repetitions: Cardinal<Repetition[]>,
+    repetitions: Repetitions,
     segmentIndex: Ordinal<Segment[]>,
     style: BeatenPathStyle,
 }) => Segment =
@@ -52,7 +52,7 @@ const computeSegment: (computeSegmentsParameters: {
             segmentValueIndices,
         })
 
-        const segmentValues: Scalar[] = segmentValueIndices.map((segmentValueIndex: Ordinal<Scalar[]>) =>
+        const segmentValues: Scalar[] = segmentValueIndices.map((segmentValueIndex: Ordinal<Scalar[]>): Scalar =>
             use.Ordinal(coreDurations, segmentValueIndex),
         )
 
@@ -69,7 +69,7 @@ const computeSegment: (computeSegmentsParameters: {
 const computeSegments: (computeSegmentsParameters: {
     core: Core,
     entityCount: Cardinal<Entity[]>,
-    repetitions: Cardinal<Repetition[]>,
+    repetitions: Repetitions,
     style: BeatenPathStyle,
 }) => Segment[] =
     ({ core, entityCount, repetitions, style }: ComputeSegmentsParameters): Segment[] => {
@@ -79,7 +79,7 @@ const computeSegments: (computeSegmentsParameters: {
             indexJustBeyondFinalElement(coreDurations)
 
         const segments: Segment[] = range(indexOfFirstElementAgainWrappingAroundTheCycle)
-            .map((integer: Integer) => as.Ordinal<Segment[]>(integer))
+            .map((integer: Integer): Ordinal<Segment[]> => as.Ordinal<Segment[]>(integer))
             .map((segmentIndex: Ordinal<Segment[]>): Segment =>
                 computeSegment({ segmentIndex, entityCount, coreIntervals, repetitions, coreDurations, style }),
             )

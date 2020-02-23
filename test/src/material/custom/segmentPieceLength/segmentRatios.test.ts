@@ -1,11 +1,11 @@
 import { as, asRational, Rational } from '@musical-patterns/utilities'
 import { computeSegmentRatios } from '../../../../../src/indexForTest'
 
-describe('segment ratios', () => {
+describe('segment ratios', (): void => {
     it(
         `computes the set of ratios for the segment by sequentially multiplying the intervals for the segment, \
 always treating one of them as the base ratio of 1`,
-        () => {
+        (): void => {
             const segmentRatios: Rational[] = computeSegmentRatios({
                 segmentIntervals: [
                     asRational(4, 5),

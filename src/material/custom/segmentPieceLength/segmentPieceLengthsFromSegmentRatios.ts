@@ -23,7 +23,7 @@ const computeSegmentPieceLengthsFromSegmentRatios: (segmentRatios: Rational[]) =
         return numerators
             .map((numerator: Numerator): Numerator =>
                 as.Numerator(round(quotient(leastCommonMultipleOfNumerators, numerator))))
-            .map((numerator: Numerator) => as.Cardinal<ContourPiece<PitchValue>>(as.number(numerator)))
+            .map((numerator: Numerator): PieceLength => as.Cardinal<ContourPiece<PitchValue>>(as.number(numerator)))
     }
 
 export {

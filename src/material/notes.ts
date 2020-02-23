@@ -1,6 +1,6 @@
 import { Note } from '@musical-patterns/material'
-import { Cardinal, Scalar } from '@musical-patterns/utilities'
-import { Repetition } from '../nominals'
+import { Cardinal, Maybe, Scalar } from '@musical-patterns/utilities'
+import { Repetition, Repetitions } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
 import { computeNote } from './features'
@@ -10,7 +10,7 @@ import { ComputeNotesParameters, ComputePiece } from './types'
 const computeNotes: (parameters: {
     notesValue: Scalar,
     pieceLength: PieceLength,
-    repetitions: Cardinal<Repetition[]>,
+    repetitions: Repetitions,
     style: BeatenPathStyle,
 }) => Note[] =
     ({ style, pieceLength, notesValue, repetitions }: ComputeNotesParameters): Note[] => {

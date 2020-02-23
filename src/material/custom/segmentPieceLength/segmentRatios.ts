@@ -5,7 +5,7 @@ const computeSegmentRatios: (parameters: { segmentIntervals: Rational[] }) => Ra
     ({ segmentIntervals }: ComputeSegmentRatiosParameters): Rational[] => {
         const segmentRatios: Rational[] = [ RATIONAL_IDENTITY ]
 
-        segmentIntervals.forEach((segmentInterval: Rational) => {
+        segmentIntervals.forEach((segmentInterval: Rational): void => {
             const nextSegmentRatio: Rational = multiplyRationals(finalElement(segmentRatios), segmentInterval)
             segmentRatios.push(nextSegmentRatio)
         })

@@ -5,17 +5,16 @@ import {
     as,
     Cardinal,
     Duration,
+    Maybe,
     musicalAs,
-    SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
-    Tone,
+    SCIENTIFIC_PITCHES, Tone,
 } from '@musical-patterns/utilities'
-import { beatenPathAs, Core, Repetition } from '../nominals'
+import { beatenPathAs, Core, Repetition, Repetitions } from '../nominals'
 import { BeatenPathStyle } from './types'
 
 const BEATEN_PATH_INITIAL_CORE: Core = beatenPathAs.Core(5)
-const BEATEN_PATH_INITIAL_REPETITIONS: Cardinal<Repetition[]> = as.Cardinal<Repetition[]>(1)
 const BEATEN_PATH_INITIAL_HZ_PHYSICALIZATION: Tone =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.A ][ ScientificPitchOctaveNumber._3 ]
 const BEATEN_PATH_INITIAL_REVERSE: boolean = false
@@ -33,7 +32,7 @@ const PRESET_DENSE_CORE: Core = beatenPathAs.Core(2)
 const PRESET_DENSE_HZ_PHYSICALIZATION: Tone =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.B ][ ScientificPitchOctaveNumber._3 ]
 const PRESET_DENSE_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(4)
-const PRESET_DENSE_REPETITIONS: Cardinal<Repetition[]> = as.Cardinal<Repetition[]>(4)
+const PRESET_DENSE_REPETITIONS: Repetitions = as.Cardinal<Repetition[]>(4)
 
 const PRESET_PRIMAL_MS_PHYSICALIZATION: Duration = musicalAs.Duration(3)
 const PRESET_PRIMAL_HZ_PHYSICALIZATION: Tone =
@@ -57,7 +56,6 @@ const PRESET_ANVIL_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(6)
 
 export {
     BEATEN_PATH_INITIAL_CORE,
-    BEATEN_PATH_INITIAL_REPETITIONS,
     BEATEN_PATH_INITIAL_HZ_PHYSICALIZATION,
     BEATEN_PATH_INITIAL_REVERSE,
     BEATEN_PATH_INITIAL_STYLE,

@@ -1,13 +1,13 @@
 import { PitchValue } from '@musical-patterns/material'
-import { as, asRational, ContourPiece, Rational } from '@musical-patterns/utilities'
+import { as, asRational, Cardinal, ContourPiece, Rational } from '@musical-patterns/utilities'
 import { computeSegmentPieceLengthsFromSegmentRatios, PieceLength } from '../../../../../src/indexForTest'
 
-describe('segment piece lengths from segment ratios', () => {
+describe('segment piece lengths from segment ratios', (): void => {
     it(
         `puts them into common terms then maps them to their numerators \
 which represents the total length of the segment in units that each of the values can be expressed wholly in \
 then divides its numerator by that number to give you your notes count`,
-        () => {
+        (): void => {
             // 15 * 12 * 16 = 240
             const segmentRatios: Rational[] = [
                 asRational(1, 1),      // 15/15 -> 240 / 15 -> 16
@@ -18,7 +18,10 @@ then divides its numerator by that number to give you your notes count`,
                 computeSegmentPieceLengthsFromSegmentRatios(segmentRatios)
 
             expect(actualSegmentPieceLengths)
-                .toEqual([ 16, 20, 15 ].map((expected: number) => as.Cardinal<ContourPiece<PitchValue>>(expected)))
+                .toEqual([ 16, 20, 15 ].map(
+                    (expected: number): Cardinal<ContourPiece<PitchValue>> =>
+                        as.Cardinal<ContourPiece<PitchValue>>(expected)),
+                )
         },
     )
 })

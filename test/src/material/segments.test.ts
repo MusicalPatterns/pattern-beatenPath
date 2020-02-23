@@ -1,20 +1,28 @@
 import { computeNotesDuration, Entity, Note, Segment } from '@musical-patterns/material'
 import { as, Cardinal, computeLength, Duration, insteadOf, NO_DURATION, ONE_MORE, use } from '@musical-patterns/utilities'
-import { beatenPathAs, BeatenPathStyle, computeSegments, Core, Repetition, spec } from '../../../src/indexForTest'
+import {
+    beatenPathAs,
+    BeatenPathStyle,
+    computeSegments,
+    Core,
+    Repetition,
+    Repetitions,
+    spec,
+} from '../../../src/indexForTest'
 
-describe('segments', () => {
+describe('segments', (): void => {
     let segments: Segment[]
 
     const suite: (entityCount: Cardinal<Entity[]>) => void =
         (entityCount: Cardinal<Entity[]>): void => {
-            it('each segment has a set of notes for each entity', () => {
+            it('each segment has a set of notes for each entity', (): void => {
                 segments.forEach((segment: Segment): void => {
                     expect(computeLength(segment))
                         .toBe(insteadOf<Cardinal, Segment>(entityCount))
                 })
             })
 
-            it(`each segment's sets of notes each have the same total value`, () => {
+            it(`each segment's sets of notes each have the same total value`, (): void => {
                 segments.forEach((segment: Segment): void => {
                     let segmentValue: Duration = NO_DURATION
                     segment.forEach((notes: Note[]): void => {
@@ -29,7 +37,7 @@ describe('segments', () => {
                 })
             })
 
-            it('each segment has a different total value than any other segment', () => {
+            it('each segment has a different total value than any other segment', (): void => {
                 const seenTotalDurations: Duration[] = []
                 segments.forEach((segment: Segment): void => {
                     const exemplarySegmentNotes: Note[] = segment[ 0 ]
@@ -46,18 +54,18 @@ describe('segments', () => {
             })
         }
 
-    let repetitions: Cardinal<Repetition[]>
+    let repetitions: Repetitions
 
     for (let core: Core = beatenPathAs.Core(2); core <= beatenPathAs.Core(6); core = use.Cardinal(core, as.Cardinal<Core>(1))) {
         for (let entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(2); entityCount <= as.Cardinal<Entity[]>(4); entityCount = use.Cardinal(entityCount, ONE_MORE)) {
-            describe(`when core is ${String(core)} and entity count is ${String(entityCount)}`, () => {
-                describe('without repetition of segments', () => {
-                    beforeEach(() => {
+            describe(`when core is ${String(core)} and entity count is ${String(entityCount)}`, (): void => {
+                describe('without repetition of segments', (): void => {
+                    beforeEach((): void => {
                         repetitions = as.Cardinal<Repetition[]>(1)
                     })
 
-                    describe('in the polyrhythmic style', () => {
-                        beforeEach(() => {
+                    describe('in the polyrhythmic style', (): void => {
+                        beforeEach((): void => {
                             const style: BeatenPathStyle = spec.initialSpecs.style
                             segments = computeSegments({ entityCount, core, repetitions, style })
                         })
@@ -65,8 +73,8 @@ describe('segments', () => {
                         suite(entityCount)
                     })
 
-                    describe('in the smooth style', () => {
-                        beforeEach(() => {
+                    describe('in the smooth style', (): void => {
+                        beforeEach((): void => {
                             const style: BeatenPathStyle = BeatenPathStyle.SMOOTH
                             segments = computeSegments({ entityCount, core, repetitions, style })
                         })
@@ -75,13 +83,13 @@ describe('segments', () => {
                     })
                 })
 
-                describe('with repetition of segments', () => {
-                    beforeEach(() => {
+                describe('with repetition of segments', (): void => {
+                    beforeEach((): void => {
                         repetitions = as.Cardinal<Repetition[]>(2)
                     })
 
-                    describe('in the polyrhythmic style', () => {
-                        beforeEach(() => {
+                    describe('in the polyrhythmic style', (): void => {
+                        beforeEach((): void => {
                             const style: BeatenPathStyle = spec.initialSpecs.style
                             segments = computeSegments({ entityCount, core, repetitions, style })
                         })
@@ -89,8 +97,8 @@ describe('segments', () => {
                         suite(entityCount)
                     })
 
-                    describe('in the smooth style', () => {
-                        beforeEach(() => {
+                    describe('in the smooth style', (): void => {
+                        beforeEach((): void => {
                             const style: BeatenPathStyle = BeatenPathStyle.SMOOTH
                             segments = computeSegments({ entityCount, core, repetitions, style })
                         })

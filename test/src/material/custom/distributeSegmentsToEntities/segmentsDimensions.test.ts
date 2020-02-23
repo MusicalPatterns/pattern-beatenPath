@@ -2,8 +2,8 @@ import { Entity, Note, Segment } from '@musical-patterns/material'
 import { as } from '@musical-patterns/utilities'
 import { computeSegmentsDimensions, SegmentsDimensions } from '../../../../../src/indexForTest'
 
-describe('segments dimensions', () => {
-    it(`from the segments, computes the cycle length (how many segments) and entity count (the length of each segment) `, () => {
+describe('segments dimensions', (): void => {
+    it(`from the segments, computes the cycle length (how many segments) and entity count (the length of each segment) `, (): void => {
         const exampleNote: Note = { intensity: {} }
 
         const segments: Segment[] = [

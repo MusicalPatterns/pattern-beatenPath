@@ -12,9 +12,9 @@ import {
 } from '@musical-patterns/utilities'
 import { computeSegmentValueIndices } from '../../../../src/indexForTest'
 
-describe('segment value indices', () => {
-    describe('with entity count 2', () => {
-        it('alternates which entity has its turn to leapfrog to the next value from the core values that neither entity is using yet', () => {
+describe('segment value indices', (): void => {
+    describe('with entity count 2', (): void => {
+        it('alternates which entity has its turn to leapfrog to the next value from the core values that neither entity is using yet', (): void => {
             const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(2)
             const expectedSegmentsValueIndices: Array<Array<Ordinal<Scalar[]>>> = [
                 [ 1, 0 ],
@@ -22,9 +22,9 @@ describe('segment value indices', () => {
                 [ 3, 2 ],
                 [ 3, 4 ],
             ].map(
-                (rawSegmentValueIndices: number[]) =>
+                (rawSegmentValueIndices: number[]): Array<Ordinal<Scalar[]>> =>
                     rawSegmentValueIndices.map(
-                        (rawSegmentValueIndex: number) =>
+                        (rawSegmentValueIndex: number): Ordinal<Scalar[]> =>
                             as.Ordinal<Scalar[]>(rawSegmentValueIndex),
                     ),
             )
@@ -48,8 +48,8 @@ describe('segment value indices', () => {
         })
     })
 
-    describe('with entity count 3', () => {
-        it('cycles which entity has its turn to leapfrog to the next value from the core values that no entity is using yet', () => {
+    describe('with entity count 3', (): void => {
+        it('cycles which entity has its turn to leapfrog to the next value from the core values that no entity is using yet', (): void => {
             const entityCount: Cardinal<Entity[]> = as.Cardinal<Entity[]>(3)
             const expectedSegmentsValueIndices: Array<Array<Ordinal<Scalar[]>>> = [
                 [ 2, 1, 0 ],
@@ -61,9 +61,9 @@ describe('segment value indices', () => {
                 [ 8, 7, 6 ],
                 [ 8, 7, 9 ],
             ].map(
-                (rawSegmentValueIndices: number[]) =>
+                (rawSegmentValueIndices: number[]): Array<Ordinal<Scalar[]>> =>
                     rawSegmentValueIndices.map(
-                        (rawSegmentValueIndex: number) =>
+                        (rawSegmentValueIndex: number): Ordinal<Scalar[]> =>
                             as.Ordinal<Scalar[]>(rawSegmentValueIndex),
                     ),
             )

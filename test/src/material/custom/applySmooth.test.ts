@@ -2,14 +2,14 @@ import { Entity, Note } from '@musical-patterns/material'
 import { as, Cardinal, Duration, Pitch, Value } from '@musical-patterns/utilities'
 import { applySmooth, SmoothNotes } from '../../../../src/indexForTest'
 
-describe('apply smooth', () => {
+describe('apply smooth', (): void => {
     it(
         `given some notes that were generated as smooth segments, completes the 2-step process of achieving the smooth style; \
 it is much simpler during the 1st step to keep one note per segment, and then after distributing segments to entities do this step; \
 this step being merging notes to span across segments, x segments where x is the entity count, so there is only a single note per \
 value+pitch combination a voice sounds; so it does this by identifying matching (same pitch) notes in a row, since the 1st step \
 left one note per segment`,
-        () => {
+        (): void => {
             const notes: Note[] = [
                 {
                     envelope: { scalar: as.Scalar<Value>(0.9) },
@@ -88,7 +88,7 @@ left one note per segment`,
     it(
         `and if at the beginning there are not x matching segments in a row, converts that into delay and \
 extends the final note by the equivalent amount`,
-        () => {
+        (): void => {
             const notes: Note[] = [
                 {
                     envelope: { scalar: as.Scalar<Value>(0.9) },
@@ -166,7 +166,7 @@ extends the final note by the equivalent amount`,
 
     it(
         `also works when there is only one note with the same pitch left at the end`,
-        () => {
+        (): void => {
             const notes: Note[] = [
                 {
                     envelope: { scalar: as.Scalar<Value>(0.9) },

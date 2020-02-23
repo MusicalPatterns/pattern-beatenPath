@@ -18,13 +18,13 @@ const equalizeValuesOfSegmentNotes: (segments: Segment[]) => Segment[] =
     (segments: Segment[]): Segment[] => {
         const equalizedSegments: Segment[] = deepClone(segments)
 
-        forEach(segments, (segment: Segment, segmentIndex: Ordinal<Segment[]>) => {
+        forEach(segments, (segment: Segment, segmentIndex: Ordinal<Segment[]>): void => {
             const notesValues: number[] = segment.map(computeNotesValueScalarSum)
             const maxNotesValue: number = max(...notesValues)
-            const neededAdjustments: number[] = notesValues.map((notesValue: number) =>
+            const neededAdjustments: number[] = notesValues.map((notesValue: number): number =>
                 difference(maxNotesValue, notesValue))
 
-            forEach(neededAdjustments, (neededAdjustment: number, notesIndex: Ordinal) => {
+            forEach(neededAdjustments, (neededAdjustment: number, notesIndex: Ordinal): void => {
                 if (neededAdjustment <=
                     ADJUSTMENT_SIZE_BELOW_WHICH_IT_MATTERS_NOT_AND_BREAKS_THE_TOTAL_DURATION_CALCULATION) {
                     return
