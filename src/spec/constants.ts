@@ -5,11 +5,11 @@ import {
     as,
     Cardinal,
     Duration,
-    Maybe,
     musicalAs,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
-    SCIENTIFIC_PITCHES, Tone,
+    SCIENTIFIC_PITCHES,
+    Tone,
 } from '@musical-patterns/utilities'
 import { beatenPathAs, Core, Repetition, Repetitions } from '../nominals'
 import { BeatenPathStyle } from './types'

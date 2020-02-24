@@ -1,4 +1,4 @@
-import { as, asRational, Rational } from '@musical-patterns/utilities'
+import { asRational, Rational } from '@musical-patterns/utilities'
 import { computeSegmentRatios } from '../../../../../src/indexForTest'
 
 describe('segment ratios', (): void => {

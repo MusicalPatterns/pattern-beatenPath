@@ -1,6 +1,6 @@
 import { Entity, PitchValue, Segment } from '@musical-patterns/material'
 import { Cardinal, ContourPiece, Cycle, Ordinal, Rational, Scalar } from '@musical-patterns/utilities'
-import { Core, Repetition, Repetitions } from '../nominals'
+import { Core, Repetitions } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
 

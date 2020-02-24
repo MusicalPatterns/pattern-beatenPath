@@ -1,6 +1,6 @@
 import { PitchValue } from '@musical-patterns/material'
-import { as, Cardinal, ContourPiece, Maybe, reciprocal, repeat, Scalar, use } from '@musical-patterns/utilities'
-import { Repetition, Repetitions } from '../nominals'
+import { as, ContourPiece, reciprocal, repeat, Scalar, use } from '@musical-patterns/utilities'
+import { Repetitions } from '../nominals'
 import { PieceLength } from '../types'
 import { ComputePieceParameters } from './types'
 

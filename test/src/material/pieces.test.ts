@@ -1,7 +1,6 @@
 import { PitchValue } from '@musical-patterns/material'
 import {
     as,
-    Cardinal,
     computeLength,
     ContourElement,
     ContourPiece,

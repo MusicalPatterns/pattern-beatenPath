@@ -1,5 +1,5 @@
 import { computeNotesValueScalarSum, Note, PitchValue } from '@musical-patterns/material'
-import { as, Cardinal, ContourPiece, Scalar } from '@musical-patterns/utilities'
+import { as, ContourPiece, Scalar } from '@musical-patterns/utilities'
 import { BeatenPathStyle, computeNotes, PieceLength, Repetition, Repetitions } from '../../../src/indexForTest'
 
 describe('notes', (): void => {

@@ -1,6 +1,6 @@
 import { Note } from '@musical-patterns/material'
-import { Cardinal, Maybe, Scalar } from '@musical-patterns/utilities'
-import { Repetition, Repetitions } from '../nominals'
+import { Scalar } from '@musical-patterns/utilities'
+import { Repetitions } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
 import { computeNote } from './features'

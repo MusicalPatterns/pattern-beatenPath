@@ -1,5 +1,14 @@
 import { computeNotesDuration, Entity, Note, Segment } from '@musical-patterns/material'
-import { as, Cardinal, computeLength, Duration, insteadOf, NO_DURATION, ONE_MORE, use } from '@musical-patterns/utilities'
+import {
+    as,
+    Cardinal,
+    computeLength,
+    Duration,
+    insteadOf,
+    NO_DURATION,
+    ONE_MORE,
+    use,
+} from '@musical-patterns/utilities'
 import {
     beatenPathAs,
     BeatenPathStyle,

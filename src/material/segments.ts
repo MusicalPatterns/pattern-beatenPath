@@ -13,7 +13,7 @@ import {
     Scalar,
     use,
 } from '@musical-patterns/utilities'
-import { Core, Repetition, Repetitions } from '../nominals'
+import { Core, Repetitions } from '../nominals'
 import { BeatenPathStyle } from '../spec'
 import { PieceLength } from '../types'
 import {
