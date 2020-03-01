@@ -3,9 +3,6 @@
 import { Preset, StandardSpec } from '@musical-patterns/spec'
 import { ObjectOf } from '@musical-patterns/utilities'
 import {
-    PRESET_ANVIL_CORE,
-    PRESET_ANVIL_ENTITY_COUNT,
-    PRESET_ANVIL_MS_PHYSICALIZATION,
     PRESET_BALANCED_CORE,
     PRESET_BALANCED_ENTITY_COUNT,
     PRESET_BALANCED_MS_PHYSICALIZATION,
@@ -30,16 +27,6 @@ import { initialSpecs } from './initials'
 import { BeatenPathSpecs, BeatenPathStyle } from './types'
 
 const presets: ObjectOf<Preset<BeatenPathSpecs>> = {
-    anvil: {
-        description: 'clouded',
-        order: 6,
-        specs: {
-            ...initialSpecs,
-            [ StandardSpec.MS_PHYSICALIZATION ]: PRESET_ANVIL_MS_PHYSICALIZATION,
-            core: PRESET_ANVIL_CORE,
-            entityCount: PRESET_ANVIL_ENTITY_COUNT,
-        },
-    },
     balanced: {
         description: 'not too many entities, not too complex a core, this porridge is just right',
         order: 2,

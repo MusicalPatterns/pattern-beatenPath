@@ -50,10 +50,6 @@ const PRESET_ISOLATE_MS_PHYSICALIZATION: Duration = musicalAs.Duration(180)
 const PRESET_ISOLATE_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(1)
 const PRESET_ISOLATE_CORE: Core = beatenPathAs.Core(3)
 
-const PRESET_ANVIL_MS_PHYSICALIZATION: Duration = musicalAs.Duration(400)
-const PRESET_ANVIL_CORE: Core = beatenPathAs.Core(4)
-const PRESET_ANVIL_ENTITY_COUNT: Cardinal<Entity[]> = as.Cardinal<Entity[]>(6)
-
 export {
     BEATEN_PATH_INITIAL_CORE,
     BEATEN_PATH_INITIAL_HZ_PHYSICALIZATION,
@@ -80,7 +76,4 @@ export {
     PRESET_ISOLATE_MS_PHYSICALIZATION,
     PRESET_ISOLATE_CORE,
     PRESET_ISOLATE_ENTITY_COUNT,
-    PRESET_ANVIL_MS_PHYSICALIZATION,
-    PRESET_ANVIL_CORE,
-    PRESET_ANVIL_ENTITY_COUNT,
 }
